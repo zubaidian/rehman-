@@ -1,0 +1,129 @@
+{
+  "collegeName": "Govt Girls Zubaida College Hyderabad",
+  "heroTitle": "Knowledge that empowers.|Education that transforms.",
+  "heroText": "Welcome to Govt Girls Zubaida College, Hyderabad — A digital home for learning, student achievement and the promise of a brighter tomorrow.",
+  "aboutTitle": "A Future Shaped By|Possibility.",
+  "aboutIntro": "Education is more than a qualification. It is the confidence to ask questions, the courage to imagine and the ability to make a difference.",
+  "collegeHistory": "Government Girls Zubaida College Hyderabad is one of the oldest and most prestigious educational institutions in Sindh.\n\nThis great institution was established in 1954, when there were very few institutions for girls’ higher education in Hyderabad. The college was founded to meet this important need.\n\nThe college’s official motto “SERVICE ABOVE SELF” still guides us today.\n\nFor over seven decades, this institution has provided thousands of students with Intermediate, Graduation, and higher education. Today, our alumni are serving as doctors, professors, scientists, and in key positions across the country, making us proud.\n\nIt is not just a building; it is the embodiment of the bright future and dreams of the daughters of Hyderabad.",
+  "principalName": "Principal, Govt Girls Zubaida College Hyderabad",
+  "principalMessage": "In the Name of Allah, the Most Beneficent, the Most Merciful\n\nMessage from the Principal\n\nWelcome to Government Girls Zubaida College, Hyderabad.\n\nSince 1954, this institution has been illuminating the daughters of Hyderabad with the light of knowledge, following the golden principle of “SERVICE ABOVE SELF”.\n\nOur mission is not just to award degrees, but to nurture daughters who are virtuous, talented, and confident, who will bring honor to the nation.\n\nHere, along with modern education, we place great emphasis on Islamic values and moral training. My team and I strive to provide every student with a safe, dignified, and positive learning environment.\n\nMay Allah grant you all success.",
+  "noticesTitle": "News &|announcements.",
+  "address": "Govt Girls Zubaida College, Hyderabad, Sindh, Pakistan",
+  "email": "zubaidagirls907@gmail.com",
+  "officeHours": "Monday–Saturday, 8:00 AM–2:00 PM (Pakistan time); Sunday closed.",
+  "contactIntro": "Please use the official contact details below to get in touch with the college.",
+  "facebookUrl": "https://www.facebook.com/profile.php?id=100064211700343",
+  "heroImage": "campus.jpg",
+  "logoImage": "college-logo.jpg",
+  "design": {
+    "headingSize": 42,
+    "bodySize": 16,
+    "headingColor": "#064b3b",
+    "textColor": "#183b32",
+    "primaryColor": "#064b3b",
+    "accentColor": "#d9b86d",
+    "pageColor": "#f8faf7",
+    "photoHeight": 320,
+    "photoFit": "cover",
+    "heroPhoto": "",
+    "logoPhoto": ""
+  },
+  "news": [],
+  "events": [],
+  "menu": {
+    "menuStyle": "clean",
+    "menuFontSize": 12,
+    "menuColor": "#ffffff",
+    "menuTextColor": "#284a3e",
+    "menuHoverColor": "#064b3b",
+    "menuContactColor": "#064b3b"
+  },
+  "sectionStyles": {
+    "home": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    },
+    "about": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    },
+    "history": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    },
+    "principal": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    },
+    "academics": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    },
+    "admissions": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    },
+    "notices": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    },
+    "campus": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    },
+    "facebook-updates": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    },
+    "contact": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    },
+    "find-us": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    },
+    "footer": {
+      "headingColor": "#064b3b",
+      "textColor": "#183b32",
+      "backgroundColor": "#f8faf7",
+      "headingSize": 42,
+      "bodySize": 16
+    }
+  },
+  "historyTitle": "Our History —|A Glorious Journey",
+  "historyIntro": "A proud tradition of learning, service and opportunity for the daughters of Hyderabad."
+}

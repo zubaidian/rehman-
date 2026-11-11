@@ -1,0 +1,26 @@
+GOVERNMENT GIRLS ZUBAIDA COLLEGE — WEBSITE FILES
+
+FILES
+- index.html: the website page
+- styles.css: website styling
+- script.js: loads text from content.json and handles the menu and office-open status
+- content.json: editable text (open it in Notepad and change the wording)
+- enquiry-success.html: page shown after the enquiry form is sent
+- gallery-editor.html: optional tool to change gallery photos (Chrome or Edge only)
+- images: college-logo.jpg, campus.jpg, principal-photo.jpg, college-location-qr.png and the two result photos
+
+KEEP all files together in the same folder. index.html must be at the top level.
+
+PREVIEW LOCALLY
+Open the folder in Visual Studio Code, install Live Server, right-click index.html and choose Open with Live Server.
+(Opening index.html by double-click will not load content.json.)
+
+PUBLISH ON NETLIFY
+Drag and drop the whole folder into Netlify (Deploys > manually deploy). Then test the enquiry form once and set up the email notification in Netlify > Forms.
+
+GALLERY EDITOR
+Open gallery-editor.html in Chrome/Edge, choose this website folder, edit photos, click Save. It writes directly into index.html. Do not upload gallery-editor.html to the public site if you do not need it.
+
+NOTES
+- The office open/closed status is only an estimate from the listed hours (Mon-Sat 8 AM-2 PM, Pakistan time).
+- Facebook may block the embedded timeline; the "Visit Official Facebook Page" button always works.
