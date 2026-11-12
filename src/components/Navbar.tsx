@@ -28,7 +28,8 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
     { label: 'Campus Tour', href: '#campus-tour' },
     { label: 'Digital Library', href: '#digital-library' },
     { label: 'Board Honors', href: '#board-results' },
-    { label: 'Alumnae', href: '#alumnae' },
+    { label: 'Distinguished Alumnae', href: '#alumnae' },
+    { label: 'Facebook Live', href: '#facebook-updates' },
     { label: 'Admissions & SECCAP', href: '#admissions' },
     { label: 'Campus Gallery', href: '#gallery' },
     { label: 'Location & Contact', href: '#contact' }
