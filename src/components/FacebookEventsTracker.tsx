@@ -282,7 +282,7 @@ export function FacebookEventsTracker() {
   };
 
   return (
-    <section className="py-10 bg-[#021f19] text-white border-y-2 border-amber-400/40 relative select-none">
+    <section id="events" className="py-10 bg-[#021f19] text-white border-y-2 border-amber-400/40 relative select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header Bar */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 mb-6">

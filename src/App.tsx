@@ -5,7 +5,6 @@ import { Hero } from './components/Hero';
 import { BoardHonorsSection } from './components/BoardHonorsSection';
 import { NoticesSection } from './components/NoticesSection';
 import { FacebookEventsTracker } from './components/FacebookEventsTracker';
-import { UpcomingEventsSection } from './components/UpcomingEventsSection';
 import { AboutAndHistory } from './components/AboutAndHistory';
 import { PrincipalSection } from './components/PrincipalSection';
 import { AcademicsSection } from './components/AcademicsSection';
@@ -48,9 +47,6 @@ export default function App() {
 
         {/* Facebook 2026 Live College Events Scrolling Window Tracker */}
         <FacebookEventsTracker />
-
-        {/* Upcoming College Events Calendar & Timeline */}
-        <UpcomingEventsSection />
 
         {/* 70-Year History, Legacy & Core Pillars */}
         <AboutAndHistory />

@@ -197,7 +197,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#events" className="hover:text-amber-300 transition-colors">
-                  Upcoming Events Calendar
+                  Live 2026 Events Tracker
                 </a>
               </li>
               <li>
