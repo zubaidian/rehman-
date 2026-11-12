@@ -62,7 +62,8 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
     { id: 'Life Sciences', label: 'Life Sciences' },
     { id: 'Commerce & Economics', label: 'Commerce & Economics' },
     { id: 'Languages & Literature', label: 'Languages & Literature' },
-    { id: 'Humanities & Social Sciences', label: 'Humanities & Social Sciences' }
+    { id: 'Humanities & Social Sciences', label: 'Humanities & Social Sciences' },
+    { id: 'Health & Physical Education', label: 'Health & Physical Education' }
   ];
 
   const filteredDepartments = useMemo(() => {
@@ -86,8 +87,9 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
   // Merge default photos with any custom photos uploaded for selected department
   const currentDeptPhotos = useMemo(() => {
     if (!selectedDept) return [];
-    const custom = customPhotos[selectedDept.id] || [];
-    return [...custom, ...selectedDept.photos];
+    const custom = import.meta.env.DEV ? (customPhotos[selectedDept.id] || []) : [];
+    const combined = [...custom, ...selectedDept.photos];
+    return import.meta.env.DEV ? combined : combined.filter((p) => Boolean(p.imageUrl));
   }, [selectedDept, customPhotos]);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -159,7 +161,7 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
         {/* Quick Highlights Strip */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10">
           <div className="bg-white rounded-xl p-4 border border-emerald-800/15 shadow-sm text-center">
-            <div className="text-2xl sm:text-3xl font-serif font-bold text-[#064b36]">20</div>
+            <div className="text-2xl sm:text-3xl font-serif font-bold text-[#064b36]">{DEPARTMENTS_DATA.length}</div>
             <div className="text-xs text-stone-600 font-medium mt-0.5">Distinct Academic Departments</div>
           </div>
           <div className="bg-white rounded-xl p-4 border border-emerald-800/15 shadow-sm text-center">
@@ -186,7 +188,11 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search departments (e.g., Mathematics, Statistics, Botany, Zoology, Urdu, Sindhi, Islamiat, Physiology, Economics)..."
+                placeholder={
+                  import.meta.env.DEV
+                    ? 'Search departments (e.g., Computer Science, Mathematics, Botany, Zoology, Urdu, Sindhi, Physical Education)...'
+                    : 'Search departments...'
+                }
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-200 text-stone-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-700 bg-stone-50"
               />
               {searchQuery && (
@@ -226,8 +232,9 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
         {/* Departments Cards Grid - Styled consistently in the signature emerald gradient */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
           {filteredDepartments.map((dept) => {
-            const customCount = (customPhotos[dept.id] || []).length;
-            const totalPhotos = dept.photos.length + customCount;
+            const customCount = import.meta.env.DEV ? (customPhotos[dept.id] || []).length : 0;
+            const realPhotosCount = dept.photos.filter((p) => Boolean(p.imageUrl)).length;
+            const totalPhotos = import.meta.env.DEV ? dept.photos.length + customCount : realPhotosCount;
 
             return (
               <div
@@ -314,7 +321,11 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
                     className="text-xs font-bold flex items-center gap-1.5 transition-colors text-amber-300 hover:text-white"
                   >
                     <Camera className="w-3.5 h-3.5 text-amber-300" />
-                    <span>Lab &amp; Faculty Details ({totalPhotos} Photos)</span>
+                    <span>
+                      {totalPhotos > 0
+                        ? `Lab & Faculty Details (${totalPhotos} Photos)`
+                        : 'Lab & Faculty Details'}
+                    </span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
 
@@ -438,6 +449,7 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
             </div>
 
             {/* Department Photos & Laboratory Gallery Showcase */}
+            {(import.meta.env.DEV || currentDeptPhotos.length > 0) && (
             <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#064b36] to-[#042f28] text-white border border-amber-400/40 shadow-md">
               <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                 <div className="flex items-center gap-2">
@@ -450,17 +462,19 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
                   </span>
                 </div>
 
-                <button
-                  onClick={() => setIsAddingPhoto(!isAddingPhoto)}
-                  className="px-3 py-1.5 bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold text-xs rounded-lg transition-colors flex items-center gap-1 shadow-sm"
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                  <span>{isAddingPhoto ? 'Cancel Add Photo' : 'Add / Upload Department Photo'}</span>
-                </button>
+                {import.meta.env.DEV && (
+                  <button
+                    onClick={() => setIsAddingPhoto(!isAddingPhoto)}
+                    className="px-3 py-1.5 bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold text-xs rounded-lg transition-colors flex items-center gap-1 shadow-sm"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    <span>{isAddingPhoto ? 'Cancel Add Photo' : 'Add / Upload Department Photo'}</span>
+                  </button>
+                )}
               </div>
 
-              {/* Add Photo Form (Supports direct image file upload or URL) */}
-              {isAddingPhoto && (
+              {/* Add Photo Form (Development Only) */}
+              {import.meta.env.DEV && isAddingPhoto && (
                 <form onSubmit={handleSavePhoto} className="mb-5 p-4 rounded-xl bg-[#03241e] border border-amber-400/50 space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold text-amber-300 flex items-center gap-1.5">
@@ -603,8 +617,8 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
                             alt={photo.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
-                        ) : (
-                          // Default Department Photo Placeholder Ready for User's Upload
+                        ) : import.meta.env.DEV ? (
+                          // Default Department Photo Placeholder Ready for User's Upload (Dev Only)
                           <div className="w-full h-full p-3 flex flex-col items-center justify-center text-center bg-gradient-to-br from-[#063f2f] to-[#021b14] border-b border-emerald-800">
                             <div className="w-10 h-10 rounded-full bg-emerald-900/80 border border-amber-400/40 flex items-center justify-center mb-1.5">
                               <ImageIcon className="w-5 h-5 text-amber-300" />
@@ -616,7 +630,7 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
                               Photo Slot · Ready for Upload
                             </span>
                           </div>
-                        )}
+                        ) : null}
 
                         {/* Category Tag Overlay */}
                         <div className="absolute top-2 left-2">
@@ -651,14 +665,17 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
                 })}
               </div>
 
-              {/* Informative helper note for user */}
-              <div className="mt-3 pt-3 border-t border-emerald-800/80 flex items-center justify-between text-[11px] text-stone-300">
-                <span className="flex items-center gap-1.5 text-amber-200">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-                  <span>You can upload real campus &amp; lab photos anytime using the &ldquo;Add / Upload Department Photo&rdquo; button above.</span>
-                </span>
-              </div>
+              {/* Informative helper note (Development Only) */}
+              {import.meta.env.DEV && (
+                <div className="mt-3 pt-3 border-t border-emerald-800/80 flex items-center justify-between text-[11px] text-stone-300">
+                  <span className="flex items-center gap-1.5 text-amber-200">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+                    <span>You can upload real campus &amp; lab photos anytime using the &ldquo;Add / Upload Department Photo&rdquo; button above.</span>
+                  </span>
+                </div>
+              )}
             </div>
+            )}
 
             {/* Description */}
             <div>

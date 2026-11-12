@@ -335,14 +335,16 @@ export function FacebookEventsTracker() {
               </button>
             </div>
 
-            {/* Add / Sync Facebook Event Button */}
-            <button
-              onClick={() => setIsAddModalOpen(true)}
-              className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 active:scale-95"
-            >
-              <Plus className="w-3.5 h-3.5" />
-              <span>Add Facebook Event</span>
-            </button>
+            {/* Add / Sync Facebook Event Button (Development Only) */}
+            {import.meta.env.DEV && (
+              <button
+                onClick={() => setIsAddModalOpen(true)}
+                className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 active:scale-95"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                <span>Add Facebook Event</span>
+              </button>
+            )}
           </div>
         </div>
 
@@ -567,8 +569,8 @@ export function FacebookEventsTracker() {
         </div>
       )}
 
-      {/* Add / Sync Facebook Event Modal */}
-      {isAddModalOpen && (
+      {/* Add / Sync Facebook Event Modal (Development Only) */}
+      {import.meta.env.DEV && isAddModalOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
           onClick={() => setIsAddModalOpen(false)}

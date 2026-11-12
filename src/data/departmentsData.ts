@@ -9,7 +9,7 @@ export interface DepartmentPhoto {
 export interface Department {
   id: string;
   name: string;
-  faculty: 'Sciences & Computing' | 'Life Sciences' | 'Commerce & Economics' | 'Humanities & Social Sciences' | 'Languages & Literature';
+  faculty: 'Sciences & Computing' | 'Life Sciences' | 'Commerce & Economics' | 'Humanities & Social Sciences' | 'Languages & Literature' | 'Health & Physical Education';
   headOrLead: string;
   badge?: string;
   description: string;
@@ -928,6 +928,56 @@ export const DEPARTMENTS_DATA: Department[] = [
         title: 'Department Faculty & Behavioral Research Desk',
         category: 'faculty',
         caption: 'Faculty supervising psychological experiments and community social research.'
+      }
+    ]
+  },
+
+  // 21. Physical Education
+  {
+    id: 'physical-education',
+    name: 'Department of Physical Education',
+    faculty: 'Health & Physical Education',
+    headOrLead: 'Director of Physical Education & Sports Instructors',
+    badge: 'Sports, Athletics & Wellness',
+    description: 'Promotes physical fitness, sportsmanship, athletic excellence, and health education across the college through structured physical training, inter-class tournaments, and regional college sports.',
+    facilities: [
+      'Outdoor sports grounds & badminton courts',
+      'Indoor table tennis, throwball & athletics equipment store',
+      'Physical Education Desk with rackets, shuttlecocks & first-aid safety kits',
+      'Annual Sports Week track & relay coordination suite'
+    ],
+    programsServed: [
+      'Health & Physical Education (FA / Humanities Elective)',
+      'Associate Degree in Arts (ADA) Physical Education',
+      'All-College Sports Teams & Inter-Class Athletics (HSC, BS & AD)'
+    ],
+    keyCourses: [
+      'Foundations of Health & Physical Education',
+      'Sports Anatomy, Kinesiology & Physical Fitness',
+      'Rules & Officiating of Badminton, Table Tennis & Throwball',
+      'Track & Field Athletics, Relay Coordination & Gymnastics',
+      'First Aid, Sports Safety & Nutrition Fundamentals'
+    ],
+    labsAvailable: 'Physical Education Desk, Sports Grounds & Badminton Courts',
+    achievements: 'Organizes the Annual Inter-Class Sports Week, athletic championships, and prepares Zubaida College teams for BISE Hyderabad & inter-collegiate tournaments.',
+    photos: [
+      {
+        id: 'pe-1',
+        title: 'College Sports Grounds & Badminton Courts',
+        category: 'lab',
+        caption: 'Dedicated outdoor courts and recreation grounds for badminton, throwball, and track events.'
+      },
+      {
+        id: 'pe-2',
+        title: 'Sports Equipment & Safety Kit Suite',
+        category: 'apparatus',
+        caption: 'Rackets, shuttlecocks, nets, athletic track markers, and first-aid kits managed at the Physical Education Desk.'
+      },
+      {
+        id: 'pe-3',
+        title: 'Director of Physical Education & Team Coaching',
+        category: 'faculty',
+        caption: 'Supervising inter-class championships, physical conditioning, and annual sports day ceremonies.'
       }
     ]
   }

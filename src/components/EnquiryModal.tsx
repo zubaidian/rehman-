@@ -126,7 +126,7 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="e.g. Fatima Zahra"
+                placeholder={import.meta.env.DEV ? 'e.g. Fatima Zahra' : undefined}
                 className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
               />
             </div>
@@ -141,7 +141,7 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="name@example.com"
+                  placeholder={import.meta.env.DEV ? 'name@example.com' : undefined}
                   className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
                 />
               </div>
@@ -154,7 +154,7 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="0300-XXXXXXX"
+                  placeholder={import.meta.env.DEV ? '0300-XXXXXXX' : undefined}
                   className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
                 />
               </div>
@@ -187,7 +187,7 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                 required
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="State your query clearly..."
+                placeholder={import.meta.env.DEV ? 'State your query clearly...' : undefined}
                 className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
               />
             </div>

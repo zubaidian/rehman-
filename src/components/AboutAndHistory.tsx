@@ -124,34 +124,36 @@ export function AboutAndHistory() {
             ))}
           </div>
 
-          {/* Historical Video / Archive Box */}
-          <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-[#042f28] border border-amber-300/40 max-w-4xl mx-auto shadow-xl">
-            <div className="flex flex-col sm:flex-row items-center gap-6">
-              <div className="relative w-full sm:w-64 h-40 rounded-xl overflow-hidden bg-black shrink-0 border border-emerald-700 flex items-center justify-center">
-                <img
-                  src={COLLEGE_INFO.images.campus}
-                  alt="Zubaida College History Video Poster"
-                  className="w-full h-full object-cover opacity-60"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-amber-400/90 text-emerald-950 flex items-center justify-center shadow-lg">
-                    <Play className="w-5 h-5 fill-current ml-0.5" />
+          {/* Historical Video / Archive Box (Development Only until archive video is linked) */}
+          {import.meta.env.DEV && (
+            <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-[#042f28] border border-amber-300/40 max-w-4xl mx-auto shadow-xl">
+              <div className="flex flex-col sm:flex-row items-center gap-6">
+                <div className="relative w-full sm:w-64 h-40 rounded-xl overflow-hidden bg-black shrink-0 border border-emerald-700 flex items-center justify-center">
+                  <img
+                    src={COLLEGE_INFO.images.campus}
+                    alt="Zubaida College History Video Poster"
+                    className="w-full h-full object-cover opacity-60"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-amber-400/90 text-emerald-950 flex items-center justify-center shadow-lg">
+                      <Play className="w-5 h-5 fill-current ml-0.5" />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="space-y-2 text-center sm:text-left">
-                <span className="text-xs font-bold text-amber-300 uppercase tracking-widest block">
-                  Campus Archive
-                </span>
-                <h4 className="font-serif text-xl font-bold text-white">
-                  A Glimpse of Zubaida College Hyderabad
-                </h4>
-                <p className="text-xs text-stone-300 leading-relaxed">
-                  Experience the living heritage, classrooms, and student community of our storied institution. Archived video footage and special retrospectives are maintained in our college multimedia center.
-                </p>
+                <div className="space-y-2 text-center sm:text-left">
+                  <span className="text-xs font-bold text-amber-300 uppercase tracking-widest block">
+                    Campus Archive
+                  </span>
+                  <h4 className="font-serif text-xl font-bold text-white">
+                    A Glimpse of Zubaida College Hyderabad
+                  </h4>
+                  <p className="text-xs text-stone-300 leading-relaxed">
+                    Experience the living heritage, classrooms, and student community of our storied institution. Archived video footage and special retrospectives are maintained in our college multimedia center.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

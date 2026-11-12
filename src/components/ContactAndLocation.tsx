@@ -253,7 +253,7 @@ export function ContactAndLocation({
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="e.g. Ayesha Khan"
+                      placeholder={import.meta.env.DEV ? 'e.g. Ayesha Khan' : undefined}
                       className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36] bg-white"
                     />
                   </div>
@@ -267,7 +267,7 @@ export function ContactAndLocation({
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="e.g. ayesha@example.com"
+                      placeholder={import.meta.env.DEV ? 'e.g. ayesha@example.com' : undefined}
                       className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36] bg-white"
                     />
                   </div>
@@ -282,7 +282,7 @@ export function ContactAndLocation({
                       type="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      placeholder="0300-1234567"
+                      placeholder={import.meta.env.DEV ? '0300-1234567' : undefined}
                       className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36] bg-white"
                     />
                   </div>
@@ -315,7 +315,7 @@ export function ContactAndLocation({
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Write your inquiry or question here..."
+                    placeholder={import.meta.env.DEV ? 'Write your inquiry or question here...' : undefined}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36] bg-white"
                   />
                 </div>

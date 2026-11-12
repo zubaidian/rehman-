@@ -27,7 +27,11 @@ export function Footer() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(trimmed)) {
       setNewsletterStatus('error');
-      setErrorMessage('Please enter a valid email address (e.g., name@example.com).');
+      setErrorMessage(
+        import.meta.env.DEV
+          ? 'Please enter a valid email address (e.g., name@example.com).'
+          : 'Please enter a valid email address.'
+      );
       return;
     }
 
@@ -104,7 +108,11 @@ export function Footer() {
                           setNewsletterEmail(e.target.value);
                           if (newsletterStatus === 'error') setNewsletterStatus('idle');
                         }}
-                        placeholder="Enter your email (e.g., student@example.com)..."
+                        placeholder={
+                          import.meta.env.DEV
+                            ? 'Enter your email (e.g., student@example.com)...'
+                            : 'Enter your email address'
+                        }
                         disabled={newsletterStatus === 'loading'}
                         className="w-full pl-10 pr-4 py-3 rounded-xl border border-emerald-700 bg-[#021c17] text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-300 placeholder:text-stone-400 disabled:opacity-50"
                       />

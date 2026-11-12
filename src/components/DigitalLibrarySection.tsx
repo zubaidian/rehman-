@@ -112,7 +112,11 @@ export function DigitalLibrarySection() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by subject, title, author (e.g., Computer Science, Biology, Past Paper, STBB, Physics, English)..."
+              placeholder={
+                import.meta.env.DEV
+                  ? 'Search by subject, title, author (e.g., Computer Science, Biology, Past Paper, STBB, Physics, English)...'
+                  : 'Search by subject, title, or author...'
+              }
               className="w-full pl-12 pr-10 py-3.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36] bg-stone-50/50"
             />
             {searchQuery && (

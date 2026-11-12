@@ -94,7 +94,11 @@ export function FAQAccordion({ onQuickInquire }: FAQAccordionProps) {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search FAQs by topic (e.g. uniform, white qameez, documents, B-Form, marksheet, fee, timings)..."
+            placeholder={
+              import.meta.env.DEV
+                ? 'Search FAQs by topic (e.g. uniform, white qameez, documents, B-Form, marksheet, fee, timings)...'
+                : 'Search FAQs by topic...'
+            }
             className="w-full pl-11 pr-10 py-3 rounded-xl border border-stone-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36] bg-white"
           />
           {searchQuery && (

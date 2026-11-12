@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 import { ALUMNAE_PROFILES, ALUMNAE_IMPACT_METRICS, AlumnaProfile } from '../data/alumnaeData';
 import {
   GraduationCap,
-  Quote,
   Award,
-  BookOpen,
   HeartHandshake,
   ArrowRight,
   X,
   CheckCircle2,
-  Sparkles,
+  BookOpen,
+  ExternalLink,
   Send
 } from 'lucide-react';
-import { COLLEGE_INFO } from '../data/collegeData';
 
 export function AlumnaeSection() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -28,18 +26,17 @@ export function AlumnaeSection() {
   const [joinSubmitted, setJoinSubmitted] = useState(false);
 
   const categories = [
-    { id: 'all', label: 'All Fields' },
-    { id: 'Medicine', label: 'Medicine & Healthcare' },
-    { id: 'Technology', label: 'Tech & Engineering' },
-    { id: 'Civil Services', label: 'Civil Services' },
-    { id: 'Academia', label: 'Academia & Higher Ed' },
-    { id: 'Research', label: 'Scientific Research' },
-    { id: 'Law', label: 'Law & Human Rights' }
+    { id: 'all', label: 'All Distinguished Alumnae' },
+    { id: 'Public Service & Media', label: 'Public Service & Media' },
+    { id: 'Law Enforcement & Administration', label: 'Law Enforcement & Rights' },
+    { id: 'Academia & Literature', label: 'Academia & Literature' },
+    { id: 'Poetry & Human Rights', label: 'Poetry & Human Rights' }
   ];
 
-  const filteredAlumnae = activeCategory === 'all'
-    ? ALUMNAE_PROFILES
-    : ALUMNAE_PROFILES.filter(a => a.category === activeCategory);
+  const filteredAlumnae =
+    activeCategory === 'all'
+      ? ALUMNAE_PROFILES
+      : ALUMNAE_PROFILES.filter((a) => a.category === activeCategory);
 
   const handleJoinSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,14 +61,14 @@ export function AlumnaeSection() {
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-[#064b36] text-xs font-bold tracking-wider uppercase">
             <GraduationCap className="w-3.5 h-3.5 text-emerald-800" />
-            <span>Zubeidian Pride · Generations of Impact</span>
+            <span>Zubeidian Pride · Documented Legacy</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#064b36]">
-            Alumnae Success Stories
+            Distinguished Alumnae
           </h2>
           <p className="text-stone-600 text-base sm:text-lg">
-            Meet the distinguished graduates of Government Girls Zubaida College who have transformed their education into national leadership across healthcare, technology, academia, and public administration.
+            Celebrating iconic graduates of Government Girls Zubaida College Hyderabad whose achievements shaped Pakistani literature, higher education, broadcasting, and parliamentary leadership.
           </p>
         </div>
 
@@ -97,60 +94,91 @@ export function AlumnaeSection() {
           {filteredAlumnae.map((alumna) => (
             <div
               key={alumna.id}
-              className="rounded-2xl bg-stone-50 border border-stone-200 hover:border-emerald-300 shadow-sm hover:shadow-xl transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group"
+              className="rounded-2xl bg-stone-50 border border-stone-200 hover:border-emerald-300 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group"
             >
-              <div className="space-y-4">
-                {/* Header Metadata */}
-                <div className="flex items-center justify-between gap-2 border-b border-stone-200 pb-3">
-                  <div className="text-xs text-stone-500 font-medium">
-                    <span>{alumna.batchYear}</span>
-                    <span className="mx-1.5" aria-hidden="true">·</span>
-                    <span className="text-emerald-800 font-semibold">{alumna.stream}</span>
+              <div>
+                {/* Full Portrait Photo Frame (no cropping) */}
+                <div className="relative h-96 sm:h-[420px] bg-[#f8f3e6] overflow-hidden border-b border-stone-200 flex items-center justify-center p-2">
+                  <img
+                    src={alumna.photo}
+                    alt={alumna.name}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute top-3 right-3">
+                    <span className="px-2.5 py-1 rounded bg-[#064b36]/90 backdrop-blur-sm text-amber-300 border border-amber-300/40 text-[10px] font-bold uppercase tracking-wider shadow">
+                      {alumna.category}
+                    </span>
                   </div>
-                  <span className="px-2 py-0.5 rounded bg-emerald-100 text-[#064b36] text-[10px] font-bold uppercase tracking-wider">
-                    {alumna.category}
-                  </span>
                 </div>
 
-                {/* Profile Title & Current Role */}
-                <div>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#064b36] group-hover:text-emerald-800 transition-colors">
-                    {alumna.name}
-                  </h3>
-                  <p className="text-xs font-semibold text-stone-900 mt-1 leading-snug">
-                    {alumna.role}
-                  </p>
-                  <p className="text-xs text-stone-500 mt-0.5">
-                    {alumna.organization}
-                  </p>
-                </div>
+                {/* Card Body */}
+                <div className="p-6 space-y-3.5 text-left">
+                  <div>
+                    <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider block">
+                      {alumna.stream}
+                    </span>
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#064b36] mt-0.5 leading-snug">
+                      {alumna.name}
+                    </h3>
+                    {alumna.associationRole && (
+                      <p className="text-xs font-bold text-amber-800 mt-0.5">
+                        {alumna.associationRole}
+                      </p>
+                    )}
+                  </div>
 
-                {/* Achievement Badge */}
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-50 border border-amber-200 text-amber-900 text-[11px] font-bold">
-                  <Award className="w-3.5 h-3.5 text-amber-700 shrink-0" />
-                  <span>{alumna.achievementBadge}</span>
-                </div>
+                  {/* Documented Attendance Badge */}
+                  <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-xs text-emerald-950 font-medium">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 block mb-0.5">
+                      College Attendance Documented
+                    </span>
+                    <span>{alumna.documentedAttendance}</span>
+                  </div>
 
-                {/* Pull Quote */}
-                <div className="relative pt-2 pl-3 border-l-2 border-amber-400/80">
-                  <p className="font-serif italic text-xs sm:text-sm text-stone-700 leading-relaxed line-clamp-3">
-                    &ldquo;{alumna.quote}&rdquo;
+                  {/* Key Roles List */}
+                  <ul className="space-y-1.5 text-xs text-stone-700">
+                    {alumna.rolesList.map((roleItem) => (
+                      <li key={roleItem} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#064b36] shrink-0 mt-0.5" />
+                        <span className="font-medium text-stone-800">{roleItem}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Achievement Badge */}
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-50 border border-amber-200 text-amber-900 text-[11px] font-bold">
+                    <Award className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                    <span>{alumna.achievementBadge}</span>
+                  </div>
+
+                  {/* Summary Highlight */}
+                  <p className="text-xs text-stone-600 leading-relaxed line-clamp-3">
+                    {alumna.summaryHighlight}
                   </p>
                 </div>
               </div>
 
               {/* Card Footer Action */}
-              <div className="pt-6 mt-6 border-t border-stone-200 flex items-center justify-between">
+              <div className="px-6 py-4 bg-white border-t border-stone-200 flex items-center justify-between gap-2">
                 <button
                   onClick={() => setSelectedAlumna(alumna)}
                   className="text-xs font-bold text-[#064b36] hover:text-emerald-700 flex items-center gap-1.5 group/btn"
                 >
-                  <span>Read Full Story &amp; Advice</span>
+                  <span>Biography &amp; Achievements</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
-                <span className="text-[10px] font-mono text-stone-400">
-                  Alumna
-                </span>
+                {alumna.referenceLinks[0] && (
+                  <a
+                    href={alumna.referenceLinks[0].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] font-semibold text-stone-500 hover:text-[#064b36] flex items-center gap-1"
+                  >
+                    <span>Profile</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
               </div>
             </div>
           ))}
@@ -211,28 +239,39 @@ export function AlumnaeSection() {
             className="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl text-left border border-stone-200 max-h-[90vh] overflow-y-auto space-y-6"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div className="flex items-start justify-between border-b border-stone-200 pb-4">
-              <div>
-                <div className="text-xs text-stone-500 font-semibold mb-1">
-                  <span>{selectedAlumna.batchYear}</span>
-                  <span className="mx-1.5">·</span>
-                  <span className="text-[#064b36] font-bold">{selectedAlumna.stream}</span>
+            {/* Modal Header with Photo */}
+            <div className="flex items-start justify-between gap-4 border-b border-stone-200 pb-4">
+              <div className="flex flex-col sm:flex-row items-start gap-4">
+                <img
+                  src={selectedAlumna.photo}
+                  alt={selectedAlumna.name}
+                  referrerPolicy="no-referrer"
+                  className="w-32 h-40 sm:w-36 sm:h-48 rounded-xl object-contain border-2 border-amber-300 shadow-md shrink-0 bg-[#f8f3e6] p-1"
+                />
+                <div>
+                  <div className="text-xs text-[#064b36] font-bold mb-1">
+                    {selectedAlumna.stream}
+                  </div>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#064b36]">
+                    {selectedAlumna.name}
+                  </h3>
+                  {selectedAlumna.associationRole && (
+                    <p className="text-xs font-bold text-amber-800 mt-1">
+                      {selectedAlumna.associationRole}
+                    </p>
+                  )}
+                  <p className="text-xs sm:text-sm font-semibold text-stone-800 mt-1">
+                    {selectedAlumna.role}
+                  </p>
+                  <p className="text-xs text-stone-600 mt-0.5">
+                    {selectedAlumna.organization}
+                  </p>
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#064b36]">
-                  {selectedAlumna.name}
-                </h3>
-                <p className="text-xs sm:text-sm font-semibold text-stone-800 mt-1">
-                  {selectedAlumna.role}
-                </p>
-                <p className="text-xs text-stone-600">
-                  {selectedAlumna.organization}
-                </p>
               </div>
 
               <button
                 onClick={() => setSelectedAlumna(null)}
-                className="text-stone-400 hover:text-stone-800 p-1.5 rounded-lg"
+                className="text-stone-400 hover:text-stone-800 p-1.5 rounded-lg shrink-0"
                 aria-label="Close alumna modal"
               >
                 <X className="w-5 h-5" />
@@ -245,30 +284,30 @@ export function AlumnaeSection() {
               <span>{selectedAlumna.achievementBadge}</span>
             </div>
 
-            {/* Full Story */}
+            {/* Documented Attendance */}
+            <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-1">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800 block">
+                College Attendance Documented:
+              </span>
+              <p className="text-sm font-semibold text-[#064b36]">
+                {selectedAlumna.documentedAttendance}
+              </p>
+            </div>
+
+            {/* Biography */}
             <div>
               <h4 className="font-bold text-xs uppercase tracking-wider text-stone-700 mb-2">
-                Journey from Zubaida College:
+                Biography &amp; Achievements:
               </h4>
               <p className="text-sm text-stone-700 leading-relaxed">
                 {selectedAlumna.story}
               </p>
             </div>
 
-            {/* Quotation Highlight */}
-            <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-1">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800 block">
-                Reflections on Alma Mater:
-              </span>
-              <p className="font-serif italic text-sm text-[#064b36] leading-relaxed">
-                &ldquo;{selectedAlumna.quote}&rdquo;
-              </p>
-            </div>
-
             {/* Career Milestones */}
             <div>
               <h4 className="font-bold text-xs uppercase tracking-wider text-stone-700 mb-2">
-                Notable Career Milestones:
+                Key Highlights &amp; Public Contributions:
               </h4>
               <div className="space-y-2">
                 {selectedAlumna.keyCareerHighlights.map((hl, idx) => (
@@ -280,22 +319,33 @@ export function AlumnaeSection() {
               </div>
             </div>
 
-            {/* Advice for Current Students */}
+            {/* Legacy Note */}
             <div className="p-4 rounded-xl bg-amber-50/80 border border-amber-200">
               <div className="flex items-center gap-1.5 text-amber-900 font-bold text-xs uppercase tracking-wider mb-1">
-                <Sparkles className="w-4 h-4 text-amber-700" />
-                <span>Message &amp; Advice to Current Zubeidians:</span>
+                <BookOpen className="w-4 h-4 text-amber-700" />
+                <span>National Recognition &amp; Legacy:</span>
               </div>
               <p className="text-xs text-stone-800 leading-relaxed font-medium">
-                &ldquo;{selectedAlumna.adviceToStudents}&rdquo;
+                {selectedAlumna.legacyNote}
               </p>
             </div>
 
-            {/* Modal Footer */}
-            <div className="pt-4 border-t border-stone-200 flex items-center justify-between text-xs">
-              <span className="text-stone-500 font-serif">
-                Government Girls Zubaida College Alumnae
-              </span>
+            {/* Reference Links & Close */}
+            <div className="pt-4 border-t border-stone-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+              <div className="flex flex-wrap items-center gap-2">
+                {selectedAlumna.referenceLinks.map((refLink) => (
+                  <a
+                    key={refLink.url}
+                    href={refLink.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-[#064b36] font-semibold transition-colors"
+                  >
+                    <span>{refLink.label}</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                ))}
+              </div>
               <button
                 onClick={() => setSelectedAlumna(null)}
                 className="px-4 py-2 bg-[#064b36] hover:bg-[#042f28] text-white rounded-lg font-semibold"
@@ -368,7 +418,7 @@ export function AlumnaeSection() {
                     required
                     value={joinName}
                     onChange={(e) => setJoinName(e.target.value)}
-                    placeholder="e.g. Dr. Hina Memon"
+                    placeholder={import.meta.env.DEV ? 'e.g. Dr. Hina Memon' : undefined}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
                   />
                 </div>
@@ -383,7 +433,7 @@ export function AlumnaeSection() {
                       required
                       value={joinBatch}
                       onChange={(e) => setJoinBatch(e.target.value)}
-                      placeholder="e.g. 2004 or 2018"
+                      placeholder={import.meta.env.DEV ? 'e.g. 2004 or 2018' : undefined}
                       className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
                     />
                   </div>
@@ -397,7 +447,7 @@ export function AlumnaeSection() {
                       required
                       value={joinEmail}
                       onChange={(e) => setJoinEmail(e.target.value)}
-                      placeholder="alumna@example.com"
+                      placeholder={import.meta.env.DEV ? 'alumna@example.com' : undefined}
                       className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
                     />
                   </div>
@@ -411,7 +461,7 @@ export function AlumnaeSection() {
                     type="text"
                     value={joinProfession}
                     onChange={(e) => setJoinProfession(e.target.value)}
-                    placeholder="e.g. Assistant Professor, LUMHS or Civil Judge"
+                    placeholder={import.meta.env.DEV ? 'e.g. Assistant Professor, LUMHS or Civil Judge' : undefined}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
                   />
                 </div>
@@ -424,7 +474,7 @@ export function AlumnaeSection() {
                     rows={2}
                     value={joinMessage}
                     onChange={(e) => setJoinMessage(e.target.value)}
-                    placeholder="Share any special memories or areas you'd like to support (optional)..."
+                    placeholder={import.meta.env.DEV ? "Share any special memories or areas you'd like to support (optional)..." : undefined}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
                   />
                 </div>
