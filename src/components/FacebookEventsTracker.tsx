@@ -35,134 +35,107 @@ export interface FacebookEventItem {
   status: 'Upcoming' | 'Live Today' | 'Completed';
 }
 
+const STORAGE_KEY = 'ggzc_facebook_events_2026_v3';
+
 const INITIAL_2026_FACEBOOK_EVENTS: FacebookEventItem[] = [
   {
-    id: 'fb-ev-1',
-    title: 'Annual Seerat-un-Nabi (PBUH) Conference & Naat Contest 2026',
+    id: 'fb-ev-2026-1',
+    title: 'A Grand and Beautiful Seerat-un-Nabi ﷺ Conference at Government Girls Zubaida College, Hyderabad',
     year: 2026,
-    date: '2026-11-24',
-    displayDate: 'November 24, 2026',
-    time: '9:30 AM – 1:30 PM (PKT)',
+    date: '2026-10-27',
+    displayDate: 'Tuesday, 27 October 2026',
+    time: '9:30 AM – 1:00 PM (PKT)',
     category: 'cultural',
     categoryLabel: 'Spiritual & Cultural',
-    venue: 'College Main Auditorium Hall',
-    summary: 'Grand annual Naat competition and inspirational declamation by regional scholars and faculty members.',
-    details: 'Featuring student recitations in both Urdu and Sindhi. Principal Prof. Yasmeen Panhwar will award memorial shields and certificates to top position holders.',
-    facebookUrl: COLLEGE_INFO.facebookUrl,
-    status: 'Upcoming'
-  },
-  {
-    id: 'fb-ev-2',
-    title: 'Sindh Cultural Heritage Day & Regional Adabi Mushaira 2026',
-    year: 2026,
-    date: '2026-12-06',
-    displayDate: 'December 06, 2026',
-    time: '9:00 AM – 2:00 PM (PKT)',
-    category: 'cultural',
-    categoryLabel: 'Sindh Heritage Gala',
-    venue: 'Central Courtyard & Pavilion Stage',
-    summary: 'Traditional Ajrak & Topi festivities, Shah Latif poetry recitals, folk musical tableaux, and handicrafts exhibition.',
-    details: 'Live covered on the official Facebook page with student photo galleries, Bait-Bazi, and cultural speeches celebrating the peace and harmony of Sindh.',
-    facebookUrl: COLLEGE_INFO.facebookUrl,
-    status: 'Upcoming'
-  },
-  {
-    id: 'fb-ev-3',
-    title: 'BISE Hyderabad HSC Board Examination Slip Verification 2026',
-    year: 2026,
-    date: '2026-12-15',
-    displayDate: 'December 15, 2026',
-    time: '8:30 AM – 1:30 PM (PKT)',
-    category: 'academic',
-    categoryLabel: 'Board Examination',
-    venue: 'Student Affairs & Examination Branch (Room 12)',
-    summary: 'Collection of computerized enrollment cards and exam center verification for Intermediate Class XI & XII.',
-    details: 'Students must verify their roll numbers and center allocations before the official board exam commencement.',
-    facebookUrl: COLLEGE_INFO.facebookUrl,
-    status: 'Upcoming'
-  },
-  {
-    id: 'fb-ev-4',
-    title: 'Board Merit Holders & 100% Pass Felicitation Gala 2026',
-    year: 2026,
-    date: '2026-10-14',
-    displayDate: 'October 14, 2026',
-    time: '10:00 AM – 1:00 PM (PKT)',
-    category: 'ceremony',
-    categoryLabel: 'Board Honors Gala',
-    venue: 'College Main Auditorium Hall',
-    summary: 'Celebrating Maryam Bibi (2nd Position in Sindh Board, 916 marks) and 4th position holder in Computer Science.',
-    details: 'Attended by Sindh education dignitaries, professors, proud parents, and position holders with medal distribution and photo sessions.',
+    venue: 'Government Girls Zubaida College, Hyderabad',
+    summary: 'A grand and spiritually uplifting Seerat-un-Nabi ﷺ Conference featuring Qira’at, Naat recitations, and scholarly addresses.',
+    details: 'Held at Government Girls Zubaida College, Hyderabad on Tuesday, 27 October 2026, bringing together faculty and students for Naat-e-Rasool ﷺ recitations and reflections on the noble life and teachings of the Holy Prophet ﷺ.',
     facebookUrl: COLLEGE_INFO.facebookUrl,
     status: 'Completed'
   },
   {
-    id: 'fb-ev-5',
-    title: 'SECCAP 2026 Centralized Admission Verification Helpdesk',
+    id: 'fb-ev-2026-2',
+    title: 'Kashmir Black Day Observed at Government Girls Zubaida College, Hyderabad',
     year: 2026,
-    date: '2026-11-15',
-    displayDate: 'Active Through 2026 Session',
-    time: '8:00 AM – 2:00 PM Daily',
-    category: 'admissions',
-    categoryLabel: 'Centralized SECCAP',
-    venue: 'College Admissions Desk & Computer Lab',
-    summary: 'Free admission verification for Pre-Medical, Pre-Engineering, Computer Science, Commerce, and Arts applicants.',
-    details: 'On-spot document checking, domicile verification, and subject counseling under the 100% free education policy of Sindh Government.',
+    date: '2026-10-27',
+    displayDate: 'Tuesday, 27 October 2026',
+    time: '10:30 AM – 12:30 PM (PKT)',
+    category: 'ceremony',
+    categoryLabel: 'National Observance',
+    venue: 'Government Girls Zubaida College, Hyderabad',
+    summary: 'Faculty and students observed Kashmir Black Day to express unwavering solidarity with the people of Kashmir.',
+    details: 'Commemorated at Government Girls Zubaida College, Hyderabad on Tuesday, 27 October 2026 with student speeches, awareness presentations, and special prayers expressing solidarity.',
     facebookUrl: COLLEGE_INFO.facebookUrl,
-    isLiveNow: true,
-    status: 'Live Today'
+    status: 'Completed'
   },
   {
-    id: 'fb-ev-6',
-    title: 'Pre-Medical & Health Diagnostic Camp 2026',
+    id: 'fb-ev-2026-3',
+    title: 'Midterm Examination – BS Zoology (19 to 23 October 2026)',
     year: 2026,
-    date: '2026-11-18',
-    displayDate: 'November 18, 2026',
-    time: '9:00 AM – 1:00 PM (PKT)',
+    date: '2026-10-19',
+    displayDate: '19 – 23 October 2026',
+    time: '9:00 AM – 12:00 PM (PKT)',
     category: 'academic',
-    categoryLabel: 'Medical Science',
-    venue: 'Physiology & Zoology Research Laboratories',
-    summary: 'Clinical blood group testing, blood pressure screening, and medical career seminar by senior doctors and alumnae.',
-    details: 'Hands-on practical session organized by the Department of Physiology and Pre-Medical Faculty for female students.',
+    categoryLabel: 'BS Examinations',
+    venue: 'Department of Zoology & Examination Halls',
+    summary: 'Midterm written examinations conducted for the 4-Year BS Zoology degree program from 19 to 23 October 2026.',
+    details: 'Departmental midterm assessments for BS Zoology semesters held under the supervision of faculty invigilators as part of the University of Sindh affiliated academic schedule.',
     facebookUrl: COLLEGE_INFO.facebookUrl,
-    status: 'Upcoming'
+    status: 'Completed'
   },
   {
-    id: 'fb-ev-7',
-    title: 'All-Sindh Colleges Science, Robotics & IT Expo 2026',
+    id: 'fb-ev-2026-4',
+    title: 'Event on International Day of Rural Women',
     year: 2026,
-    date: '2026-11-28',
-    displayDate: 'November 28, 2026',
-    time: '9:30 AM – 2:30 PM (PKT)',
-    category: 'academic',
-    categoryLabel: 'Science & Computing',
-    venue: 'Computer Science Lab & Chemistry Block',
-    summary: 'Inter-departmental software projects, chemical synthesis experiments, and botanical research showcase.',
-    details: 'Demonstrations by students in C++ coding, web technologies, and cellular biology models reviewed by visiting professors.',
+    date: '2026-10-15',
+    displayDate: '15 October 2026',
+    time: '10:00 AM – 1:00 PM (PKT)',
+    category: 'cultural',
+    categoryLabel: 'Women Empowerment',
+    venue: 'Government Girls Zubaida College, Hyderabad',
+    summary: 'Special seminar and student presentations celebrating the vital role, resilience, and education of rural women.',
+    details: 'Observed on 15 October 2026 with talks and student reflections highlighting access to higher education, economic empowerment, and community leadership among women across Sindh.',
     facebookUrl: COLLEGE_INFO.facebookUrl,
-    status: 'Upcoming'
+    status: 'Completed'
   },
   {
-    id: 'fb-ev-8',
-    title: 'Annual Inter-Class Sports Week & Badminton Tournament 2026',
+    id: 'fb-ev-2026-5',
+    title: 'World Teachers’ Day Celebration',
     year: 2026,
-    date: '2026-12-18',
-    displayDate: 'December 18 – 21, 2026',
-    time: '9:00 AM – 1:30 PM (PKT)',
-    category: 'sports',
-    categoryLabel: 'Sports & Athletics',
-    venue: 'College Sports Grounds & Badminton Courts',
-    summary: 'Inter-faculty championship in badminton, table tennis, relay races, and throwball matches.',
-    details: 'Trophies and athletic shields presented to champion houses by Principal and Physical Education director.',
+    date: '2026-10-05',
+    displayDate: '5 October 2026',
+    time: '9:30 AM – 12:30 PM (PKT)',
+    category: 'ceremony',
+    categoryLabel: 'Faculty Honors',
+    venue: 'College Main Auditorium Hall',
+    summary: 'Students and administration paid heartfelt tribute to the dedicated educators and mentors of Zubaida College.',
+    details: 'Celebrated on 5 October 2026 to honor the invaluable contributions of college professors and lecturers in shaping generations of women scholars in Hyderabad.',
     facebookUrl: COLLEGE_INFO.facebookUrl,
-    status: 'Upcoming'
+    status: 'Completed'
+  },
+  {
+    id: 'fb-ev-2026-6',
+    title: 'Maheen Khan (XI Computer Science) Earned 1st Position in Naat at District Level Hyderabad',
+    year: 2026,
+    date: '2026-09-01',
+    displayDate: '1 September 2026',
+    time: 'Official Merit Announcement',
+    category: 'ceremony',
+    categoryLabel: 'District Distinction',
+    venue: 'Hyderabad District Level',
+    summary: 'Maheen Khan, student of Class XI Computer Science, earned 1st Position in Naat at the Hyderabad District Level.',
+    details: '1st September 2026: Maheen Khan, student of Class XI Computer Science at Government Girls Zubaida College, Hyderabad, earned 1st Position in Naat at the District Level Hyderabad.',
+    facebookUrl: COLLEGE_INFO.facebookUrl,
+    status: 'Completed'
   }
 ];
 
 export function FacebookEventsTracker() {
   const [events, setEvents] = useState<FacebookEventItem[]>(() => {
     try {
-      const saved = localStorage.getItem('ggzc_facebook_events_2026');
+      localStorage.removeItem('ggzc_facebook_events_2026');
+      localStorage.removeItem('ggzc_facebook_events_2026_v2');
+      const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         return JSON.parse(saved);
       }
@@ -193,7 +166,7 @@ export function FacebookEventsTracker() {
   // Save to localStorage whenever events change
   useEffect(() => {
     try {
-      localStorage.setItem('ggzc_facebook_events_2026', JSON.stringify(events));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
     } catch {
       // Storage issue
     }
