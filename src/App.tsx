@@ -4,10 +4,12 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { BoardHonorsSection } from './components/BoardHonorsSection';
 import { NoticesSection } from './components/NoticesSection';
+import { FacebookEventsTracker } from './components/FacebookEventsTracker';
 import { UpcomingEventsSection } from './components/UpcomingEventsSection';
 import { AboutAndHistory } from './components/AboutAndHistory';
 import { PrincipalSection } from './components/PrincipalSection';
 import { AcademicsSection } from './components/AcademicsSection';
+import { DepartmentsSection } from './components/DepartmentsSection';
 import { VirtualCampusTour } from './components/VirtualCampusTour';
 import { DigitalLibrarySection } from './components/DigitalLibrarySection';
 import { AlumnaeSection } from './components/AlumnaeSection';
@@ -44,17 +46,23 @@ export default function App() {
         {/* Official News & Announcements Board */}
         <NoticesSection />
 
+        {/* Facebook 2026 Live College Events Scrolling Window Tracker */}
+        <FacebookEventsTracker />
+
         {/* Upcoming College Events Calendar & Timeline */}
         <UpcomingEventsSection />
 
         {/* 70-Year History, Legacy & Core Pillars */}
         <AboutAndHistory />
 
-        {/* Principal's Desk: Prof. Yasmin Panhwar */}
+        {/* Principal's Desk: Prof. Yasmeen Panhwar */}
         <PrincipalSection />
 
         {/* Academic Faculties & Programs Explorer */}
         <AcademicsSection />
+
+        {/* Academic Departments, Laboratories & Subject Chairs */}
+        <DepartmentsSection onOpenEnquiry={() => setIsEnquiryModalOpen(true)} />
 
         {/* Interactive Virtual Campus Tour */}
         <VirtualCampusTour />

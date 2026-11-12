@@ -26,7 +26,7 @@ export const COLLEGE_EVENTS: CollegeEvent[] = [
     venue: "College Main Auditorium",
     organizer: "Islamic Studies & Literary Society",
     summary: "Annual inter-class recitation of Hamd, Naat-e-Rasool-e-Maqbool (PBUH), and inspirational lectures by faculty and distinguished scholars on the life of the Holy Prophet.",
-    details: "All enrolled students from Intermediate (Science, Arts, Commerce), BS Zoology, and Associate Degree Programs (AD Commerce, AD Science, AD Arts) are eligible to participate. Trophies and certificates of merit will be awarded by Principal Prof. Yasmin Panhwar to the top three positions in both Urdu and Sindhi Naat categories.",
+    details: "All enrolled students from Intermediate (Science, Arts, Commerce), BS Zoology, and Associate Degree Programs (AD Commerce, AD Science, AD Arts) are eligible to participate. Trophies and certificates of merit will be awarded by Principal Prof. Yasmeen Panhwar to the top three positions in both Urdu and Sindhi Naat categories.",
     targetAudience: "All Students, Faculty & Parents",
     featured: true
   },
@@ -113,7 +113,7 @@ export const COLLEGE_EVENTS: CollegeEvent[] = [
     venue: "Central Courtyard & Main Flag Post",
     organizer: "National Cadet Corps (NCC) & Student Council",
     summary: "Formal national flag hoisting, playing of the national anthem, and student declamation contest commemorating the historic Lahore Resolution of 1940.",
-    details: "Principal Prof. Yasmin Panhwar will hoist the national flag, followed by patriotic songs, speech contests on female leadership in the Pakistan Movement, and distribution of commemorative shields.",
+    details: "Principal Prof. Yasmeen Panhwar will hoist the national flag, followed by patriotic songs, speech contests on female leadership in the Pakistan Movement, and distribution of commemorative shields.",
     targetAudience: "All Students, Faculty & Alumni"
   },
   {

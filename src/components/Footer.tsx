@@ -166,7 +166,7 @@ export function Footer() {
             </div>
 
             <p className="text-stone-300 leading-relaxed text-xs">
-              Sindh&rsquo;s premier public higher secondary and collegiate institution for women since 1953. Empowering generations through quality intermediate and undergraduate education.
+              Sindh&rsquo;s premier public collegiate institution for women since 1953. Currently educating over 2,000 enrolled students across intermediate HSC, 4-year BS, and 2-year associate degree faculties.
             </p>
 
             <div className="pt-2 text-xs text-amber-200 font-serif italic">
@@ -203,6 +203,11 @@ export function Footer() {
               <li>
                 <a href="#academics" className="hover:text-amber-300 transition-colors">
                   Academics
+                </a>
+              </li>
+              <li>
+                <a href="#departments" className="hover:text-amber-300 transition-colors">
+                  Academic Departments
                 </a>
               </li>
               <li>
@@ -298,6 +303,11 @@ export function Footer() {
               <li>
                 <a href="#academics" className="hover:text-amber-300 transition-colors">
                   Associate Degree in Science &amp; Arts (ADS / ADA)
+                </a>
+              </li>
+              <li>
+                <a href="#academics" className="hover:text-amber-300 transition-colors">
+                  AD Physiology &amp; Health Sciences (ADS)
                 </a>
               </li>
             </ul>

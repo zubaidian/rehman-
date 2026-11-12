@@ -1,5 +1,5 @@
 import { COLLEGE_INFO } from '../data/collegeData';
-import { Award, HeartHandshake, ShieldCheck, Sparkles } from 'lucide-react';
+import { Award, HeartHandshake, ShieldCheck, Sparkles, Users } from 'lucide-react';
 
 export function PrincipalSection() {
   return (
@@ -12,7 +12,7 @@ export function PrincipalSection() {
               <div className="relative rounded-xl overflow-hidden aspect-[3/4] bg-stone-900">
                 <img
                   src={COLLEGE_INFO.images.principal}
-                  alt="Principal Professor Yasmin Panhwar - Govt Girls Zubaida College Hyderabad"
+                  alt="Principal Professor Yasmeen Panhwar - Govt Girls Zubaida College Hyderabad"
                   className="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -21,7 +21,7 @@ export function PrincipalSection() {
                     Principal&rsquo;s Desk
                   </span>
                   <h3 className="font-serif font-bold text-xl text-white mt-1">
-                    Prof. Yasmin Panhwar
+                    Prof. Yasmeen Panhwar
                   </h3>
                   <span className="text-xs text-stone-300">
                     Govt Girls Zubaida College Hyderabad
@@ -42,6 +42,9 @@ export function PrincipalSection() {
 
             {/* Quick Badges below photo */}
             <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs text-stone-300">
+              <span className="px-3 py-1 rounded-full bg-[#063f35] border border-amber-300/30 flex items-center gap-1.5 text-amber-200">
+                <Users className="w-3.5 h-3.5 text-amber-400" /> 2,000 Enrolled Students
+              </span>
               <span className="px-3 py-1 rounded-full bg-[#063f35] border border-amber-300/30 flex items-center gap-1.5 text-amber-200">
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-300" /> Safe Campus
               </span>
@@ -93,7 +96,7 @@ export function PrincipalSection() {
 
             <div className="pt-4 border-t border-emerald-800/80">
               <h4 className="font-serif font-bold text-xl text-white">
-                Professor Yasmin Panhwar
+                Professor Yasmeen Panhwar
               </h4>
               <p className="text-xs text-amber-300 font-semibold tracking-wider uppercase mt-0.5">
                 Principal, Government Girls Zubaida College, Hyderabad

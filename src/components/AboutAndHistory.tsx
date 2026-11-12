@@ -40,6 +40,10 @@ export function AboutAndHistory() {
               </div>
               <div className="flex items-center gap-2 text-amber-300">
                 <span className="w-2 h-2 rounded-full bg-amber-400" />
+                <span>2,000 Enrolled Students</span>
+              </div>
+              <div className="flex items-center gap-2 text-amber-300">
+                <span className="w-2 h-2 rounded-full bg-amber-400" />
                 <span>Motto: Service Above Self</span>
               </div>
               <div className="flex items-center gap-2 text-amber-300">

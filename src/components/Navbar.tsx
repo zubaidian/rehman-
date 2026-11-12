@@ -24,6 +24,7 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
     { label: 'Principal’s Desk', href: '#principal' },
     { label: 'Events', href: '#events' },
     { label: 'Academics', href: '#academics' },
+    { label: 'Departments', href: '#departments' },
     { label: 'Campus Tour', href: '#campus-tour' },
     { label: 'Digital Library', href: '#digital-library' },
     { label: 'Board Honors', href: '#board-results' },
@@ -55,6 +56,7 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
           <a
             href="#home"
             className="flex items-center gap-3.5 text-left group shrink-0"
+            aria-label="Government Girls Zubaida College"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick('#home');
@@ -67,18 +69,10 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
                 className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-amber-300/80 shadow-md object-contain bg-white p-0.5 group-hover:scale-105 transition-transform"
               />
             </div>
-            <div>
-              <span className="block font-serif font-bold text-base sm:text-lg lg:text-xl text-amber-300 leading-tight tracking-tight group-hover:text-amber-200 transition-colors">
-                Government Girls Zubaida College
-              </span>
-              <span className="block text-xs font-medium text-emerald-100/90 tracking-wide">
-                Hyderabad, Sindh, Pakistan · Estd. 1953
-              </span>
-            </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-5 text-sm font-medium text-emerald-100">
+          <nav className="hidden xl:flex items-center gap-3.5 2xl:gap-4.5 text-xs 2xl:text-sm font-medium text-emerald-100">
             {navLinks.map((link) => (
               <a
                 key={link.label}

@@ -68,7 +68,7 @@ export function AcademicsSection() {
                 : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
             }`}
           >
-            2-Year Associate Degrees (AD Commerce, Science, Arts)
+            2-Year Associate Degrees (AD Commerce, Science, Arts, Physiology)
           </button>
         </div>
 
@@ -77,25 +77,15 @@ export function AcademicsSection() {
           {filteredPrograms.map((program) => (
             <div
               key={program.id}
-              className={`rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border ${
-                program.featured
-                  ? 'bg-gradient-to-b from-[#064b36] to-[#042f28] text-white border-amber-300 shadow-xl'
-                  : 'bg-stone-50 hover:bg-white text-stone-900 border-stone-200 hover:border-emerald-300 shadow-sm hover:shadow-md'
-              }`}
+              className="rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border bg-gradient-to-b from-[#064b36] to-[#042f28] text-white border-amber-400/40 hover:border-amber-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-2">
-                  <span
-                    className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded ${
-                      program.featured
-                        ? 'bg-amber-300 text-emerald-950'
-                        : 'bg-emerald-100 text-[#064b36]'
-                    }`}
-                  >
+                  <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-300 text-emerald-950">
                     {program.department}
                   </span>
                   {program.id === 'computer-science' && (
-                    <span className="flex items-center gap-1 text-[11px] font-bold text-amber-300">
+                    <span className="flex items-center gap-1 text-[11px] font-bold text-amber-300 bg-[#03241e] px-2 py-0.5 rounded border border-amber-400/30">
                       <Award className="w-3.5 h-3.5 text-amber-300" />
                       Board 2nd &amp; 4th
                     </span>
@@ -103,58 +93,34 @@ export function AcademicsSection() {
                 </div>
 
                 <div>
-                  <h3
-                    className={`font-serif text-xl sm:text-2xl font-bold ${
-                      program.featured ? 'text-amber-300' : 'text-[#064b36]'
-                    }`}
-                  >
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-amber-300">
                     {program.title}
                   </h3>
-                  <span
-                    className={`text-xs block mt-1 font-medium ${
-                      program.featured ? 'text-emerald-200' : 'text-stone-500'
-                    }`}
-                  >
+                  <span className="text-xs block mt-1 font-medium text-emerald-200">
                     Duration: {program.duration}
                   </span>
                 </div>
 
-                <p
-                  className={`text-xs sm:text-sm leading-relaxed ${
-                    program.featured ? 'text-stone-200' : 'text-stone-600'
-                  }`}
-                >
+                <p className="text-xs sm:text-sm leading-relaxed text-stone-200">
                   {program.overview}
                 </p>
 
                 {/* Key Subjects */}
                 <div className="pt-2">
-                  <span
-                    className={`text-[11px] font-bold uppercase tracking-wider block mb-1.5 ${
-                      program.featured ? 'text-amber-200' : 'text-stone-700'
-                    }`}
-                  >
+                  <span className="text-[11px] font-bold uppercase tracking-wider block mb-1.5 text-amber-200">
                     Core Disciplines:
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {program.subjects.slice(0, 4).map((sub) => (
                       <span
                         key={sub}
-                        className={`text-[11px] px-2 py-0.5 rounded border ${
-                          program.featured
-                            ? 'bg-[#03241e] border-emerald-700 text-stone-200'
-                            : 'bg-white border-stone-200 text-stone-700'
-                        }`}
+                        className="text-[11px] px-2 py-0.5 rounded border bg-[#03241e] border-emerald-700 text-stone-200"
                       >
                         {sub}
                       </span>
                     ))}
                     {program.subjects.length > 4 && (
-                      <span
-                        className={`text-[11px] px-2 py-0.5 rounded ${
-                          program.featured ? 'text-amber-300' : 'text-emerald-800'
-                        }`}
-                      >
+                      <span className="text-[11px] px-2 py-0.5 rounded text-amber-300 font-semibold">
                         +{program.subjects.length - 4} more
                       </span>
                     )}
@@ -163,14 +129,10 @@ export function AcademicsSection() {
               </div>
 
               {/* Card Footer */}
-              <div className="pt-6 mt-6 border-t border-current/10 flex items-center justify-between">
+              <div className="pt-6 mt-6 border-t border-emerald-800/80 flex items-center justify-between">
                 <button
                   onClick={() => setSelectedProgram(program)}
-                  className={`text-xs font-bold flex items-center gap-1 transition-colors ${
-                    program.featured
-                      ? 'text-amber-300 hover:text-white'
-                      : 'text-[#064b36] hover:text-emerald-700'
-                  }`}
+                  className="text-xs font-bold flex items-center gap-1 transition-colors text-amber-300 hover:text-white"
                 >
                   <span>View Full Curriculum &amp; Career</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -178,11 +140,7 @@ export function AcademicsSection() {
 
                 <a
                   href="#admissions"
-                  className={`text-[11px] px-2.5 py-1 rounded font-semibold ${
-                    program.featured
-                      ? 'bg-amber-400 hover:bg-amber-300 text-emerald-950'
-                      : 'bg-emerald-900 hover:bg-emerald-800 text-white'
-                  }`}
+                  className="text-[11px] px-3 py-1.5 rounded font-semibold bg-amber-400 hover:bg-amber-300 text-emerald-950 transition-colors shadow-sm"
                 >
                   Apply
                 </a>

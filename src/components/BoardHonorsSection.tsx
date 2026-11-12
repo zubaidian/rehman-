@@ -62,7 +62,7 @@ export function BoardHonorsSection() {
             <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-950 flex items-start gap-2.5">
               <Sparkles className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
               <div>
-                <strong>Official Felicitation:</strong> Heartiest congratulations from Principal Prof. Yasmin Panhwar and faculty members to all successful students and the Computer Science Department.
+                <strong>Official Felicitation:</strong> Heartiest congratulations from Principal Prof. Yasmeen Panhwar and faculty members to all successful students and the Computer Science Department.
               </div>
             </div>
           </div>

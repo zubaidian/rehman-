@@ -126,6 +126,22 @@ export const LIBRARY_RESOURCES: LibraryResource[] = [
     featured: true
   },
   {
+    id: "human-physiology-medical-guide",
+    title: "Human Physiology & Clinical Diagnostic Laboratory Manual",
+    subject: "Physiology & Health Sciences",
+    category: "reference",
+    level: "Class XII",
+    publisher: "Department of Physiology, Govt Girls Zubaida College",
+    year: "2026 Practical Edition",
+    fileFormat: "PDF",
+    fileSize: "6.8 MB",
+    pages: 145,
+    description: "Curated laboratory manual and examination protocol for Human Physiology students covering blood pressure measurement, hematology smears, spirometry, reflex arcs, and endocrine regulation.",
+    keyTopics: ["Cardiovascular Dynamics & BP Measurement", "Hematology: Hemoglobin, RBC/WBC Counts & Blood Groups", "Neurophysiology & Sensory Reflex Testing", "Endocrine Regulation & Metabolic Homeostasis"],
+    downloadsCount: 1480,
+    featured: true
+  },
+  {
     id: "ad-commerce-financial-accounting",
     title: "Advanced Financial Accounting & Practical Auditing: Course Manual (AD Commerce)",
     subject: "Commerce & Accountancy",

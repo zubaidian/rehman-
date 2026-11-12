@@ -48,6 +48,8 @@ export const COLLEGE_INFO = {
   shortName: "Govt Girls Zubaida College",
   abbreviation: "GGZC",
   motto: "SERVICE ABOVE SELF",
+  totalEnrolledStudents: 2000,
+  totalStudentsFormatted: "2,000",
   establishedYear: 1953,
   charterYear: 1954,
   location: "Opposite Hyderabad Central Jail, Pathan Colony, Hirabad, Hyderabad, Sindh, Pakistan",
@@ -59,7 +61,7 @@ export const COLLEGE_INFO = {
   officeHours: "Monday–Saturday: 8:00 AM – 2:00 PM (PKT) · Sunday Closed",
   facebookUrl: "https://www.facebook.com/profile.php?id=100064211700343",
   seccapUrl: "https://seccap.dgcs.gos.pk/",
-  principalName: "Prof. Yasmin Panhwar",
+  principalName: "Prof. Yasmeen Panhwar",
   principalTitle: "Principal, Govt Girls Zubaida College Hyderabad",
   images: {
     logo: "/assets/aistudio/college-logo_075efbff.jpg",
@@ -201,6 +203,31 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
     subjects: ["Sociology", "Political Science", "Islamic Culture & History", "English Language Studies"],
     eligibility: "HSC in any group.",
     futureProspects: ["Lateral entry to BS 5th semester", "Public Sector Recruitment", "Community Development"]
+  },
+  {
+    id: "ad-physiology",
+    category: "associate",
+    title: "Associate Degree in Physiology & Health Sciences (ADS Physiology)",
+    duration: "2 Years (4 Semesters)",
+    department: "Department of Physiology & Life Sciences",
+    overview: "Specialized 2-year university associate degree affiliated with the University of Sindh Jamshoro. Focuses on cellular mechanisms, human cardiovascular dynamics, clinical diagnostics, neurophysiology, endocrine pathways, and clinical laboratory investigations with seamless transition to BS 5th semester.",
+    subjects: [
+      "Human Anatomy & Organ Systems",
+      "Cellular Physiology & Biochemistry",
+      "Cardiovascular & Respiratory Dynamics",
+      "Neurophysiology & Endocrinology",
+      "Clinical Diagnostics & Lab Techniques",
+      "Pathology & Microbiology Fundamentals"
+    ],
+    eligibility: "HSC Pre-Medical or equivalent biological science stream with minimum 45% marks.",
+    futureProspects: [
+      "Lateral entry to 5th semester BS Physiology / Medical Lab Tech",
+      "Diagnostic & Clinical Laboratory Technologist",
+      "Allied Health Sciences & Hospital Administration",
+      "Pharmaceutical Research & Clinical Diagnostics",
+      "Public Health Organizations & Civil Services (CSS/PMS)"
+    ],
+    featured: true
   }
 ];
 
@@ -221,7 +248,7 @@ export const NOTICES: Notice[] = [
     category: "Examinations",
     urgent: false,
     summary: "Zubaida College clinches 2nd & 4th Board Positions with zero failures and dominant A1 & A grades.",
-    details: "Principal Prof. Yasmin Panhwar and faculty members congratulate student Maryam Bibi (Roll # 79256, Marks 916/1100) for bagging 2nd Position in BISE Hyderabad, as well as our 4th position achiever and all successful candidates."
+    details: "Principal Prof. Yasmeen Panhwar and faculty members congratulate student Maryam Bibi (Roll # 79256, Marks 916/1100) for bagging 2nd Position in BISE Hyderabad, as well as our 4th position achiever and all successful candidates."
   },
   {
     id: "notice-bs-zoology-sindh-uni",
@@ -271,7 +298,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   {
     id: "photo-principal",
     src: "/assets/aistudio/principal-photo_e6a19362.jpg",
-    title: "Principal Prof. Yasmin Panhwar Address",
+    title: "Principal Prof. Yasmeen Panhwar Address",
     category: "faculty",
     caption: "Principal addressing the faculty and student assembly on academic distinction and Islamic values.",
     highlight: true

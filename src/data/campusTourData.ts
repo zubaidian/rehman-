@@ -164,22 +164,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
   },
   {
     id: "science-labs",
-    name: "Natural Science Laboratories",
-    subtitle: "Specialized Physics, Chemistry, Botany & Zoology Practical Theatres",
+    name: "Natural Science & Medical Laboratories",
+    subtitle: "Specialized Physics, Chemistry, Botany, Zoology & Physiology Practical Theatres",
     category: "Laboratories",
     stopNumber: "04",
     svgType: "science-lab",
-    badge: "Pre-Medical & Pre-Engineering Labs",
-    description: "Comprising four dedicated laboratories: Physics, Organic & Inorganic Chemistry, Botany, and Zoology. Each lab is equipped with compound microscopes, precision balances, optical spectrometers, reagent cabinets, and individual gas/water points meeting BISE Board standards.",
+    badge: "Pre-Medical, Physiology & Engineering Labs",
+    description: "Comprising five dedicated scientific laboratories: Physics, Organic & Inorganic Chemistry, Botany, Zoology, and Human Physiology. Each lab is equipped with compound microscopes, precision balances, optical spectrometers, clinical diagnostic kits, reagent cabinets, and individual gas/water points meeting BISE Board and University standards.",
     keySpecs: [
-      { label: "Laboratories", value: "4 Distinct Wings" },
-      { label: "Equipment", value: "Optics, Glassware, Meters" },
+      { label: "Laboratories", value: "5 Specialized Wings" },
+      { label: "Equipment", value: "Microscopes, Diagnostics, Optics" },
       { label: "Safety", value: "Eye-wash & Extinguishers" },
       { label: "Capacity", value: "40 Students / Lab" }
     ],
     highlights: [
       "Individual practical desks with burner outlets, sinks, and safety shields",
-      "High-power biological microscopes and specimen collections for Botany/Zoology",
+      "High-power biological microscopes and specimen collections for Botany, Zoology & Physiology",
+      "Human physiological diagnostic kits for blood pressure, reflex arcs, and hematology",
       "Advanced physics apparatus for mechanics, electricity, and optics experiments",
       "Comprehensive chemical inventory maintained under strict faculty supervision"
     ],
@@ -197,6 +198,13 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         description: "Precision optical compound microscopes for cellular and tissue analysis.",
         xPercent: 62,
         yPercent: 52
+      },
+      {
+        id: "physiology-diag",
+        label: "Physiology Diagnostic Station",
+        description: "Blood pressure sphygmomanometers, stethoscopes, and human anatomical models.",
+        xPercent: 46,
+        yPercent: 44
       },
       {
         id: "physics-optics",
