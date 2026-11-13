@@ -263,6 +263,11 @@ export function Footer({ onOpenAdmin }: FooterProps) {
                 </a>
               </li>
               <li>
+                <a href="#student-resources" className="hover:text-amber-300 transition-colors">
+                  Student Resources (PDFs)
+                </a>
+              </li>
+              <li>
                 <a href="#gallery" className="hover:text-amber-300 transition-colors">
                   Campus Gallery
                 </a>

@@ -34,6 +34,7 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
     { label: 'Distinguished Alumnae', href: '#alumnae' },
     { label: 'Facebook Live', href: '#facebook-updates' },
     { label: 'Admissions & SECCAP', href: '#admissions' },
+    { label: 'Student Resources', href: '#student-resources' },
     { label: 'Campus Gallery', href: '#gallery' },
     { label: 'Location & Contact', href: '#contact' }
   ];

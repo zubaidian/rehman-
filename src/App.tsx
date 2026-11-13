@@ -16,6 +16,7 @@ import { CollegeLabsSection } from './components/CollegeLabsSection';
 import { DigitalLibrarySection } from './components/DigitalLibrarySection';
 import { AlumnaeSection } from './components/AlumnaeSection';
 import { AdmissionsSection } from './components/AdmissionsSection';
+import { StudentResourcesSection } from './components/StudentResourcesSection';
 import { GallerySection } from './components/GallerySection';
 import { FacebookCommunitySection } from './components/FacebookCommunitySection';
 import { ContactAndLocation } from './components/ContactAndLocation';
@@ -87,6 +88,9 @@ export default function App() {
 
         {/* SECCAP Centralized Admissions Guide */}
         <AdmissionsSection />
+
+        {/* Student Resources: Downloadable Forms, Enrollment Slips & Registration Guides */}
+        <StudentResourcesSection />
 
         {/* Campus Gallery & Archives */}
         <GallerySection />

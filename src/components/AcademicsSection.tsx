@@ -63,7 +63,7 @@ export function AcademicsSection() {
                 : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
             }`}
           >
-            2-Year Associate Degrees (AD Commerce, Science, Arts, Physiology)
+            2-Year Associate Degrees (AD Commerce, Science)
           </button>
         </div>
 

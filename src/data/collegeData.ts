@@ -192,42 +192,6 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
     subjects: ["Botany / Zoology / Chemistry combinations", "Mathematics / Physics combinations", "Applied Research Labs"],
     eligibility: "HSC Pre-Medical or Pre-Engineering with minimum pass marks.",
     futureProspects: ["Transition into 5th semester BS programs", "Laboratory Technologist", "Science Education"]
-  },
-  {
-    id: "ad-arts",
-    category: "associate",
-    title: "Associate Degree in Arts (AD Arts / ADA)",
-    duration: "2 Years (4 Semesters)",
-    department: "Faculty of Social Sciences",
-    overview: "Modern 2-year university associate program designed for flexible career building in social sciences, education, and public administration.",
-    subjects: ["Sociology", "Political Science", "Islamic Culture & History", "English Language Studies"],
-    eligibility: "HSC in any group.",
-    futureProspects: ["Lateral entry to BS 5th semester", "Public Sector Recruitment", "Community Development"]
-  },
-  {
-    id: "ad-physiology",
-    category: "associate",
-    title: "Associate Degree in Physiology & Health Sciences (ADS Physiology)",
-    duration: "2 Years (4 Semesters)",
-    department: "Department of Physiology & Life Sciences",
-    overview: "Specialized 2-year university associate degree affiliated with the University of Sindh Jamshoro. Focuses on cellular mechanisms, human cardiovascular dynamics, clinical diagnostics, neurophysiology, endocrine pathways, and clinical laboratory investigations with seamless transition to BS 5th semester.",
-    subjects: [
-      "Human Anatomy & Organ Systems",
-      "Cellular Physiology & Biochemistry",
-      "Cardiovascular & Respiratory Dynamics",
-      "Neurophysiology & Endocrinology",
-      "Clinical Diagnostics & Lab Techniques",
-      "Pathology & Microbiology Fundamentals"
-    ],
-    eligibility: "HSC Pre-Medical or equivalent biological science stream with minimum 45% marks.",
-    futureProspects: [
-      "Lateral entry to 5th semester BS Physiology / Medical Lab Tech",
-      "Diagnostic & Clinical Laboratory Technologist",
-      "Allied Health Sciences & Hospital Administration",
-      "Pharmaceutical Research & Clinical Diagnostics",
-      "Public Health Organizations & Civil Services (CSS/PMS)"
-    ],
-    featured: true
   }
 ];
 
