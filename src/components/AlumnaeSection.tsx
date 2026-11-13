@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ALUMNAE_PROFILES, ALUMNAE_IMPACT_METRICS, AlumnaProfile } from '../data/alumnaeData';
 import {
   GraduationCap,
@@ -9,8 +9,16 @@ import {
   CheckCircle2,
   BookOpen,
   ExternalLink,
-  Send
+  Send,
+  Plus,
+  Trash2,
+  Upload,
+  Copy,
+  Check,
+  EyeOff
 } from 'lucide-react';
+
+const DEV_ALUMNAE_STORAGE_KEY = 'zubaida_dev_custom_alumnae_v1';
 
 export function AlumnaeSection() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -25,6 +33,42 @@ export function AlumnaeSection() {
   const [joinMessage, setJoinMessage] = useState('');
   const [joinSubmitted, setJoinSubmitted] = useState(false);
 
+  // DEV-only: Add More Alumnae (completely hidden in production/live builds)
+  const [devAlumnae, setDevAlumnae] = useState<AlumnaProfile[]>(() => {
+    if (!import.meta.env.DEV) return [];
+    try {
+      const saved = localStorage.getItem(DEV_ALUMNAE_STORAGE_KEY);
+      return saved ? (JSON.parse(saved) as AlumnaProfile[]) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [isAddDevModalOpen, setIsAddDevModalOpen] = useState(false);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [newName, setNewName] = useState('');
+  const [newCategory, setNewCategory] = useState<AlumnaProfile['category']>('Public Service & Media');
+  const [newStream, setNewStream] = useState('');
+  const [newAttendance, setNewAttendance] = useState('');
+  const [newAssociationRole, setNewAssociationRole] = useState('');
+  const [newRole, setNewRole] = useState('');
+  const [newOrganization, setNewOrganization] = useState('');
+  const [newBadge, setNewBadge] = useState('');
+  const [newRolesText, setNewRolesText] = useState('');
+  const [newStory, setNewStory] = useState('');
+  const [newLegacyNote, setNewLegacyNote] = useState('');
+  const [newPhoto, setNewPhoto] = useState('');
+  const [newRefLabel, setNewRefLabel] = useState('');
+  const [newRefUrl, setNewRefUrl] = useState('');
+
+  useEffect(() => {
+    if (!import.meta.env.DEV) return;
+    try {
+      localStorage.setItem(DEV_ALUMNAE_STORAGE_KEY, JSON.stringify(devAlumnae));
+    } catch {
+      // Ignore storage quota errors in dev
+    }
+  }, [devAlumnae]);
+
   const categories = [
     { id: 'all', label: 'All Distinguished Alumnae' },
     { id: 'Public Service & Media', label: 'Public Service & Media' },
@@ -33,10 +77,14 @@ export function AlumnaeSection() {
     { id: 'Poetry & Human Rights', label: 'Poetry & Human Rights' }
   ];
 
+  const allVisibleAlumnae = import.meta.env.DEV
+    ? [...ALUMNAE_PROFILES, ...devAlumnae]
+    : ALUMNAE_PROFILES;
+
   const filteredAlumnae =
     activeCategory === 'all'
-      ? ALUMNAE_PROFILES
-      : ALUMNAE_PROFILES.filter((a) => a.category === activeCategory);
+      ? allVisibleAlumnae
+      : allVisibleAlumnae.filter((a) => a.category === activeCategory);
 
   const handleJoinSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,6 +100,109 @@ export function AlumnaeSection() {
     setJoinMessage('');
     setJoinSubmitted(false);
     setIsJoinModalOpen(false);
+  };
+
+  const resetAddDevForm = () => {
+    setNewName('');
+    setNewCategory('Public Service & Media');
+    setNewStream('');
+    setNewAttendance('');
+    setNewAssociationRole('');
+    setNewRole('');
+    setNewOrganization('');
+    setNewBadge('');
+    setNewRolesText('');
+    setNewStory('');
+    setNewLegacyNote('');
+    setNewPhoto('');
+    setNewRefLabel('');
+    setNewRefUrl('');
+    setIsAddDevModalOpen(false);
+  };
+
+  const handleDevPhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === 'string') {
+        setNewPhoto(reader.result);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleAddDevAlumna = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!import.meta.env.DEV) return;
+    if (!newName.trim() || !newRole.trim()) return;
+
+    const parsedRoles = newRolesText
+      .split(/\n|,/)
+      .map((item) => item.trim())
+      .filter(Boolean);
+
+    const slug = newName
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    const profile: AlumnaProfile = {
+      id: `dev-${slug || 'alumna'}-${Date.now()}`,
+      name: newName.trim(),
+      photo: newPhoto.trim() || '/assets/aistudio/college-logo_075efbff.jpg',
+      photoFit: 'contain',
+      documentedAttendance:
+        newAttendance.trim() || 'Confirmed Alumna of Government Girls Zubaida College, Hyderabad',
+      stream: newStream.trim() || 'Graduate · Zubaida Girls College',
+      ...(newAssociationRole.trim() ? { associationRole: newAssociationRole.trim() } : {}),
+      role: newRole.trim(),
+      rolesList: parsedRoles.length > 0 ? parsedRoles : [newRole.trim()],
+      organization: newOrganization.trim() || 'Government Girls Zubaida College Alumnae',
+      category: newCategory,
+      achievementBadge: newBadge.trim() || 'Distinguished Zubeidian Alumna',
+      summaryHighlight:
+        newStory.trim() || `${newName.trim()} — ${newRole.trim()}.`,
+      story:
+        newStory.trim() ||
+        `${newName.trim()} is an accomplished alumna of Government Girls Zubaida College, Hyderabad, serving as ${newRole.trim()}.`,
+      legacyNote:
+        newLegacyNote.trim() ||
+        'Inspiring current students of Government Girls Zubaida College through leadership and public service.',
+      keyCareerHighlights:
+        parsedRoles.length > 0
+          ? parsedRoles
+          : [
+              newAttendance.trim() || 'Alumna of Government Girls Zubaida College, Hyderabad',
+              newRole.trim()
+            ],
+      referenceLinks: newRefUrl.trim()
+        ? [{ label: newRefLabel.trim() || 'Reference Profile', url: newRefUrl.trim() }]
+        : []
+    };
+
+    setDevAlumnae((prev) => [...prev, profile]);
+    resetAddDevForm();
+  };
+
+  const handleDeleteDevAlumna = (id: string) => {
+    if (!import.meta.env.DEV) return;
+    setDevAlumnae((prev) => prev.filter((item) => item.id !== id));
+    if (selectedAlumna?.id === id) {
+      setSelectedAlumna(null);
+    }
+  };
+
+  const handleCopyDevEntry = async (alumna: AlumnaProfile) => {
+    if (!import.meta.env.DEV) return;
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(alumna, null, 2));
+      setCopiedId(alumna.id);
+      setTimeout(() => setCopiedId(null), 1800);
+    } catch {
+      // Ignore clipboard failures
+    }
   };
 
   return (
@@ -91,10 +242,16 @@ export function AlumnaeSection() {
 
         {/* Alumnae Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredAlumnae.map((alumna) => (
+          {filteredAlumnae.map((alumna) => {
+            const isDevDraft = import.meta.env.DEV && alumna.id.startsWith('dev-');
+            return (
             <div
               key={alumna.id}
-              className="rounded-2xl bg-stone-50 border border-stone-200 hover:border-emerald-300 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group"
+              className={`rounded-2xl bg-stone-50 border shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group ${
+                isDevDraft
+                  ? 'border-dashed border-amber-500 ring-1 ring-amber-300/60'
+                  : 'border-stone-200 hover:border-emerald-300'
+              }`}
             >
               <div>
                 {/* Full Portrait Photo Frame (no cropping) */}
@@ -105,6 +262,14 @@ export function AlumnaeSection() {
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                   />
+                  {isDevDraft && (
+                    <div className="absolute top-3 left-3 flex items-center gap-1.5">
+                      <span className="px-2.5 py-1 rounded bg-amber-400 text-emerald-950 text-[10px] font-bold uppercase tracking-wider shadow inline-flex items-center gap-1">
+                        <EyeOff className="w-3 h-3" />
+                        <span>Dev Draft · Hidden Live</span>
+                      </span>
+                    </div>
+                  )}
                   <div className="absolute top-3 right-3">
                     <span className="px-2.5 py-1 rounded bg-[#064b36]/90 backdrop-blur-sm text-amber-300 border border-amber-300/40 text-[10px] font-bold uppercase tracking-wider shadow">
                       {alumna.category}
@@ -168,21 +333,77 @@ export function AlumnaeSection() {
                   <span>Biography &amp; Achievements</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
-                {alumna.referenceLinks[0] && (
-                  <a
-                    href={alumna.referenceLinks[0].url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[11px] font-semibold text-stone-500 hover:text-[#064b36] flex items-center gap-1"
-                  >
-                    <span>Profile</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                )}
+                <div className="flex items-center gap-2">
+                  {isDevDraft && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => handleCopyDevEntry(alumna)}
+                        className="p-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700"
+                        title="Copy entry JSON for alumnaeData.ts"
+                      >
+                        {copiedId === alumna.id ? (
+                          <Check className="w-3.5 h-3.5 text-emerald-700" />
+                        ) : (
+                          <Copy className="w-3.5 h-3.5" />
+                        )}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteDevAlumna(alumna.id)}
+                        className="p-1.5 rounded-md bg-rose-50 hover:bg-rose-100 text-rose-700"
+                        title="Remove draft alumna"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </>
+                  )}
+                  {alumna.referenceLinks[0] && (
+                    <a
+                      href={alumna.referenceLinks[0].url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] font-semibold text-stone-500 hover:text-[#064b36] flex items-center gap-1"
+                    >
+                      <span>Profile</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
+
+        {/* DEV-ONLY Section: Add More Alumnae (Hidden in Live / Production Build) */}
+        {import.meta.env.DEV && (
+          <div className="mt-12 p-6 sm:p-8 rounded-2xl border-2 border-dashed border-amber-400 bg-amber-50/70 text-left shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="space-y-1.5">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-amber-200/80 text-amber-950 text-[11px] font-bold uppercase tracking-wider">
+                  <EyeOff className="w-3.5 h-3.5" />
+                  <span>Dev Only · Not Visible on Live Site</span>
+                </div>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#064b36]">
+                  Add More Distinguished Alumnae (Draft Workspace)
+                </h3>
+                <p className="text-xs text-stone-700 max-w-2xl leading-relaxed">
+                  Use this private development section to draft and preview new alumnae profiles locally ({devAlumnae.length} draft{devAlumnae.length === 1 ? '' : 's'} saved). This entire panel and any local drafts are automatically stripped out when built for live production.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsAddDevModalOpen(true)}
+                className="px-5 py-3 rounded-xl bg-[#064b36] hover:bg-[#042f28] text-white font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 active:scale-95 flex items-center gap-2"
+              >
+                <Plus className="w-4 h-4 text-amber-300" />
+                <span>Add More Alumnae</span>
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Alumnae Impact Metrics Bar */}
         <div className="mt-16 p-8 rounded-2xl bg-[#042f28] text-white border-2 border-amber-300/40 shadow-xl">
@@ -488,6 +709,263 @@ export function AlumnaeSection() {
                 </button>
               </form>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* DEV-ONLY Modal: Add More Alumnae (Stripped from Live / Production Build) */}
+      {import.meta.env.DEV && isAddDevModalOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+          onClick={resetAddDevForm}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl text-left border-2 border-amber-400 relative max-h-[92vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={resetAddDevForm}
+              className="absolute top-5 right-5 text-stone-400 hover:text-stone-700 p-1 rounded-lg"
+              aria-label="Close add alumna modal"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-amber-100 text-amber-900 text-[11px] font-bold uppercase tracking-wider mb-2">
+              <EyeOff className="w-3.5 h-3.5" />
+              <span>Dev-Only Draft Form · Hidden Live</span>
+            </div>
+
+            <h3 className="font-serif text-2xl font-bold text-[#064b36] mb-1">
+              Add Distinguished Alumna Profile
+            </h3>
+            <p className="text-xs text-stone-600 mb-6">
+              Preview how a new alumna card looks in the directory. Copy its JSON afterward to save permanently into data when ready to publish.
+            </p>
+
+            <form onSubmit={handleAddDevAlumna} className="space-y-4 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={newName}
+                    onChange={(e) => setNewName(e.target.value)}
+                    placeholder="e.g. Dr. Noor Jehan"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">
+                    Category *
+                  </label>
+                  <select
+                    value={newCategory}
+                    onChange={(e) => setNewCategory(e.target.value as AlumnaProfile['category'])}
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36] bg-white"
+                  >
+                    <option value="Public Service & Media">Public Service &amp; Media</option>
+                    <option value="Law Enforcement & Administration">Law Enforcement &amp; Administration</option>
+                    <option value="Academia & Literature">Academia &amp; Literature</option>
+                    <option value="Poetry & Human Rights">Poetry &amp; Human Rights</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">
+                    Degree / Stream at College
+                  </label>
+                  <input
+                    type="text"
+                    value={newStream}
+                    onChange={(e) => setNewStream(e.target.value)}
+                    placeholder="e.g. B.Sc · Zubaida Girls College"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">
+                    Documented Attendance Note
+                  </label>
+                  <input
+                    type="text"
+                    value={newAttendance}
+                    onChange={(e) => setNewAttendance(e.target.value)}
+                    placeholder="e.g. Completed B.Sc from Zubaida College"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">
+                    Primary Profession / Role *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={newRole}
+                    onChange={(e) => setNewRole(e.target.value)}
+                    placeholder="e.g. Professor & Vice Chancellor"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">
+                    Organization / Institution
+                  </label>
+                  <input
+                    type="text"
+                    value={newOrganization}
+                    onChange={(e) => setNewOrganization(e.target.value)}
+                    placeholder="e.g. University of Sindh"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">
+                    Achievement Badge
+                  </label>
+                  <input
+                    type="text"
+                    value={newBadge}
+                    onChange={(e) => setNewBadge(e.target.value)}
+                    placeholder="e.g. Pride of Performance"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">
+                    Alumnae Association Role (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    value={newAssociationRole}
+                    onChange={(e) => setNewAssociationRole(e.target.value)}
+                    placeholder="e.g. Member, Executive Committee"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block font-bold text-stone-700 mb-1">
+                  Portrait Photo (Upload File or Paste Path/URL)
+                </label>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <input
+                    type="text"
+                    value={newPhoto}
+                    onChange={(e) => setNewPhoto(e.target.value)}
+                    placeholder="/assets/alumnae/photo.jpg"
+                    className="flex-1 px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                  />
+                  <label className="px-4 py-2.5 rounded-lg bg-stone-100 hover:bg-stone-200 border border-stone-300 text-stone-800 font-semibold cursor-pointer inline-flex items-center justify-center gap-1.5 shrink-0">
+                    <Upload className="w-3.5 h-3.5" />
+                    <span>Upload Image</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleDevPhotoUpload}
+                      className="hidden"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label className="block font-bold text-stone-700 mb-1">
+                  Key Highlights (one per line)
+                </label>
+                <textarea
+                  rows={2}
+                  value={newRolesText}
+                  onChange={(e) => setNewRolesText(e.target.value)}
+                  placeholder="Educationist & scholar&#10;Published researcher"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                />
+              </div>
+
+              <div>
+                <label className="block font-bold text-stone-700 mb-1">
+                  Biography &amp; Achievements
+                </label>
+                <textarea
+                  rows={3}
+                  value={newStory}
+                  onChange={(e) => setNewStory(e.target.value)}
+                  placeholder="Short documented story and achievements..."
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">
+                    Legacy Note (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    value={newLegacyNote}
+                    onChange={(e) => setNewLegacyNote(e.target.value)}
+                    placeholder="National recognition or legacy summary..."
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                  />
+                </div>
+                <div>
+                  <label className="block font-bold text-stone-700 mb-1">
+                    Reference Link (Optional)
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={newRefLabel}
+                      onChange={(e) => setNewRefLabel(e.target.value)}
+                      placeholder="Label"
+                      className="w-28 px-2.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                    />
+                    <input
+                      type="url"
+                      value={newRefUrl}
+                      onChange={(e) => setNewRefUrl(e.target.value)}
+                      placeholder="https://..."
+                      className="flex-1 px-3 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={resetAddDevForm}
+                  className="px-4 py-2.5 rounded-lg border border-stone-300 text-stone-700 font-semibold hover:bg-stone-100"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 rounded-lg bg-[#064b36] hover:bg-[#042f28] text-white font-bold shadow flex items-center gap-1.5"
+                >
+                  <Plus className="w-4 h-4 text-amber-300" />
+                  <span>Add Draft Alumna</span>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}

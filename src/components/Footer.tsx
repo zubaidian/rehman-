@@ -223,6 +223,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#digital-library" className="hover:text-amber-300 transition-colors">
+                  Digital Library &amp; Syllabus
+                </a>
+              </li>
+              <li>
                 <a href="#board-results" className="hover:text-amber-300 transition-colors">
                   2026 Board Honors
                 </a>

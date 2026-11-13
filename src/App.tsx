@@ -10,6 +10,7 @@ import { PrincipalSection } from './components/PrincipalSection';
 import { AcademicsSection } from './components/AcademicsSection';
 import { DepartmentsSection } from './components/DepartmentsSection';
 import { VirtualCampusTour } from './components/VirtualCampusTour';
+import { DigitalLibrarySection } from './components/DigitalLibrarySection';
 import { AlumnaeSection } from './components/AlumnaeSection';
 import { AdmissionsSection } from './components/AdmissionsSection';
 import { GallerySection } from './components/GallerySection';
@@ -61,6 +62,9 @@ export default function App() {
 
         {/* Interactive Virtual Campus Tour */}
         <VirtualCampusTour />
+
+        {/* Digital Library: Syllabus Book Photos & Internet Links */}
+        <DigitalLibrarySection />
 
         {/* Alumnae Success Stories */}
         <AlumnaeSection />
