@@ -238,6 +238,11 @@ export function Footer({ onOpenAdmin }: FooterProps) {
                 </a>
               </li>
               <li>
+                <a href="#student-achievements" className="hover:text-amber-300 transition-colors">
+                  Student Achievements
+                </a>
+              </li>
+              <li>
                 <a href="#alumnae" className="hover:text-amber-300 transition-colors">
                   Alumnae Success Stories
                 </a>

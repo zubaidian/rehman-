@@ -152,6 +152,85 @@
         }
       },
       "required": ["email", "role", "createdAt"]
+    },
+    "StudentAchievement": {
+      "title": "StudentAchievement",
+      "description": "Public student achievement record added by a verified college administrator.",
+      "type": "object",
+      "properties": {
+        "studentName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "Name of the achieving student."
+        },
+        "program": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "Class, department, or academic stream."
+        },
+        "achievementTitle": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "description": "Position, award, or distinction earned."
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "Board & Academic",
+            "Co-Curricular & Religious",
+            "Science & Computing",
+            "Sports & Leadership"
+          ],
+          "description": "Achievement category."
+        },
+        "dateLabel": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60,
+          "description": "Examination year or competition date."
+        },
+        "metric": {
+          "type": "string",
+          "maxLength": 80,
+          "description": "Marks, rank, or brief highlight metric."
+        },
+        "details": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1500,
+          "description": "Full description of the student achievement."
+        },
+        "published": {
+          "type": "boolean",
+          "description": "Whether the achievement is visible publicly on the college portal."
+        },
+        "createdBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Admin UID who created the record."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when created."
+        }
+      },
+      "required": [
+        "studentName",
+        "program",
+        "achievementTitle",
+        "category",
+        "dateLabel",
+        "metric",
+        "details",
+        "published",
+        "createdBy",
+        "createdAt"
+      ]
     }
   },
   "firestore": {
@@ -170,6 +249,10 @@
     "/admins/{adminId}": {
       "schema": { "$ref": "#/entities/AdminUser" },
       "description": "Admin role lookup documents restricted to existing administrators."
+    },
+    "/student_achievements/{achievementId}": {
+      "schema": { "$ref": "#/entities/StudentAchievement" },
+      "description": "Published student achievements readable by visitors and manageable by verified college administrators."
     }
   }
 }

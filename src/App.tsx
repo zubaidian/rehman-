@@ -3,6 +3,7 @@ import { TopUtilityBar } from './components/TopUtilityBar';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { BoardHonorsSection } from './components/BoardHonorsSection';
+import { StudentAchievementsSection } from './components/StudentAchievementsSection';
 import { NoticesSection } from './components/NoticesSection';
 import { FacebookEventsTracker } from './components/FacebookEventsTracker';
 import { AboutAndHistory } from './components/AboutAndHistory';
@@ -45,6 +46,9 @@ export default function App() {
 
         {/* Board Examination Honors & Top Positions Spotlight */}
         <BoardHonorsSection />
+
+        {/* Student Achievements & Roll of Honor (Featured + Admin Firestore Additions) */}
+        <StudentAchievementsSection />
 
         {/* Official News & Announcements Board */}
         <NoticesSection />

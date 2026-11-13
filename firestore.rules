@@ -88,6 +88,32 @@ service cloud.firestore {
         && data.createdAt is timestamp;
     }
 
+    function isValidStudentAchievement(data) {
+      return data.keys().hasAll([
+          'studentName', 'program', 'achievementTitle', 'category',
+          'dateLabel', 'metric', 'details', 'published', 'createdBy', 'createdAt'
+        ])
+        && data.keys().hasOnly([
+          'studentName', 'program', 'achievementTitle', 'category',
+          'dateLabel', 'metric', 'details', 'published', 'createdBy', 'createdAt'
+        ])
+        && data.studentName is string && data.studentName.size() >= 1 && data.studentName.size() <= 120
+        && data.program is string && data.program.size() >= 1 && data.program.size() <= 120
+        && data.achievementTitle is string && data.achievementTitle.size() >= 1 && data.achievementTitle.size() <= 160
+        && data.category in [
+          'Board & Academic',
+          'Co-Curricular & Religious',
+          'Science & Computing',
+          'Sports & Leadership'
+        ]
+        && data.dateLabel is string && data.dateLabel.size() >= 1 && data.dateLabel.size() <= 60
+        && data.metric is string && data.metric.size() <= 80
+        && data.details is string && data.details.size() >= 1 && data.details.size() <= 1500
+        && data.published is bool
+        && data.createdBy is string && data.createdBy.size() >= 1 && data.createdBy.size() <= 128
+        && data.createdAt is timestamp;
+    }
+
     // 4. Collection rules
     match /inquiries/{inquiryId} {
       // Only verified admins can view or list inquiries (zero PII leakage)
@@ -163,6 +189,31 @@ service cloud.firestore {
         && incoming().diff(existing()).affectedKeys().hasOnly(['email', 'role'])
         && incoming().createdAt == existing().createdAt;
       allow delete: if isValidId(adminId) && isVerifiedAdminEmail();
+    }
+
+    match /student_achievements/{achievementId} {
+      // Public visitors can read published non-PII achievements; admins can read all
+      allow get: if isValidId(achievementId) && (existing().published == true || isAdmin());
+      allow list: if resource.data.published == true || isAdmin();
+
+      // Only verified college administrators can create, update, or delete student achievements
+      allow create: if isValidId(achievementId)
+        && isAdmin()
+        && isValidStudentAchievement(incoming())
+        && incoming().createdBy == request.auth.uid
+        && incoming().createdAt == request.time;
+
+      allow update: if isValidId(achievementId)
+        && isAdmin()
+        && isValidStudentAchievement(incoming())
+        && incoming().diff(existing()).affectedKeys().hasOnly([
+          'studentName', 'program', 'achievementTitle', 'category',
+          'dateLabel', 'metric', 'details', 'published'
+        ])
+        && incoming().createdBy == existing().createdBy
+        && incoming().createdAt == existing().createdAt;
+
+      allow delete: if isValidId(achievementId) && isAdmin();
     }
   }
 }

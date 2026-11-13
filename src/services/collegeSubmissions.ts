@@ -9,8 +9,10 @@ import {
   serverTimestamp,
   Timestamp,
   updateDoc,
+  where,
 } from 'firebase/firestore';
-import { db, handleFirestoreError, OperationType } from '../firebase';
+import { auth, db, handleFirestoreError, OperationType } from '../firebase';
+import type { AchievementCategory } from '../data/studentAchievementsData';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -41,6 +43,20 @@ export interface AlumnaRegistrationRecord {
   profession: string;
   message: string;
   status: 'pending' | 'verified';
+  createdAt: Timestamp | null;
+}
+
+export interface StudentAchievementRecord {
+  id: string;
+  studentName: string;
+  program: string;
+  achievementTitle: string;
+  category: AchievementCategory;
+  dateLabel: string;
+  metric: string;
+  details: string;
+  published: boolean;
+  createdBy: string;
   createdAt: Timestamp | null;
 }
 
@@ -273,6 +289,91 @@ export async function deleteAlumnaRegistration(id: string): Promise<void> {
   const path = `alumnae_registrations/${id}`;
   try {
     await deleteDoc(doc(db, 'alumnae_registrations', id));
+  } catch (error) {
+    handleFirestoreError(error, OperationType.DELETE, path);
+  }
+}
+
+export function subscribePublishedStudentAchievements(
+  onData: (items: StudentAchievementRecord[]) => void,
+  onError: (err: Error) => void
+) {
+  const path = 'student_achievements';
+  const q = query(collection(db, path), where('published', '==', true));
+  return onSnapshot(
+    q,
+    (snapshot) => {
+      const records = snapshot.docs
+        .map((d) => ({
+          id: d.id,
+          ...(d.data() as Omit<StudentAchievementRecord, 'id'>),
+        }))
+        .sort((a, b) => {
+          const aTime = a.createdAt ? a.createdAt.toMillis() : 0;
+          const bTime = b.createdAt ? b.createdAt.toMillis() : 0;
+          return bTime - aTime;
+        });
+      onData(records);
+    },
+    (error) => {
+      try {
+        handleFirestoreError(error, OperationType.LIST, path);
+      } catch (err) {
+        onError(err instanceof Error ? err : new Error(String(err)));
+      }
+    }
+  );
+}
+
+export async function createStudentAchievement(input: {
+  studentName: string;
+  program: string;
+  achievementTitle: string;
+  category: AchievementCategory;
+  dateLabel: string;
+  metric?: string;
+  details: string;
+}): Promise<string> {
+  const uid = auth.currentUser?.uid;
+  if (!uid) {
+    throw new Error('Administrator sign-in required to add a student achievement.');
+  }
+
+  const studentName = sanitizeText(input.studentName, 120);
+  const program = sanitizeText(input.program, 120);
+  const achievementTitle = sanitizeText(input.achievementTitle, 160);
+  const dateLabel = sanitizeText(input.dateLabel, 60);
+  const metric = sanitizeText(input.metric || '', 80);
+  const details = sanitizeText(input.details, 1500);
+
+  if (!studentName || !program || !achievementTitle || !dateLabel || !details) {
+    throw new Error('Please fill in all required student achievement fields.');
+  }
+
+  const path = 'student_achievements';
+  try {
+    const docRef = await addDoc(collection(db, path), {
+      studentName,
+      program,
+      achievementTitle,
+      category: input.category,
+      dateLabel,
+      metric,
+      details,
+      published: true,
+      createdBy: uid,
+      createdAt: serverTimestamp(),
+    });
+    return docRef.id;
+  } catch (error) {
+    handleFirestoreError(error, OperationType.CREATE, path);
+  }
+}
+
+export async function deleteStudentAchievement(id: string): Promise<void> {
+  const path = `student_achievements/${id}`;
+  try {
+    await deleteDoc(doc(db, 'student_achievements', id));
   } catch (error) {
     handleFirestoreError(error, OperationType.DELETE, path);
   }

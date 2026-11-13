@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { COLLEGE_INFO } from '../data/collegeData';
-import { Menu, X, GraduationCap, ChevronRight, Phone } from 'lucide-react';
+import { Menu, X, ChevronRight, Phone } from 'lucide-react';
 
 interface NavbarProps {
   onOpenEnquiry: () => void;
@@ -28,6 +28,7 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
     { label: 'Campus Tour', href: '#campus-tour' },
     { label: 'Digital Library', href: '#digital-library' },
     { label: 'Board Honors', href: '#board-results' },
+    { label: 'Student Achievements', href: '#student-achievements' },
     { label: 'Distinguished Alumnae', href: '#alumnae' },
     { label: 'Facebook Live', href: '#facebook-updates' },
     { label: 'Admissions & SECCAP', href: '#admissions' },
@@ -47,33 +48,31 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#064b36] shadow-lg shadow-black/20 border-b border-amber-400/30 py-2.5'
-          : 'bg-[#064b36] border-b border-emerald-800/80 py-3.5'
+          ? 'bg-[#064b36] shadow-lg shadow-black/20 border-b border-amber-400/30 py-2'
+          : 'bg-[#064b36] border-b border-emerald-800/80 py-2.5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between gap-4">
-          {/* Brand Zone */}
+          {/* Brand Logo in Left Corner */}
           <a
             href="#home"
-            className="flex items-center gap-3.5 text-left group shrink-0"
+            className="flex items-center text-left group shrink-0"
             aria-label="Government Girls Zubaida College"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick('#home');
             }}
           >
-            <div className="relative">
-              <img
-                src={COLLEGE_INFO.images.logo}
-                alt="Govt Girls Zubaida College Emblem"
-                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-amber-300/80 shadow-md object-contain bg-white p-0.5 group-hover:scale-105 transition-transform"
-              />
-            </div>
+            <img
+              src={COLLEGE_INFO.images.logo}
+              alt="Govt Girls Zubaida College Emblem"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-amber-300/80 shadow-md object-contain bg-white p-0.5 group-hover:scale-105 transition-transform"
+            />
           </a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-3.5 2xl:gap-4.5 text-xs 2xl:text-sm font-medium text-emerald-100">
+          {/* Menu Bar Inline Next to Logo (wraps cleanly so all 14 links stay visible) */}
+          <nav className="hidden lg:flex flex-1 min-w-0 flex-wrap items-center justify-center gap-x-3.5 xl:gap-x-4 gap-y-1 text-xs font-medium text-emerald-100">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -82,44 +81,15 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="whitespace-nowrap hover:text-amber-300 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-amber-300 hover:after:w-full after:transition-all"
+                className="whitespace-nowrap hover:text-amber-300 transition-colors py-0.5 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-amber-300 hover:after:w-full after:transition-all"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Action Zone */}
-          <div className="hidden sm:flex items-center gap-2.5 shrink-0">
-            <a
-              href={`tel:${COLLEGE_INFO.phoneRaw}`}
-              className="px-3 py-2 text-xs font-semibold text-amber-300 hover:text-white bg-[#032922] hover:bg-[#021f19] border border-amber-400/40 transition-all rounded-md whitespace-nowrap flex items-center gap-1.5"
-              title="Call College Office"
-            >
-              <Phone className="w-3.5 h-3.5 text-amber-400" />
-              <span>{COLLEGE_INFO.phone}</span>
-            </a>
-            <button
-              onClick={onOpenEnquiry}
-              className="px-3.5 py-2 text-xs font-semibold text-emerald-950 bg-amber-300 hover:bg-amber-200 active:scale-95 transition-all rounded-md shadow-sm whitespace-nowrap flex items-center gap-1.5"
-            >
-              <GraduationCap className="w-3.5 h-3.5 text-emerald-900" />
-              <span>Send Enquiry</span>
-            </button>
-            <a
-              href="#admissions"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('#admissions');
-              }}
-              className="px-3 py-2 text-xs font-semibold text-white bg-[#03241e] hover:bg-[#021c17] border border-amber-400/40 transition-all rounded-md whitespace-nowrap"
-            >
-              SECCAP Guide
-            </a>
-          </div>
-
           {/* Mobile Menu Button */}
-          <div className="flex xl:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <a
               href={`tel:${COLLEGE_INFO.phoneRaw}`}
               className="sm:hidden p-2 rounded-md bg-[#03241e] text-amber-300 border border-amber-400/40"
@@ -146,7 +116,7 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="xl:hidden mt-3 pt-3 border-t border-emerald-800 bg-[#053d2c] rounded-lg p-4 shadow-xl">
+          <div className="lg:hidden mt-3 pt-3 border-t border-emerald-800 bg-[#053d2c] rounded-lg p-4 shadow-xl max-h-[75vh] overflow-y-auto">
             {/* Quick Call Row on Mobile */}
             <div className="mb-3 pb-3 border-b border-emerald-800 flex items-center justify-between px-1">
               <div>
