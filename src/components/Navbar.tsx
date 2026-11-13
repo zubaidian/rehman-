@@ -26,6 +26,8 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
     { label: 'Academics', href: '#academics' },
     { label: 'Departments', href: '#departments' },
     { label: 'Campus Tour', href: '#campus-tour' },
+    { label: 'College Library', href: '#college-library' },
+    { label: 'College Labs', href: '#college-labs' },
     { label: 'Digital Library', href: '#digital-library' },
     { label: 'Board Honors', href: '#board-results' },
     { label: 'Student Achievements', href: '#student-achievements' },
@@ -71,8 +73,8 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
             />
           </a>
 
-          {/* Menu Bar Inline Next to Logo (wraps cleanly so all 14 links stay visible) */}
-          <nav className="hidden lg:flex flex-1 min-w-0 flex-wrap items-center justify-center gap-x-3.5 xl:gap-x-4 gap-y-1 text-xs font-medium text-emerald-100">
+          {/* Menu Bar Inline Next to Logo (wraps cleanly so all links stay visible) */}
+          <nav className="hidden lg:flex flex-1 min-w-0 flex-wrap items-center justify-center gap-x-3.5 xl:gap-x-4 gap-y-1 text-[13px] font-medium text-emerald-100">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -145,7 +147,7 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className="px-3 py-2 text-sm font-medium text-emerald-50 hover:bg-emerald-800/60 hover:text-amber-300 rounded flex items-center justify-between"
+                  className="px-3 py-2 text-[15px] font-medium text-emerald-50 hover:bg-emerald-800/60 hover:text-amber-300 rounded flex items-center justify-between"
                 >
                   <span>{link.label}</span>
                   <ChevronRight className="w-4 h-4 text-emerald-400" />

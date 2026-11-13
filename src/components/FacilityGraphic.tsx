@@ -1,5 +1,5 @@
 import { FacilityHotspot, TourFacility } from '../data/campusTourData';
-import { BookOpen, Monitor, FlaskConical, Mic, Dumbbell, Compass, Info } from 'lucide-react';
+import { BookOpen, Monitor, FlaskConical, Mic, Dumbbell, Compass, Info, Presentation, Building2, Landmark } from 'lucide-react';
 
 interface FacilityGraphicProps {
   facility: TourFacility;
@@ -153,17 +153,62 @@ export function FacilityGraphic({
             <circle cx="400" cy="290" r="50" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.5" />
           </svg>
         )}
+        {facility.svgType === 'multimedia-room' && (
+          <svg className="w-full h-full" viewBox="0 0 800 500" fill="none" preserveAspectRatio="none">
+            <rect width="800" height="500" fill="#03241d" />
+            {/* Wide projection screen */}
+            <rect x="160" y="60" width="480" height="220" rx="10" fill="#064032" stroke="#f2d77a" strokeWidth="2.5" strokeOpacity="0.65" />
+            <rect x="185" y="82" width="430" height="176" rx="4" fill="#042f28" stroke="#34d399" strokeWidth="1.5" strokeOpacity="0.4" />
+            {/* Sound wave / presentation bars */}
+            <line x1="250" y1="340" x2="550" y2="340" stroke="#d4af37" strokeWidth="2" strokeOpacity="0.45" />
+            <line x1="200" y1="390" x2="600" y2="390" stroke="#34d399" strokeWidth="2" strokeOpacity="0.35" />
+            <line x1="150" y1="440" x2="650" y2="440" stroke="#34d399" strokeWidth="2" strokeOpacity="0.25" />
+          </svg>
+        )}
+        {facility.svgType === 'academic-wing' && (
+          <svg className="w-full h-full" viewBox="0 0 800 500" fill="none" preserveAspectRatio="none">
+            <rect width="800" height="500" fill="#03261f" />
+            {/* Architectural wing arches and departmental bays */}
+            <rect x="70" y="110" width="660" height="310" rx="8" fill="#05382d" stroke="#d4af37" strokeWidth="2" strokeOpacity="0.45" />
+            {[120, 290, 460, 630].map((x) => (
+              <path
+                key={x}
+                d={`M${x} 420 L${x} 210 Q${x + 60} 150 ${x + 120} 210 L${x + 120} 420`}
+                stroke="#f2d77a"
+                strokeWidth="1.5"
+                strokeOpacity="0.4"
+                fill="#064b36"
+                fillOpacity="0.45"
+              />
+            ))}
+            <line x1="70" y1="420" x2="730" y2="420" stroke="#34d399" strokeWidth="2" strokeOpacity="0.45" />
+          </svg>
+        )}
+        {facility.svgType === 'principal-office' && (
+          <svg className="w-full h-full" viewBox="0 0 800 500" fill="none" preserveAspectRatio="none">
+            <rect width="800" height="500" fill="#03241c" />
+            {/* Executive wood-paneled backdrop and framed heritage arch */}
+            <rect x="110" y="60" width="580" height="360" rx="10" fill="#05382c" stroke="#d4af37" strokeWidth="2" strokeOpacity="0.5" />
+            <path d="M290 280 L290 145 Q400 85 510 145 L510 280 Z" fill="#064b36" stroke="#f2d77a" strokeWidth="2" strokeOpacity="0.55" />
+            {/* Executive desk silhouette */}
+            <rect x="220" y="310" width="360" height="80" rx="6" fill="#064032" stroke="#f2d77a" strokeWidth="2" strokeOpacity="0.6" />
+            <line x1="110" y1="420" x2="690" y2="420" stroke="#34d399" strokeWidth="2" strokeOpacity="0.4" />
+          </svg>
+        )}
       </div>
 
       {/* Central Visual Icon & Crest Seal */}
       <div className="relative z-10 text-center space-y-3 p-6 max-w-md">
         <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-2xl bg-[#064b36]/90 border-2 border-amber-300 flex items-center justify-center shadow-xl">
+          {facility.svgType === 'principal-office' && <Landmark className="w-10 h-10 text-amber-300" />}
           {facility.svgType === 'library' && <BookOpen className="w-10 h-10 text-amber-300" />}
           {facility.svgType === 'computer-lab' && <Monitor className="w-10 h-10 text-amber-300" />}
           {facility.svgType === 'science-lab' && <FlaskConical className="w-10 h-10 text-amber-300" />}
           {facility.svgType === 'auditorium' && <Mic className="w-10 h-10 text-amber-300" />}
           {facility.svgType === 'sports' && <Dumbbell className="w-10 h-10 text-amber-300" />}
           {facility.svgType === 'courtyard' && <Compass className="w-10 h-10 text-amber-300" />}
+          {facility.svgType === 'multimedia-room' && <Presentation className="w-10 h-10 text-amber-300" />}
+          {facility.svgType === 'academic-wing' && <Building2 className="w-10 h-10 text-amber-300" />}
         </div>
 
         <div>

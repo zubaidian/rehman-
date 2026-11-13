@@ -228,6 +228,16 @@ export function Footer({ onOpenAdmin }: FooterProps) {
                 </a>
               </li>
               <li>
+                <a href="#college-library" className="hover:text-amber-300 transition-colors">
+                  College Library
+                </a>
+              </li>
+              <li>
+                <a href="#college-labs" className="hover:text-amber-300 transition-colors">
+                  College Labs
+                </a>
+              </li>
+              <li>
                 <a href="#digital-library" className="hover:text-amber-300 transition-colors">
                   Digital Library &amp; Syllabus
                 </a>

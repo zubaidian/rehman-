@@ -95,9 +95,35 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
 
     const reader = new FileReader();
     reader.onload = () => {
-      if (typeof reader.result === 'string') {
-        setNewPhotoUrl(reader.result);
-      }
+      if (typeof reader.result !== 'string') return;
+      const originalDataUrl = reader.result;
+      const img = new Image();
+      img.onload = () => {
+        const MAX_DIM = 1000;
+        let { width, height } = img;
+        if (width > MAX_DIM || height > MAX_DIM) {
+          if (width >= height) {
+            height = Math.round((height * MAX_DIM) / width);
+            width = MAX_DIM;
+          } else {
+            width = Math.round((width * MAX_DIM) / height);
+            height = MAX_DIM;
+          }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          setNewPhotoUrl(originalDataUrl);
+          return;
+        }
+        ctx.drawImage(img, 0, 0, width, height);
+        const compressed = canvas.toDataURL('image/jpeg', 0.78);
+        setNewPhotoUrl(compressed.length < originalDataUrl.length ? compressed : originalDataUrl);
+      };
+      img.onerror = () => setNewPhotoUrl(originalDataUrl);
+      img.src = originalDataUrl;
     };
     reader.readAsDataURL(file);
   };

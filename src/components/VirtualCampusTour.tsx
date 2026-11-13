@@ -19,6 +19,36 @@ export function VirtualCampusTour() {
 
   const currentFacility: TourFacility = CAMPUS_TOUR_STOPS[currentIndex];
 
+  // Sync with menu shortcuts like #central-library
+  useEffect(() => {
+    const selectStopById = (stopId: string) => {
+      const idx = CAMPUS_TOUR_STOPS.findIndex((s) => s.id === stopId);
+      if (idx !== -1) {
+        setCurrentIndex(idx);
+        setActiveHotspot(null);
+      }
+    };
+
+    const handleCustomSelect = (e: Event) => {
+      const detail = (e as CustomEvent<string>).detail;
+      if (detail) selectStopById(detail);
+    };
+
+    const handleHash = () => {
+      if (window.location.hash === '#central-library') {
+        selectStopById('central-library');
+      }
+    };
+
+    handleHash();
+    window.addEventListener('campus-tour:select-stop', handleCustomSelect);
+    window.addEventListener('hashchange', handleHash);
+    return () => {
+      window.removeEventListener('campus-tour:select-stop', handleCustomSelect);
+      window.removeEventListener('hashchange', handleHash);
+    };
+  }, []);
+
   // Auto-tour timer
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -59,12 +89,12 @@ export function VirtualCampusTour() {
             Virtual Campus Tour
           </h2>
           <p className="text-stone-300 text-base sm:text-lg">
-            Take a digital walkthrough of Government Girls Zubaida College&rsquo;s historic gateway, central library, high-tech IT labs, science facilities, and auditorium.
+            Take a digital walkthrough of Government Girls Zubaida College&rsquo;s historic gateway, Central Library, Principal&rsquo;s Office, natural science labs, auditorium, Academic Wings 1–4, IT labs, multimedia room, and sports lawn.
           </p>
         </div>
 
         {/* Facility Selector Strip */}
-        <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+        <div className="flex flex-wrap items-center justify-center gap-2 pb-2 mb-8">
           {CAMPUS_TOUR_STOPS.map((stop, idx) => {
             const isActive = idx === currentIndex;
             return (
@@ -84,7 +114,7 @@ export function VirtualCampusTour() {
                 >
                   {stop.stopNumber}
                 </span>
-                <span>{stop.name.split('&')[0].trim()}</span>
+                <span>{stop.shortName || stop.name.split('&')[0].trim()}</span>
               </button>
             );
           })}
@@ -96,7 +126,7 @@ export function VirtualCampusTour() {
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-emerald-800/80 pb-5">
             <div className="flex items-center gap-3">
               <span className="text-amber-300 text-xs font-bold uppercase tracking-wider">
-                Stop {currentFacility.stopNumber} of 0{CAMPUS_TOUR_STOPS.length}
+                Stop {currentFacility.stopNumber} of {String(CAMPUS_TOUR_STOPS.length).padStart(2, '0')}
               </span>
               <span className="text-xs text-emerald-200 font-medium hidden sm:inline">
                 {currentFacility.category}

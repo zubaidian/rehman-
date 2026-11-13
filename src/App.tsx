@@ -11,6 +11,8 @@ import { PrincipalSection } from './components/PrincipalSection';
 import { AcademicsSection } from './components/AcademicsSection';
 import { DepartmentsSection } from './components/DepartmentsSection';
 import { VirtualCampusTour } from './components/VirtualCampusTour';
+import { CollegeLibrarySection } from './components/CollegeLibrarySection';
+import { CollegeLabsSection } from './components/CollegeLabsSection';
 import { DigitalLibrarySection } from './components/DigitalLibrarySection';
 import { AlumnaeSection } from './components/AlumnaeSection';
 import { AdmissionsSection } from './components/AdmissionsSection';
@@ -70,6 +72,12 @@ export default function App() {
 
         {/* Interactive Virtual Campus Tour */}
         <VirtualCampusTour />
+
+        {/* Central College Library: Photos, Collections & Membership Rules */}
+        <CollegeLibrarySection />
+
+        {/* College Laboratories: Computer Science, Physics, Chemistry, Zoology & Botany */}
+        <CollegeLabsSection />
 
         {/* Digital Library: Syllabus Book Photos & Internet Links */}
         <DigitalLibrarySection />
