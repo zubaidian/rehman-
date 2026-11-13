@@ -201,12 +201,6 @@ export function Hero({ onOpenEnquiry }: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Main Hero Copy */}
           <div className="lg:col-span-8 text-left space-y-6">
-            {/* Kicker badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-950/80 backdrop-blur-md border border-amber-300/50 text-amber-300 text-xs font-semibold tracking-wider uppercase shadow-md">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-              <span>Official College Web Portal · Hyderabad, Sindh</span>
-            </div>
-
             {/* Display Headline - Enhanced with subtle text shadow for high legibility */}
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-white drop-shadow-md">
               Knowledge that empowers.{' '}

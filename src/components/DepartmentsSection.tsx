@@ -1,11 +1,9 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { DEPARTMENTS_DATA, Department, DepartmentPhoto } from '../data/departmentsData';
 import {
-  Building2,
   Search,
   FlaskConical,
   GraduationCap,
-  Award,
   BookOpen,
   ArrowRight,
   CheckCircle2,
@@ -16,8 +14,7 @@ import {
   Plus,
   Image as ImageIcon,
   Trash2,
-  Sparkles,
-  ExternalLink
+  Sparkles
 } from 'lucide-react';
 
 interface DepartmentsSectionProps {
@@ -145,11 +142,6 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-950 text-xs font-bold tracking-wider uppercase">
-            <Building2 className="w-3.5 h-3.5 text-emerald-800" />
-            <span>Academic Faculties &amp; Chairs</span>
-          </div>
-
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#064b36]">
             Academic Departments
           </h2>
@@ -242,14 +234,13 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
                 className="rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border bg-gradient-to-b from-[#064b36] to-[#042f28] text-white border-amber-400/40 hover:border-amber-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
               >
                 <div className="space-y-4">
-                  {/* Faculty badge & Achievement badge */}
+                  {/* Faculty & distinction */}
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-300 text-emerald-950">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-amber-300">
                       {dept.faculty}
                     </span>
                     {dept.badge && (
-                      <span className="flex items-center gap-1 text-[11px] font-bold text-amber-300 bg-[#03241e] px-2 py-0.5 rounded border border-amber-400/30">
-                        <Award className="w-3.5 h-3.5 text-amber-300" />
+                      <span className="text-[11px] font-semibold text-emerald-200">
                         {dept.badge}
                       </span>
                     )}
@@ -276,16 +267,9 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
                     <span className="text-[11px] font-bold uppercase tracking-wider block mb-1 text-amber-200">
                       Academic Streams Served:
                     </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {dept.programsServed.map((prog) => (
-                        <span
-                          key={prog}
-                          className="text-[11px] px-2 py-0.5 rounded border bg-[#03241e] border-emerald-700 text-stone-200"
-                        >
-                          {prog}
-                        </span>
-                      ))}
-                    </div>
+                    <p className="text-xs text-stone-200 leading-relaxed">
+                      {dept.programsServed.join(' · ')}
+                    </p>
                   </div>
 
                   {/* Key Courses Sample */}
@@ -293,21 +277,14 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
                     <span className="text-[11px] font-bold uppercase tracking-wider block mb-1 text-amber-200">
                       Key Curricular Subjects:
                     </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {dept.keyCourses.slice(0, 3).map((course) => (
-                        <span
-                          key={course}
-                          className="text-[11px] px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-700/60 text-emerald-100"
-                        >
-                          {course}
-                        </span>
-                      ))}
+                    <p className="text-xs text-emerald-100 leading-relaxed">
+                      {dept.keyCourses.slice(0, 3).join(' · ')}
                       {dept.keyCourses.length > 3 && (
-                        <span className="text-[11px] px-2 py-0.5 rounded text-amber-300 font-semibold">
-                          +{dept.keyCourses.length - 3} more
+                        <span className="text-amber-300 font-semibold">
+                          {' '}· +{dept.keyCourses.length - 3} more
                         </span>
                       )}
-                    </div>
+                    </p>
                   </div>
                 </div>
 
@@ -419,13 +396,13 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
             {/* Modal Header */}
             <div className="flex items-start justify-between border-b border-stone-200 pb-4">
               <div>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">
                     {selectedDept.faculty}
                   </span>
                   {selectedDept.badge && (
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300">
-                      {selectedDept.badge}
+                    <span className="text-xs font-semibold text-amber-700">
+                      · {selectedDept.badge}
                     </span>
                   )}
                 </div>
@@ -457,8 +434,8 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
                   <h4 className="font-serif font-bold text-base text-amber-300">
                     Department &amp; Laboratory Photos
                   </h4>
-                  <span className="text-xs bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-700 text-stone-200">
-                    {currentDeptPhotos.length} Available
+                  <span className="text-xs text-emerald-200 font-medium">
+                    ({currentDeptPhotos.length} Available)
                   </span>
                 </div>
 
@@ -632,13 +609,6 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
                           </div>
                         ) : null}
 
-                        {/* Category Tag Overlay */}
-                        <div className="absolute top-2 left-2">
-                          <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-amber-300 border border-amber-400/30">
-                            {photo.category}
-                          </span>
-                        </div>
-
                         {/* Delete button for user-uploaded photo */}
                         {isCustom && (
                           <button
@@ -735,16 +705,9 @@ export function DepartmentsSection({ onOpenEnquiry }: DepartmentsSectionProps) {
               <h4 className="font-bold text-xs uppercase tracking-wider text-stone-700 mb-1">
                 Academic Programs &amp; Streams Served:
               </h4>
-              <div className="flex flex-wrap gap-2">
-                {selectedDept.programsServed.map((prog) => (
-                  <span
-                    key={prog}
-                    className="px-3 py-1 bg-amber-50 border border-amber-200 text-amber-900 rounded-md text-xs font-semibold"
-                  >
-                    {prog}
-                  </span>
-                ))}
-              </div>
+              <p className="text-xs font-semibold text-stone-800">
+                {selectedDept.programsServed.join(' · ')}
+              </p>
             </div>
 
             {/* Achievements */}

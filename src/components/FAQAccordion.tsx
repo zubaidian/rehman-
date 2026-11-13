@@ -72,11 +72,6 @@ export function FAQAccordion({ onQuickInquire }: FAQAccordionProps) {
     <div id="faq" className="mt-20 pt-16 border-t border-stone-200">
       {/* Section Header */}
       <div className="max-w-3xl mx-auto text-center space-y-3 mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-[#064b36] text-xs font-bold tracking-wider uppercase">
-          <HelpCircle className="w-3.5 h-3.5 text-emerald-800" />
-          <span>Student &amp; Parent Assistance</span>
-        </div>
-
         <h3 className="font-serif text-3xl sm:text-4xl font-bold text-[#064b36]">
           Frequently Asked Questions
         </h3>

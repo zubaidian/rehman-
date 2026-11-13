@@ -3,8 +3,6 @@ import { COLLEGE_INFO } from '../data/collegeData';
 import {
   ExternalLink,
   MessageCircle,
-  Share2,
-  Users,
   Video,
   Radio,
   CheckCircle2,
@@ -14,7 +12,6 @@ import {
   Settings,
   ThumbsUp,
   Clock,
-  Sparkles,
   Calendar
 } from 'lucide-react';
 
@@ -86,11 +83,6 @@ export function FacebookCommunitySection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Left Column: Community Overview & Action Zone */}
           <div className="lg:col-span-6 space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#064b36] border border-amber-300/40 text-amber-300 text-xs font-bold tracking-wider uppercase">
-              <Users className="w-3.5 h-3.5 text-amber-300" />
-              <span>Official Social Media Channel</span>
-            </div>
-
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
               Connect With Our <span className="italic font-normal text-amber-300">Live Facebook Feed</span>
             </h2>
@@ -322,7 +314,7 @@ export function FacebookCommunitySection() {
                             </span>
                           </div>
                         </div>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800 border border-blue-200">
+                        <span className="text-[11px] font-semibold text-blue-700">
                           {post.badge}
                         </span>
                       </div>

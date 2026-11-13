@@ -1,5 +1,5 @@
 import { COLLEGE_INFO, TIMELINE_EVENTS } from '../data/collegeData';
-import { History, Milestone, Compass, Quote, Play } from 'lucide-react';
+import { Quote, Play } from 'lucide-react';
 
 export function AboutAndHistory() {
   return (
@@ -8,11 +8,6 @@ export function AboutAndHistory() {
         {/* Section Lead */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#042f28] border border-amber-300/40 text-amber-300 text-xs font-bold tracking-wider uppercase">
-              <Compass className="w-3.5 h-3.5 text-amber-300" />
-              <span>About Govt Girls Zubaida College</span>
-            </div>
-
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
               A Future Shaped By <span className="italic font-normal text-amber-300">Possibility.</span>
             </h2>
@@ -86,10 +81,6 @@ export function AboutAndHistory() {
         {/* 7-Decade Timeline */}
         <div id="history" className="mt-20 pt-16 border-t border-emerald-800">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#042f28] border border-amber-300/40 text-amber-300 text-xs font-bold tracking-wider uppercase">
-              <History className="w-3.5 h-3.5" />
-              <span>Historical Milestones</span>
-            </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
               Seven Decades of Empowering Sindh&rsquo;s Daughters
             </h3>
@@ -109,7 +100,7 @@ export function AboutAndHistory() {
                     <span className="font-mono text-xs font-bold text-emerald-400">
                       0{index + 1}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded bg-amber-400/20 text-amber-300 font-bold text-xs tracking-wider">
+                    <span className="text-amber-300 font-bold text-xs tracking-wider">
                       {event.year}
                     </span>
                   </div>

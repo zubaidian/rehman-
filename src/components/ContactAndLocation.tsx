@@ -61,11 +61,6 @@ export function ContactAndLocation({
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-[#064b36] text-xs font-bold tracking-wider uppercase">
-            <MapPin className="w-3.5 h-3.5" />
-            <span>Campus Visit &amp; Inquiry</span>
-          </div>
-
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#064b36]">
             Location &amp; Contact Us
           </h2>
@@ -178,7 +173,7 @@ export function ContactAndLocation({
               <p className="text-xs text-stone-600 mt-1">
                 {subText}
               </p>
-              <span className="inline-block text-[11px] font-mono text-stone-500 mt-2 bg-stone-200/70 px-2 py-0.5 rounded">
+              <span className="inline-block text-[11px] font-mono text-stone-500 mt-2">
                 PKT: {karachiTime}
               </span>
             </div>

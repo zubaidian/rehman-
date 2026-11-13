@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { COLLEGE_INFO } from '../data/collegeData';
-import { ArrowUp, ShieldCheck, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle, Bell } from 'lucide-react';
+import { ArrowUp, ShieldCheck, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export function Footer() {
   // Newsletter Form State
@@ -60,10 +60,6 @@ export function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             {/* Newsletter Copy */}
             <div className="lg:col-span-6 space-y-2 text-left">
-              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-[11px] font-bold uppercase tracking-wider">
-                <Bell className="w-3.5 h-3.5" />
-                <span>Zubaida College Gazette &amp; Bulletins</span>
-              </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                 Subscribe for College News &amp; Upcoming Events
               </h3>
@@ -277,11 +273,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#academics" className="hover:text-amber-300 transition-colors flex items-center gap-1.5 text-amber-200">
-                  <span>General Science (Computer Science)</span>
-                  <span className="text-[10px] bg-amber-400 text-emerald-950 font-bold px-1.5 py-0.2 rounded">
-                    Top Merit
-                  </span>
+                <a href="#academics" className="hover:text-amber-300 transition-colors text-amber-200">
+                  General Science (Computer Science)
                 </a>
               </li>
               <li>
@@ -300,11 +293,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#academics" className="hover:text-amber-300 transition-colors flex items-center gap-1.5 text-amber-200">
-                  <span>AD Commerce (2 Years)</span>
-                  <span className="text-[10px] bg-amber-400 text-emerald-950 font-bold px-1.5 py-0.2 rounded">
-                    New
-                  </span>
+                <a href="#academics" className="hover:text-amber-300 transition-colors text-amber-200">
+                  AD Commerce (2 Years)
                 </a>
               </li>
               <li>

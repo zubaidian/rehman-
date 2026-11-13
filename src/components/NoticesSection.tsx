@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NOTICES, Notice } from '../data/collegeData';
-import { Bell, ArrowUpRight, Calendar, AlertCircle, X, ChevronRight } from 'lucide-react';
+import { Calendar, X, ChevronRight } from 'lucide-react';
 
 export function NoticesSection() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -17,10 +17,6 @@ export function NoticesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold tracking-wider uppercase mb-2">
-              <Bell className="w-3.5 h-3.5 text-amber-700" />
-              <span>Official College Notice Board</span>
-            </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#064b36]">
               News &amp; Official Announcements
             </h2>
@@ -67,12 +63,6 @@ export function NoticesSection() {
                       <Calendar className="w-3 h-3 text-stone-400" />
                       {notice.date}
                     </span>
-                    {notice.urgent && (
-                      <span className="px-2 py-0.5 bg-rose-100 text-rose-800 text-[10px] font-bold rounded flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3" />
-                        Important
-                      </span>
-                    )}
                   </div>
 
                   <h3 className="font-serif font-bold text-base sm:text-lg text-stone-900 group-hover:text-[#064b36] transition-colors">

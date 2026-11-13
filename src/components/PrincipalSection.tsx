@@ -1,5 +1,4 @@
 import { COLLEGE_INFO } from '../data/collegeData';
-import { Award, HeartHandshake, ShieldCheck, Sparkles, Users } from 'lucide-react';
 
 export function PrincipalSection() {
   return (
@@ -39,31 +38,10 @@ export function PrincipalSection() {
                 </span>
               </div>
             </div>
-
-            {/* Quick Badges below photo */}
-            <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs text-stone-300">
-              <span className="px-3 py-1 rounded-full bg-[#063f35] border border-amber-300/30 flex items-center gap-1.5 text-amber-200">
-                <Users className="w-3.5 h-3.5 text-amber-400" /> 2,000 Enrolled Students
-              </span>
-              <span className="px-3 py-1 rounded-full bg-[#063f35] border border-amber-300/30 flex items-center gap-1.5 text-amber-200">
-                <ShieldCheck className="w-3.5 h-3.5 text-amber-300" /> Safe Campus
-              </span>
-              <span className="px-3 py-1 rounded-full bg-[#063f35] border border-amber-300/30 flex items-center gap-1.5 text-amber-200">
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" /> Modern Education
-              </span>
-              <span className="px-3 py-1 rounded-full bg-[#063f35] border border-amber-300/30 flex items-center gap-1.5 text-amber-200">
-                <HeartHandshake className="w-3.5 h-3.5 text-amber-300" /> Islamic Values
-              </span>
-            </div>
           </div>
 
           {/* Principal's Message Column */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#064b36] border border-amber-300/40 text-amber-300 text-xs font-bold tracking-wider uppercase">
-              <Award className="w-3.5 h-3.5 text-amber-300" />
-              <span>Official Leadership Address</span>
-            </div>
-
             <div className="space-y-2">
               <p className="font-serif italic text-base text-amber-200">
                 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ

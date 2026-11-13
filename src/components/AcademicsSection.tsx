@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ACADEMIC_PROGRAMS, AcademicProgram } from '../data/collegeData';
-import { BookOpen, GraduationCap, CheckCircle, ArrowRight, Award } from 'lucide-react';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 
 export function AcademicsSection() {
   const [activeCategory, setActiveCategory] = useState<'all' | 'intermediate' | 'degree' | 'associate'>('all');
@@ -15,11 +15,6 @@ export function AcademicsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-950 text-xs font-bold tracking-wider uppercase">
-            <GraduationCap className="w-3.5 h-3.5 text-emerald-800" />
-            <span>Academic Faculties &amp; Pathways</span>
-          </div>
-
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#064b36]">
             Explore Our Academic Programs
           </h2>
@@ -81,12 +76,11 @@ export function AcademicsSection() {
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-300 text-emerald-950">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-300">
                     {program.department}
                   </span>
                   {program.id === 'computer-science' && (
-                    <span className="flex items-center gap-1 text-[11px] font-bold text-amber-300 bg-[#03241e] px-2 py-0.5 rounded border border-amber-400/30">
-                      <Award className="w-3.5 h-3.5 text-amber-300" />
+                    <span className="text-[11px] font-semibold text-emerald-200">
                       Board 2nd &amp; 4th
                     </span>
                   )}
@@ -107,24 +101,17 @@ export function AcademicsSection() {
 
                 {/* Key Subjects */}
                 <div className="pt-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider block mb-1.5 text-amber-200">
+                  <span className="text-[11px] font-bold uppercase tracking-wider block mb-1 text-amber-200">
                     Core Disciplines:
                   </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {program.subjects.slice(0, 4).map((sub) => (
-                      <span
-                        key={sub}
-                        className="text-[11px] px-2 py-0.5 rounded border bg-[#03241e] border-emerald-700 text-stone-200"
-                      >
-                        {sub}
-                      </span>
-                    ))}
+                  <p className="text-xs text-stone-200 leading-relaxed">
+                    {program.subjects.slice(0, 4).join(' · ')}
                     {program.subjects.length > 4 && (
-                      <span className="text-[11px] px-2 py-0.5 rounded text-amber-300 font-semibold">
-                        +{program.subjects.length - 4} more
+                      <span className="text-amber-300 font-semibold">
+                        {' '}· +{program.subjects.length - 4} more
                       </span>
                     )}
-                  </div>
+                  </p>
                 </div>
               </div>
 
@@ -257,14 +244,15 @@ export function AcademicsSection() {
               <h4 className="font-bold text-xs uppercase tracking-wider text-stone-700 mb-2">
                 Future Academic &amp; Career Pathways:
               </h4>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {selectedProgram.futureProspects.map((path) => (
-                  <span
+                  <div
                     key={path}
-                    className="px-3 py-1 bg-amber-50 border border-amber-200 text-amber-900 rounded-md text-xs font-semibold"
+                    className="flex items-center gap-2 text-xs font-semibold text-stone-800"
                   >
-                    {path}
-                  </span>
+                    <CheckCircle className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <span>{path}</span>
+                  </div>
                 ))}
               </div>
             </div>

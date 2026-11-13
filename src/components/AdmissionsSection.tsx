@@ -1,4 +1,4 @@
-import { ExternalLink, CheckSquare, FileText, Smartphone, HelpCircle, ShieldCheck } from 'lucide-react';
+import { ExternalLink, CheckSquare, FileText, Smartphone } from 'lucide-react';
 import { COLLEGE_INFO } from '../data/collegeData';
 
 export function AdmissionsSection() {
@@ -39,11 +39,6 @@ export function AdmissionsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#064b36] border border-amber-300/40 text-amber-300 text-xs font-bold tracking-wider uppercase">
-            <ShieldCheck className="w-3.5 h-3.5 text-amber-300" />
-            <span>Sindh College Education Department</span>
-          </div>
-
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
             SECCAP Centralized Admissions
           </h2>
@@ -56,7 +51,7 @@ export function AdmissionsSection() {
         <div className="mb-12 p-6 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-300 text-emerald-950 shadow-xl border-2 border-amber-200">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-1 text-center md:text-left">
-              <span className="text-xs font-black uppercase tracking-widest bg-emerald-950 text-amber-300 px-2.5 py-0.5 rounded">
+              <span className="text-xs font-black uppercase tracking-widest text-emerald-900 block">
                 Free Education Initiative
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold">

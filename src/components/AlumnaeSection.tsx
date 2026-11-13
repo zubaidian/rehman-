@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ALUMNAE_PROFILES, ALUMNAE_IMPACT_METRICS, AlumnaProfile } from '../data/alumnaeData';
 import {
-  GraduationCap,
-  Award,
   HeartHandshake,
   ArrowRight,
   X,
@@ -14,8 +12,7 @@ import {
   Trash2,
   Upload,
   Copy,
-  Check,
-  EyeOff
+  Check
 } from 'lucide-react';
 
 const DEV_ALUMNAE_STORAGE_KEY = 'zubaida_dev_custom_alumnae_v1';
@@ -210,11 +207,6 @@ export function AlumnaeSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-[#064b36] text-xs font-bold tracking-wider uppercase">
-            <GraduationCap className="w-3.5 h-3.5 text-emerald-800" />
-            <span>Zubeidian Pride · Documented Legacy</span>
-          </div>
-
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#064b36]">
             Distinguished Alumnae
           </h2>
@@ -262,26 +254,18 @@ export function AlumnaeSection() {
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                   />
-                  {isDevDraft && (
-                    <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                      <span className="px-2.5 py-1 rounded bg-amber-400 text-emerald-950 text-[10px] font-bold uppercase tracking-wider shadow inline-flex items-center gap-1">
-                        <EyeOff className="w-3 h-3" />
-                        <span>Dev Draft · Hidden Live</span>
-                      </span>
-                    </div>
-                  )}
-                  <div className="absolute top-3 right-3">
-                    <span className="px-2.5 py-1 rounded bg-[#064b36]/90 backdrop-blur-sm text-amber-300 border border-amber-300/40 text-[10px] font-bold uppercase tracking-wider shadow">
-                      {alumna.category}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Card Body */}
                 <div className="p-6 space-y-3.5 text-left">
                   <div>
+                    {isDevDraft && (
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 block mb-0.5">
+                        Dev Draft · Hidden Live
+                      </span>
+                    )}
                     <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider block">
-                      {alumna.stream}
+                      {alumna.category} · {alumna.stream}
                     </span>
                     <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#064b36] mt-0.5 leading-snug">
                       {alumna.name}
@@ -311,11 +295,10 @@ export function AlumnaeSection() {
                     ))}
                   </ul>
 
-                  {/* Achievement Badge */}
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-50 border border-amber-200 text-amber-900 text-[11px] font-bold">
-                    <Award className="w-3.5 h-3.5 text-amber-700 shrink-0" />
-                    <span>{alumna.achievementBadge}</span>
-                  </div>
+                  {/* Key Distinction */}
+                  <p className="text-xs font-bold text-amber-800">
+                    {alumna.achievementBadge}
+                  </p>
 
                   {/* Summary Highlight */}
                   <p className="text-xs text-stone-600 leading-relaxed line-clamp-3">
@@ -381,10 +364,9 @@ export function AlumnaeSection() {
           <div className="mt-12 p-6 sm:p-8 rounded-2xl border-2 border-dashed border-amber-400 bg-amber-50/70 text-left shadow-sm">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="space-y-1.5">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-amber-200/80 text-amber-950 text-[11px] font-bold uppercase tracking-wider">
-                  <EyeOff className="w-3.5 h-3.5" />
-                  <span>Dev Only · Not Visible on Live Site</span>
-                </div>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-amber-900">
+                  Dev Only · Not Visible on Live Site
+                </p>
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#064b36]">
                   Add More Distinguished Alumnae (Draft Workspace)
                 </h3>
@@ -499,11 +481,10 @@ export function AlumnaeSection() {
               </button>
             </div>
 
-            {/* Achievement Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-50 border border-amber-300 text-amber-900 text-xs font-bold">
-              <Award className="w-4 h-4 text-amber-700" />
-              <span>{selectedAlumna.achievementBadge}</span>
-            </div>
+            {/* Key Distinction */}
+            <p className="text-xs font-bold text-amber-800">
+              {selectedAlumna.achievementBadge}
+            </p>
 
             {/* Documented Attendance */}
             <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-1">
@@ -732,10 +713,9 @@ export function AlumnaeSection() {
               <X className="w-6 h-6" />
             </button>
 
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-amber-100 text-amber-900 text-[11px] font-bold uppercase tracking-wider mb-2">
-              <EyeOff className="w-3.5 h-3.5" />
-              <span>Dev-Only Draft Form · Hidden Live</span>
-            </div>
+            <p className="text-[11px] font-bold uppercase tracking-wider text-amber-900 mb-1.5">
+              Dev-Only Draft Form · Hidden Live
+            </p>
 
             <h3 className="font-serif text-2xl font-bold text-[#064b36] mb-1">
               Add Distinguished Alumna Profile

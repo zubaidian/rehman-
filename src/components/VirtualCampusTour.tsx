@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { CAMPUS_TOUR_STOPS, FacilityHotspot, TourFacility } from '../data/campusTourData';
 import { FacilityGraphic } from './FacilityGraphic';
 import {
-  Compass,
   ChevronLeft,
   ChevronRight,
   Play,
@@ -56,11 +55,6 @@ export function VirtualCampusTour() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#064b36] border border-amber-300/40 text-amber-300 text-xs font-bold tracking-wider uppercase">
-            <Compass className="w-3.5 h-3.5 text-amber-300" />
-            <span>Interactive Campus Exploration</span>
-          </div>
-
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
             Virtual Campus Tour
           </h2>
@@ -101,7 +95,7 @@ export function VirtualCampusTour() {
           {/* Tour Controls Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-emerald-800/80 pb-5">
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1 rounded-md bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold uppercase tracking-wider">
+              <span className="text-amber-300 text-xs font-bold uppercase tracking-wider">
                 Stop {currentFacility.stopNumber} of 0{CAMPUS_TOUR_STOPS.length}
               </span>
               <span className="text-xs text-emerald-200 font-medium hidden sm:inline">

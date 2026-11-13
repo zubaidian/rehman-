@@ -175,11 +175,6 @@ export function FacilityGraphic({
           </h3>
           <p className="text-xs text-emerald-200 mt-1">{facility.subtitle}</p>
         </div>
-
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-amber-300/40 text-amber-200 text-xs font-semibold">
-          <Info className="w-3.5 h-3.5" />
-          <span>Interactive Campus Facility Preview</span>
-        </div>
       </div>
 
       {/* Hotspots for Illustrated Facilities */}

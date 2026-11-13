@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { COLLEGE_INFO, BOARD_HONORS } from '../data/collegeData';
-import { Award, CheckCircle2, Trophy, Maximize2, X, Sparkles } from 'lucide-react';
+import { Award, CheckCircle2, Maximize2, X, Sparkles } from 'lucide-react';
 
 export function BoardHonorsSection() {
   const [activeModalImage, setActiveModalImage] = useState<string | null>(null);
@@ -16,11 +16,6 @@ export function BoardHonorsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold tracking-wider uppercase">
-            <Trophy className="w-3.5 h-3.5 text-amber-700" />
-            <span>Academic Distinction · BISE Hyderabad</span>
-          </div>
-
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#064b36]">
             Outstanding Board Results
           </h2>
@@ -74,7 +69,7 @@ export function BoardHonorsSection() {
               <div className="absolute top-0 right-0 transform translate-x-6 -translate-y-6 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl pointer-events-none" />
 
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-emerald-700/80 pb-4 mb-4">
-                <span className="px-3 py-1 rounded bg-amber-400 text-emerald-950 text-xs font-bold uppercase tracking-wider">
+                <span className="text-amber-300 text-xs font-bold uppercase tracking-wider">
                   2nd Position in BISE Hyderabad Board
                 </span>
                 <span className="text-amber-200 text-xs font-mono">

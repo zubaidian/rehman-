@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { SYLLABUS_BOOKS, SyllabusBookItem } from '../data/digitalLibraryData';
-import { BookOpen, ExternalLink, Maximize2, X } from 'lucide-react';
+import { ExternalLink, Maximize2, X } from 'lucide-react';
 
 export function DigitalLibrarySection() {
   const [filterLevel, setFilterLevel] = useState<'all' | 'intermediate' | 'degree'>('all');
@@ -25,11 +25,6 @@ export function DigitalLibrarySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-[#064b36] text-xs font-bold tracking-wider uppercase">
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>Digital Library · Official Syllabus</span>
-          </div>
-
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#064b36]">
             Syllabus Book Photos &amp; Internet Links
           </h2>
@@ -91,11 +86,6 @@ export function DigitalLibrarySection() {
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 rounded bg-[#064b36]/90 backdrop-blur-sm text-amber-300 border border-amber-300/30 text-[10px] font-bold uppercase tracking-wider shadow">
-                      {book.levelLabel}
-                    </span>
-                  </div>
                   <button
                     type="button"
                     onClick={(e) => {
@@ -112,7 +102,7 @@ export function DigitalLibrarySection() {
                 {/* Details */}
                 <div className="p-6 space-y-2.5">
                   <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider block">
-                    {book.authority}
+                    {book.levelLabel} · {book.authority}
                   </span>
                   <h3 className="font-serif text-lg sm:text-xl font-bold text-[#064b36] leading-snug">
                     {book.title}

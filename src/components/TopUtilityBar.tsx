@@ -22,7 +22,7 @@ export function TopUtilityBar() {
           {/* Live Phone Link */}
           <a
             href={`tel:${COLLEGE_INFO.phoneRaw}`}
-            className="text-amber-300 hover:text-white transition-colors flex items-center gap-1 font-semibold bg-[#063f35] px-2.5 py-0.5 rounded border border-amber-400/40"
+            className="text-amber-300 hover:text-white transition-colors flex items-center gap-1 font-semibold"
             title="Call Govt Girls Zubaida College Office"
           >
             <Phone className="w-3 h-3 text-amber-300" />
@@ -30,7 +30,7 @@ export function TopUtilityBar() {
           </a>
 
           {/* Live PKT Clock */}
-          <div className="flex items-center gap-1.5 text-stone-200 bg-[#063f35] px-2.5 py-0.5 rounded border border-emerald-800/60">
+          <div className="flex items-center gap-1.5 text-stone-200">
             <Clock className="w-3.5 h-3.5 text-amber-300" />
             <span className="font-mono tabular-nums">{karachiTime || 'Loading...'}</span>
             <span className="text-[10px] text-amber-200 font-semibold">PKT</span>

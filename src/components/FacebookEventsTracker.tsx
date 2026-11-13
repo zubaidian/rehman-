@@ -10,10 +10,6 @@ import {
   Play,
   Pause,
   Plus,
-  Radio,
-  CheckCircle2,
-  Sparkles,
-  Share2,
   X,
   Tag
 } from 'lucide-react';
@@ -260,15 +256,8 @@ export function FacebookEventsTracker() {
         {/* Header Bar */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 mb-6">
           <div className="space-y-1 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-blue-900/60 border border-blue-400/40 text-blue-300 text-[11px] font-bold uppercase tracking-wider">
-              <Radio className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
-              <span>Facebook College Events Tracker · Year 2026</span>
-            </div>
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
-              <span>Live 2026 Campus Events &amp; Assemblies</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-amber-400 text-emerald-950 font-sans font-bold">
-                2026 Tracker
-              </span>
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+              Live 2026 Campus Events &amp; Assemblies
             </h3>
             <p className="text-xs text-stone-300">
               Continuous live scrolling window syncing curricular, examination, and cultural happenings from our official Facebook page.
@@ -393,24 +382,24 @@ export function FacebookEventsTracker() {
               className="w-80 sm:w-96 shrink-0 rounded-2xl p-5 bg-gradient-to-b from-[#064b36] to-[#042f28] border-2 border-amber-300/40 hover:border-amber-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-left group"
             >
               <div className="space-y-3">
-                {/* Card Top: 2026 Year Badge & Facebook Tag */}
-                <div className="flex items-center justify-between gap-2">
+                {/* Card Top: Year & Category Metadata */}
+                <div className="flex items-center justify-between gap-2 text-[11px]">
                   <div className="flex items-center gap-1.5">
                     <span className="w-5 h-5 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-[11px] shadow">
                       f
                     </span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#021f19] text-amber-300 border border-amber-400/30">
+                    <span className="font-bold uppercase tracking-wider text-amber-300">
                       2026 Event
                     </span>
                   </div>
 
                   {ev.isLiveNow ? (
-                    <span className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-500 text-white animate-pulse shadow">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                    <span className="flex items-center gap-1.5 font-bold text-rose-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
                       Live Now
                     </span>
                   ) : (
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-200 border border-emerald-700/60">
+                    <span className="font-semibold text-emerald-200">
                       {ev.categoryLabel}
                     </span>
                   )}
@@ -505,10 +494,7 @@ export function FacebookEventsTracker() {
                     f
                   </span>
                   <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
-                    2026 Facebook College Event
-                  </span>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-900 text-emerald-200">
-                    {selectedEvent.categoryLabel}
+                    2026 Facebook College Event · {selectedEvent.categoryLabel}
                   </span>
                 </div>
                 <h3 className="font-serif text-2xl font-bold text-white">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { GALLERY_PHOTOS, GalleryPhoto } from '../data/collegeData';
-import { Image as ImageIcon, Maximize2, X } from 'lucide-react';
+import { Maximize2, X } from 'lucide-react';
 
 export function GallerySection() {
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'campus' | 'honors' | 'faculty'>('all');
@@ -31,11 +31,6 @@ export function GallerySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-[#064b36] text-xs font-bold tracking-wider uppercase">
-            <ImageIcon className="w-3.5 h-3.5" />
-            <span>Campus Gallery &amp; Archive</span>
-          </div>
-
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#064b36]">
             Life at Zubaida College
           </h2>
@@ -117,16 +112,9 @@ export function GallerySection() {
                     }
                   />
 
-                  {/* Category Badge */}
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 rounded bg-[#064b36]/90 backdrop-blur-sm text-amber-300 border border-amber-300/30 text-[10px] font-bold uppercase tracking-wider shadow">
-                      {categoryLabels[photo.category]}
-                    </span>
-                  </div>
-
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/95 text-[#064b36] text-xs font-bold shadow-lg">
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white/95 text-[#064b36] text-xs font-bold shadow-lg">
                       <Maximize2 className="w-3.5 h-3.5" />
                       <span>View Full Photo</span>
                     </span>
@@ -135,6 +123,9 @@ export function GallerySection() {
 
                 {/* Card Caption */}
                 <div className="p-5 space-y-1.5">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800 block">
+                    {categoryLabels[photo.category]}
+                  </span>
                   <h3 className="font-serif font-bold text-lg text-[#064b36] group-hover:text-emerald-700 transition-colors">
                     {photo.title}
                   </h3>
