@@ -171,6 +171,98 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
     featured: true
   },
   {
+    id: "ad-physics",
+    category: "associate",
+    title: "Associate Degree in Physics (ADS Physics)",
+    duration: "2 Years (4 Semesters)",
+    department: "Department of Physics",
+    overview: "Focused 2-year undergraduate associate degree affiliated with the University of Sindh, Jamshoro. Builds strong theoretical and experimental mastery in classical mechanics, electricity, magnetism, optics, waves, and modern physics with seamless transition to 5th semester BS Physics.",
+    subjects: [
+      "Mechanics & Properties of Matter",
+      "Waves, Oscillations & Optics",
+      "Electricity, Magnetism & Electronics",
+      "Thermodynamics & Statistical Physics",
+      "Modern & Quantum Physics",
+      "Physics Practical & Optical Darkroom Labs"
+    ],
+    eligibility: "HSC Pre-Engineering, General Science (with Physics & Mathematics), or equivalent with minimum 45% marks.",
+    futureProspects: [
+      "Lateral entry into 5th semester BS Physics / Applied Physics",
+      "Physics Laboratory Demonstrator & Research Assistant",
+      "Instrumentation, Optics & Metrology Technician",
+      "Science Education & Competitive Services"
+    ]
+  },
+  {
+    id: "ad-chemistry",
+    category: "associate",
+    title: "Associate Degree in Chemistry (ADS Chemistry)",
+    duration: "2 Years (4 Semesters)",
+    department: "Department of Chemistry",
+    overview: "Comprehensive 2-year university associate degree affiliated with the University of Sindh covering organic synthesis, inorganic reactions, physical chemistry, analytical instrumentation, and wet-lab titration techniques for smooth 5th semester BS Chemistry progression.",
+    subjects: [
+      "Inorganic Chemistry & Coordination Compounds",
+      "Organic Chemistry & Reaction Mechanisms",
+      "Physical Chemistry & Chemical Thermodynamics",
+      "Analytical Chemistry & Quantitative Analysis",
+      "Environmental & Applied Chemistry",
+      "Volumetric Titration & Salt Analysis Labs"
+    ],
+    eligibility: "HSC Pre-Medical or Pre-Engineering (with Chemistry) with minimum 45% marks.",
+    futureProspects: [
+      "Lateral transition into 5th semester BS Chemistry / Biochemistry",
+      "Pharmaceutical Quality Control & Analytical Chemist",
+      "Industrial & Water-Testing Laboratory Analyst",
+      "Science Teaching & Clinical Diagnostics"
+    ]
+  },
+  {
+    id: "ad-botany",
+    category: "associate",
+    title: "Associate Degree in Botany (ADS Botany)",
+    duration: "2 Years (4 Semesters)",
+    department: "Department of Botany",
+    overview: "Specialized 2-year associate degree affiliated with the University of Sindh dedicated to plant sciences, algae, fungi, bryophytes, vascular plant taxonomy, plant physiology, and herbarium curation with lateral entry into 5th semester BS Botany.",
+    subjects: [
+      "Diversity of Plants (Algae, Fungi & Bryophytes)",
+      "Plant Anatomy & Vascular Morphology",
+      "Plant Systematics, Taxonomy & Herbarium Studies",
+      "Plant Physiology & Biochemistry",
+      "Ecology & Sindh Flora Conservation",
+      "Botanical Microscopy & Slide Preparation Labs"
+    ],
+    eligibility: "HSC Pre-Medical or equivalent biological sciences stream with minimum 45% marks.",
+    futureProspects: [
+      "Lateral entry into 5th semester BS Botany / Plant Sciences",
+      "Botanical Herbarium & Environmental Conservation Assistant",
+      "Agriculture, Seed Testing & Forestry Research",
+      "Secondary Science Education & Academic Labs"
+    ]
+  },
+  {
+    id: "ad-zoology",
+    category: "associate",
+    title: "Associate Degree in Zoology (ADS Zoology)",
+    duration: "2 Years (4 Semesters)",
+    department: "Department of Zoology",
+    overview: "Dedicated 2-year university associate degree affiliated with the University of Sindh exploring invertebrate and vertebrate diversity, cell biology, animal physiology, genetics, and ecological systems with direct progression into 5th semester BS Zoology.",
+    subjects: [
+      "Invertebrate & Chordate Animal Diversity",
+      "Cell Biology, Genetics & Evolution",
+      "Animal Form, Function & Comparative Anatomy",
+      "Developmental Biology & Entomology",
+      "Wildlife Ecology & Fisheries Basics",
+      "Zoological Dissection & Microscopy Labs"
+    ],
+    eligibility: "HSC Pre-Medical or equivalent biological sciences qualification with minimum 45% marks.",
+    futureProspects: [
+      "Lateral entry into 5th semester BS Zoology / Life Sciences",
+      "Biological & Clinical Laboratory Technologist",
+      "Wildlife, Fisheries & Biodiversity Conservation",
+      "Science Instruction & Allied Health Pathways"
+    ]
+  },
+  {
     id: "ad-commerce",
     category: "associate",
     title: "Associate Degree in Commerce (AD Commerce / ADC)",

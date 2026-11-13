@@ -22,7 +22,58 @@ export interface Department {
 }
 
 export const DEPARTMENTS_DATA: Department[] = [
-  // 1. Computer Science
+  // 1. Physics
+  {
+    id: 'physics',
+    name: 'Department of Physics',
+    faculty: 'Sciences & Computing',
+    headOrLead: 'Senior Physics Professors & Demonstrators',
+    badge: 'Advanced Experimental Suite',
+    description: 'Provides deep theoretical mastery and experimental verification of classical mechanics, wave optics, electromagnetism, and atomic physics.',
+    facilities: [
+      'Dedicated optical darkroom for spectroscopy and ray tracing',
+      'Galvanometers, resistance boxes, potentiometers and circuits',
+      'Compound pendulums, resonance tubes, and mechanics benches',
+      'Digital vernier, micrometer screw gauges, spherometers'
+    ],
+    programsServed: [
+      'HSC Pre-Engineering',
+      'HSC Pre-Medical',
+      'General Science (Computer Science)',
+      'Associate Degree in Science (ADS)'
+    ],
+    keyCourses: [
+      'Scalars, Vectors, Motion & Newton’s Laws',
+      'Work, Energy, Gravitation & Rotational Dynamics',
+      'Electrostatics, Current Electricity & Magnetism',
+      'Geometrical & Physical Optics, Interference & Diffraction',
+      'Nuclear, Quantum & Atomic Physics'
+    ],
+    labsAvailable: 'Physics Main Laboratory & Optical Darkroom (Science Wing)',
+    achievements: 'Full practical board lab facilities with 100% practical exam compliance and distinction.',
+    photos: [
+      {
+        id: 'phys-1',
+        title: 'Physics Experimental Apparatus Hall',
+        category: 'lab',
+        caption: 'Apparatus for mechanics, wave resonance, and electrical circuit measurements.'
+      },
+      {
+        id: 'phys-2',
+        title: 'Optical Darkroom & Spectrometry Station',
+        category: 'apparatus',
+        caption: 'Precision lenses, prisms, and spectrometers for ray optics and interference experiments.'
+      },
+      {
+        id: 'phys-3',
+        title: 'Department Faculty & Demonstrators',
+        category: 'faculty',
+        caption: 'Senior faculty supervising practical electrical and physical experiments.'
+      }
+    ]
+  },
+
+  // 2. Computer Science
   {
     id: 'computer-science',
     name: 'Department of Computer Science & Information Technology',
@@ -154,57 +205,6 @@ export const DEPARTMENTS_DATA: Department[] = [
         title: 'Faculty Tabulation & Research Desk',
         category: 'faculty',
         caption: 'Faculty coaching on board practical data distributions and index numbers.'
-      }
-    ]
-  },
-
-  // 4. Physics
-  {
-    id: 'physics',
-    name: 'Department of Physics',
-    faculty: 'Sciences & Computing',
-    headOrLead: 'Senior Physics Professors & Demonstrators',
-    badge: 'Advanced Experimental Suite',
-    description: 'Provides deep theoretical mastery and experimental verification of classical mechanics, wave optics, electromagnetism, and atomic physics.',
-    facilities: [
-      'Dedicated optical darkroom for spectroscopy and ray tracing',
-      'Galvanometers, resistance boxes, potentiometers and circuits',
-      'Compound pendulums, resonance tubes, and mechanics benches',
-      'Digital vernier, micrometer screw gauges, spherometers'
-    ],
-    programsServed: [
-      'HSC Pre-Engineering',
-      'HSC Pre-Medical',
-      'General Science (Computer Science)',
-      'Associate Degree in Science (ADS)'
-    ],
-    keyCourses: [
-      'Scalars, Vectors, Motion & Newton’s Laws',
-      'Work, Energy, Gravitation & Rotational Dynamics',
-      'Electrostatics, Current Electricity & Magnetism',
-      'Geometrical & Physical Optics, Interference & Diffraction',
-      'Nuclear, Quantum & Atomic Physics'
-    ],
-    labsAvailable: 'Physics Main Laboratory & Optical Darkroom (Science Wing)',
-    achievements: 'Full practical board lab facilities with 100% practical exam compliance and distinction.',
-    photos: [
-      {
-        id: 'phys-1',
-        title: 'Physics Experimental Apparatus Hall',
-        category: 'lab',
-        caption: 'Apparatus for mechanics, wave resonance, and electrical circuit measurements.'
-      },
-      {
-        id: 'phys-2',
-        title: 'Optical Darkroom & Spectrometry Station',
-        category: 'apparatus',
-        caption: 'Precision lenses, prisms, and spectrometers for ray optics and interference experiments.'
-      },
-      {
-        id: 'phys-3',
-        title: 'Department Faculty & Demonstrators',
-        category: 'faculty',
-        caption: 'Senior faculty supervising practical electrical and physical experiments.'
       }
     ]
   },
