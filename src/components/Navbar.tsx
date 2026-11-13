@@ -26,7 +26,6 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
     { label: 'Academics', href: '#academics' },
     { label: 'Departments', href: '#departments' },
     { label: 'Campus Tour', href: '#campus-tour' },
-    { label: 'Digital Library', href: '#digital-library' },
     { label: 'Board Honors', href: '#board-results' },
     { label: 'Distinguished Alumnae', href: '#alumnae' },
     { label: 'Facebook Live', href: '#facebook-updates' },

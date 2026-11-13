@@ -8,12 +8,8 @@ import {
   Clock,
   Phone,
   Send,
-  QrCode,
   ExternalLink,
-  ChevronDown,
-  CheckCircle,
-  HelpCircle,
-  Sparkles
+  CheckCircle
 } from 'lucide-react';
 
 interface ContactAndLocationProps {
@@ -39,7 +35,7 @@ export function ContactAndLocation({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !message) return;
+    if (!name.trim() || !email.trim() || !message.trim()) return;
     setSubmitted(true);
   };
 

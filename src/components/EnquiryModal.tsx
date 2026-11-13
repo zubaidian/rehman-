@@ -19,7 +19,7 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !message) return;
+    if (!name.trim() || !email.trim() || !message.trim()) return;
     setIsSent(true);
   };
 
@@ -96,7 +96,7 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
               Enquiry Form Ready!
             </h4>
             <p className="text-xs text-stone-600 leading-relaxed max-w-sm mx-auto">
-              Your message for <strong>{COLLEGE_INFO.name}</strong> regarding <strong>{subject}</strong> has been prepared.
+              Your message for <strong>{COLLEGE_INFO.name}</strong> regarding <strong>{subject}</strong> has been prepared. Click below to dispatch directly via your email client:
             </p>
 
             <div className="pt-2 flex flex-col gap-2.5">

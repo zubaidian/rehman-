@@ -40,7 +40,7 @@ export function AlumnaeSection() {
 
   const handleJoinSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!joinName || !joinEmail) return;
+    if (!joinName.trim() || !joinEmail.trim()) return;
     setJoinSubmitted(true);
   };
 

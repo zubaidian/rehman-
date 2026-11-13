@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { COLLEGE_INFO } from '../data/collegeData';
-import { ArrowUp, ShieldCheck, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle, Bell, Sparkles } from 'lucide-react';
+import { ArrowUp, ShieldCheck, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle, Bell } from 'lucide-react';
 
 export function Footer() {
   // Newsletter Form State
@@ -37,7 +37,6 @@ export function Footer() {
 
     setNewsletterStatus('loading');
 
-    // Simulate immediate confirmation and subscription
     setTimeout(() => {
       setSubscribedEmail(trimmed);
       setNewsletterStatus('success');
@@ -221,11 +220,6 @@ export function Footer() {
               <li>
                 <a href="#campus-tour" className="hover:text-amber-300 transition-colors">
                   Virtual Campus Tour
-                </a>
-              </li>
-              <li>
-                <a href="#digital-library" className="hover:text-amber-300 transition-colors">
-                  Digital Library &amp; Past Papers
                 </a>
               </li>
               <li>
