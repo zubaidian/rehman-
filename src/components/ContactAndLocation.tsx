@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { COLLEGE_INFO } from '../data/collegeData';
 import { useOfficeStatus } from '../hooks/useOfficeStatus';
 import { FAQAccordion } from './FAQAccordion';
+import { submitInquiry } from '../services/collegeSubmissions';
 import {
   MapPin,
   Mail,
@@ -32,11 +33,33 @@ export function ContactAndLocation({
   const [subject, setSubject] = useState(initialSubject);
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !message.trim()) return;
-    setSubmitted(true);
+    setSubmitError('');
+    setSubmitting(true);
+    try {
+      await submitInquiry({
+        name,
+        email,
+        phone,
+        subject,
+        message,
+        source: 'contact_page',
+      });
+      setSubmitted(true);
+    } catch {
+      setSubmitError(
+        'Could not save your enquiry right now. Please try again or email ' +
+          COLLEGE_INFO.email +
+          ' directly.'
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleResetForm = () => {
@@ -44,6 +67,7 @@ export function ContactAndLocation({
     setEmail('');
     setPhone('');
     setMessage('');
+    setSubmitError('');
     setSubmitted(false);
     if (onCloseEnquiryModal) {
       onCloseEnquiryModal();
@@ -311,12 +335,19 @@ export function ContactAndLocation({
                   />
                 </div>
 
+                {submitError && (
+                  <p className="text-xs text-rose-700 bg-rose-50 border border-rose-200 p-2.5 rounded-lg">
+                    {submitError}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#064b36] hover:bg-[#042f28] text-white rounded-lg font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 active:scale-95"
+                  disabled={submitting}
+                  className="w-full py-3 bg-[#064b36] hover:bg-[#042f28] text-white rounded-lg font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 active:scale-95 disabled:opacity-60"
                 >
                   <Send className="w-4 h-4 text-amber-300" />
-                  <span>Submit Inquiry</span>
+                  <span>{submitting ? 'Submitting Inquiry...' : 'Submit Inquiry'}</span>
                 </button>
               </form>
             )}

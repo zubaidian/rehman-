@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ALUMNAE_PROFILES, ALUMNAE_IMPACT_METRICS, AlumnaProfile } from '../data/alumnaeData';
+import { submitAlumnaRegistration } from '../services/collegeSubmissions';
 import {
   HeartHandshake,
   ArrowRight,
@@ -29,6 +30,8 @@ export function AlumnaeSection() {
   const [joinEmail, setJoinEmail] = useState('');
   const [joinMessage, setJoinMessage] = useState('');
   const [joinSubmitted, setJoinSubmitted] = useState(false);
+  const [joinSubmitting, setJoinSubmitting] = useState(false);
+  const [joinError, setJoinError] = useState('');
 
   // DEV-only: Add More Alumnae (completely hidden in production/live builds)
   const [devAlumnae, setDevAlumnae] = useState<AlumnaProfile[]>(() => {
@@ -83,10 +86,25 @@ export function AlumnaeSection() {
       ? allVisibleAlumnae
       : allVisibleAlumnae.filter((a) => a.category === activeCategory);
 
-  const handleJoinSubmit = (e: React.FormEvent) => {
+  const handleJoinSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!joinName.trim() || !joinEmail.trim()) return;
-    setJoinSubmitted(true);
+    setJoinError('');
+    setJoinSubmitting(true);
+    try {
+      await submitAlumnaRegistration({
+        name: joinName,
+        batch: joinBatch || 'Zubaida College',
+        profession: joinProfession,
+        email: joinEmail,
+        message: joinMessage,
+      });
+      setJoinSubmitted(true);
+    } catch {
+      setJoinError('Could not save your registration right now. Please try again.');
+    } finally {
+      setJoinSubmitting(false);
+    }
   };
 
   const resetJoinForm = () => {
@@ -95,6 +113,7 @@ export function AlumnaeSection() {
     setJoinProfession('');
     setJoinEmail('');
     setJoinMessage('');
+    setJoinError('');
     setJoinSubmitted(false);
     setIsJoinModalOpen(false);
   };
@@ -681,12 +700,19 @@ export function AlumnaeSection() {
                   />
                 </div>
 
+                {joinError && (
+                  <p className="text-xs text-rose-700 bg-rose-50 border border-rose-200 p-2.5 rounded-lg">
+                    {joinError}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#064b36] hover:bg-[#042f28] text-white rounded-lg font-bold text-sm shadow transition-all flex items-center justify-center gap-2 active:scale-95"
+                  disabled={joinSubmitting}
+                  className="w-full py-3 bg-[#064b36] hover:bg-[#042f28] text-white rounded-lg font-bold text-sm shadow transition-all flex items-center justify-center gap-2 active:scale-95 disabled:opacity-60"
                 >
                   <Send className="w-4 h-4 text-amber-300" />
-                  <span>Submit Registration</span>
+                  <span>{joinSubmitting ? 'Submitting Registration...' : 'Submit Registration'}</span>
                 </button>
               </form>
             )}

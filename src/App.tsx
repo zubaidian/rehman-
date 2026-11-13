@@ -19,11 +19,15 @@ import { ContactAndLocation } from './components/ContactAndLocation';
 import { Footer } from './components/Footer';
 import { EnquiryModal } from './components/EnquiryModal';
 import { FloatingCallWidget } from './components/FloatingCallWidget';
+import { FirebaseProvider } from './contexts/FirebaseContext';
+import { AdminInboxModal } from './components/AdminInboxModal';
 
 export default function App() {
   const [isEnquiryModalOpen, setIsEnquiryModalOpen] = useState(false);
+  const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
 
   return (
+    <FirebaseProvider>
     <div className="min-h-screen flex flex-col bg-stone-50 text-stone-900 selection:bg-amber-200 selection:text-emerald-950">
       {/* Top Utility Bar with Live PKT Time & Office Status */}
       <TopUtilityBar />
@@ -83,13 +87,20 @@ export default function App() {
       </main>
 
       {/* Institutional Footer */}
-      <Footer />
+      <Footer onOpenAdmin={() => setIsAdminModalOpen(true)} />
 
       {/* Quick Access Enquiry Modal */}
       <EnquiryModal
         isOpen={isEnquiryModalOpen}
         onClose={() => setIsEnquiryModalOpen(false)}
       />
+
+      {/* Admin Enquiries & Subscribers Inbox Modal */}
+      <AdminInboxModal
+        isOpen={isAdminModalOpen}
+        onClose={() => setIsAdminModalOpen(false)}
+      />
     </div>
+    </FirebaseProvider>
   );
 }

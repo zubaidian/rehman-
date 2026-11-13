@@ -53,7 +53,7 @@ export const COLLEGE_INFO = {
   establishedYear: 1953,
   charterYear: 1954,
   location: "Opposite Hyderabad Central Jail, Pathan Colony, Hirabad, Hyderabad, Sindh, Pakistan",
-  email: "zubaidagirls907@gmail.com",
+  email: "zubaidaisbest@gmail.com",
   phone: "(022) 9210196",
   phoneRaw: "+92229210196",
   helpline: "0304-3094606",

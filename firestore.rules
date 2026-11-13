@@ -1,0 +1,168 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global safety net: deny all reads and writes by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 2. Hardened global primitive helpers
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedAdminEmail() {
+      return isSignedIn()
+        && request.auth.token.email_verified == true
+        && request.auth.token.email == 'zubaidaisbest@gmail.com';
+    }
+
+    function isAdmin() {
+      return isVerifiedAdminEmail()
+        || (
+          isSignedIn()
+          && request.auth.token.email_verified == true
+          && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        );
+    }
+
+    function isValidEmail(email) {
+      return email is string
+        && email.size() >= 3
+        && email.size() <= 160
+        && email.matches('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
+    }
+
+    // 3. Entity validation blueprints
+    function isValidInquiry(data) {
+      return data.keys().hasAll(['name', 'email', 'phone', 'subject', 'message', 'source', 'status', 'createdAt'])
+        && data.keys().hasOnly(['name', 'email', 'phone', 'subject', 'message', 'source', 'status', 'createdAt'])
+        && data.name is string && data.name.size() >= 1 && data.name.size() <= 120
+        && isValidEmail(data.email)
+        && data.phone is string && data.phone.size() <= 30
+        && data.subject is string && data.subject.size() >= 1 && data.subject.size() <= 120
+        && data.message is string && data.message.size() >= 1 && data.message.size() <= 2000
+        && data.source in ['contact_page', 'quick_modal']
+        && data.status in ['new', 'reviewed', 'resolved']
+        && data.createdAt is timestamp;
+    }
+
+    function isValidNewsletterSubscriber(data) {
+      return data.keys().hasAll(['email', 'status', 'createdAt'])
+        && data.keys().hasOnly(['email', 'status', 'createdAt'])
+        && isValidEmail(data.email)
+        && data.status in ['active', 'unsubscribed']
+        && data.createdAt is timestamp;
+    }
+
+    function isValidAlumnaRegistration(data) {
+      return data.keys().hasAll(['name', 'batch', 'email', 'profession', 'message', 'status', 'createdAt'])
+        && data.keys().hasOnly(['name', 'batch', 'email', 'profession', 'message', 'status', 'createdAt'])
+        && data.name is string && data.name.size() >= 1 && data.name.size() <= 120
+        && data.batch is string && data.batch.size() >= 1 && data.batch.size() <= 40
+        && isValidEmail(data.email)
+        && data.profession is string && data.profession.size() <= 160
+        && data.message is string && data.message.size() <= 1500
+        && data.status in ['pending', 'verified']
+        && data.createdAt is timestamp;
+    }
+
+    function isValidAdminUser(data) {
+      return data.keys().hasAll(['email', 'role', 'createdAt'])
+        && data.keys().hasOnly(['email', 'role', 'createdAt'])
+        && isValidEmail(data.email)
+        && data.role == 'admin'
+        && data.createdAt is timestamp;
+    }
+
+    // 4. Collection rules
+    match /inquiries/{inquiryId} {
+      // Only verified admins can view or list inquiries (zero PII leakage)
+      allow get: if isValidId(inquiryId) && isAdmin();
+      allow list: if isAdmin();
+
+      // Visitors can submit enquiries with strict schema, initial status 'new', and server timestamp
+      allow create: if isValidId(inquiryId)
+        && isValidInquiry(incoming())
+        && incoming().status == 'new'
+        && incoming().createdAt == request.time;
+
+      // Only verified admins can update review status (immutable createdAt/author fields)
+      allow update: if isValidId(inquiryId)
+        && isAdmin()
+        && isValidInquiry(incoming())
+        && incoming().diff(existing()).affectedKeys().hasOnly(['status'])
+        && incoming().createdAt == existing().createdAt;
+
+      allow delete: if isValidId(inquiryId) && isAdmin();
+    }
+
+    match /newsletter_subscribers/{subscriberId} {
+      // Only verified admins can view or list subscriber emails
+      allow get: if isValidId(subscriberId) && isAdmin();
+      allow list: if isAdmin();
+
+      // Visitors can subscribe with strict schema, initial status 'active', and server timestamp
+      allow create: if isValidId(subscriberId)
+        && isValidNewsletterSubscriber(incoming())
+        && incoming().status == 'active'
+        && incoming().createdAt == request.time;
+
+      allow update: if isValidId(subscriberId)
+        && isAdmin()
+        && isValidNewsletterSubscriber(incoming())
+        && incoming().diff(existing()).affectedKeys().hasOnly(['status'])
+        && incoming().createdAt == existing().createdAt;
+
+      allow delete: if isValidId(subscriberId) && isAdmin();
+    }
+
+    match /alumnae_registrations/{registrationId} {
+      // Only verified admins can view or list alumnae directory submissions
+      allow get: if isValidId(registrationId) && isAdmin();
+      allow list: if isAdmin();
+
+      // Alumnae can register with strict schema, initial status 'pending', and server timestamp
+      allow create: if isValidId(registrationId)
+        && isValidAlumnaRegistration(incoming())
+        && incoming().status == 'pending'
+        && incoming().createdAt == request.time;
+
+      allow update: if isValidId(registrationId)
+        && isAdmin()
+        && isValidAlumnaRegistration(incoming())
+        && incoming().diff(existing()).affectedKeys().hasOnly(['status'])
+        && incoming().createdAt == existing().createdAt;
+
+      allow delete: if isValidId(registrationId) && isAdmin();
+    }
+
+    match /admins/{adminId} {
+      allow get: if isValidId(adminId) && isAdmin();
+      allow list: if isAdmin();
+      allow create: if isValidId(adminId)
+        && isVerifiedAdminEmail()
+        && isValidAdminUser(incoming())
+        && incoming().createdAt == request.time;
+      allow update: if isValidId(adminId)
+        && isVerifiedAdminEmail()
+        && isValidAdminUser(incoming())
+        && incoming().diff(existing()).affectedKeys().hasOnly(['email', 'role'])
+        && incoming().createdAt == existing().createdAt;
+      allow delete: if isValidId(adminId) && isVerifiedAdminEmail();
+    }
+  }
+}

@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { COLLEGE_INFO } from '../data/collegeData';
 import { ArrowUp, ShieldCheck, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { subscribeNewsletter } from '../services/collegeSubmissions';
 
-export function Footer() {
+interface FooterProps {
+  onOpenAdmin?: () => void;
+}
+
+export function Footer({ onOpenAdmin }: FooterProps) {
   // Newsletter Form State
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -13,7 +18,7 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage('');
 
@@ -37,11 +42,15 @@ export function Footer() {
 
     setNewsletterStatus('loading');
 
-    setTimeout(() => {
+    try {
+      await subscribeNewsletter(trimmed);
       setSubscribedEmail(trimmed);
       setNewsletterStatus('success');
       setNewsletterEmail('');
-    }, 600);
+    } catch {
+      setNewsletterStatus('error');
+      setErrorMessage('Unable to record your subscription right now. Please try again.');
+    }
   };
 
   const handleResetNewsletter = () => {
@@ -364,6 +373,15 @@ export function Footer() {
 
           <div className="flex items-center gap-4">
             <span className="text-amber-300/80">College Education Department · Govt of Sindh</span>
+            {onOpenAdmin && (
+              <button
+                type="button"
+                onClick={onOpenAdmin}
+                className="text-stone-300 hover:text-amber-300 underline transition-colors"
+              >
+                Admin Inbox
+              </button>
+            )}
             <button
               onClick={scrollToTop}
               className="p-2 rounded-full bg-[#064b36] hover:bg-emerald-700 text-amber-300 transition-colors flex items-center gap-1 px-3"

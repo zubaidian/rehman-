@@ -1,0 +1,175 @@
+{
+  "entities": {
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "Student, parent, or visitor enquiry submitted via the college contact page or quick enquiry modal.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "Full name of the person submitting the enquiry."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 3,
+          "maxLength": 160,
+          "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+          "description": "Contact email address."
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 30,
+          "description": "Optional phone number."
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "Enquiry category or topic."
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "description": "Enquiry message body."
+        },
+        "source": {
+          "type": "string",
+          "enum": ["contact_page", "quick_modal"],
+          "description": "Form origin on the portal."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["new", "reviewed", "resolved"],
+          "description": "Administrative review status."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the enquiry was created."
+        }
+      },
+      "required": ["name", "email", "phone", "subject", "message", "source", "status", "createdAt"]
+    },
+    "NewsletterSubscriber": {
+      "title": "NewsletterSubscriber",
+      "description": "Email address subscribed to college news and upcoming events bulletins.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 3,
+          "maxLength": 160,
+          "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+          "description": "Subscriber email address."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "unsubscribed"],
+          "description": "Subscription status."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the subscription was recorded."
+        }
+      },
+      "required": ["email", "status", "createdAt"]
+    },
+    "AlumnaRegistration": {
+      "title": "AlumnaRegistration",
+      "description": "Alumna directory registration submitted via the Distinguished Alumnae network modal.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "Alumna full name."
+        },
+        "batch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40,
+          "description": "Passing or graduation year."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 3,
+          "maxLength": 160,
+          "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+          "description": "Alumna email address."
+        },
+        "profession": {
+          "type": "string",
+          "maxLength": 160,
+          "description": "Current profession or organization."
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 1500,
+          "description": "Mentorship interest or memories note."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "verified"],
+          "description": "Verification status by college alumnae coordinator."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when registered."
+        }
+      },
+      "required": ["name", "batch", "email", "profession", "message", "status", "createdAt"]
+    },
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Authorized college administrator record keyed by Firebase Auth UID.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 3,
+          "maxLength": 160,
+          "description": "Verified administrator email."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["admin"],
+          "description": "Assigned role."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp."
+        }
+      },
+      "required": ["email", "role", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/inquiries/{inquiryId}": {
+      "schema": { "$ref": "#/entities/Inquiry" },
+      "description": "Publicly submittable enquiries readable and manageable only by verified college administrators."
+    },
+    "/newsletter_subscribers/{subscriberId}": {
+      "schema": { "$ref": "#/entities/NewsletterSubscriber" },
+      "description": "Publicly submittable newsletter email list readable and manageable only by verified college administrators."
+    },
+    "/alumnae_registrations/{registrationId}": {
+      "schema": { "$ref": "#/entities/AlumnaRegistration" },
+      "description": "Publicly submittable alumnae network registrations readable and manageable only by verified college administrators."
+    },
+    "/admins/{adminId}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Admin role lookup documents restricted to existing administrators."
+    }
+  }
+}

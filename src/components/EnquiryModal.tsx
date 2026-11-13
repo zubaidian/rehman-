@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { COLLEGE_INFO } from '../data/collegeData';
 import { X, Send, CheckCircle, ExternalLink, GraduationCap, Phone } from 'lucide-react';
+import { submitInquiry } from '../services/collegeSubmissions';
 
 interface EnquiryModalProps {
   isOpen: boolean;
@@ -14,17 +15,38 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
   const [subject, setSubject] = useState('Intermediate Admissions');
   const [message, setMessage] = useState('');
   const [isSent, setIsSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !message.trim()) return;
-    setIsSent(true);
+    setSubmitError('');
+    setIsSubmitting(true);
+    try {
+      await submitInquiry({
+        name,
+        email,
+        phone,
+        subject,
+        message,
+        source: 'quick_modal',
+      });
+      setIsSent(true);
+    } catch {
+      setSubmitError(
+        `Could not submit your enquiry right now. Please try again or email ${COLLEGE_INFO.email}.`
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClose = () => {
     setIsSent(false);
+    setSubmitError('');
     setName('');
     setEmail('');
     setPhone('');
@@ -93,10 +115,10 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
               <CheckCircle className="w-8 h-8" />
             </div>
             <h4 className="font-serif text-xl font-bold text-stone-900">
-              Enquiry Form Ready!
+              Enquiry Submitted!
             </h4>
             <p className="text-xs text-stone-600 leading-relaxed max-w-sm mx-auto">
-              Your message for <strong>{COLLEGE_INFO.name}</strong> regarding <strong>{subject}</strong> has been prepared. Click below to dispatch directly via your email client:
+              Your enquiry for <strong>{COLLEGE_INFO.name}</strong> regarding <strong>{subject}</strong> has been saved for the administration desk. You can also send a direct copy via your email app:
             </p>
 
             <div className="pt-2 flex flex-col gap-2.5">
@@ -192,12 +214,19 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
               />
             </div>
 
+            {submitError && (
+              <p className="text-xs text-rose-700 bg-rose-50 border border-rose-200 p-2.5 rounded-lg">
+                {submitError}
+              </p>
+            )}
+
             <button
               type="submit"
-              className="w-full py-3 bg-[#064b36] hover:bg-[#042f28] text-white rounded-lg font-bold text-sm shadow transition-all flex items-center justify-center gap-1.5 active:scale-95"
+              disabled={isSubmitting}
+              className="w-full py-3 bg-[#064b36] hover:bg-[#042f28] text-white rounded-lg font-bold text-sm shadow transition-all flex items-center justify-center gap-1.5 active:scale-95 disabled:opacity-60"
             >
               <Send className="w-4 h-4 text-amber-300" />
-              <span>Submit Enquiry</span>
+              <span>{isSubmitting ? 'Submitting Enquiry...' : 'Submit Enquiry'}</span>
             </button>
           </form>
         )}
