@@ -35,6 +35,7 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
     { label: 'Facebook Live', href: '#facebook-updates' },
     { label: 'Admissions & SECCAP', href: '#admissions' },
     { label: 'Student Resources', href: '#student-resources' },
+    { label: 'Faculty CEMIS', href: '#cemis-attendance' },
     { label: 'Campus Gallery', href: '#gallery' },
     { label: 'Location & Contact', href: '#contact' }
   ];

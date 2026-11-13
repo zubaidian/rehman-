@@ -268,6 +268,11 @@ export function Footer({ onOpenAdmin }: FooterProps) {
                 </a>
               </li>
               <li>
+                <a href="#cemis-attendance" className="hover:text-amber-300 transition-colors">
+                  Faculty CEMIS Portal
+                </a>
+              </li>
+              <li>
                 <a href="#gallery" className="hover:text-amber-300 transition-colors">
                   Campus Gallery
                 </a>

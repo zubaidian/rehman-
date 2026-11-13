@@ -17,6 +17,7 @@ import { DigitalLibrarySection } from './components/DigitalLibrarySection';
 import { AlumnaeSection } from './components/AlumnaeSection';
 import { AdmissionsSection } from './components/AdmissionsSection';
 import { StudentResourcesSection } from './components/StudentResourcesSection';
+import { CemisAttendanceSection } from './components/CemisAttendanceSection';
 import { GallerySection } from './components/GallerySection';
 import { FacebookCommunitySection } from './components/FacebookCommunitySection';
 import { ContactAndLocation } from './components/ContactAndLocation';
@@ -91,6 +92,9 @@ export default function App() {
 
         {/* Student Resources: Downloadable Forms, Enrollment Slips & Registration Guides */}
         <StudentResourcesSection />
+
+        {/* CEMIS Biometric Attendance & Faculty Portal (Sindh College Education Dept) */}
+        <CemisAttendanceSection />
 
         {/* Campus Gallery & Archives */}
         <GallerySection />
