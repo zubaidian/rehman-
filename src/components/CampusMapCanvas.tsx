@@ -222,24 +222,24 @@ export function suggestDirectionsFromGate(
 
   if (dy < 6 && Math.abs(dx) <= 6) {
     turn = 'Entry Gate';
-    step2 = 'Look left for the Canteen (near) and Central Library (in the distance).';
+    step2 = 'On your right sits the College Canteen; walking straight inside brings you to Central Library on the right.';
   } else if (dx <= -15 && y > 74) {
     turn = 'Turn Left';
-    step2 = 'Upon entering the Main Gate, turn left near the College Canteen walkway.';
+    step2 = 'Upon entering the Main Gate, turn left near the Notice Board & SECCAP Desk.';
   } else if (dx <= -15 && y > 45) {
     turn = 'Bear Left';
-    step2 = 'Walk past the Clerk Office or Canteen path toward the left-side campus block.';
+    step2 = 'Walk straight past the Clerk Office on your left toward the west campus block.';
   } else if (dx <= -8) {
     turn = y <= 45 ? 'Turn Left' : 'Bear Left';
     step2 =
-      'Walk straight along the twin grill-divided walkways (lawns & trees on left and right), then turn left.';
+      'Walk straight along the two grill-separated paths (passing the walking lawn on the right), then bear left.';
   } else if (dx >= 15 && y > 74) {
     turn = 'Turn Right';
-    step2 = 'Upon entering the Main Gate, turn right past the Notice & SECCAP Desk.';
+    step2 = 'Upon entering the Main Gate, turn right past the College Canteen walkway.';
   } else if (dx >= 8) {
     turn = dx >= 20 ? 'Turn Right' : 'Bear Right';
     step2 =
-      'Walk straight past the Clerk Office and twin grill-divided lawns, then turn right.';
+      'Walk straight past Central Library and along the twin grill paths (with walking lawn on your right), then turn right.';
   }
 
   return {
@@ -254,7 +254,7 @@ export function suggestDirectionsFromGate(
             : 'Right'
     }`,
     walkingSteps: [
-      'Enter through the Main College Gate (with Canteen on left & Central Library at a distance).',
+      'Enter through the Main College Gate (with College Canteen right after the gate on your right).',
       step2,
       `Arrive at ${label} (approx. ${estMeters} meters inside the gate).`
     ],
@@ -491,6 +491,20 @@ export function CampusMapCanvas({
           >
             NORTH SPORTS LAWN
           </text>
+          {/* Gardener in North Sports Lawn */}
+          <g transform="translate(422, 82)">
+            <circle cx="0" cy="0" r="11" fill="#052e16" fillOpacity="0.85" stroke="#86efac" strokeWidth="1.3" />
+            {/* Sun hat + head + body */}
+            <ellipse cx="0" cy="-4.5" rx="6.5" ry="2" fill="#fde047" />
+            <circle cx="0" cy="-2.5" r="2.6" fill="#fef3c7" />
+            <path d="M-4,5 C-4,1 4,1 4,5 Z" fill="#4ade80" />
+            {/* Watering can */}
+            <rect x="4.2" y="1" width="4" height="3.2" rx="0.8" fill="#38bdf8" />
+            <path d="M4.2,2.5 L2.5,1" stroke="#38bdf8" strokeWidth="1" />
+          </g>
+          <text x="422" y="101" textAnchor="middle" fill="#bbf7d0" fontSize="7.5" fontWeight="700">
+            GARDENER
+          </text>
 
           {/* Academic Wing 4 (Pink / Berry) */}
           <rect
@@ -528,10 +542,10 @@ export function CampusMapCanvas({
 
           {/* Academic Wing 3 (Purple) */}
           <rect
-            x="700"
-            y="128"
-            width="180"
-            height="70"
+            x="730"
+            y="82"
+            width="175"
+            height="66"
             rx="8"
             fill="#581c87"
             fillOpacity="0.52"
@@ -539,7 +553,7 @@ export function CampusMapCanvas({
             strokeOpacity="0.7"
             strokeWidth="1.8"
           />
-          <text x="790" y="152" textAnchor="middle" fill="#e9d5ff" fontSize="10" fontWeight="700">
+          <text x="817" y="106" textAnchor="middle" fill="#e9d5ff" fontSize="10" fontWeight="700">
             WING 3 · LIFE SCIENCES
           </text>
 
@@ -560,49 +574,48 @@ export function CampusMapCanvas({
             WING 1
           </text>
 
-          {/* CENTRAL COLLEGE LIBRARY (Royal Violet — Left Side at a Distance) */}
+          {/* WEST SHADED COURTYARD GARDEN (Left Mid-West) */}
           <rect
             x="66"
-            y="290"
-            width="155"
+            y="286"
+            width="160"
             height="92"
             rx="10"
-            fill="#4c1d95"
-            fillOpacity="0.58"
-            stroke="#a78bfa"
-            strokeOpacity="0.85"
-            strokeWidth="2"
+            fill="#064e3b"
+            fillOpacity="0.45"
+            stroke="#34d399"
+            strokeOpacity="0.35"
+            strokeWidth="1.5"
           />
-          <text x="143" y="316" textAnchor="middle" fill="#ddd6fe" fontSize="10.5" fontWeight="700">
-            CENTRAL LIBRARY
-          </text>
-          <text x="143" y="366" textAnchor="middle" fill="#c4b5fd" fontSize="9">
-            (Left at a Distance)
+          <circle cx="105" cy="322" r="13" fill="#10b981" fillOpacity="0.32" stroke="#6ee7b7" strokeOpacity="0.55" strokeWidth="1.2" />
+          <circle cx="185" cy="342" r="12" fill="#10b981" fillOpacity="0.32" stroke="#6ee7b7" strokeOpacity="0.55" strokeWidth="1.2" />
+          <text x="146" y="366" textAnchor="middle" fill="#a7f3d0" fillOpacity="0.8" fontSize="9.5" fontWeight="700">
+            WEST SHADED COURTYARD
           </text>
 
-          {/* COLLEGE CANTEEN (Warm Coral Orange — Immediate Left Inside Gate) */}
+          {/* NOTICE BOARD & SECCAP DESK (Left Inside Gate) */}
           <rect
-            x="195"
-            y="452"
-            width="150"
-            height="68"
+            x="190"
+            y="456"
+            width="160"
+            height="62"
             rx="10"
-            fill="#9a3412"
-            fillOpacity="0.58"
-            stroke="#fb923c"
+            fill="#0c4a6e"
+            fillOpacity="0.62"
+            stroke="#38bdf8"
             strokeOpacity="0.85"
             strokeWidth="2"
           />
-          <text x="270" y="476" textAnchor="middle" fill="#fed7aa" fontSize="10.5" fontWeight="700">
-            COLLEGE CANTEEN
+          <text x="270" y="476" textAnchor="middle" fill="#bae6fd" fontSize="10" fontWeight="700">
+            NOTICE &amp; SECCAP DESK
           </text>
 
-          {/* CLERK OFFICE (Bright Teal — Straight from Gate, on Left Side) */}
+          {/* CLERK OFFICE (Straight from Gate, on Left Side) */}
           <rect
             x="275"
-            y="402"
+            y="396"
             width="145"
-            height="58"
+            height="54"
             rx="8"
             fill="#115e59"
             fillOpacity="0.68"
@@ -610,73 +623,115 @@ export function CampusMapCanvas({
             strokeOpacity="0.85"
             strokeWidth="2"
           />
-          <text x="347" y="422" textAnchor="middle" fill="#99f6e4" fontSize="10.5" fontWeight="700">
+          <text x="347" y="416" textAnchor="middle" fill="#99f6e4" fontSize="10.5" fontWeight="700">
             CLERK OFFICE (LEFT)
           </text>
 
-          {/* PRINCIPAL'S OFFICE (Imperial Gold — Past Twin Lawns/Grill, on Left Side) */}
+          {/* COLLEGE CANTEEN (On Right Side After Entrance Gate) */}
           <rect
-            x="270"
-            y="198"
-            width="155"
-            height="66"
+            x="565"
+            y="462"
+            width="145"
+            height="58"
             rx="10"
-            fill="#78350f"
+            fill="#9a3412"
             fillOpacity="0.62"
-            stroke="#fbbf24"
+            stroke="#fb923c"
+            strokeOpacity="0.9"
+            strokeWidth="2"
+          />
+          <text x="637" y="482" textAnchor="middle" fill="#fed7aa" fontSize="10.5" fontWeight="700">
+            CANTEEN (RIGHT)
+          </text>
+
+          {/* CENTRAL COLLEGE LIBRARY (Royal Violet — Walk Straight Inside, on Right Side) */}
+          <rect
+            x="675"
+            y="354"
+            width="190"
+            height="78"
+            rx="10"
+            fill="#4c1d95"
+            fillOpacity="0.62"
+            stroke="#a78bfa"
             strokeOpacity="0.9"
             strokeWidth="2.2"
           />
-          <text x="347" y="218" textAnchor="middle" fill="#fef08a" fontSize="10.5" fontWeight="700">
-            PRINCIPAL&rsquo;S OFFICE (LEFT)
+          <text x="770" y="378" textAnchor="middle" fill="#ddd6fe" fontSize="10.5" fontWeight="700">
+            CENTRAL LIBRARY (RIGHT)
+          </text>
+          <text x="770" y="420" textAnchor="middle" fill="#c4b5fd" fontSize="9">
+            (Straight Inside &rarr; Right)
           </text>
 
-          {/* LEFT LAWN & TREES (Vibrant Emerald & Lime — Alongside Twin Grill Walkways) */}
+          {/* WALKING LAWN, TREES & GARDENERS (Vibrant Emerald & Lime — On Right Side of Twin Grill Paths) */}
           <rect
-            x="355"
-            y="272"
-            width="105"
-            height="122"
+            x="542"
+            y="256"
+            width="115"
+            height="108"
             rx="12"
             fill="#166534"
-            fillOpacity="0.72"
+            fillOpacity="0.74"
             stroke="#84cc16"
-            strokeOpacity="0.65"
+            strokeOpacity="0.7"
             strokeWidth="1.8"
           />
-          <circle cx="385" cy="298" r="14" fill="#22c55e" fillOpacity="0.48" stroke="#a3e635" strokeOpacity="0.85" strokeWidth="1.4" />
-          <circle cx="430" cy="328" r="13" fill="#22c55e" fillOpacity="0.48" stroke="#a3e635" strokeOpacity="0.85" strokeWidth="1.4" />
-          <circle cx="388" cy="364" r="14" fill="#22c55e" fillOpacity="0.48" stroke="#a3e635" strokeOpacity="0.85" strokeWidth="1.4" />
-          <text x="408" y="348" textAnchor="middle" fill="#ecfccb" fontSize="9.5" fontWeight="700">
-            LAWN &amp; TREES
+          <circle cx="566" cy="276" r="12" fill="#22c55e" fillOpacity="0.48" stroke="#a3e635" strokeOpacity="0.85" strokeWidth="1.4" />
+          <circle cx="634" cy="276" r="12" fill="#22c55e" fillOpacity="0.48" stroke="#a3e635" strokeOpacity="0.85" strokeWidth="1.4" />
+
+          {/* Gardener 1 (Left in Lawn — Watering Plants) */}
+          <g transform="translate(568, 312)">
+            <circle cx="0" cy="0" r="11.5" fill="#052e16" fillOpacity="0.9" stroke="#a3e635" strokeWidth="1.4" />
+            <ellipse cx="0" cy="-4.5" rx="6.8" ry="2" fill="#fde047" />
+            <circle cx="0" cy="-2.2" r="2.6" fill="#fef3c7" />
+            <path d="M-4,5.2 C-4,1 4,1 4,5.2 Z" fill="#4ade80" />
+            {/* Watering Can */}
+            <rect x="4" y="1" width="4.2" height="3.2" rx="0.8" fill="#38bdf8" />
+            <path d="M8.2,2.2 L10.2,0.8" stroke="#38bdf8" strokeWidth="1.1" />
+          </g>
+
+          {/* Gardener 2 (Right in Lawn — Trimming & Flowers) */}
+          <g transform="translate(630, 312)">
+            <circle cx="0" cy="0" r="11.5" fill="#052e16" fillOpacity="0.9" stroke="#a3e635" strokeWidth="1.4" />
+            <ellipse cx="0" cy="-4.5" rx="6.8" ry="2" fill="#fde047" />
+            <circle cx="0" cy="-2.2" r="2.6" fill="#fef3c7" />
+            <path d="M-4,5.2 C-4,1 4,1 4,5.2 Z" fill="#22c55e" />
+            {/* Flower Accent */}
+            <circle cx="-6" cy="2.5" r="2" fill="#f472b6" />
+            <circle cx="-6" cy="2.5" r="0.8" fill="#fef08a" />
+          </g>
+
+          <text x="600" y="344" textAnchor="middle" fill="#ecfccb" fontSize="8.8" fontWeight="700">
+            WALKING LAWN
+          </text>
+          <text x="600" y="356" textAnchor="middle" fill="#bbf7d0" fontSize="8" fontWeight="700">
+            Gardeners (Right)
           </text>
 
-          {/* RIGHT LAWN & TREES (Vibrant Emerald & Lime — Alongside Twin Grill Walkways) */}
+          {/* PRINCIPAL'S OFFICE (Imperial Gold — Straight Past Lawn, on Right Side) */}
           <rect
-            x="540"
-            y="272"
-            width="105"
-            height="122"
-            rx="12"
-            fill="#166534"
-            fillOpacity="0.72"
-            stroke="#84cc16"
-            strokeOpacity="0.65"
-            strokeWidth="1.8"
+            x="575"
+            y="184"
+            width="160"
+            height="62"
+            rx="10"
+            fill="#78350f"
+            fillOpacity="0.65"
+            stroke="#fbbf24"
+            strokeOpacity="0.92"
+            strokeWidth="2.2"
           />
-          <circle cx="575" cy="298" r="14" fill="#22c55e" fillOpacity="0.48" stroke="#a3e635" strokeOpacity="0.85" strokeWidth="1.4" />
-          <circle cx="614" cy="332" r="13" fill="#22c55e" fillOpacity="0.48" stroke="#a3e635" strokeOpacity="0.85" strokeWidth="1.4" />
-          <circle cx="578" cy="364" r="14" fill="#22c55e" fillOpacity="0.48" stroke="#a3e635" strokeOpacity="0.85" strokeWidth="1.4" />
-          <text x="592" y="348" textAnchor="middle" fill="#ecfccb" fontSize="9.5" fontWeight="700">
-            LAWN &amp; TREES
+          <text x="655" y="204" textAnchor="middle" fill="#fef08a" fontSize="10" fontWeight="700">
+            PRINCIPAL&rsquo;S OFFICE (RIGHT)
           </text>
 
-          {/* Academic Wing 2 (Cyan) */}
+          {/* Academic Wing 2 (Cyan — East past Principal's Office) */}
           <rect
-            x="656"
-            y="222"
-            width="125"
-            height="68"
+            x="755"
+            y="166"
+            width="130"
+            height="66"
             rx="8"
             fill="#164e63"
             fillOpacity="0.58"
@@ -684,58 +739,58 @@ export function CampusMapCanvas({
             strokeOpacity="0.75"
             strokeWidth="1.8"
           />
-          <text x="718" y="244" textAnchor="middle" fill="#a5f3fc" fontSize="10" fontWeight="700">
+          <text x="820" y="188" textAnchor="middle" fill="#a5f3fc" fontSize="10" fontWeight="700">
             WING 2
           </text>
 
-          {/* Block B Science Wing (Fuchsia / Magenta) */}
+          {/* Block B Science Wing (Fuchsia / Magenta — Upper-Right above Central Library) */}
           <rect
-            x="724"
-            y="302"
-            width="175"
-            height="86"
+            x="765"
+            y="252"
+            width="180"
+            height="82"
             rx="10"
             fill="#701a75"
-            fillOpacity="0.52"
+            fillOpacity="0.55"
             stroke="#e879f9"
-            strokeOpacity="0.75"
+            strokeOpacity="0.8"
             strokeWidth="1.8"
           />
-          <text x="812" y="324" textAnchor="middle" fill="#f5d0fe" fontSize="10.5" fontWeight="700">
-            BLOCK B · SCIENCE LABS
+          <text x="855" y="276" textAnchor="middle" fill="#f5d0fe" fontSize="10" fontWeight="700">
+            SCIENCE LABS
           </text>
 
-          {/* IT Complex & Notice Plaza (Indigo / Sky) */}
+          {/* IT Complex (Indigo — Far South-East past Canteen) */}
           <rect
-            x="635"
-            y="398"
-            width="255"
-            height="92"
+            x="742"
+            y="450"
+            width="200"
+            height="70"
             rx="10"
             fill="#1e1b4b"
-            fillOpacity="0.62"
+            fillOpacity="0.65"
             stroke="#818cf8"
-            strokeOpacity="0.75"
+            strokeOpacity="0.8"
             strokeWidth="1.8"
           />
-          <text x="762" y="476" textAnchor="middle" fill="#c7d2fe" fontSize="10" fontWeight="700">
-            IT COMPLEX &amp; NOTICE PLAZA
+          <text x="842" y="512" textAnchor="middle" fill="#c7d2fe" fontSize="9.5" fontWeight="700">
+            IT COMPLEX (CS &amp; MULTIMEDIA)
           </text>
 
           {/* PAVED CAMPUS WALKWAYS NETWORK */}
-          <line x1="500" y1="540" x2="500" y2="395" stroke="#94a3b8" strokeOpacity="0.32" strokeWidth="20" strokeLinecap="round" />
-          <line x1="270" y1="486" x2="760" y2="486" stroke="#94a3b8" strokeOpacity="0.28" strokeWidth="14" strokeLinecap="round" />
-          <line x1="270" y1="486" x2="140" y2="336" stroke="#94a3b8" strokeOpacity="0.26" strokeWidth="11" strokeLinecap="round" />
-          <line x1="350" y1="432" x2="500" y2="432" stroke="#94a3b8" strokeOpacity="0.28" strokeWidth="12" strokeLinecap="round" />
+          <line x1="500" y1="540" x2="500" y2="390" stroke="#94a3b8" strokeOpacity="0.32" strokeWidth="20" strokeLinecap="round" />
+          <line x1="270" y1="486" x2="890" y2="486" stroke="#94a3b8" strokeOpacity="0.28" strokeWidth="14" strokeLinecap="round" />
+          <line x1="350" y1="426" x2="500" y2="426" stroke="#94a3b8" strokeOpacity="0.28" strokeWidth="12" strokeLinecap="round" />
+          <line x1="500" y1="393" x2="770" y2="393" stroke="#94a3b8" strokeOpacity="0.28" strokeWidth="12" strokeLinecap="round" />
 
           {/* TWIN WAYS SEPARATED BY SMALL GRILL */}
-          <line x1="485" y1="395" x2="485" y2="225" stroke="#cbd5e1" strokeOpacity="0.34" strokeWidth="14" strokeLinecap="round" />
-          <line x1="515" y1="395" x2="515" y2="225" stroke="#cbd5e1" strokeOpacity="0.34" strokeWidth="14" strokeLinecap="round" />
+          <line x1="485" y1="390" x2="485" y2="215" stroke="#cbd5e1" strokeOpacity="0.34" strokeWidth="14" strokeLinecap="round" />
+          <line x1="515" y1="390" x2="515" y2="215" stroke="#cbd5e1" strokeOpacity="0.34" strokeWidth="14" strokeLinecap="round" />
           <line
             x1="500"
-            y1="390"
+            y1="382"
             x2="500"
-            y2="245"
+            y2="238"
             stroke="#fbbf24"
             strokeWidth="3.2"
             strokeDasharray="6 4"
@@ -743,7 +798,7 @@ export function CampusMapCanvas({
           />
           <rect
             x="456"
-            y="306"
+            y="302"
             width="88"
             height="18"
             rx="4"
@@ -753,13 +808,13 @@ export function CampusMapCanvas({
             strokeOpacity="0.7"
             strokeWidth="1.2"
           />
-          <text x="500" y="318" textAnchor="middle" fill="#ecfccb" fontSize="8.5" fontWeight="700" letterSpacing="0.5">
+          <text x="500" y="314" textAnchor="middle" fill="#ecfccb" fontSize="8.5" fontWeight="700" letterSpacing="0.5">
             SMALL GRILL
           </text>
 
-          {/* Upper Spine */}
-          <line x1="500" y1="225" x2="500" y2="78" stroke="#94a3b8" strokeOpacity="0.28" strokeWidth="14" strokeLinecap="round" />
-          <line x1="350" y1="228" x2="500" y2="228" stroke="#94a3b8" strokeOpacity="0.28" strokeWidth="12" strokeLinecap="round" />
+          {/* Upper Spine connecting straight to Principal's Office (Right) & Auditorium */}
+          <line x1="500" y1="215" x2="500" y2="78" stroke="#94a3b8" strokeOpacity="0.28" strokeWidth="14" strokeLinecap="round" />
+          <line x1="500" y1="216" x2="655" y2="216" stroke="#94a3b8" strokeOpacity="0.32" strokeWidth="12" strokeLinecap="round" />
 
           {/* Pathan Colony Road outside the Main Gate */}
           <rect x="0" y="548" width="1000" height="52" fill="#0f172a" fillOpacity="0.92" />
@@ -789,9 +844,47 @@ export function CampusMapCanvas({
             OPPOSITE CENTRAL JAIL
           </text>
 
-          {/* Gate Entrance Opening */}
+          {/* Gate Entrance Opening & Security Guard Post */}
           <rect x="445" y="530" width="110" height="22" fill="#043026" />
-          <path d="M445 540 L445 524 M555 540 L555 524" stroke="#facc15" strokeWidth="3.5" />
+          <path d="M445 540 L445 522 M555 540 L555 522" stroke="#facc15" strokeWidth="3.5" />
+
+          {/* Security Guard Cabin (Left of Main Gate) */}
+          <rect
+            x="386"
+            y="514"
+            width="54"
+            height="24"
+            rx="5"
+            fill="#1e293b"
+            stroke="#38bdf8"
+            strokeWidth="1.6"
+          />
+          <text x="413" y="529" textAnchor="middle" fill="#e0f2fe" fontSize="7.5" fontWeight="800" letterSpacing="0.5">
+            SECURITY
+          </text>
+
+          {/* Left Gate Security Guard */}
+          <g transform="translate(460, 524)">
+            <circle cx="0" cy="0" r="11" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
+            {/* Security Peaked Cap + Head + Uniform */}
+            <rect x="-4.5" y="-6.2" width="9" height="2.4" rx="1" fill="#38bdf8" />
+            <circle cx="0" cy="-2.2" r="2.6" fill="#fef3c7" />
+            <path d="M-4.2,5.5 C-4.2,1.2 4.2,1.2 4.2,5.5 Z" fill="#1d4ed8" />
+            {/* Shield Emblem */}
+            <path d="M4.2,0.5 L7,1.4 L6.5,4.2 L5.5,5.2 L4.5,4.2 Z" fill="#facc15" />
+          </g>
+
+          {/* Right Gate Security Guard */}
+          <g transform="translate(540, 524)">
+            <circle cx="0" cy="0" r="11" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
+            <rect x="-4.5" y="-6.2" width="9" height="2.4" rx="1" fill="#38bdf8" />
+            <circle cx="0" cy="-2.2" r="2.6" fill="#fef3c7" />
+            <path d="M-4.2,5.5 C-4.2,1.2 4.2,1.2 4.2,5.5 Z" fill="#1d4ed8" />
+            <path d="M-7,1.4 L-4.2,0.5 L-4.5,4.2 L-5.5,5.2 L-6.5,4.2 Z" fill="#facc15" />
+          </g>
+          <text x="540" y="509" textAnchor="middle" fill="#bae6fd" fontSize="7.5" fontWeight="700" letterSpacing="0.5">
+            GATE GUARD
+          </text>
 
           {/* Upcoming Planned Walking Route Polyline */}
           {activeRoute.length >= 2 && (
@@ -990,6 +1083,14 @@ export function CampusMapCanvas({
           <span className="inline-flex items-center gap-1.5">
             <span className="w-5 border-t-2 border-dashed border-amber-400 inline-block" />
             <span>Route Ahead</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded-full bg-slate-900 border border-sky-400 inline-block" />
+            <span>Gate Security</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded-full bg-green-950 border border-lime-400 inline-block" />
+            <span>Lawn Gardeners</span>
           </span>
         </div>
 

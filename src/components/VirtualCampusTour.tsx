@@ -44,7 +44,7 @@ import {
   Square
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v2';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v5';
 
 type SimTargetMode = 'guided-principal' | 'selected-stop';
 
@@ -135,19 +135,19 @@ function getSurroundingsAtCoord(
 
   if (y >= 80 && Math.abs(x - 50) <= 10) {
     return {
-      stageLabel: 'Entering Main College Gate',
-      leftView: 'College Canteen (near) & Central Library (at a distance)',
-      aheadView: 'Straight walkway toward Clerk Office & Twin Grill Lawns',
-      rightView: 'Notice Board Plaza & SECCAP Help Desk'
+      stageLabel: 'Entering Main College Gate (Security Check)',
+      leftView: 'Security Post & Guard · Notice Board Plaza & SECCAP Desk',
+      aheadView: 'Gate Security Guards & straight walkway toward Clerk Office (Left) & Central Library (Right)',
+      rightView: 'Gate Guard · College Canteen right after entrance gate'
     };
   }
 
   if (progress >= 0.96) {
     return {
       stageLabel: `Arrived at ${targetStop.shortName || targetStop.name}`,
-      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name} entrance` : 'Central lawns & inner campus corridor',
+      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name} entrance` : 'Central promenade & west wing corridor',
       aheadView: targetStop.locationNote,
-      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name} entrance` : 'East wing walkways'
+      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name} entrance` : 'Walking lawn, gardeners & right campus wing'
     };
   }
 
@@ -155,17 +155,17 @@ function getSurroundingsAtCoord(
     stageLabel: `Walking toward ${targetStop.shortName || targetStop.name}`,
     leftView:
       y < 62 && y > 35
-        ? 'Shaded Lawn & Trees (Left) · Central Library beyond'
+        ? 'West courtyard & shaded walkway'
         : x < 45
           ? `${targetStop.shortName || targetStop.name} side walkway`
-          : 'Clerk Office & Twin Grill Walkway',
+          : 'Clerk Office & Twin Grill Paths',
     aheadView: `${targetStop.shortName || targetStop.name} (${targetStop.gateDirections.turn})`,
     rightView:
       y < 62 && y > 35
-        ? 'Shaded Lawn & Trees (Right) · Science Block B'
+        ? 'Walking Lawn, Trees & Gardeners (Right of Path) · Principal’s Office ahead'
         : x > 55
           ? `${targetStop.shortName || targetStop.name} side walkway`
-          : 'IT Complex & Science Labs corridor'
+          : 'College Canteen, Central Library & Walking Lawn (Right)'
   };
 }
 
@@ -278,10 +278,10 @@ export function VirtualCampusTour() {
       return (
         principalStop?.gateDirections?.routePath || [
           { x: 50, y: 90 },
-          { x: 50, y: 72 },
+          { x: 50, y: 71 },
           { x: 50, y: 54 },
-          { x: 50, y: 38 },
-          { x: 35, y: 38 }
+          { x: 50, y: 36 },
+          { x: 65.5, y: 36 }
         ]
       );
     }

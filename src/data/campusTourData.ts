@@ -65,38 +65,45 @@ export interface SimulationCheckpoint {
 export const GATE_TO_PRINCIPAL_CHECKPOINTS: SimulationCheckpoint[] = [
   {
     progress: 0,
-    label: 'Entering Main College Gate',
-    leftView: 'College Canteen (near) & Central Library (at a distance)',
-    aheadView: 'Straight entrance walkway into campus',
-    rightView: 'Notice Board & Admission Help Desk'
+    label: 'Entering Main College Gate (Security Check)',
+    leftView: 'Security Post & Guard · Notice Board Plaza & SECCAP Desk',
+    aheadView: 'Gate Security Guards & straight entrance walkway into campus',
+    rightView: 'Gate Guard · College Canteen right after entrance gate'
   },
   {
-    progress: 0.28,
-    label: 'Moving Straight Past Entrance Plaza',
-    leftView: 'Clerk Office on your left · Central Library deeper left',
-    aheadView: 'Twin paths separated by small central grill',
-    rightView: 'Walkway toward IT Complex & Science Wing'
+    progress: 0.24,
+    label: 'Moving Straight Past Entrance (Clerk Office on Left)',
+    leftView: 'Clerk Office on your left side',
+    aheadView: 'Straight path toward Central Library (Right) & Twin Grill Paths',
+    rightView: 'College Canteen just passed · Central Library ahead on right'
   },
   {
-    progress: 0.58,
-    label: 'Walking Along Twin Ways Separated by Small Grill',
-    leftView: 'Shaded green lawn & trees on your left side',
-    aheadView: 'Twin divided lanes continuing forward',
-    rightView: 'Shaded green lawn & trees on your right side'
+    progress: 0.44,
+    label: 'Passing Central Library on Your Right',
+    leftView: 'Shaded west courtyard walkway',
+    aheadView: 'Two parallel paths separated by small central grill',
+    rightView: 'Central College Library on your right after walking straight'
   },
   {
-    progress: 0.85,
-    label: 'Completing Lawn Stretch',
-    leftView: 'Principal’s Office entrance coming up on left',
+    progress: 0.68,
+    label: 'Walking Along Two Paths Separated by Small Grill',
+    leftView: 'West courtyard & Academic Wing 1 ahead',
+    aheadView: 'Straight path continuing to Principal’s Office',
+    rightView: 'Shaded walking lawn, trees & campus gardeners on the right side'
+  },
+  {
+    progress: 0.86,
+    label: 'Walking Straight Past the Lawn',
+    leftView: 'West academic corridor',
     aheadView: 'Central Auditorium ahead',
-    rightView: 'Academic Wing 2 & Science Block B'
+    rightView: 'Principal’s Office coming up on your right side'
   },
   {
     progress: 1,
-    label: 'Arrived at Principal’s Office (Left Side)',
-    leftView: 'Principal’s Office & Executive Suite',
+    label: 'Arrived at Principal’s Office (Right Side)',
+    leftView: 'Central promenade & Auditorium approach',
     aheadView: 'North Auditorium & Sports Lawn',
-    rightView: 'East Campus Courtyard'
+    rightView: 'Principal’s Office & Executive Suite'
   }
 ];
 
@@ -105,27 +112,34 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'historic-gateway',
     name: 'Main College Gate & Historic Archway',
     shortName: 'Main Gate',
-    subtitle: 'Visitor Entry Point · Canteen on Left & Central Library at a Distance',
+    subtitle: 'Visitor Entry Point · Canteen & Library on Right · Twin Grill Path to Principal’s Office (Right)',
     category: 'Administration',
     stopNumber: '01',
     imageSrc: '/assets/aistudio/campus_86930cb8.jpg',
     svgType: 'courtyard',
     badge: 'Entry Point · Estd 1953',
     description:
-      'Step inside the 1953 iron-arched Main Gate of Government Girls Zubaida College from Pathan Colony Road. Immediately on your left sits the College Canteen, with the Central Library visible further left in the distance, while the main pathway leads straight ahead past the Clerk Office toward the shaded twin lawns and Principal’s Office.',
+      'Step inside the 1953 iron-arched Main Gate of Government Girls Zubaida College from Pathan Colony Road. Immediately on your right sits the College Canteen; walking straight inside brings you past the Clerk Office on your left and Central Library on your right, then along two paths separated by a small grill with a walking lawn on the right leading straight to the Principal’s Office on your right.',
     keySpecs: [
       { label: 'Founded', value: '1953' },
-      { label: 'Immediate Left', value: 'Canteen & Library' },
-      { label: 'Walk Straight', value: 'Clerk Office (Left)' },
-      { label: 'Further Straight', value: 'Twin Lawns & Principal' }
+      { label: 'Right After Gate', value: 'College Canteen' },
+      { label: 'Straight · Right', value: 'Central Library' },
+      { label: 'Past Twin Lawns', value: 'Principal’s Office (Right)' }
     ],
     highlights: [
-      'On your immediate left upon entering: College Canteen',
-      'Visible further left at a distance: Central College Library',
-      'Straight ahead walkway leads past the Clerk Office on the left',
-      'Continues through twin walkways separated by a small grill with trees and lawns on both sides'
+      '24/7 Campus Security Post & Gate Guards stationed right at the Main Gate',
+      'On your immediate right after the entrance gate: College Canteen',
+      'After walking some distance straight, on your right: Central College Library',
+      'Two paths separated by a small grill with walking lawn & gardeners on the right'
     ],
     hotspots: [
+      {
+        id: 'gate-security',
+        label: 'Gate Security Post',
+        description: 'Trained campus security guards stationed at the entrance gate for student & visitor safety.',
+        xPercent: 25,
+        yPercent: 72
+      },
       {
         id: 'arch',
         label: 'Historic Archway',
@@ -134,30 +148,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 22
       },
       {
-        id: 'canteen-left',
-        label: 'Canteen (Left)',
-        description: 'Located on your left side right after entering the Main Gate.',
-        xPercent: 18,
+        id: 'canteen-right',
+        label: 'Canteen (Right)',
+        description: 'Located on your right side immediately after entering the Main Gate.',
+        xPercent: 80,
         yPercent: 78
-      },
-      {
-        id: 'straight-path',
-        label: 'Straight Central Path',
-        description: 'Walk straight forward toward Clerk Office, twin grill walkways, and Principal’s Office.',
-        xPercent: 52,
-        yPercent: 68
       }
     ],
-    locationNote: 'South Boundary · Pathan Colony Road (Opposite Central Jail)',
+    locationNote: 'South Boundary · Pathan Colony Road (Security Gate)',
     mapX: 50,
     mapY: 90,
     gateDirections: {
       turn: 'Entry Gate',
       distanceFromGate: '0 m (Start Point)',
       walkingSteps: [
-        'Enter through the Main College Gate archway.',
-        'Look to your left for the College Canteen, with the Central Library further left at a distance.',
-        'Walk straight forward to reach the Clerk Office (left), twin grill-divided lawn pathways, and Principal’s Office (left).'
+        'Enter through the Security-monitored Main College Gate (College Canteen is immediately on your right).',
+        'Walk straight forward past the Clerk Office (left) and Central Library (on the right after some distance).',
+        'Continue along the two paths separated by a small grill with the walking lawn & gardeners on your right, then turn right into the Principal’s Office.'
       ],
       routePath: [{ x: 50, y: 90 }]
     }
@@ -166,29 +173,29 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'college-canteen',
     name: 'College Canteen',
     shortName: 'Canteen',
-    subtitle: 'On Your Left Immediately Upon Entering the Main Gate',
+    subtitle: 'On Your Right Side Immediately After Entering the Main Gate',
     category: 'Student Life',
     stopNumber: '02',
     svgType: 'courtyard',
-    badge: 'Left Inside Gate · Student Refreshments',
+    badge: 'Right After Gate · Student Refreshments',
     description:
-      'As soon as a visitor enters the Main College Gate, the College Canteen is situated right on the left side—providing students and visitors with refreshments, snacks, tea, and shaded seating near the entrance plaza.',
+      'Right after entering through the Main College Gate, the College Canteen sits on your right side—serving students and visitors with fresh refreshments, snacks, tea, and shaded courtyard seating near the gate.',
     keySpecs: [
-      { label: 'Direction', value: 'On Left at Gate' },
-      { label: 'Walk Time', value: '15 Meters Left' },
-      { label: 'Beyond Canteen', value: 'Central Library' },
+      { label: 'Direction', value: 'On Right After Gate' },
+      { label: 'Walk Time', value: '15 Meters Right' },
+      { label: 'Further Straight', value: 'Central Library (Right)' },
       { label: 'Services', value: 'Snacks & Cool Water' }
     ],
     highlights: [
-      'Positioned immediately on your left as you step inside the College Gate',
+      'Positioned on your right side right after entering the College Gate',
       'Hygienic student tuck shop with chilled drinking water dispensers',
-      'Pathway continues further left at a distance toward the Central College Library'
+      'Continuing straight inside leads to the Central Library further along on the right'
     ],
     hotspots: [
       {
         id: 'canteen-counter',
         label: 'Refreshments Counter',
-        description: 'Student snack and tea counter located on the left side inside the gate.',
+        description: 'Student snack and tea counter located on the right side after the entrance gate.',
         xPercent: 36,
         yPercent: 54
       },
@@ -200,21 +207,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 60
       }
     ],
-    locationNote: 'Left Side Inside Main Gate',
-    mapX: 27,
+    locationNote: 'Right Side Inside Main Gate',
+    mapX: 64,
     mapY: 81,
     gateDirections: {
-      turn: 'Turn Left',
-      distanceFromGate: '15 m Left',
+      turn: 'Turn Right',
+      distanceFromGate: '15 m Right',
       walkingSteps: [
         'Enter through the Main College Gate.',
-        'Turn immediately to your left side.',
-        'You will see the College Canteen right beside the entrance area.'
+        'Turn right immediately inside the entrance.',
+        'The College Canteen is right there on your right side.'
       ],
       routePath: [
         { x: 50, y: 90 },
         { x: 50, y: 81 },
-        { x: 27, y: 81 }
+        { x: 64, y: 81 }
       ]
     }
   },
@@ -222,21 +229,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'central-library',
     name: 'Central College Library & Reading Wing',
     shortName: 'Central Library',
-    subtitle: 'On the Left Side at a Distance Past the Canteen · 15,000+ Books',
+    subtitle: 'Walk Some Distance Straight Inside · Located on Your Right Side · 15,000+ Books',
     category: 'Library',
     stopNumber: '03',
     svgType: 'library',
-    badge: 'Left Side at a Distance · 15,000+ Volumes',
+    badge: 'Straight & Right · 15,000+ Volumes',
     description:
-      'Looking to the left at a distance as you enter the Main College Gate—past the College Canteen—stands the Central College Library. It holds over 15,000 volumes, Government Book Bank textbooks, past BISE papers, and 120 quiet reading seats.',
+      'After entering the Main Gate and walking straight forward for some distance past the Canteen turn-off, the Central College Library stands on your right side. It houses over 15,000 volumes, Government Book Bank textbooks, past BISE papers, and 120 quiet reading seats.',
     keySpecs: [
-      { label: 'Direction', value: 'Left at a Distance' },
+      { label: 'Direction', value: 'Straight · Then Right' },
       { label: 'Book Capacity', value: '15,000+ Volumes' },
       { label: 'Reading Seats', value: '120 Students' },
       { label: 'Lending Scheme', value: 'Free Book Bank' }
     ],
     highlights: [
-      'Located on the left side at a distance when entering from the Main Gate',
+      'Reachable by walking some distance straight from the gate, then turning right',
       'Government Book Bank offering free textbook lending for students',
       'Reference Hall for Pre-Medical, Computer Science, Commerce & BS Zoology'
     ],
@@ -263,22 +270,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 60
       }
     ],
-    locationNote: 'Left Campus Zone (At a Distance Past Canteen)',
-    mapX: 14,
-    mapY: 56,
+    locationNote: 'Right Side After Walking Straight from Gate',
+    mapX: 77,
+    mapY: 65.5,
     gateDirections: {
-      turn: 'Bear Left',
-      distanceFromGate: '55 m Left (At a Distance)',
+      turn: 'Turn Right',
+      distanceFromGate: '40 m Straight · Right',
       walkingSteps: [
-        'Enter the Main College Gate and look toward your left past the College Canteen.',
-        'Follow the left-side campus pathway continuing further inward at a distance.',
-        'Arrive at the Central College Library & Reading Wing on the left.'
+        'Enter the Main College Gate (passing College Canteen right after the gate on your right).',
+        'Walk straight forward for some distance past the Clerk Office on the left.',
+        'Turn right to enter the Central College Library & Reading Wing.'
       ],
       routePath: [
         { x: 50, y: 90 },
-        { x: 50, y: 81 },
-        { x: 27, y: 81 },
-        { x: 14, y: 56 }
+        { x: 50, y: 65.5 },
+        { x: 77, y: 65.5 }
       ]
     }
   },
@@ -322,81 +328,81 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Central Walkway · On the Left Side After Entering Straight',
     mapX: 35,
-    mapY: 72,
+    mapY: 71,
     gateDirections: {
       turn: 'Straight Ahead',
       distanceFromGate: '25 m Straight · Left',
       walkingSteps: [
         'Enter the Main College Gate and walk straight forward along the main path.',
-        'Move straight past the entrance plaza (passing Canteen turn-off on the far left).',
+        'Move straight past the entrance plaza (passing Canteen on your right).',
         'On your left side sits the Clerk Office.'
       ],
       routePath: [
         { x: 50, y: 90 },
-        { x: 50, y: 72 },
-        { x: 35, y: 72 }
+        { x: 50, y: 71 },
+        { x: 35, y: 71 }
       ]
     }
   },
   {
     id: 'grill-divided-walkway',
-    name: 'Twin Ways (Small Grill) & Shaded Lawns',
-    shortName: 'Twin Grill Lawns',
-    subtitle: 'Straight Past Clerk Office · Two Ways Separated by Small Grill with Trees Left & Right',
+    name: 'Twin Paths (Small Grill) & Walking Lawn',
+    shortName: 'Twin Grill Lawn',
+    subtitle: 'Two Paths Separated by Small Grill · Walking Lawn on the Right · Straight to Principal’s Office',
     category: 'Student Life',
     stopNumber: '05',
     svgType: 'courtyard',
-    badge: 'Central Promenade · Trees Left & Right',
+    badge: 'Central Promenade · Walking Lawn on Right',
     description:
-      'Moving straight forward past the Clerk Office brings you to Zubaida College’s signature shaded central promenade: two parallel paved walking lanes separated down the middle by a small iron grill, bordered on both the left and right sides by lush green lawns and tall shade trees.',
+      'Moving straight forward brings you along Zubaida College’s two parallel paved paths separated down the middle by a small iron grill, with a lush green walking lawn and shade trees extending along the right side of the path toward the Principal’s Office.',
     keySpecs: [
-      { label: 'Layout', value: 'Two Divided Lanes' },
+      { label: 'Layout', value: 'Two Divided Paths' },
       { label: 'Center Divider', value: 'Small Iron Grill' },
-      { label: 'Greenery', value: 'Lawn & Trees Both Sides' },
-      { label: 'Ahead Left', value: 'Principal’s Office' }
+      { label: 'Walking Lawn', value: 'Right Side of Path' },
+      { label: 'Ahead Right', value: 'Principal’s Office' }
     ],
     highlights: [
       'Two clean parallel walkways separated by a small central iron grill',
-      'Shaded lawns and mature trees lining both the left and right sides',
-      'Leads straight ahead toward the Principal’s Office on the left side after some walking distance'
+      'Shaded green walking lawn maintained by campus gardeners on the right side of the path',
+      'Walk straight ahead past the lawn to reach the Principal’s Office on the right'
     ],
     hotspots: [
       {
         id: 'small-grill',
         label: 'Small Center Grill Divider',
-        description: 'Decorative low grill neatly separating the twin pedestrian lanes.',
+        description: 'Decorative low grill neatly separating the twin pedestrian paths.',
         xPercent: 50,
         yPercent: 52
       },
       {
-        id: 'left-lawn-trees',
-        label: 'Left Lawn & Shade Trees',
-        description: 'Lush manicured lawn bordered by tall trees on the left side.',
-        xPercent: 24,
+        id: 'right-walking-lawn',
+        label: 'Walking Lawn & Gardeners (Right)',
+        description: 'Lush manicured walking lawn, flowers, and shade trees tended by college gardeners on the right side of the path.',
+        xPercent: 76,
         yPercent: 55
       },
       {
-        id: 'right-lawn-trees',
-        label: 'Right Lawn & Shade Trees',
-        description: 'Shaded green garden lawn along the right side of the twin walkway.',
-        xPercent: 76,
+        id: 'west-walkway',
+        label: 'Shaded West Courtyard',
+        description: 'Quiet garden seating space across from the central walkway.',
+        xPercent: 24,
         yPercent: 55
       }
     ],
-    locationNote: 'Central Promenade · Between Clerk Office & Principal’s Office',
+    locationNote: 'Central Promenade · Walking Lawn & Gardeners on Right Side',
     mapX: 50,
     mapY: 54,
     gateDirections: {
       turn: 'Straight Ahead',
       distanceFromGate: '45 m Straight',
       walkingSteps: [
-        'From the Main Gate, walk straight forward past the Clerk Office on your left.',
-        'Step onto the twin parallel walkways separated down the center by a small grill.',
-        'Enjoy green lawns and trees on both your left and right as you continue straight ahead.'
+        'From the Main Gate (with Gate Security), walk straight forward past the Canteen, Clerk Office, and Central Library.',
+        'Step onto the two paths separated down the center by a small grill.',
+        'Notice the green walking lawn & campus gardeners on the right side of the path as you continue straight.'
       ],
       routePath: [
         { x: 50, y: 90 },
-        { x: 50, y: 72 },
+        { x: 50, y: 71 },
         { x: 50, y: 54 }
       ]
     }
@@ -405,21 +411,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'principal-office',
     name: 'Principal’s Office & Executive Suite',
     shortName: 'Principal’s Office',
-    subtitle: 'After Walking Straight Through the Grill-Divided Lawn Way · On Your Left Side',
+    subtitle: 'Walk Straight Past Twin Grill Paths & Right Walking Lawn · Located on Your Right Side',
     category: 'Administration',
     stopNumber: '06',
     svgType: 'principal-office',
-    badge: 'College Leadership · Left Side Ahead',
+    badge: 'College Leadership · Right Side Ahead',
     description:
-      'Continuing straight along the twin walkways separated by the small grill—with lawns and trees on both left and right—after some walking distance you reach the Principal’s Office on your left side, serving as the executive office of Principal Prof. Yasmeen Panhwar.',
+      'Continuing straight along the two paths separated by the small grill—with the green walking lawn on the right of the path—walking straight forward brings you to the Principal’s Office on your right side, serving as the executive office of Principal Prof. Yasmeen Panhwar.',
     keySpecs: [
       { label: 'Principal', value: 'Prof. Yasmeen Panhwar' },
-      { label: 'Direction', value: 'Straight · Left Side' },
+      { label: 'Direction', value: 'Straight · Right Side' },
       { label: 'Distance', value: '68 Meters Inside' },
       { label: 'Office Hours', value: '8:00 AM – 2:00 PM' }
     ],
     highlights: [
-      'Positioned on the left side after walking past the twin grill-divided lawn path',
+      'Positioned on the right side after walking straight past the twin grill paths & walking lawn',
       'Executive office overseeing Intermediate, Associate & BS 4-Year degree programs',
       'Academic Honor Wall showcasing Zubaida College’s BISE toppers since 1953'
     ],
@@ -446,23 +452,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 62
       }
     ],
-    locationNote: 'Left Side · Past Twin Grill-Divided Lawn Walkway',
-    mapX: 35,
-    mapY: 38,
+    locationNote: 'Right Side · Past Twin Grill Paths & Walking Lawn',
+    mapX: 65.5,
+    mapY: 36,
     gateDirections: {
-      turn: 'Turn Left',
-      distanceFromGate: '68 m Straight · Left',
+      turn: 'Turn Right',
+      distanceFromGate: '68 m Straight · Right',
       walkingSteps: [
-        'Enter the Main Gate and walk straight forward past the Clerk Office on your left.',
-        'Continue straight along the twin ways separated by a small grill, with lawns and trees on left and right.',
-        'After walking past the lawn stretch, turn to your left side to enter the Principal’s Office.'
+        'Enter the Main Gate (Canteen on right) and walk straight past Clerk Office (left) and Central Library (right).',
+        'Continue straight along the two paths separated by a small grill with the walking lawn on the right.',
+        'After walking straight past the lawn stretch, turn to your right side to enter the Principal’s Office.'
       ],
       routePath: [
         { x: 50, y: 90 },
-        { x: 50, y: 72 },
+        { x: 50, y: 71 },
         { x: 50, y: 54 },
-        { x: 50, y: 38 },
-        { x: 35, y: 38 }
+        { x: 50, y: 36 },
+        { x: 65.5, y: 36 }
       ]
     }
   },
@@ -470,23 +476,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'seccap-help-desk',
     name: 'Notice Board Plaza & SECCAP Help Desk',
     shortName: 'Notice & SECCAP Desk',
-    subtitle: 'Merit Lists, Exam Schedules & Admission Guidance Inside Gate Right Side',
+    subtitle: 'Merit Lists, Exam Schedules & Admission Guidance Inside Gate Left Side',
     category: 'Administration',
     stopNumber: '07',
     svgType: 'courtyard',
-    badge: 'Gate Entry · Right Side',
+    badge: 'Gate Entry · Left Side',
     description:
-      'Located to the right inside the Main Gate entrance plaza so applicants and visitors can check daily circulars, BISE timetables, merit lists, and SECCAP admission instructions upon arrival.',
+      'Located to the left inside the Main Gate entrance plaza so applicants and visitors can check daily circulars, BISE timetables, merit lists, and SECCAP admission instructions upon arrival.',
     keySpecs: [
-      { label: 'Position', value: 'Right of Main Gate' },
-      { label: 'Distance', value: '15 Meters Right' },
+      { label: 'Position', value: 'Left of Main Gate' },
+      { label: 'Distance', value: '15 Meters Left' },
       { label: 'Displays', value: 'Merit Lists & Datesheets' },
       { label: 'Support', value: 'Admission Queries' }
     ],
     highlights: [
       'Glass-enclosed campus Notice Boards updated with daily CED & BISE circulars',
       'Seasonal SECCAP & BS University of Sindh Admission Verification Desk',
-      'Right pathway continues toward Computer Science & Science Labs'
+      'Positioned opposite the College Canteen inside the entrance courtyard'
     ],
     hotspots: [
       {
@@ -504,21 +510,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 65
       }
     ],
-    locationNote: 'Right Side Inside Main Gate · Entrance Plaza',
-    mapX: 72,
+    locationNote: 'Left Side Inside Main Gate · Entrance Plaza',
+    mapX: 27,
     mapY: 81,
     gateDirections: {
-      turn: 'Turn Right',
-      distanceFromGate: '15 m Right',
+      turn: 'Turn Left',
+      distanceFromGate: '15 m Left',
       walkingSteps: [
         'Enter through the Main College Gate archway.',
-        'Turn right immediately across the entrance plaza.',
+        'Turn left immediately across the entrance plaza.',
         'View the glass Notice Boards and SECCAP Admission Help Desk.'
       ],
       routePath: [
         { x: 50, y: 90 },
         { x: 50, y: 81 },
-        { x: 72, y: 81 }
+        { x: 27, y: 81 }
       ]
     }
   },
@@ -532,7 +538,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     svgType: 'science-lab',
     badge: 'East Wing · Blocks B1 & B2',
     description:
-      'Located along the eastern right-hand corridor past the right lawn & trees, these five specialized laboratories serve Pre-Medical, Pre-Engineering, and BS Life Sciences practicals.',
+      'Located along the eastern right-hand corridor past the Central Library and right lawn & trees, these five specialized laboratories serve Pre-Medical, Pre-Engineering, and BS Life Sciences practicals.',
     keySpecs: [
       { label: 'Laboratories', value: '5 Specialized Wings' },
       { label: 'Equipment', value: 'Microscopes & Optics' },
@@ -567,21 +573,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 65
       }
     ],
-    locationNote: 'East Side Past Right Lawn · Blocks B1 & B2',
-    mapX: 80,
-    mapY: 56,
+    locationNote: 'East Side Past Walking Lawn · Blocks B1 & B2',
+    mapX: 85.5,
+    mapY: 49,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '55 m Right Side',
+      distanceFromGate: '62 m Right Side',
       walkingSteps: [
-        'Enter the Main Gate and walk straight past the Clerk Office onto the twin lawn walkway.',
-        'Turn right past the right-side lawn and shade trees.',
+        'Enter the Main Gate and walk straight past the Clerk Office and Central Library turn-off.',
+        'Along the twin grill walkway, turn right past the walking lawn and shade trees.',
         'Enter Science Wing Blocks B1 & B2 for Physics, Chemistry, Botany, Zoology & Physiology labs.'
       ],
       routePath: [
         { x: 50, y: 90 },
-        { x: 50, y: 54 },
-        { x: 80, y: 56 }
+        { x: 50, y: 49 },
+        { x: 85.5, y: 49 }
       ]
     }
   },
@@ -693,22 +699,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 40
       }
     ],
-    locationNote: 'West Corridor · Beyond Principal’s Office',
-    mapX: 21,
-    mapY: 31,
+    locationNote: 'West Corridor · Left Opposite Principal’s Office',
+    mapX: 20,
+    mapY: 30,
     gateDirections: {
       turn: 'Bear Left',
-      distanceFromGate: '75 m North-West',
+      distanceFromGate: '74 m North-West',
       walkingSteps: [
-        'Walk straight along the twin grill-divided walkways past the left and right lawns.',
-        'Turn left past the Principal’s Office veranda.',
+        'Walk straight along the two grill-divided paths passing the walking lawn on your right.',
+        'Just opposite the Principal’s Office corridor, bear left into the west arcade.',
         'Continue slightly inward to enter Academic Wing 1.'
       ],
       routePath: [
         { x: 50, y: 90 },
-        { x: 50, y: 38 },
-        { x: 35, y: 38 },
-        { x: 21, y: 31 }
+        { x: 50, y: 36 },
+        { x: 20, y: 30 }
       ]
     }
   },
@@ -722,7 +727,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     svgType: 'academic-wing',
     badge: 'Wing 2 · 5 Departments',
     description:
-      'Located along the east corridor on the right side of the twin lawn promenade, Academic Wing 2 houses Physics, Mathematics, Statistics, English, and Islamiyat lecture rooms.',
+      'Located along the east corridor just past the Principal’s Office on the right side, Academic Wing 2 houses Physics, Mathematics, Statistics, English, and Islamiyat lecture rooms.',
     keySpecs: [
       { label: 'Departments', value: '5 Subjects Housed' },
       { label: 'Focus', value: 'STEM, English & Islamiyat' },
@@ -757,21 +762,22 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 58
       }
     ],
-    locationNote: 'East Inner Corridor · Right of Twin Lawn Promenade',
-    mapX: 68,
-    mapY: 42,
+    locationNote: 'East Inner Corridor · Past Principal’s Office on Right',
+    mapX: 82,
+    mapY: 33,
     gateDirections: {
       turn: 'Bear Right',
-      distanceFromGate: '62 m North-East',
+      distanceFromGate: '70 m North-East',
       walkingSteps: [
-        'Walk straight along the twin grill-divided walkways passing the Clerk Office.',
-        'At the shaded right-side lawn, bear right toward the east arcade.',
+        'Walk straight along the twin grill-divided paths past the walking lawn on the right.',
+        'Turn right toward the Principal’s Office and continue east.',
         'Enter Academic Wing 2 for Physics, Mathematics, Statistics, English, and Islamiyat.'
       ],
       routePath: [
         { x: 50, y: 90 },
-        { x: 50, y: 42 },
-        { x: 68, y: 42 }
+        { x: 50, y: 36 },
+        { x: 65.5, y: 36 },
+        { x: 82, y: 33 }
       ]
     }
   },
@@ -785,7 +791,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     svgType: 'academic-wing',
     badge: 'Wing 3 · Life Sciences',
     description:
-      'Continuing north along the east corridor past Wing 2 leads into Academic Wing 3—our Life Sciences hub housing the Departments of Botany and Zoology, specimen museums, and herbarium archives.',
+      'Continuing north along the east corridor past Principal’s Office and Wing 2 leads into Academic Wing 3—our Life Sciences hub housing the Departments of Botany and Zoology, specimen museums, and herbarium archives.',
     keySpecs: [
       { label: 'Departments', value: 'Botany & Zoology' },
       { label: 'Programs', value: 'Pre-Medical & BS Zoology' },
@@ -814,21 +820,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'North-East Life Sciences Corridor · Wing 3',
-    mapX: 79,
-    mapY: 28,
+    mapX: 81.5,
+    mapY: 19,
     gateDirections: {
       turn: 'Bear Right',
-      distanceFromGate: '78 m North-East',
+      distanceFromGate: '80 m North-East',
       walkingSteps: [
-        'Walk straight from the Main Gate along the twin grill-divided walkway past the right lawn.',
-        'Turn right toward Academic Wing 2 and continue north along the east corridor.',
+        'Walk straight from the Main Gate along the twin grill-divided paths past the walking lawn.',
+        'Pass Principal’s Office on the right and follow the east corridor north past Wing 2.',
         'Enter Academic Wing 3 for Botany and Zoology rooms.'
       ],
       routePath: [
         { x: 50, y: 90 },
-        { x: 50, y: 42 },
-        { x: 68, y: 42 },
-        { x: 79, y: 28 }
+        { x: 50, y: 36 },
+        { x: 81.5, y: 19 }
       ]
     }
   },
@@ -842,7 +847,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     svgType: 'academic-wing',
     badge: 'Wing 4 · 3 Departments',
     description:
-      'On the north-west side just past the Principal’s Office and Wing 1 lies Academic Wing 4, uniting Sindhi Literature, Economics, and Human Physiology.',
+      'On the north-west side beyond Wing 1 lies Academic Wing 4, uniting Sindhi Literature, Economics, and Human Physiology.',
     keySpecs: [
       { label: 'Departments', value: 'Sindhi, Economics, Physiology' },
       { label: 'Streams', value: 'Arts, Commerce & Sciences' },
@@ -878,20 +883,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'North-West Academic Corridor · Wing 4',
-    mapX: 35,
+    mapX: 34,
     mapY: 18,
     gateDirections: {
       turn: 'Bear Left',
       distanceFromGate: '82 m North-West',
       walkingSteps: [
-        'Walk straight from the Main Gate along the twin grill-divided walkways.',
-        'Pass the Principal’s Office turn-off on the left and bear left before the Auditorium.',
+        'Walk straight from the Main Gate along the twin grill-divided paths past the walking lawn.',
+        'Pass the Principal’s Office turn-off on the right and bear left before the Auditorium.',
         'Academic Wing 4 (Sindhi, Economics, Physiology) sits along the north-west block.'
       ],
       routePath: [
         { x: 50, y: 90 },
         { x: 50, y: 30 },
-        { x: 35, y: 18 }
+        { x: 34, y: 18 }
       ]
     }
   },
@@ -940,22 +945,22 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 45
       }
     ],
-    locationNote: 'IT Complex Ground Floor · Right Side Past Notice Plaza',
-    mapX: 83,
-    mapY: 74,
+    locationNote: 'IT Complex Ground Floor · Far Right Past College Canteen',
+    mapX: 89,
+    mapY: 81,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '38 m Right Side',
+      distanceFromGate: '42 m Right Side',
       walkingSteps: [
-        'Enter the Main Gate and turn right past the Notice & SECCAP Desk.',
-        'Follow the east entrance pathway directly to the IT Complex.',
+        'Enter the Main Gate and turn right past the College Canteen.',
+        'Continue along the south-east entrance pathway to the IT Complex.',
         'Enter the Ground Floor doors for the Computer Science Lab.'
       ],
       routePath: [
         { x: 50, y: 90 },
         { x: 50, y: 81 },
-        { x: 72, y: 81 },
-        { x: 83, y: 74 }
+        { x: 64, y: 81 },
+        { x: 89, y: 81 }
       ]
     }
   },
@@ -969,7 +974,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     svgType: 'multimedia-room',
     badge: 'IT Complex · 1st Floor',
     description:
-      'Situated on the 1st Floor of the IT Complex on the right-hand side of campus, the Multimedia Room hosts smart-board seminars, Python coding demos, Figma design critiques, and visual lectures.',
+      'Situated on the 1st Floor of the IT Complex on the right-hand side past the College Canteen, the Multimedia Room hosts smart-board seminars, Python coding demos, Figma design critiques, and visual lectures.',
     keySpecs: [
       { label: 'Display', value: 'HD Smart Projector' },
       { label: 'Audio', value: 'Surround Sound & Mic' },
@@ -1004,21 +1009,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 68
       }
     ],
-    locationNote: 'IT Complex 1st Floor · Right Side Past Notice Plaza',
-    mapX: 69,
-    mapY: 70,
+    locationNote: 'IT Complex 1st Floor · Far Right Past College Canteen',
+    mapX: 79,
+    mapY: 79,
     gateDirections: {
       turn: 'Upstairs (1st Floor)',
-      distanceFromGate: '35 m Right & Upstairs',
+      distanceFromGate: '38 m Right & Upstairs',
       walkingSteps: [
-        'Enter the Main Gate and turn right toward the IT Complex.',
+        'Enter the Main Gate and turn right past the College Canteen toward the IT Complex.',
         'Take the IT Complex staircase to the 1st Floor.',
         'The Multimedia Room & Smart Learning Studio is at the top of the stairs.'
       ],
       routePath: [
         { x: 50, y: 90 },
         { x: 50, y: 81 },
-        { x: 69, y: 70 }
+        { x: 79, y: 79 }
       ]
     }
   },
