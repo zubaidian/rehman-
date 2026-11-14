@@ -44,7 +44,7 @@ import {
   Square
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v5';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v8';
 
 type SimTargetMode = 'guided-principal' | 'selected-stop';
 
@@ -133,39 +133,39 @@ function getSurroundingsAtCoord(
     };
   }
 
-  if (y >= 80 && Math.abs(x - 50) <= 10) {
+  if (y >= 80 && Math.abs(x - 50) <= 12) {
     return {
       stageLabel: 'Entering Main College Gate (Security Check)',
-      leftView: 'Security Post & Guard · Notice Board Plaza & SECCAP Desk',
-      aheadView: 'Gate Security Guards & straight walkway toward Clerk Office (Left) & Central Library (Right)',
-      rightView: 'Gate Guard · College Canteen right after entrance gate'
+      leftView: 'Security Post & Visitor Waiting Room (First on Left)',
+      aheadView: 'Gate Security Guards & Straight Path Separated by Small Grill',
+      rightView: 'College Canteen right after entering the Main Gate'
     };
   }
 
   if (progress >= 0.96) {
     return {
       stageLabel: `Arrived at ${targetStop.shortName || targetStop.name}`,
-      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name} entrance` : 'Central promenade & west wing corridor',
+      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Chemistry Labs, Auditorium & West Corridor',
       aheadView: targetStop.locationNote,
-      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name} entrance` : 'Walking lawn, gardeners & right campus wing'
+      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Big Lawn (Gardeners), Principal’s Office & Right Departments'
     };
   }
 
   return {
     stageLabel: `Walking toward ${targetStop.shortName || targetStop.name}`,
     leftView:
-      y < 62 && y > 35
-        ? 'West courtyard & shaded walkway'
+      y < 58 && y > 40
+        ? 'Chemistry & Chemistry Labs + Auditorium (Left in Line)'
         : x < 45
-          ? `${targetStop.shortName || targetStop.name} side walkway`
-          : 'Clerk Office & Twin Grill Paths',
+          ? `${targetStop.shortName || targetStop.name}`
+          : 'Waiting Room & Left 2-Grill Path to Hostel / Computer Lab',
     aheadView: `${targetStop.shortName || targetStop.name} (${targetStop.gateDirections.turn})`,
     rightView:
-      y < 62 && y > 35
-        ? 'Walking Lawn, Trees & Gardeners (Right of Path) · Principal’s Office ahead'
+      y < 76 && y > 54
+        ? 'Clerk Office, Central Library & Big Lawn (Gardeners) on Right'
         : x > 55
-          ? `${targetStop.shortName || targetStop.name} side walkway`
-          : 'College Canteen, Central Library & Walking Lawn (Right)'
+          ? `${targetStop.shortName || targetStop.name}`
+          : 'Principal’s Office, 1st Floor Staff Room, Islamiat, English, Stats, Maths & Physics'
   };
 }
 
@@ -277,11 +277,10 @@ export function VirtualCampusTour() {
     if (simTarget === 'guided-principal') {
       return (
         principalStop?.gateDirections?.routePath || [
-          { x: 50, y: 90 },
-          { x: 50, y: 71 },
-          { x: 50, y: 54 },
-          { x: 50, y: 36 },
-          { x: 65.5, y: 36 }
+          { x: 50, y: 91 },
+          { x: 50, y: 62 },
+          { x: 50, y: 49 },
+          { x: 59, y: 49 }
         ]
       );
     }
@@ -750,7 +749,7 @@ export function VirtualCampusTour() {
           </p>
         </div>
 
-        {/* Facility & Map Stop Selector Strip (Color-Matched to Map Pins) */}
+        {/* Facility & Map Stop Selector Strip (Distinct Color + Distinct Colored Text per Point) */}
         <div className="flex flex-wrap items-center justify-center gap-2 pb-2 mb-8">
           {stops.map((stop, idx) => {
             const isActive = idx === safeIndex;
@@ -759,10 +758,10 @@ export function VirtualCampusTour() {
               <button
                 key={stop.id}
                 onClick={() => handleSelectFacility(idx)}
-                className={`px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-2 shrink-0 border ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-2 shrink-0 border ${
                   isActive
-                    ? 'bg-white text-emerald-950 border-white shadow-lg font-bold'
-                    : 'bg-[#063f35] text-stone-100 border-emerald-800 hover:bg-[#074c3f] hover:text-white'
+                    ? `bg-[#021914] ${theme.textClass} ${theme.activeBorder} ring-2 ring-white/30 shadow-lg font-bold scale-[1.03]`
+                    : `bg-[#063f35]/90 ${theme.textClass} border-emerald-800/90 hover:bg-[#074c3f] hover:border-emerald-600`
                 }`}
               >
                 <span
@@ -770,7 +769,7 @@ export function VirtualCampusTour() {
                 >
                   {stop.stopNumber}
                 </span>
-                <span>{stop.shortName || stop.name.split('&')[0].trim()}</span>
+                <span>{stop.shortName || stop.name}</span>
               </button>
             );
           })}
@@ -1355,21 +1354,25 @@ export function VirtualCampusTour() {
 
             {/* Right 5 Columns: Selected Stop + Gate-Entry Walking Directions */}
             <div className="lg:col-span-5 space-y-5 text-left">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 text-xs text-amber-300 font-semibold mb-1.5">
-                  <span>{currentFacility.badge}</span>
-                  <span aria-hidden="true">·</span>
-                  <span className="text-emerald-200">
-                    Point {currentFacility.stopNumber}
-                  </span>
-                </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight">
-                  {currentFacility.name}
-                </h3>
-                <p className="text-xs sm:text-sm text-emerald-200 mt-1 font-medium">
-                  {currentFacility.subtitle}
-                </p>
-              </div>
+              {(() => {
+                const activeTheme = getStopColorTheme(currentFacility.id, safeIndex);
+                return (
+                  <div>
+                    <div className={`flex flex-wrap items-center gap-2 text-xs font-semibold mb-1.5 ${activeTheme.textClass}`}>
+                      <span className={`px-2 py-0.5 rounded font-mono text-[11px] font-bold ${activeTheme.pinBg} ${activeTheme.pinText}`}>
+                        {currentFacility.stopNumber}
+                      </span>
+                      <span>{currentFacility.badge}</span>
+                    </div>
+                    <h3 className={`font-serif text-2xl sm:text-3xl font-bold leading-tight ${activeTheme.textClass}`}>
+                      {currentFacility.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-emerald-100 mt-1 font-medium">
+                      {currentFacility.subtitle}
+                    </p>
+                  </div>
+                );
+              })()}
 
               {/* Gate-Entry Directions Card */}
               <div className="p-4 sm:p-5 rounded-2xl bg-[#04362c] border border-amber-300/35 space-y-3">

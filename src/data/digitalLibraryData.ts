@@ -1,8 +1,8 @@
-import preMedicalPhoto from '../assets/images/syllabus_pre_medical_1794548286634.jpg';
-import compMathPhoto from '../assets/images/syllabus_comp_math_1794548287014.jpg';
-import commerceArtsPhoto from '../assets/images/syllabus_commerce_arts_1794548287828.jpg';
-import bsZoologyPhoto from '../assets/images/syllabus_bs_zoology_clean_1794548303965.jpg';
-import associateDegreePhoto from '../assets/images/syllabus_associate_degree_1794548288731.jpg';
+import preMedicalPhoto from '../assets/images/science_pre_medical_1794672809642.jpg';
+import compMathPhoto from '../assets/images/science_comp_math_1794672810161.jpg';
+import commerceArtsPhoto from '../assets/images/science_commerce_arts_1794672811259.jpg';
+import bsZoologyPhoto from '../assets/images/science_bs_zoology_1794672811313.jpg';
+import associateDegreePhoto from '../assets/images/science_associate_degree_1794672812705.jpg';
 
 export interface SyllabusLink {
   label: string;
