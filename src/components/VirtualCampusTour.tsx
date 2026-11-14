@@ -419,7 +419,9 @@ export function VirtualCampusTour() {
             Interactive Campus Map &amp; Gate-Entry Tour
           </h2>
           <p className="text-stone-300 text-base sm:text-lg">
-            Start right as you enter the Main College Gate on Pathan Colony Road—click any point on the campus map for step-by-step walking directions, or insert new campus points and custom routes.
+            {import.meta.env.DEV
+              ? 'Start right as you enter the Main College Gate on Pathan Colony Road—click any point on the campus map for step-by-step walking directions, or insert new campus points and custom routes.'
+              : 'Start right as you enter the Main College Gate on Pathan Colony Road—click any point on the campus map for step-by-step walking directions to each wing, office, and laboratory.'}
           </p>
         </div>
 
@@ -502,53 +504,57 @@ export function VirtualCampusTour() {
               </div>
             </div>
 
-            {/* Right Controls: Map Edit Actions & Tour Playback */}
+            {/* Right Controls: Map Edit Actions (Dev/Edit Only) & Tour Playback */}
             <div className="flex flex-wrap items-center gap-2">
-              <button
-                onClick={startInsertMode}
-                className={`px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 border transition-colors ${
-                  mapMode === 'insert'
-                    ? 'bg-sky-500 text-slate-950 border-sky-300 font-bold'
-                    : 'bg-[#063f35] text-amber-200 border-emerald-700 hover:bg-emerald-800'
-                }`}
-              >
-                <Plus className="w-3.5 h-3.5" />
-                <span>{mapMode === 'insert' ? 'Cancel Insert' : 'Insert Point'}</span>
-              </button>
+              {import.meta.env.DEV && (
+                <>
+                  <button
+                    onClick={startInsertMode}
+                    className={`px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 border transition-colors ${
+                      mapMode === 'insert'
+                        ? 'bg-sky-500 text-slate-950 border-sky-300 font-bold'
+                        : 'bg-[#063f35] text-amber-200 border-emerald-700 hover:bg-emerald-800'
+                    }`}
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    <span>{mapMode === 'insert' ? 'Cancel Insert' : 'Insert Point'}</span>
+                  </button>
 
-              <button
-                onClick={openEditCurrentPoint}
-                className="px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 bg-[#063f35] text-stone-200 border border-emerald-700 hover:bg-emerald-800 transition-colors"
-              >
-                <Pencil className="w-3.5 h-3.5" />
-                <span>Edit Point</span>
-              </button>
+                  <button
+                    onClick={openEditCurrentPoint}
+                    className="px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 bg-[#063f35] text-stone-200 border border-emerald-700 hover:bg-emerald-800 transition-colors"
+                  >
+                    <Pencil className="w-3.5 h-3.5" />
+                    <span>Edit Point</span>
+                  </button>
 
-              <button
-                onClick={startRepositionMode}
-                className={`px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 border transition-colors ${
-                  mapMode === 'reposition'
-                    ? 'bg-amber-400 text-emerald-950 border-amber-300 font-bold'
-                    : 'bg-[#063f35] text-stone-200 border-emerald-700 hover:bg-emerald-800'
-                }`}
-                title="Move selected point on the map"
-              >
-                <Move className="w-3.5 h-3.5" />
-                <span>{mapMode === 'reposition' ? 'Pick New Spot...' : 'Move Pin'}</span>
-              </button>
+                  <button
+                    onClick={startRepositionMode}
+                    className={`px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 border transition-colors ${
+                      mapMode === 'reposition'
+                        ? 'bg-amber-400 text-emerald-950 border-amber-300 font-bold'
+                        : 'bg-[#063f35] text-stone-200 border-emerald-700 hover:bg-emerald-800'
+                    }`}
+                    title="Move selected point on the map"
+                  >
+                    <Move className="w-3.5 h-3.5" />
+                    <span>{mapMode === 'reposition' ? 'Pick New Spot...' : 'Move Pin'}</span>
+                  </button>
 
-              {hasCustomChanges && (
-                <button
-                  onClick={handleResetDefaultMap}
-                  className="px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 bg-rose-950/60 text-rose-200 border border-rose-800/70 hover:bg-rose-900/70 transition-colors"
-                  title="Restore default college map stops"
-                >
-                  <RotateCcw className="w-3.5 h-3.5" />
-                  <span>Reset Map</span>
-                </button>
+                  {hasCustomChanges && (
+                    <button
+                      onClick={handleResetDefaultMap}
+                      className="px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 flex items-center gap-1.5 bg-rose-950/60 text-rose-200 border border-rose-800/70 hover:bg-rose-900/70 transition-colors"
+                      title="Restore default college map stops"
+                    >
+                      <RotateCcw className="w-3.5 h-3.5" />
+                      <span>Reset Map</span>
+                    </button>
+                  )}
+
+                  <div className="h-5 w-px bg-emerald-800 mx-0.5 hidden sm:block" />
+                </>
               )}
-
-              <div className="h-5 w-px bg-emerald-800 mx-0.5 hidden sm:block" />
 
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
@@ -580,8 +586,8 @@ export function VirtualCampusTour() {
             </div>
           </div>
 
-          {/* Inline Insert / Edit Point Form Panel (Opens cleanly above/inside showcase when triggered) */}
-          {formState && (
+          {/* Inline Insert / Edit Point Form Panel (Edit / Development Mode Only) */}
+          {import.meta.env.DEV && formState && (
             <form
               onSubmit={handleSavePointForm}
               className="bg-[#021914] border border-amber-300/60 rounded-2xl p-5 sm:p-6 space-y-5 text-left"

@@ -255,6 +255,7 @@ export function FacebookCommunitySection() {
                       scrolling="no"
                       frameBorder="0"
                       allowFullScreen={true}
+                      loading="lazy"
                       allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                       className="w-full h-[500px]"
                     />
@@ -369,6 +370,7 @@ export function FacebookCommunitySection() {
                       scrolling="no"
                       frameBorder="0"
                       allowFullScreen={true}
+                      loading="lazy"
                       allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                       className="w-full h-full"
                     />

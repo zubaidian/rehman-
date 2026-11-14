@@ -388,6 +388,8 @@ export function ContactAndLocation({
               <img
                 src={COLLEGE_INFO.images.qr}
                 alt="Scan QR code for Google Maps location"
+                loading="lazy"
+                decoding="async"
                 className="w-24 h-24 sm:w-28 sm:h-28 object-contain rounded-xl border-2 border-stone-300 bg-white p-1 shrink-0"
               />
               <div className="space-y-1">

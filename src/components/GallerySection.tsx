@@ -226,6 +226,8 @@ export function GallerySection() {
                     alt={photo.title}
                     referrerPolicy="no-referrer"
                     draggable={false}
+                    loading="lazy"
+                    decoding="async"
                     className={
                       isEmblemOrQr
                         ? 'w-full h-full object-contain transition-transform duration-500 group-hover:scale-105'

@@ -76,6 +76,8 @@ export function Hero({ onOpenEnquiry }: HeroProps) {
           <img
             src={COLLEGE_INFO.images.campus}
             alt="Govt Girls Zubaida College Campus Entrance"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover object-center filter brightness-[0.78] contrast-[1.08] saturate-[1.1] transition-opacity duration-700"
           />
         )}

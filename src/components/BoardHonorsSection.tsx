@@ -32,6 +32,8 @@ export function BoardHonorsSection() {
               <img
                 src={COLLEGE_INFO.images.boardResultsFlyer}
                 alt="Outstanding Board Results Flyer - Govt Girls Zubaida College Hyderabad"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto rounded-xl object-contain cursor-pointer transition-transform duration-300 group-hover:scale-[1.01]"
                 onClick={() =>
                   openImageModal(
@@ -156,6 +158,8 @@ export function BoardHonorsSection() {
               <img
                 src={COLLEGE_INFO.images.boardResultsOfficial}
                 alt="BISE Hyderabad Gazette"
+                loading="lazy"
+                decoding="async"
                 className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg border border-stone-300 shrink-0 cursor-pointer hover:opacity-90"
                 onClick={() =>
                   openImageModal(

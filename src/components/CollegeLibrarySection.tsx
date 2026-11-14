@@ -57,11 +57,11 @@ export function CollegeLibrarySection() {
   }, [previewPhoto]);
 
   const displayPhotos = useMemo(() => {
-    if (customPhotos.length > 0) {
-      // Replace matching slots first or prepend newly uploaded library photos
-      return [...customPhotos, ...DEFAULT_LIBRARY_PHOTO_SLOTS];
-    }
-    return DEFAULT_LIBRARY_PHOTO_SLOTS;
+    const combined =
+      customPhotos.length > 0
+        ? [...customPhotos, ...DEFAULT_LIBRARY_PHOTO_SLOTS]
+        : DEFAULT_LIBRARY_PHOTO_SLOTS;
+    return import.meta.env.DEV ? combined : combined.filter((p) => Boolean(p.imageUrl));
   }, [customPhotos]);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -174,7 +174,8 @@ export function CollegeLibrarySection() {
           ))}
         </div>
 
-        {/* Library Photos & Gallery Upload Showcase */}
+        {/* Library Photos & Gallery Showcase (In live mode, only rendered if photos exist) */}
+        {(import.meta.env.DEV || displayPhotos.length > 0) && (
         <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#064b36] to-[#042f28] text-white border-2 border-amber-300/40 shadow-2xl space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-emerald-800/80 pb-5 text-left">
             <div className="space-y-1">
@@ -185,22 +186,24 @@ export function CollegeLibrarySection() {
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-emerald-100">
-                Display photographs of the Reading Hall, Book Stacks, Government Book Bank, and Science Reference Wing.
+                Photographs of the Reading Hall, Book Stacks, Government Book Bank, and Science Reference Wing.
               </p>
             </div>
 
-            <button
-              type="button"
-              onClick={() => setIsAddingPhoto(!isAddingPhoto)}
-              className="px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold text-xs rounded-xl transition-all flex items-center gap-1.5 shadow-md shrink-0"
-            >
-              <Plus className="w-4 h-4" />
-              <span>{isAddingPhoto ? 'Cancel Upload' : 'Add / Upload Library Photo'}</span>
-            </button>
+            {import.meta.env.DEV && (
+              <button
+                type="button"
+                onClick={() => setIsAddingPhoto(!isAddingPhoto)}
+                className="px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold text-xs rounded-xl transition-all flex items-center gap-1.5 shadow-md shrink-0"
+              >
+                <Plus className="w-4 h-4" />
+                <span>{isAddingPhoto ? 'Cancel Upload' : 'Add / Upload Library Photo'}</span>
+              </button>
+            )}
           </div>
 
-          {/* Add Library Photo Form */}
-          {isAddingPhoto && (
+          {/* Add Library Photo Form (Edit / Development Mode Only) */}
+          {import.meta.env.DEV && isAddingPhoto && (
             <form
               onSubmit={handleSavePhoto}
               className="p-5 rounded-2xl bg-[#03241e] border border-amber-400/50 space-y-4 text-left"
@@ -343,6 +346,8 @@ export function CollegeLibrarySection() {
                         <img
                           src={photo.imageUrl}
                           alt={photo.title}
+                          loading="lazy"
+                          decoding="async"
                           onClick={() => setPreviewPhoto(photo)}
                           className="w-full h-full object-cover cursor-pointer group-hover:scale-105 transition-transform duration-300"
                         />
@@ -355,7 +360,7 @@ export function CollegeLibrarySection() {
                           <span>Enlarge</span>
                         </button>
                       </>
-                    ) : (
+                    ) : import.meta.env.DEV ? (
                       <button
                         type="button"
                         onClick={() => {
@@ -376,9 +381,9 @@ export function CollegeLibrarySection() {
                           Click to Upload Photo
                         </span>
                       </button>
-                    )}
+                    ) : null}
 
-                    {isCustom && (
+                    {import.meta.env.DEV && isCustom && (
                       <button
                         type="button"
                         onClick={() => handleDeletePhoto(photo.id)}
@@ -403,6 +408,7 @@ export function CollegeLibrarySection() {
             })}
           </div>
         </div>
+        )}
 
         {/* Library Collections & Membership Rules */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left">

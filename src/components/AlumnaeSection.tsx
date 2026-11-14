@@ -271,6 +271,8 @@ export function AlumnaeSection() {
                     src={alumna.photo}
                     alt={alumna.name}
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </div>

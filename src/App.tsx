@@ -1,31 +1,94 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { TopUtilityBar } from './components/TopUtilityBar';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { BoardHonorsSection } from './components/BoardHonorsSection';
-import { StudentAchievementsSection } from './components/StudentAchievementsSection';
-import { NoticesSection } from './components/NoticesSection';
-import { FacebookEventsTracker } from './components/FacebookEventsTracker';
-import { AboutAndHistory } from './components/AboutAndHistory';
-import { PrincipalSection } from './components/PrincipalSection';
-import { AcademicsSection } from './components/AcademicsSection';
-import { DepartmentsSection } from './components/DepartmentsSection';
-import { VirtualCampusTour } from './components/VirtualCampusTour';
-import { CollegeLibrarySection } from './components/CollegeLibrarySection';
-import { CollegeLabsSection } from './components/CollegeLabsSection';
-import { DigitalLibrarySection } from './components/DigitalLibrarySection';
-import { AlumnaeSection } from './components/AlumnaeSection';
-import { AdmissionsSection } from './components/AdmissionsSection';
-import { StudentResourcesSection } from './components/StudentResourcesSection';
-import { CemisAttendanceSection } from './components/CemisAttendanceSection';
-import { GallerySection } from './components/GallerySection';
-import { FacebookCommunitySection } from './components/FacebookCommunitySection';
-import { ContactAndLocation } from './components/ContactAndLocation';
-import { Footer } from './components/Footer';
-import { EnquiryModal } from './components/EnquiryModal';
 import { FloatingCallWidget } from './components/FloatingCallWidget';
 import { FirebaseProvider } from './contexts/FirebaseContext';
-import { AdminInboxModal } from './components/AdminInboxModal';
+
+const BoardHonorsSection = lazy(() =>
+  import('./components/BoardHonorsSection').then((m) => ({ default: m.BoardHonorsSection }))
+);
+const StudentAchievementsSection = lazy(() =>
+  import('./components/StudentAchievementsSection').then((m) => ({
+    default: m.StudentAchievementsSection,
+  }))
+);
+const NoticesSection = lazy(() =>
+  import('./components/NoticesSection').then((m) => ({ default: m.NoticesSection }))
+);
+const FacebookEventsTracker = lazy(() =>
+  import('./components/FacebookEventsTracker').then((m) => ({
+    default: m.FacebookEventsTracker,
+  }))
+);
+const AboutAndHistory = lazy(() =>
+  import('./components/AboutAndHistory').then((m) => ({ default: m.AboutAndHistory }))
+);
+const PrincipalSection = lazy(() =>
+  import('./components/PrincipalSection').then((m) => ({ default: m.PrincipalSection }))
+);
+const AcademicsSection = lazy(() =>
+  import('./components/AcademicsSection').then((m) => ({ default: m.AcademicsSection }))
+);
+const DepartmentsSection = lazy(() =>
+  import('./components/DepartmentsSection').then((m) => ({ default: m.DepartmentsSection }))
+);
+const VirtualCampusTour = lazy(() =>
+  import('./components/VirtualCampusTour').then((m) => ({ default: m.VirtualCampusTour }))
+);
+const CollegeLibrarySection = lazy(() =>
+  import('./components/CollegeLibrarySection').then((m) => ({
+    default: m.CollegeLibrarySection,
+  }))
+);
+const CollegeLabsSection = lazy(() =>
+  import('./components/CollegeLabsSection').then((m) => ({ default: m.CollegeLabsSection }))
+);
+const DigitalLibrarySection = lazy(() =>
+  import('./components/DigitalLibrarySection').then((m) => ({
+    default: m.DigitalLibrarySection,
+  }))
+);
+const AlumnaeSection = lazy(() =>
+  import('./components/AlumnaeSection').then((m) => ({ default: m.AlumnaeSection }))
+);
+const AdmissionsSection = lazy(() =>
+  import('./components/AdmissionsSection').then((m) => ({ default: m.AdmissionsSection }))
+);
+const StudentResourcesSection = lazy(() =>
+  import('./components/StudentResourcesSection').then((m) => ({
+    default: m.StudentResourcesSection,
+  }))
+);
+const CemisAttendanceSection = lazy(() =>
+  import('./components/CemisAttendanceSection').then((m) => ({
+    default: m.CemisAttendanceSection,
+  }))
+);
+const GallerySection = lazy(() =>
+  import('./components/GallerySection').then((m) => ({ default: m.GallerySection }))
+);
+const FacebookCommunitySection = lazy(() =>
+  import('./components/FacebookCommunitySection').then((m) => ({
+    default: m.FacebookCommunitySection,
+  }))
+);
+const ContactAndLocation = lazy(() =>
+  import('./components/ContactAndLocation').then((m) => ({ default: m.ContactAndLocation }))
+);
+const Footer = lazy(() =>
+  import('./components/Footer').then((m) => ({ default: m.Footer }))
+);
+const EnquiryModal = lazy(() =>
+  import('./components/EnquiryModal').then((m) => ({ default: m.EnquiryModal }))
+);
+const AdminInboxModal = lazy(() =>
+  import('./components/AdminInboxModal').then((m) => ({ default: m.AdminInboxModal }))
+);
+
+function SectionPlaceholder({ id }: { id: string }) {
+  return <section id={id} className="min-h-[160px]" aria-hidden="true" />;
+}
 
 export default function App() {
   const [isEnquiryModalOpen, setIsEnquiryModalOpen] = useState(false);
@@ -33,94 +96,141 @@ export default function App() {
 
   return (
     <FirebaseProvider>
-    <div className="min-h-screen flex flex-col bg-stone-50 text-stone-900 selection:bg-amber-200 selection:text-emerald-950">
-      {/* Top Utility Bar with Live PKT Time & Office Status */}
-      <TopUtilityBar />
+      <div className="min-h-screen flex flex-col bg-stone-50 text-stone-900 selection:bg-amber-200 selection:text-emerald-950">
+        {/* Top Utility Bar with Live PKT Time & Office Status */}
+        <TopUtilityBar />
 
-      {/* Main Navigation Bar */}
-      <Navbar onOpenEnquiry={() => setIsEnquiryModalOpen(true)} />
+        {/* Main Navigation Bar */}
+        <Navbar onOpenEnquiry={() => setIsEnquiryModalOpen(true)} />
 
-      {/* Quick Floating Call Helpline Widget */}
-      <FloatingCallWidget />
+        {/* Quick Floating Call Helpline Widget */}
+        <FloatingCallWidget />
 
-      {/* Main Page Sections */}
-      <main className="flex-1">
-        {/* Hero Section */}
-        <Hero onOpenEnquiry={() => setIsEnquiryModalOpen(true)} />
+        {/* Main Page Sections */}
+        <main className="flex-1">
+          {/* Hero Section (Eager Above-the-Fold) */}
+          <Hero onOpenEnquiry={() => setIsEnquiryModalOpen(true)} />
 
-        {/* Board Examination Honors & Top Positions Spotlight */}
-        <BoardHonorsSection />
+          {/* Board Examination Honors & Top Positions Spotlight */}
+          <Suspense fallback={<SectionPlaceholder id="board-results" />}>
+            <BoardHonorsSection />
+          </Suspense>
 
-        {/* Student Achievements & Roll of Honor (Featured + Admin Firestore Additions) */}
-        <StudentAchievementsSection />
+          {/* Student Achievements & Roll of Honor */}
+          <Suspense fallback={<SectionPlaceholder id="student-achievements" />}>
+            <StudentAchievementsSection />
+          </Suspense>
 
-        {/* Official News & Announcements Board */}
-        <NoticesSection />
+          {/* Official News & Announcements Board */}
+          <Suspense fallback={<SectionPlaceholder id="notices" />}>
+            <NoticesSection />
+          </Suspense>
 
-        {/* Facebook 2026 Live College Events Scrolling Window Tracker */}
-        <FacebookEventsTracker />
+          {/* Facebook 2026 Live College Events Scrolling Window Tracker */}
+          <Suspense fallback={<SectionPlaceholder id="events" />}>
+            <FacebookEventsTracker />
+          </Suspense>
 
-        {/* 70-Year History, Legacy & Core Pillars */}
-        <AboutAndHistory />
+          {/* 70-Year History, Legacy & Core Pillars */}
+          <Suspense fallback={<SectionPlaceholder id="about" />}>
+            <AboutAndHistory />
+          </Suspense>
 
-        {/* Principal's Desk: Prof. Yasmeen Panhwar */}
-        <PrincipalSection />
+          {/* Principal's Desk: Prof. Yasmeen Panhwar */}
+          <Suspense fallback={<SectionPlaceholder id="principal" />}>
+            <PrincipalSection />
+          </Suspense>
 
-        {/* Academic Faculties & Programs Explorer */}
-        <AcademicsSection />
+          {/* Academic Faculties & Programs Explorer */}
+          <Suspense fallback={<SectionPlaceholder id="academics" />}>
+            <AcademicsSection />
+          </Suspense>
 
-        {/* Academic Departments, Laboratories & Subject Chairs */}
-        <DepartmentsSection onOpenEnquiry={() => setIsEnquiryModalOpen(true)} />
+          {/* Academic Departments, Laboratories & Subject Chairs */}
+          <Suspense fallback={<SectionPlaceholder id="departments" />}>
+            <DepartmentsSection onOpenEnquiry={() => setIsEnquiryModalOpen(true)} />
+          </Suspense>
 
-        {/* Interactive Virtual Campus Tour */}
-        <VirtualCampusTour />
+          {/* Interactive Virtual Campus Tour */}
+          <Suspense fallback={<SectionPlaceholder id="campus-tour" />}>
+            <VirtualCampusTour />
+          </Suspense>
 
-        {/* Central College Library: Photos, Collections & Membership Rules */}
-        <CollegeLibrarySection />
+          {/* Central College Library: Photos, Collections & Membership Rules */}
+          <Suspense fallback={<SectionPlaceholder id="college-library" />}>
+            <CollegeLibrarySection />
+          </Suspense>
 
-        {/* College Laboratories: Computer Science, Physics, Chemistry, Zoology & Botany */}
-        <CollegeLabsSection />
+          {/* College Laboratories: Computer Science, Physics, Chemistry, Zoology & Botany */}
+          <Suspense fallback={<SectionPlaceholder id="college-labs" />}>
+            <CollegeLabsSection />
+          </Suspense>
 
-        {/* Digital Library: Syllabus Book Photos & Internet Links */}
-        <DigitalLibrarySection />
+          {/* Digital Library: Syllabus Book Photos & Internet Links */}
+          <Suspense fallback={<SectionPlaceholder id="digital-library" />}>
+            <DigitalLibrarySection />
+          </Suspense>
 
-        {/* Alumnae Success Stories */}
-        <AlumnaeSection />
+          {/* Alumnae Success Stories */}
+          <Suspense fallback={<SectionPlaceholder id="alumnae" />}>
+            <AlumnaeSection />
+          </Suspense>
 
-        {/* SECCAP Centralized Admissions Guide */}
-        <AdmissionsSection />
+          {/* SECCAP Centralized Admissions Guide */}
+          <Suspense fallback={<SectionPlaceholder id="admissions" />}>
+            <AdmissionsSection />
+          </Suspense>
 
-        {/* Student Resources: Downloadable Forms, Enrollment Slips & Registration Guides */}
-        <StudentResourcesSection />
+          {/* Student Resources: Downloadable Forms, Enrollment Slips & Registration Guides */}
+          <Suspense fallback={<SectionPlaceholder id="student-resources" />}>
+            <StudentResourcesSection />
+          </Suspense>
 
-        {/* CEMIS Biometric Attendance & Faculty Portal (Sindh College Education Dept) */}
-        <CemisAttendanceSection />
+          {/* CEMIS Biometric Attendance & Faculty Portal (Sindh College Education Dept) */}
+          <Suspense fallback={<SectionPlaceholder id="cemis-attendance" />}>
+            <CemisAttendanceSection />
+          </Suspense>
 
-        {/* Campus Gallery & Archives */}
-        <GallerySection />
+          {/* Campus Gallery & Archives */}
+          <Suspense fallback={<SectionPlaceholder id="gallery" />}>
+            <GallerySection />
+          </Suspense>
 
-        {/* Official Facebook Community Updates */}
-        <FacebookCommunitySection />
+          {/* Official Facebook Community Updates */}
+          <Suspense fallback={<SectionPlaceholder id="facebook-community" />}>
+            <FacebookCommunitySection />
+          </Suspense>
 
-        {/* Location, Google Map, QR Code, Working Contact Form & FAQs */}
-        <ContactAndLocation />
-      </main>
+          {/* Location, Google Map, QR Code, Working Contact Form & FAQs */}
+          <Suspense fallback={<SectionPlaceholder id="contact" />}>
+            <ContactAndLocation />
+          </Suspense>
+        </main>
 
-      {/* Institutional Footer */}
-      <Footer onOpenAdmin={() => setIsAdminModalOpen(true)} />
+        {/* Institutional Footer */}
+        <Suspense fallback={<div className="min-h-[160px] bg-[#021914]" />}>
+          <Footer onOpenAdmin={() => setIsAdminModalOpen(true)} />
+        </Suspense>
 
-      {/* Quick Access Enquiry Modal */}
-      <EnquiryModal
-        isOpen={isEnquiryModalOpen}
-        onClose={() => setIsEnquiryModalOpen(false)}
-      />
+        {/* Lazy-loaded Modals (only downloaded when opened) */}
+        {isEnquiryModalOpen && (
+          <Suspense fallback={null}>
+            <EnquiryModal
+              isOpen={isEnquiryModalOpen}
+              onClose={() => setIsEnquiryModalOpen(false)}
+            />
+          </Suspense>
+        )}
 
-      {/* Admin Enquiries & Subscribers Inbox Modal */}
-      <AdminInboxModal
-        isOpen={isAdminModalOpen}
-        onClose={() => setIsAdminModalOpen(false)}
-      />
-    </div>
+        {isAdminModalOpen && (
+          <Suspense fallback={null}>
+            <AdminInboxModal
+              isOpen={isAdminModalOpen}
+              onClose={() => setIsAdminModalOpen(false)}
+            />
+          </Suspense>
+        )}
+      </div>
     </FirebaseProvider>
   );
 }

@@ -84,6 +84,8 @@ export function DigitalLibrarySection() {
                     src={book.photo}
                     alt={book.title}
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
                   <button

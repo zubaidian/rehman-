@@ -12,6 +12,8 @@ export function PrincipalSection() {
                 <img
                   src={COLLEGE_INFO.images.principal}
                   alt="Principal Professor Yasmeen Panhwar - Govt Girls Zubaida College Hyderabad"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />

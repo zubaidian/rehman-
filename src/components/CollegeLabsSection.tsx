@@ -187,20 +187,22 @@ export function CollegeLabsSection() {
             ))}
           </div>
 
-          <button
-            type="button"
-            onClick={() => {
-              const initialLab =
-                activeLabFilter === 'all'
-                  ? COLLEGE_LABS[0]
-                  : COLLEGE_LABS.find((l) => l.id === activeLabFilter) || COLLEGE_LABS[0];
-              openUploadForLab(initialLab);
-            }}
-            className="px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 shrink-0"
-          >
-            <Plus className="w-4 h-4" />
-            <span>Add Lab Photo</span>
-          </button>
+          {import.meta.env.DEV && (
+            <button
+              type="button"
+              onClick={() => {
+                const initialLab =
+                  activeLabFilter === 'all'
+                    ? COLLEGE_LABS[0]
+                    : COLLEGE_LABS.find((l) => l.id === activeLabFilter) || COLLEGE_LABS[0];
+                openUploadForLab(initialLab);
+              }}
+              className="px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 shrink-0"
+            >
+              <Plus className="w-4 h-4" />
+              <span>Add Lab Photo</span>
+            </button>
+          )}
         </div>
 
         {/* Labs Showcase Grid */}
@@ -229,14 +231,16 @@ export function CollegeLabsSection() {
                       </p>
                     </div>
 
-                    <button
-                      type="button"
-                      onClick={() => openUploadForLab(lab)}
-                      className="px-3 py-1.5 rounded-lg bg-[#03241e] hover:bg-amber-400 hover:text-emerald-950 border border-amber-300/40 text-amber-200 text-xs font-semibold transition-colors flex items-center gap-1.5 shrink-0"
-                    >
-                      <Camera className="w-3.5 h-3.5" />
-                      <span>Upload Photo</span>
-                    </button>
+                    {import.meta.env.DEV && (
+                      <button
+                        type="button"
+                        onClick={() => openUploadForLab(lab)}
+                        className="px-3 py-1.5 rounded-lg bg-[#03241e] hover:bg-amber-400 hover:text-emerald-950 border border-amber-300/40 text-amber-200 text-xs font-semibold transition-colors flex items-center gap-1.5 shrink-0"
+                      >
+                        <Camera className="w-3.5 h-3.5" />
+                        <span>Upload Photo</span>
+                      </button>
+                    )}
                   </div>
 
                   {/* Summary */}
@@ -258,86 +262,92 @@ export function CollegeLabsSection() {
                   </div>
 
                   {/* Lab Photos Area */}
-                  <div className="pt-2">
-                    <div className="flex items-center justify-between text-xs mb-2.5">
-                      <span className="font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
-                        <FlaskConical className="w-3.5 h-3.5" />
-                        <span>Lab Photos ({photosForLab.length})</span>
-                      </span>
-                    </div>
-
-                    {photosForLab.length > 0 ? (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {photosForLab.map((photo) => (
-                          <div
-                            key={photo.id}
-                            className="bg-[#021d17] rounded-xl overflow-hidden border border-emerald-800 group hover:border-amber-400/60 transition-all"
-                          >
-                            <div className="relative aspect-video bg-[#04241d] overflow-hidden">
-                              <img
-                                src={photo.imageUrl}
-                                alt={photo.title}
-                                onClick={() =>
-                                  setPreviewPhoto({
-                                    src: photo.imageUrl,
-                                    title: photo.title,
-                                    caption: photo.caption,
-                                  })
-                                }
-                                className="w-full h-full object-cover cursor-pointer group-hover:scale-105 transition-transform duration-300"
-                              />
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  setPreviewPhoto({
-                                    src: photo.imageUrl,
-                                    title: photo.title,
-                                    caption: photo.caption,
-                                  })
-                                }
-                                className="absolute bottom-2 left-2 px-2 py-1 rounded bg-black/75 text-amber-200 text-[10px] font-semibold flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
-                              >
-                                <Maximize2 className="w-3 h-3" />
-                                <span>View</span>
-                              </button>
-                              <button
-                                type="button"
-                                onClick={() => handleDeletePhoto(photo.id)}
-                                className="absolute top-2 right-2 p-1 rounded bg-rose-900/85 hover:bg-rose-700 text-rose-100 transition-colors"
-                                title="Remove lab photo"
-                              >
-                                <Trash2 className="w-3.5 h-3.5" />
-                              </button>
-                            </div>
-                            <div className="p-2.5">
-                              <h4 className="font-bold text-xs text-white line-clamp-1">
-                                {photo.title}
-                              </h4>
-                              <p className="text-[11px] text-stone-300 line-clamp-1 mt-0.5">
-                                {photo.caption}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
+                  {(import.meta.env.DEV || photosForLab.length > 0) && (
+                    <div className="pt-2">
+                      <div className="flex items-center justify-between text-xs mb-2.5">
+                        <span className="font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                          <FlaskConical className="w-3.5 h-3.5" />
+                          <span>Lab Photos ({photosForLab.length})</span>
+                        </span>
                       </div>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => openUploadForLab(lab)}
-                        className="w-full py-6 px-4 rounded-xl bg-[#03241e] hover:bg-[#042c24] border border-dashed border-amber-300/40 flex flex-col items-center justify-center text-center transition-colors cursor-pointer"
-                      >
-                        <div className="w-10 h-10 rounded-full bg-emerald-900/80 border border-amber-400/40 flex items-center justify-center mb-2">
-                          <ImageIcon className="w-5 h-5 text-amber-300" />
+
+                      {photosForLab.length > 0 ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {photosForLab.map((photo) => (
+                            <div
+                              key={photo.id}
+                              className="bg-[#021d17] rounded-xl overflow-hidden border border-emerald-800 group hover:border-amber-400/60 transition-all"
+                            >
+                              <div className="relative aspect-video bg-[#04241d] overflow-hidden">
+                                <img
+                                  src={photo.imageUrl}
+                                  alt={photo.title}
+                                  loading="lazy"
+                                  decoding="async"
+                                  onClick={() =>
+                                    setPreviewPhoto({
+                                      src: photo.imageUrl,
+                                      title: photo.title,
+                                      caption: photo.caption,
+                                    })
+                                  }
+                                  className="w-full h-full object-cover cursor-pointer group-hover:scale-105 transition-transform duration-300"
+                                />
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    setPreviewPhoto({
+                                      src: photo.imageUrl,
+                                      title: photo.title,
+                                      caption: photo.caption,
+                                    })
+                                  }
+                                  className="absolute bottom-2 left-2 px-2 py-1 rounded bg-black/75 text-amber-200 text-[10px] font-semibold flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                >
+                                  <Maximize2 className="w-3 h-3" />
+                                  <span>View</span>
+                                </button>
+                                {import.meta.env.DEV && (
+                                  <button
+                                    type="button"
+                                    onClick={() => handleDeletePhoto(photo.id)}
+                                    className="absolute top-2 right-2 p-1 rounded bg-rose-900/85 hover:bg-rose-700 text-rose-100 transition-colors"
+                                    title="Remove lab photo"
+                                  >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                  </button>
+                                )}
+                              </div>
+                              <div className="p-2.5">
+                                <h4 className="font-bold text-xs text-white line-clamp-1">
+                                  {photo.title}
+                                </h4>
+                                <p className="text-[11px] text-stone-300 line-clamp-1 mt-0.5">
+                                  {photo.caption}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
                         </div>
-                        <span className="text-xs font-bold text-amber-200">
-                          {lab.defaultPhotoTitle}
-                        </span>
-                        <span className="text-[11px] text-emerald-200/90 mt-0.5">
-                          Click to upload photos of the {lab.name}
-                        </span>
-                      </button>
-                    )}
-                  </div>
+                      ) : import.meta.env.DEV ? (
+                        <button
+                          type="button"
+                          onClick={() => openUploadForLab(lab)}
+                          className="w-full py-6 px-4 rounded-xl bg-[#03241e] hover:bg-[#042c24] border border-dashed border-amber-300/40 flex flex-col items-center justify-center text-center transition-colors cursor-pointer"
+                        >
+                          <div className="w-10 h-10 rounded-full bg-emerald-900/80 border border-amber-400/40 flex items-center justify-center mb-2">
+                            <ImageIcon className="w-5 h-5 text-amber-300" />
+                          </div>
+                          <span className="text-xs font-bold text-amber-200">
+                            {lab.defaultPhotoTitle}
+                          </span>
+                          <span className="text-[11px] text-emerald-200/90 mt-0.5">
+                            Click to upload photos of the {lab.name}
+                          </span>
+                        </button>
+                      ) : null}
+                    </div>
+                  )}
                 </div>
               </article>
             );
@@ -345,8 +355,8 @@ export function CollegeLabsSection() {
         </div>
       </div>
 
-      {/* Add Lab Photo Modal */}
-      {isAddModalOpen && (
+      {/* Add Lab Photo Modal (Edit / Development Mode Only) */}
+      {import.meta.env.DEV && isAddModalOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
           onClick={() => setIsAddModalOpen(false)}
