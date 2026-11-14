@@ -193,7 +193,7 @@ export function StudentAchievementsSection() {
                       <Calendar className="w-3.5 h-3.5 text-amber-300" />
                       <span>{item.dateLabel}</span>
                     </span>
-                    {isAdmin && item.source === 'firestore' && (
+                    {import.meta.env.DEV && isAdmin && item.source === 'firestore' && (
                       <button
                         type="button"
                         onClick={() => handleDelete(item.id)}
@@ -286,47 +286,49 @@ export function StudentAchievementsSection() {
           ))}
         </div>
 
-        {/* Future Additions Bar (Saved in Cloud Firestore for Live Visibility) */}
-        <div className="mt-10 p-6 sm:p-7 rounded-2xl bg-[#f8faf7] border border-stone-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-left">
-          <div className="space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 block">
-              Administration Updates
-            </span>
-            <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#064b36]">
-              Add More Student Achievements
-            </h3>
-            <p className="text-xs sm:text-sm text-stone-600 max-w-2xl">
-              {isAdmin
-                ? 'Signed in as college administrator (zubaidaisbest@gmail.com). New achievements added here save to Firestore and publish live for all students and visitors.'
-                : 'Authorized college administrators (zubaidaisbest@gmail.com) can sign in to publish new board positions, competition winners, and scholarship honors directly.'}
-            </p>
-            {authError && (
-              <p className="text-xs text-rose-700 pt-1">{authError}</p>
-            )}
-          </div>
+        {/* Future Additions Bar (Edit / Development Mode Only) */}
+        {import.meta.env.DEV && (
+          <div className="mt-10 p-6 sm:p-7 rounded-2xl bg-[#f8faf7] border border-stone-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-left">
+            <div className="space-y-1">
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 block">
+                Administration Updates
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#064b36]">
+                Add More Student Achievements
+              </h3>
+              <p className="text-xs sm:text-sm text-stone-600 max-w-2xl">
+                {isAdmin
+                  ? 'Signed in as college administrator (zubaidaisbest@gmail.com). New achievements added here save to Firestore and publish live for all students and visitors.'
+                  : 'Authorized college administrators (zubaidaisbest@gmail.com) can sign in to publish new board positions, competition winners, and scholarship honors directly.'}
+              </p>
+              {authError && (
+                <p className="text-xs text-rose-700 pt-1">{authError}</p>
+              )}
+            </div>
 
-          <button
-            type="button"
-            onClick={handleOpenAdd}
-            className="px-5 py-3 rounded-xl bg-[#064b36] hover:bg-[#042f28] text-white font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 active:scale-95 flex items-center gap-2"
-          >
-            {isAdmin ? (
-              <>
-                <Plus className="w-4 h-4 text-amber-300" />
-                <span>Add Student Achievement</span>
-              </>
-            ) : (
-              <>
-                <Lock className="w-4 h-4 text-amber-300" />
-                <span>Admin Sign In to Add</span>
-              </>
-            )}
-          </button>
-        </div>
+            <button
+              type="button"
+              onClick={handleOpenAdd}
+              className="px-5 py-3 rounded-xl bg-[#064b36] hover:bg-[#042f28] text-white font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 active:scale-95 flex items-center gap-2"
+            >
+              {isAdmin ? (
+                <>
+                  <Plus className="w-4 h-4 text-amber-300" />
+                  <span>Add Student Achievement</span>
+                </>
+              ) : (
+                <>
+                  <Lock className="w-4 h-4 text-amber-300" />
+                  <span>Admin Sign In to Add</span>
+                </>
+              )}
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Add Student Achievement Modal */}
-      {isAddModalOpen && (
+      {/* Add Student Achievement Modal (Edit / Development Mode Only) */}
+      {import.meta.env.DEV && isAddModalOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
           onClick={resetForm}

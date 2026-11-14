@@ -37,7 +37,8 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
     { label: 'Student Resources', href: '#student-resources' },
     { label: 'Faculty CEMIS', href: '#cemis-attendance' },
     { label: 'Campus Gallery', href: '#gallery' },
-    { label: 'Location & Contact', href: '#contact' }
+    { label: 'Location & Contact', href: '#contact' },
+    { label: 'FAQs', href: '#faq' }
   ];
 
   const handleNavClick = (href: string) => {
@@ -45,7 +46,24 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      return;
     }
+
+    if (href === '#faq') {
+      document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    let attempts = 0;
+    const pollForTarget = () => {
+      attempts += 1;
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      } else if (attempts < 20) {
+        window.setTimeout(pollForTarget, 75);
+      }
+    };
+    window.setTimeout(pollForTarget, 75);
   };
 
   return (

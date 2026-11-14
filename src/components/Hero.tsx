@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import {
   ArrowUpRight,
   Award,
@@ -7,12 +7,6 @@ import {
   Sparkles,
   Users,
   Play,
-  Video,
-  Image as ImageIcon,
-  X,
-  Upload,
-  Volume2,
-  VolumeX,
   Check
 } from 'lucide-react';
 import { COLLEGE_INFO } from '../data/collegeData';
@@ -24,40 +18,16 @@ interface HeroProps {
 export function Hero({ onOpenEnquiry }: HeroProps) {
   // Video player modal state
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  
+
   // Hero background mode: 'photo' or 'video'
   const [bgMode, setBgMode] = useState<'photo' | 'video'>('photo');
 
   // Hero video source (only initialized with sample video in development mode)
-  const [videoUrl, setVideoUrl] = useState<string>(
+  const [videoUrl] = useState<string>(
     import.meta.env.DEV
       ? 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
       : ''
   );
-  const [isChangingVideo, setIsChangingVideo] = useState(false);
-  const [customInputUrl, setCustomInputUrl] = useState('');
-  const [isMuted, setIsMuted] = useState(true);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleVideoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const blobUrl = URL.createObjectURL(file);
-      setVideoUrl(blobUrl);
-      setBgMode('video');
-      setIsChangingVideo(false);
-    }
-  };
-
-  const handleApplyCustomUrl = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (customInputUrl.trim()) {
-      setVideoUrl(customInputUrl.trim());
-      setBgMode('video');
-      setCustomInputUrl('');
-      setIsChangingVideo(false);
-    }
-  };
 
   return (
     <section id="home" className="relative bg-[#042f28] text-white overflow-hidden select-none">
@@ -68,7 +38,7 @@ export function Hero({ onOpenEnquiry }: HeroProps) {
             src={videoUrl}
             autoPlay
             loop
-            muted={isMuted}
+            muted
             playsInline
             className="w-full h-full object-cover object-center filter brightness-[0.75] contrast-[1.05] transition-opacity duration-700"
           />
@@ -87,117 +57,6 @@ export function Hero({ onOpenEnquiry }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#042f28] via-transparent to-black/30 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/15 via-transparent to-transparent pointer-events-none" />
       </div>
-
-      {/* Floating Background Switcher Controls & Video Configurator (Development Only) */}
-      {import.meta.env.DEV && (
-        <>
-          <div className="absolute top-4 right-4 z-20 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-amber-300/40 shadow-lg">
-            <button
-              onClick={() => setBgMode('photo')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold transition-all ${
-                bgMode === 'photo'
-                  ? 'bg-amber-400 text-emerald-950 shadow'
-                  : 'text-stone-300 hover:text-white'
-              }`}
-              title="Show high-clarity campus photo background"
-            >
-              <ImageIcon className="w-3.5 h-3.5" />
-              <span>Campus Photo</span>
-            </button>
-
-            <button
-              onClick={() => setBgMode('video')}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold transition-all ${
-                bgMode === 'video'
-                  ? 'bg-amber-400 text-emerald-950 shadow'
-                  : 'text-stone-300 hover:text-white'
-              }`}
-              title="Play campus video background"
-            >
-              <Video className="w-3.5 h-3.5" />
-              <span>Campus Video</span>
-            </button>
-
-            {bgMode === 'video' && (
-              <button
-                onClick={() => setIsMuted(!isMuted)}
-                className="p-1 rounded-full text-amber-300 hover:text-white transition-colors"
-                title={isMuted ? 'Unmute video audio' : 'Mute video audio'}
-              >
-                {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
-              </button>
-            )}
-
-            <button
-              onClick={() => setIsChangingVideo(!isChangingVideo)}
-              className="text-[10px] text-amber-200 hover:text-amber-100 underline ml-1 font-medium"
-            >
-              {isChangingVideo ? 'Close' : 'Set Video'}
-            </button>
-          </div>
-
-          {/* Custom Video URL / Upload Dropdown Panel */}
-          {isChangingVideo && (
-            <div className="absolute top-16 right-4 z-30 w-80 sm:w-96 p-4 rounded-2xl bg-[#03241e] border-2 border-amber-300/60 shadow-2xl text-left text-xs animate-fadeIn">
-              <div className="flex items-center justify-between pb-2 mb-3 border-b border-emerald-800">
-                <span className="font-serif font-bold text-sm text-amber-300 flex items-center gap-1.5">
-                  <Video className="w-4 h-4 text-amber-400" />
-                  Configure Hero Video
-                </span>
-                <button
-                  onClick={() => setIsChangingVideo(false)}
-                  className="text-stone-400 hover:text-white"
-                >
-                  ✕
-                </button>
-              </div>
-
-              <form onSubmit={handleApplyCustomUrl} className="space-y-3">
-                <div>
-                  <label className="block text-[11px] font-semibold text-emerald-200 mb-1">
-                    Enter Video URL (MP4 / WebM / Stream):
-                  </label>
-                  <div className="flex gap-2">
-                    <input
-                      type="text"
-                      value={customInputUrl}
-                      onChange={(e) => setCustomInputUrl(e.target.value)}
-                      placeholder="Paste video URL..."
-                      className="flex-1 px-3 py-1.5 text-xs rounded bg-[#021814] text-white border border-emerald-700 focus:outline-none focus:ring-1 focus:ring-amber-300"
-                    />
-                    <button
-                      type="submit"
-                      className="px-3 py-1.5 bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold rounded text-xs"
-                    >
-                      Apply
-                    </button>
-                  </div>
-                </div>
-
-                <div className="text-center text-[10px] text-stone-400">or</div>
-
-                <div>
-                  <input
-                    type="file"
-                    ref={fileInputRef}
-                    onChange={handleVideoUpload}
-                    accept="video/*"
-                    className="hidden"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    className="w-full py-2 bg-[#064b36] hover:bg-[#053d2c] border border-amber-400/40 text-amber-200 font-semibold rounded flex items-center justify-center gap-1.5 text-xs"
-                  >
-                    <Upload className="w-3.5 h-3.5 text-amber-300" />
-                    <span>Upload Video File from Computer...</span>
-                  </button>
-                </div>
-              </form>
-            </div>
-          )}
-        </>
-      )}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -224,29 +83,6 @@ export function Hero({ onOpenEnquiry }: HeroProps) {
               >
                 <span>SECCAP Admissions 2026</span>
                 <ArrowUpRight className="w-4 h-4 text-emerald-950" />
-              </a>
-
-              {/* Watch Video Tour Button (Development Only until real campus video is added) */}
-              {import.meta.env.DEV && (
-                <button
-                  onClick={() => setIsVideoModalOpen(true)}
-                  className="inline-flex items-center gap-2 px-4 py-3 rounded-lg bg-emerald-900/95 hover:bg-emerald-800 border-2 border-amber-300 text-amber-200 font-bold text-sm shadow-md transition-all active:scale-95 group"
-                  title="Watch Campus Video Tour"
-                >
-                  <div className="w-5 h-5 rounded-full bg-amber-300 text-emerald-950 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Play className="w-3 h-3 fill-current ml-0.5" />
-                  </div>
-                  <span>Watch Campus Video</span>
-                </button>
-              )}
-
-              <a
-                href={`tel:${COLLEGE_INFO.phoneRaw}`}
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-lg bg-[#032922]/90 hover:bg-[#021f19] border border-amber-400/50 text-amber-300 font-bold text-sm shadow-md transition-all active:scale-95"
-                title="Call Govt Girls Zubaida College Office"
-              >
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Call: {COLLEGE_INFO.phone}</span>
               </a>
 
               <a
