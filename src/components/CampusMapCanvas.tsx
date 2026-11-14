@@ -31,204 +31,224 @@ export interface StopColorTheme {
 
 const STOP_THEMES_BY_ID: Record<string, StopColorTheme> = {
   'historic-gateway': {
-    pinBg: 'bg-emerald-500',
+    pinBg: 'bg-[#10b981]',
     pinText: 'text-white',
-    pinBorder: 'border-emerald-200',
-    ringGlow: 'bg-emerald-400/45',
-    hex: '#10b981',
-    textClass: 'text-emerald-300',
-    activeBorder: 'border-emerald-400',
-    badgeBg: 'bg-emerald-500 text-white'
+    pinBorder: 'border-[#a7f3d0]',
+    ringGlow: 'bg-[#34d399]/45',
+    hex: '#34d399',
+    textClass: 'text-[#6ee7b7]',
+    activeBorder: 'border-[#34d399]',
+    badgeBg: 'bg-[#10b981] text-white'
   },
   'waiting-room': {
-    pinBg: 'bg-sky-500',
+    pinBg: 'bg-[#0ea5e9]',
     pinText: 'text-white',
-    pinBorder: 'border-sky-200',
-    ringGlow: 'bg-sky-400/45',
-    hex: '#0ea5e9',
-    textClass: 'text-sky-300',
-    activeBorder: 'border-sky-400',
-    badgeBg: 'bg-sky-500 text-white'
+    pinBorder: 'border-[#bae6fd]',
+    ringGlow: 'bg-[#38bdf8]/45',
+    hex: '#38bdf8',
+    textClass: 'text-[#7dd3fc]',
+    activeBorder: 'border-[#38bdf8]',
+    badgeBg: 'bg-[#0ea5e9] text-white'
   },
   'college-canteen': {
-    pinBg: 'bg-orange-500',
+    pinBg: 'bg-[#f97316]',
     pinText: 'text-white',
-    pinBorder: 'border-orange-200',
-    ringGlow: 'bg-orange-400/45',
-    hex: '#f97316',
-    textClass: 'text-orange-300',
-    activeBorder: 'border-orange-400',
-    badgeBg: 'bg-orange-500 text-white'
+    pinBorder: 'border-[#fed7aa]',
+    ringGlow: 'bg-[#fb923c]/45',
+    hex: '#fb923c',
+    textClass: 'text-[#fdba74]',
+    activeBorder: 'border-[#fb923c]',
+    badgeBg: 'bg-[#f97316] text-white'
   },
   'clerk-office': {
-    pinBg: 'bg-teal-400',
+    pinBg: 'bg-[#14b8a6]',
     pinText: 'text-slate-950',
-    pinBorder: 'border-teal-100',
-    ringGlow: 'bg-teal-300/45',
+    pinBorder: 'border-[#ccfbf1]',
+    ringGlow: 'bg-[#2dd4bf]/45',
     hex: '#2dd4bf',
-    textClass: 'text-teal-300',
-    activeBorder: 'border-teal-300',
-    badgeBg: 'bg-teal-400 text-slate-950'
+    textClass: 'text-[#5eead4]',
+    activeBorder: 'border-[#2dd4bf]',
+    badgeBg: 'bg-[#14b8a6] text-slate-950'
   },
   'central-library': {
-    pinBg: 'bg-violet-500',
+    pinBg: 'bg-[#8b5cf6]',
     pinText: 'text-white',
-    pinBorder: 'border-violet-200',
-    ringGlow: 'bg-violet-400/45',
-    hex: '#8b5cf6',
-    textClass: 'text-violet-300',
-    activeBorder: 'border-violet-400',
-    badgeBg: 'bg-violet-500 text-white'
+    pinBorder: 'border-[#ddd6fe]',
+    ringGlow: 'bg-[#a78bfa]/45',
+    hex: '#a78bfa',
+    textClass: 'text-[#c4b5fd]',
+    activeBorder: 'border-[#a78bfa]',
+    badgeBg: 'bg-[#8b5cf6] text-white'
   },
   'grill-divided-walkway': {
-    pinBg: 'bg-lime-400',
+    pinBg: 'bg-[#84cc16]',
     pinText: 'text-emerald-950',
-    pinBorder: 'border-lime-100',
-    ringGlow: 'bg-lime-400/45',
+    pinBorder: 'border-[#ecfccb]',
+    ringGlow: 'bg-[#a3e635]/45',
     hex: '#a3e635',
-    textClass: 'text-lime-300',
-    activeBorder: 'border-lime-300',
-    badgeBg: 'bg-lime-400 text-emerald-950'
+    textClass: 'text-[#bef264]',
+    activeBorder: 'border-[#a3e635]',
+    badgeBg: 'bg-[#84cc16] text-emerald-950'
   },
   'chemistry-labs': {
-    pinBg: 'bg-cyan-400',
+    pinBg: 'bg-[#06b6d4]',
     pinText: 'text-slate-950',
-    pinBorder: 'border-cyan-100',
-    ringGlow: 'bg-cyan-300/45',
+    pinBorder: 'border-[#cffafe]',
+    ringGlow: 'bg-[#22d3ee]/45',
     hex: '#22d3ee',
-    textClass: 'text-cyan-300',
-    activeBorder: 'border-cyan-300',
-    badgeBg: 'bg-cyan-400 text-slate-950'
+    textClass: 'text-[#67e8f9]',
+    activeBorder: 'border-[#22d3ee]',
+    badgeBg: 'bg-[#06b6d4] text-slate-950'
   },
   'auditorium-hall': {
-    pinBg: 'bg-rose-500',
+    pinBg: 'bg-[#f43f5e]',
     pinText: 'text-white',
-    pinBorder: 'border-rose-200',
-    ringGlow: 'bg-rose-400/45',
-    hex: '#f43f5e',
-    textClass: 'text-rose-300',
-    activeBorder: 'border-rose-400',
-    badgeBg: 'bg-rose-500 text-white'
+    pinBorder: 'border-[#fecdd3]',
+    ringGlow: 'bg-[#fb7185]/45',
+    hex: '#fb7185',
+    textClass: 'text-[#fda4af]',
+    activeBorder: 'border-[#fb7185]',
+    badgeBg: 'bg-[#f43f5e] text-white'
   },
   'principal-office': {
-    pinBg: 'bg-amber-400',
+    pinBg: 'bg-[#f59e0b]',
     pinText: 'text-emerald-950',
-    pinBorder: 'border-amber-100',
-    ringGlow: 'bg-amber-300/50',
+    pinBorder: 'border-[#fef3c7]',
+    ringGlow: 'bg-[#fbbf24]/50',
     hex: '#fbbf24',
-    textClass: 'text-amber-300',
-    activeBorder: 'border-amber-300',
-    badgeBg: 'bg-amber-400 text-emerald-950'
+    textClass: 'text-[#fcd34d]',
+    activeBorder: 'border-[#fbbf24]',
+    badgeBg: 'bg-[#f59e0b] text-emerald-950'
   },
   'general-staff-room': {
-    pinBg: 'bg-indigo-500',
+    pinBg: 'bg-[#6366f1]',
     pinText: 'text-white',
-    pinBorder: 'border-indigo-200',
-    ringGlow: 'bg-indigo-400/45',
+    pinBorder: 'border-[#e0e7ff]',
+    ringGlow: 'bg-[#818cf8]/45',
     hex: '#818cf8',
-    textClass: 'text-indigo-300',
-    activeBorder: 'border-indigo-400',
-    badgeBg: 'bg-indigo-500 text-white'
+    textClass: 'text-[#a5b4fc]',
+    activeBorder: 'border-[#818cf8]',
+    badgeBg: 'bg-[#6366f1] text-white'
   },
   'islamiat-english': {
-    pinBg: 'bg-pink-500',
+    pinBg: 'bg-[#ec4899]',
     pinText: 'text-white',
-    pinBorder: 'border-pink-200',
-    ringGlow: 'bg-pink-400/45',
-    hex: '#ec4899',
-    textClass: 'text-pink-300',
-    activeBorder: 'border-pink-400',
-    badgeBg: 'bg-pink-500 text-white'
+    pinBorder: 'border-[#fce7f3]',
+    ringGlow: 'bg-[#f472b6]/45',
+    hex: '#f472b6',
+    textClass: 'text-[#f9a8d4]',
+    activeBorder: 'border-[#f472b6]',
+    badgeBg: 'bg-[#ec4899] text-white'
   },
   'statistics-mathematics': {
-    pinBg: 'bg-fuchsia-500',
+    pinBg: 'bg-[#d946ef]',
     pinText: 'text-white',
-    pinBorder: 'border-fuchsia-200',
-    ringGlow: 'bg-fuchsia-400/45',
+    pinBorder: 'border-[#fae8ff]',
+    ringGlow: 'bg-[#e879f9]/45',
     hex: '#e879f9',
-    textClass: 'text-fuchsia-300',
-    activeBorder: 'border-fuchsia-400',
-    badgeBg: 'bg-fuchsia-500 text-white'
+    textClass: 'text-[#f0abfc]',
+    activeBorder: 'border-[#e879f9]',
+    badgeBg: 'bg-[#d946ef] text-white'
   },
   'physics-lab-darkroom': {
-    pinBg: 'bg-blue-500',
+    pinBg: 'bg-[#3b82f6]',
     pinText: 'text-white',
-    pinBorder: 'border-blue-200',
-    ringGlow: 'bg-blue-400/45',
-    hex: '#3b82f6',
-    textClass: 'text-blue-300',
-    activeBorder: 'border-blue-400',
-    badgeBg: 'bg-blue-500 text-white'
+    pinBorder: 'border-[#dbeafe]',
+    ringGlow: 'bg-[#60a5fa]/45',
+    hex: '#60a5fa',
+    textClass: 'text-[#93c5fd]',
+    activeBorder: 'border-[#60a5fa]',
+    badgeBg: 'bg-[#3b82f6] text-white'
   },
   'greenhouse-prayer-ground': {
-    pinBg: 'bg-green-500',
-    pinText: 'text-white',
-    pinBorder: 'border-green-200',
-    ringGlow: 'bg-green-400/45',
-    hex: '#22c55e',
-    textClass: 'text-green-300',
-    activeBorder: 'border-green-400',
-    badgeBg: 'bg-green-500 text-white'
+    pinBg: 'bg-[#22c55e]',
+    pinText: 'text-slate-950',
+    pinBorder: 'border-[#dcfce7]',
+    ringGlow: 'bg-[#4ade80]/45',
+    hex: '#4ade80',
+    textClass: 'text-[#86efac]',
+    activeBorder: 'border-[#4ade80]',
+    badgeBg: 'bg-[#22c55e] text-slate-950'
   },
   'zoology-botany-labs': {
-    pinBg: 'bg-emerald-300',
+    pinBg: 'bg-[#34d399]',
     pinText: 'text-emerald-950',
     pinBorder: 'border-white',
-    ringGlow: 'bg-emerald-200/45',
+    ringGlow: 'bg-[#6ee7b7]/45',
     hex: '#6ee7b7',
-    textClass: 'text-emerald-200',
-    activeBorder: 'border-emerald-200',
-    badgeBg: 'bg-emerald-300 text-emerald-950'
+    textClass: 'text-[#a7f3d0]',
+    activeBorder: 'border-[#6ee7b7]',
+    badgeBg: 'bg-[#34d399] text-emerald-950'
   },
   'hostel-computer-lab': {
-    pinBg: 'bg-amber-600',
-    pinText: 'text-white',
-    pinBorder: 'border-amber-200',
-    ringGlow: 'bg-amber-500/45',
-    hex: '#fb923c',
-    textClass: 'text-orange-200',
-    activeBorder: 'border-orange-300',
-    badgeBg: 'bg-amber-600 text-white'
+    pinBg: 'bg-[#fb923c]',
+    pinText: 'text-slate-950',
+    pinBorder: 'border-[#ffedd5]',
+    ringGlow: 'bg-[#fdba74]/45',
+    hex: '#fdba74',
+    textClass: 'text-[#fed7aa]',
+    activeBorder: 'border-[#fdba74]',
+    badgeBg: 'bg-[#fb923c] text-slate-950'
+  },
+  'computer-lab': {
+    pinBg: 'bg-[#00d4ff]',
+    pinText: 'text-slate-950',
+    pinBorder: 'border-[#e0f2fe]',
+    ringGlow: 'bg-[#7dd3fc]/45',
+    hex: '#00d4ff',
+    textClass: 'text-[#8ce9ff]',
+    activeBorder: 'border-[#00d4ff]',
+    badgeBg: 'bg-[#00d4ff] text-slate-950'
+  },
+  'computer-multimedia-room': {
+    pinBg: 'bg-[#c084fc]',
+    pinText: 'text-slate-950',
+    pinBorder: 'border-[#f3e8ff]',
+    ringGlow: 'bg-[#d8b4fe]/45',
+    hex: '#c084fc',
+    textClass: 'text-[#e9d5ff]',
+    activeBorder: 'border-[#c084fc]',
+    badgeBg: 'bg-[#c084fc] text-slate-950'
   },
   'tennis-volleyball-grounds': {
-    pinBg: 'bg-yellow-400',
+    pinBg: 'bg-[#facc15]',
     pinText: 'text-slate-950',
-    pinBorder: 'border-yellow-100',
-    ringGlow: 'bg-yellow-300/50',
-    hex: '#facc15',
-    textClass: 'text-yellow-300',
-    activeBorder: 'border-yellow-300',
-    badgeBg: 'bg-yellow-400 text-slate-950'
+    pinBorder: 'border-[#fef9c3]',
+    ringGlow: 'bg-[#fde047]/50',
+    hex: '#fde047',
+    textClass: 'text-[#fef08a]',
+    activeBorder: 'border-[#fde047]',
+    badgeBg: 'bg-[#facc15] text-slate-950'
   },
   'pak-urdu-pe': {
-    pinBg: 'bg-red-500',
+    pinBg: 'bg-[#ef4444]',
     pinText: 'text-white',
-    pinBorder: 'border-red-200',
-    ringGlow: 'bg-red-400/45',
+    pinBorder: 'border-[#fee2e2]',
+    ringGlow: 'bg-[#f87171]/45',
     hex: '#f87171',
-    textClass: 'text-red-300',
-    activeBorder: 'border-red-400',
-    badgeBg: 'bg-red-500 text-white'
+    textClass: 'text-[#fca5a5]',
+    activeBorder: 'border-[#f87171]',
+    badgeBg: 'bg-[#ef4444] text-white'
   },
   'commerce-dept-library': {
-    pinBg: 'bg-purple-500',
+    pinBg: 'bg-[#a855f7]',
     pinText: 'text-white',
-    pinBorder: 'border-purple-200',
-    ringGlow: 'bg-purple-400/45',
-    hex: '#a855f7',
-    textClass: 'text-purple-300',
-    activeBorder: 'border-purple-400',
-    badgeBg: 'bg-purple-500 text-white'
+    pinBorder: 'border-[#f3e8ff]',
+    ringGlow: 'bg-[#c084fc]/45',
+    hex: '#d8b4fe',
+    textClass: 'text-[#f5d0fe]',
+    activeBorder: 'border-[#d8b4fe]',
+    badgeBg: 'bg-[#a855f7] text-white'
   },
   'sindhi-economics-physiology-ground': {
-    pinBg: 'bg-lime-300',
+    pinBg: 'bg-[#bef264]',
     pinText: 'text-emerald-950',
     pinBorder: 'border-white',
-    ringGlow: 'bg-lime-200/45',
-    hex: '#bef264',
-    textClass: 'text-lime-200',
-    activeBorder: 'border-lime-200',
-    badgeBg: 'bg-lime-300 text-emerald-950'
+    ringGlow: 'bg-[#d9f99d]/45',
+    hex: '#d9f99d',
+    textClass: 'text-[#ecfccb]',
+    activeBorder: 'border-[#d9f99d]',
+    badgeBg: 'bg-[#bef264] text-emerald-950'
   }
 };
 
@@ -504,8 +524,9 @@ export function CampusMapCanvas({
               <stop offset="100%" stopColor="#021f19" stopOpacity="0.95" />
             </radialGradient>
             <linearGradient id="lawn-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#14532d" stopOpacity="0.88" />
-              <stop offset="100%" stopColor="#166534" stopOpacity="0.72" />
+              <stop offset="0%" stopColor="#15803d" stopOpacity="0.92" />
+              <stop offset="50%" stopColor="#16a34a" stopOpacity="0.86" />
+              <stop offset="100%" stopColor="#22c55e" stopOpacity="0.80" />
             </linearGradient>
             <marker
               id="route-arrow"
@@ -551,53 +572,91 @@ export function CampusMapCanvas({
 
           {/* ================= NORTH-WEST SECTOR ================= */}
 
-          {/* 19. Commerce Dept. & Commerce Library (1st Floor — Purple) */}
-          <rect x="252" y="34" width="160" height="62" rx="10" fill="#581c87" fillOpacity="0.66" stroke="#a855f7" strokeWidth="2" />
-          <text x="332" y="51" textAnchor="middle" fill="#e9d5ff" fontSize="9.2" fontWeight="800">
-            COMMERCE DEPT. &amp; LIBRARY
+          {/* 21. Commerce Dept. & Commerce Library (1st Floor — Violet) */}
+          <rect x="252" y="34" width="160" height="56" rx="10" fill="#581c87" fillOpacity="0.68" stroke="#a78bfa" strokeWidth="2.2" />
+          <text x="332" y="51" textAnchor="middle" fontSize="10" fontWeight="900">
+            <tspan fill="#f5d0fe">COMMERCE DEPT.</tspan>
+            <tspan fill="#ffffff"> &amp; </tspan>
+            <tspan fill="#fde68a">LIBRARY</tspan>
           </text>
-          <text x="332" y="88" textAnchor="middle" fill="#d8b4fe" fontSize="7.6" fontWeight="600">
+          <text x="332" y="83" textAnchor="middle" fill="#ddd6fe" fontSize="8.8" fontWeight="800">
             (1st Floor Above Sports)
           </text>
 
-          {/* 18. Pakistan Studies, Urdu & Physical Education (Coral Red) */}
-          <rect x="48" y="64" width="190" height="64" rx="10" fill="#7f1d1d" fillOpacity="0.64" stroke="#f87171" strokeWidth="2" />
-          <text x="143" y="81" textAnchor="middle" fill="#fecaca" fontSize="8.8" fontWeight="800">
-            PAK STUDIES · URDU
+          {/* 20. Pakistan Studies, Urdu & Physical Education (Coral Red) */}
+          <rect x="46" y="38" width="192" height="60" rx="10" fill="#7f1d1d" fillOpacity="0.66" stroke="#f87171" strokeWidth="2.2" />
+          <text x="142" y="56" textAnchor="middle" fontSize="10" fontWeight="900">
+            <tspan fill="#fca5a5">PAK STUDIES</tspan>
+            <tspan fill="#ffffff"> · </tspan>
+            <tspan fill="#fde047">URDU</tspan>
           </text>
-          <text x="143" y="119" textAnchor="middle" fill="#fca5a5" fontSize="8.2" fontWeight="700">
+          <text x="142" y="90" textAnchor="middle" fill="#86efac" fontSize="9.4" fontWeight="900">
             PHYSICAL EDUCATION
           </text>
 
-          {/* 17. Tennis Court & Volleyball Playing Ground (Sun Yellow) */}
-          <rect x="252" y="112" width="160" height="62" rx="10" fill="#713f12" fillOpacity="0.58" stroke="#facc15" strokeWidth="2" />
-          {/* Mini Tennis & Volleyball Court Lines */}
-          <rect x="266" y="124" width="56" height="36" rx="2" fill="none" stroke="#fde047" strokeOpacity="0.45" strokeWidth="1" />
-          <line x1="294" y1="124" x2="294" y2="160" stroke="#fde047" strokeOpacity="0.65" strokeWidth="1" strokeDasharray="2 2" />
-          <rect x="342" y="124" width="56" height="36" rx="2" fill="none" stroke="#fef08a" strokeOpacity="0.45" strokeWidth="1" />
-          <line x1="370" y1="124" x2="370" y2="160" stroke="#fef08a" strokeOpacity="0.65" strokeWidth="1" />
-          <text x="332" y="168" textAnchor="middle" fill="#fef08a" fontSize="8.2" fontWeight="800">
-            TENNIS &amp; VOLLEYBALL GROUND
+          {/* 19. Tennis Court & Volleyball Playing Ground (Sun Yellow) */}
+          <rect x="252" y="102" width="160" height="54" rx="10" fill="#713f12" fillOpacity="0.62" stroke="#facc15" strokeWidth="2.2" />
+          <rect x="266" y="110" width="54" height="30" rx="2" fill="none" stroke="#fde047" strokeOpacity="0.55" strokeWidth="1.2" />
+          <line x1="293" y1="110" x2="293" y2="140" stroke="#fde047" strokeOpacity="0.7" strokeWidth="1.1" strokeDasharray="2 2" />
+          <rect x="342" y="110" width="54" height="30" rx="2" fill="none" stroke="#fef08a" strokeOpacity="0.55" strokeWidth="1.2" />
+          <line x1="369" y1="110" x2="369" y2="140" stroke="#fef08a" strokeOpacity="0.7" strokeWidth="1.1" strokeDasharray="2 2" />
+          <text x="332" y="150" textAnchor="middle" fontSize="9.2" fontWeight="900">
+            <tspan fill="#fef08a">TENNIS</tspan>
+            <tspan fill="#ffffff"> &amp; </tspan>
+            <tspan fill="#fdba74">VOLLEYBALL GROUND</tspan>
           </text>
 
-          {/* 16. Hostel, Computer Lab & Computer Lab Office (Tangerine / Amber-Orange) */}
-          <rect x="48" y="184" width="220" height="64" rx="10" fill="#7c2d12" fillOpacity="0.65" stroke="#fb923c" strokeWidth="2" />
-          <line x1="158" y1="190" x2="158" y2="242" stroke="#fdba74" strokeOpacity="0.4" strokeWidth="1.2" strokeDasharray="3 3" />
-          <text x="103" y="203" textAnchor="middle" fill="#ffedd5" fontSize="9" fontWeight="800">
+          {/* 16. BIG COLLEGE HOSTEL (Large Multi-Wing Residential Complex — Warm Tangerine) */}
+          <rect x="46" y="116" width="150" height="134" rx="12" fill="#7c2d12" fillOpacity="0.74" stroke="#fb923c" strokeWidth="2.6" />
+          {/* Multi-Wing Architectural Inner Courtyard & Dormitory Window Rows */}
+          <rect x="56" y="128" width="38" height="90" rx="5" fill="#9a3412" fillOpacity="0.75" stroke="#fdba74" strokeOpacity="0.55" strokeWidth="1.2" />
+          <rect x="146" y="128" width="38" height="90" rx="5" fill="#9a3412" fillOpacity="0.75" stroke="#fdba74" strokeOpacity="0.55" strokeWidth="1.2" />
+          <rect x="98" y="138" width="44" height="58" rx="6" fill="#431407" fillOpacity="0.65" stroke="#fed7aa" strokeOpacity="0.5" strokeWidth="1.2" />
+          {/* Sunlit Dormitory Windows */}
+          <rect x="63" y="136" width="10" height="9" rx="1.5" fill="#fde68a" fillOpacity="0.75" />
+          <rect x="78" y="136" width="10" height="9" rx="1.5" fill="#fde68a" fillOpacity="0.75" />
+          <rect x="63" y="152" width="10" height="9" rx="1.5" fill="#fde68a" fillOpacity="0.75" />
+          <rect x="78" y="152" width="10" height="9" rx="1.5" fill="#fde68a" fillOpacity="0.75" />
+          <rect x="153" y="136" width="10" height="9" rx="1.5" fill="#fde68a" fillOpacity="0.75" />
+          <rect x="168" y="136" width="10" height="9" rx="1.5" fill="#fde68a" fillOpacity="0.75" />
+          <rect x="153" y="152" width="10" height="9" rx="1.5" fill="#fde68a" fillOpacity="0.75" />
+          <rect x="168" y="152" width="10" height="9" rx="1.5" fill="#fde68a" fillOpacity="0.75" />
+          <text x="121" y="216" textAnchor="middle" fill="#fed7aa" fontSize="11.2" fontWeight="900" letterSpacing="0.5">
             COLLEGE HOSTEL
           </text>
-          <text x="214" y="202" textAnchor="middle" fill="#fed7aa" fontSize="8.5" fontWeight="800">
+          <text x="121" y="236" textAnchor="middle" fill="#fde68a" fontSize="8.8" fontWeight="800">
+            BIG RESIDENTIAL BLOCK
+          </text>
+
+          {/* 17. Computer Lab & Computer Lab Office (Beside Hostel — Cyan/Sky) */}
+          <rect x="206" y="172" width="88" height="76" rx="10" fill="#075985" fillOpacity="0.74" stroke="#00d4ff" strokeWidth="2.2" />
+          {/* Computer Workstation Icons */}
+          <rect x="220" y="182" width="18" height="12" rx="2" fill="#0c4a6e" stroke="#7dd3fc" strokeWidth="1.2" />
+          <rect x="246" y="182" width="18" height="12" rx="2" fill="#0c4a6e" stroke="#7dd3fc" strokeWidth="1.2" />
+          <rect x="270" y="182" width="16" height="12" rx="2" fill="#1e293b" stroke="#bae6fd" strokeWidth="1.2" />
+          <text x="250" y="228" textAnchor="middle" fill="#8ce9ff" fontSize="9.4" fontWeight="900">
             COMPUTER LAB
           </text>
-          <text x="214" y="240" textAnchor="middle" fill="#fdba74" fontSize="7.6" fontWeight="700">
-            &amp; COMPUTER LAB OFFICE
+          <text x="250" y="241" textAnchor="middle" fill="#fde68a" fontSize="8.4" fontWeight="800">
+            &amp; LAB OFFICE
+          </text>
+
+          {/* 18. Computer Multimedia Room (Beside Computer Lab — Lavender Purple) */}
+          <rect x="300" y="172" width="88" height="76" rx="10" fill="#581c87" fillOpacity="0.72" stroke="#c084fc" strokeWidth="2.2" />
+          {/* HD Multimedia Projection Screen */}
+          <rect x="320" y="180" width="48" height="15" rx="2.5" fill="#1e1b4b" stroke="#e9d5ff" strokeWidth="1.3" />
+          <polygon points="341,184 341,191 348,187.5" fill="#f0abfc" />
+          <text x="344" y="227" textAnchor="middle" fill="#e9d5ff" fontSize="9.2" fontWeight="900">
+            MULTIMEDIA
+          </text>
+          <text x="344" y="240" textAnchor="middle" fill="#f9a8d4" fontSize="8.8" fontWeight="800">
+            ROOM
           </text>
 
           {/* ================= NORTH STRAIGHT SECTOR ================= */}
 
-          {/* 20. Big Ground & Lawn + Sindhi, Economics, Physiology (Spring Chartreuse) */}
-          <rect x="424" y="30" width="202" height="142" rx="12" fill="url(#lawn-grad)" stroke="#bef264" strokeWidth="2" />
-          {/* Oval Athletics Track Accent */}
+          {/* 22. Big Ground & Lawn + Sindhi, Economics, Physiology (Spring Chartreuse) */}
+          <rect x="424" y="30" width="202" height="142" rx="12" fill="url(#lawn-grad)" stroke="#bef264" strokeWidth="2.2" />
           <ellipse cx="525" cy="70" rx="76" ry="26" fill="#22c55e" fillOpacity="0.18" stroke="#d9f99d" strokeOpacity="0.45" strokeWidth="1.3" strokeDasharray="5 3" />
           {/* Gardener in North Big Ground */}
           <g transform="translate(454, 68)">
@@ -607,116 +666,132 @@ export function CampusMapCanvas({
             <path d="M-3.5,4.6 C-3.5,1 3.5,1 3.5,4.6 Z" fill="#4ade80" />
             <rect x="3.5" y="0.8" width="3.6" height="2.6" rx="0.6" fill="#38bdf8" />
           </g>
-          <text x="535" y="51" textAnchor="middle" fill="#ecfccb" fontSize="9.8" fontWeight="800" letterSpacing="0.8">
+          <text x="535" y="52" textAnchor="middle" fill="#ecfccb" fontSize="10.8" fontWeight="900" letterSpacing="0.7">
             BIG GROUND &amp; LAWN
           </text>
           {/* In-line Department Bar: Sindhi, Economics, Physiology */}
-          <rect x="434" y="118" width="182" height="46" rx="7" fill="#064e3b" fillOpacity="0.88" stroke="#84cc16" strokeWidth="1.5" />
-          <text x="525" y="137" textAnchor="middle" fill="#d9f99d" fontSize="8.8" fontWeight="800">
-            SINDHI · ECONOMICS
+          <rect x="434" y="118" width="182" height="46" rx="7" fill="#064e3b" fillOpacity="0.9" stroke="#84cc16" strokeWidth="1.6" />
+          <text x="525" y="137" textAnchor="middle" fontSize="9.8" fontWeight="900">
+            <tspan fill="#67e8f9">SINDHI</tspan>
+            <tspan fill="#ffffff"> · </tspan>
+            <tspan fill="#fcd34d">ECONOMICS</tspan>
           </text>
-          <text x="525" y="153" textAnchor="middle" fill="#bef264" fontSize="8.8" fontWeight="800">
+          <text x="525" y="154" textAnchor="middle" fill="#f9a8d4" fontSize="9.8" fontWeight="900">
             PHYSIOLOGY
           </text>
 
           {/* ================= NORTH-EAST & RIGHT CORRIDORS ================= */}
 
-          {/* 14. Playing Ground, Lawn, Greenhouse & Prayer Room (Before Zoology & Botany — Mint Green) */}
-          <rect x="636" y="96" width="168" height="76" rx="10" fill="#14532d" fillOpacity="0.72" stroke="#22c55e" strokeWidth="2" />
+          {/* 14. Assembly Ground, Flag Hoisting, Garden Lawn, Greenhouse & Prayer Room (Before Zoology Garden — Lush Green) */}
+          <rect x="636" y="96" width="168" height="76" rx="10" fill="url(#lawn-grad)" stroke="#4ade80" strokeWidth="2.4" />
+          {/* Assembly Dais & Flag Hoisting Pole with Waving Pakistan Flag */}
+          <rect x="646" y="140" width="22" height="8" rx="2" fill="#d1fae5" fillOpacity="0.85" />
+          <line x1="654" y1="140" x2="654" y2="112" stroke="#fde047" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="654" cy="111" r="2" fill="#fde047" />
+          <rect x="655" y="113" width="6" height="13" fill="#ffffff" />
+          <rect x="661" y="113" width="16" height="13" fill="#15803d" stroke="#bbf7d0" strokeWidth="0.6" />
+          <circle cx="669" cy="119.5" r="3" fill="#ffffff" />
+          <circle cx="670.2" cy="119.2" r="2.4" fill="#15803d" />
           {/* Greenhouse Dome Icon + Crescent Prayer Accent */}
-          <path d="M652,130 C652,116 680,116 680,130 Z" fill="#38bdf8" fillOpacity="0.28" stroke="#7dd3fc" strokeWidth="1.2" />
-          <circle cx="776" cy="122" r="8" fill="#064e3b" stroke="#86efac" strokeWidth="1.2" />
-          <path d="M778,117 A4.5,4.5 0 1,0 778,127 A3.5,3.5 0 1,1 778,117 Z" fill="#fde047" />
-          <text x="720" y="112" textAnchor="middle" fill="#bbf7d0" fontSize="8.4" fontWeight="800">
-            GROUND &amp; LAWN
+          <path d="M686,146 C686,130 714,130 714,146 Z" fill="#38bdf8" fillOpacity="0.32" stroke="#7dd3fc" strokeWidth="1.3" />
+          <circle cx="782" cy="134" r="9" fill="#064e3b" stroke="#86efac" strokeWidth="1.3" />
+          <path d="M784,129 A4.5,4.5 0 1,0 784,139 A3.5,3.5 0 1,1 784,129 Z" fill="#fde047" />
+          <text x="720" y="109" textAnchor="middle" fill="#86efac" fontSize="9.4" fontWeight="900">
+            ASSEMBLY &amp; FLAG HOISTING
           </text>
-          <text x="720" y="164" textAnchor="middle" fill="#86efac" fontSize="7.8" fontWeight="700">
-            GREENHOUSE · PRAYER ROOM
+          <text x="720" y="165" textAnchor="middle" fontSize="8.6" fontWeight="800">
+            <tspan fill="#bef264">GARDEN LAWN</tspan>
+            <tspan fill="#ffffff"> · </tspan>
+            <tspan fill="#7dd3fc">GREENHOUSE</tspan>
+            <tspan fill="#ffffff"> · </tspan>
+            <tspan fill="#fde047">PRAYER</tspan>
           </text>
 
           {/* 15. Zoology, Zoology Lab & Botany, Botany Lab (Deep Jade / Emerald-Mint) */}
-          <rect x="814" y="96" width="142" height="76" rx="10" fill="#065f46" fillOpacity="0.72" stroke="#6ee7b7" strokeWidth="2" />
-          <text x="885" y="113" textAnchor="middle" fill="#d1fae5" fontSize="8.6" fontWeight="800">
+          <rect x="814" y="96" width="142" height="76" rx="10" fill="#065f46" fillOpacity="0.74" stroke="#6ee7b7" strokeWidth="2.2" />
+          <text x="885" y="114" textAnchor="middle" fill="#a7f3d0" fontSize="9.6" fontWeight="900">
             ZOOLOGY &amp; ZOO LAB
           </text>
-          <text x="885" y="163" textAnchor="middle" fill="#a7f3d0" fontSize="8.6" fontWeight="800">
+          <text x="885" y="164" textAnchor="middle" fill="#bef264" fontSize="9.6" fontWeight="900">
             BOTANY &amp; BOTANY LAB
           </text>
 
           {/* 12. Statistics & Mathematics (Statistics Before Mathematics — Fuchsia) */}
-          <rect x="646" y="190" width="156" height="58" rx="10" fill="#701a75" fillOpacity="0.62" stroke="#e879f9" strokeWidth="2" />
-          <text x="724" y="207" textAnchor="middle" fill="#fae8ff" fontSize="8.8" fontWeight="800">
+          <rect x="646" y="190" width="156" height="58" rx="10" fill="#701a75" fillOpacity="0.66" stroke="#e879f9" strokeWidth="2.2" />
+          <text x="724" y="208" textAnchor="middle" fill="#f0abfc" fontSize="9.8" fontWeight="900">
             STATISTICS (First)
           </text>
-          <text x="724" y="241" textAnchor="middle" fill="#f0abfc" fontSize="8.8" fontWeight="800">
+          <text x="724" y="241" textAnchor="middle" fill="#67e8f9" fontSize="9.8" fontWeight="900">
             MATHEMATICS
           </text>
 
           {/* 13. Physics, Physics Lab & Dark Room (Cobalt Blue) */}
-          <rect x="812" y="190" width="144" height="58" rx="10" fill="#1e3a8a" fillOpacity="0.68" stroke="#60a5fa" strokeWidth="2" />
+          <rect x="812" y="190" width="144" height="58" rx="10" fill="#1e3a8a" fillOpacity="0.72" stroke="#60a5fa" strokeWidth="2.2" />
           {/* Dark Room Black Box Accent */}
-          <rect x="916" y="200" width="30" height="20" rx="3" fill="#020617" stroke="#93c5fd" strokeWidth="1" />
-          <text x="876" y="207" textAnchor="middle" fill="#dbeafe" fontSize="8.6" fontWeight="800">
+          <rect x="916" y="198" width="32" height="22" rx="3" fill="#020617" stroke="#93c5fd" strokeWidth="1.2" />
+          <text x="872" y="208" textAnchor="middle" fill="#93c5fd" fontSize="9.6" fontWeight="900">
             PHYSICS &amp; LAB
           </text>
-          <text x="884" y="241" textAnchor="middle" fill="#93c5fd" fontSize="8.4" fontWeight="800">
+          <text x="884" y="241" textAnchor="middle" fill="#fde047" fontSize="9.4" fontWeight="900">
             OPTICS DARK ROOM
           </text>
 
           {/* ================= PRINCIPAL'S OFFICE ALIGNMENT LINE ================= */}
 
           {/* 08. Auditorium Hall (Left of Principal's Office Line — Rose Crimson) */}
-          <rect x="46" y="264" width="118" height="64" rx="10" fill="#881337" fillOpacity="0.64" stroke="#fb7185" strokeWidth="2" />
-          <text x="105" y="282" textAnchor="middle" fill="#ffe4e6" fontSize="9.2" fontWeight="800">
+          <rect x="46" y="264" width="118" height="64" rx="10" fill="#881337" fillOpacity="0.68" stroke="#fb7185" strokeWidth="2.2" />
+          <text x="105" y="283" textAnchor="middle" fill="#fda4af" fontSize="10.2" fontWeight="900">
             AUDITORIUM
           </text>
-          <text x="105" y="320" textAnchor="middle" fill="#fda4af" fontSize="7.8" fontWeight="600">
+          <text x="105" y="320" textAnchor="middle" fill="#fecdd3" fontSize="8.6" fontWeight="800">
             (Left of Principal)
           </text>
 
           {/* 07. Chemistry & Chemistry Labs (In Line Left of Principal's Office — Cyan) */}
-          <rect x="174" y="264" width="208" height="64" rx="10" fill="#164e63" fillOpacity="0.68" stroke="#22d3ee" strokeWidth="2" />
-          <text x="278" y="282" textAnchor="middle" fill="#cffafe" fontSize="9.2" fontWeight="800">
+          <rect x="174" y="264" width="208" height="64" rx="10" fill="#164e63" fillOpacity="0.72" stroke="#22d3ee" strokeWidth="2.2" />
+          <text x="278" y="283" textAnchor="middle" fill="#67e8f9" fontSize="10.2" fontWeight="900">
             CHEMISTRY &amp; CHEMISTRY LABS
           </text>
-          <text x="278" y="320" textAnchor="middle" fill="#67e8f9" fontSize="7.8" fontWeight="600">
+          <text x="278" y="320" textAnchor="middle" fill="#a5f3fc" fontSize="8.6" fontWeight="800">
             (In Line Left of Principal)
           </text>
 
           {/* 09. Principal's Office (Right After Big Lawn — Imperial Gold) */}
-          <rect x="526" y="264" width="124" height="60" rx="10" fill="#78350f" fillOpacity="0.72" stroke="#fbbf24" strokeWidth="2.4" />
-          <text x="588" y="281" textAnchor="middle" fill="#fef3c7" fontSize="9" fontWeight="800">
+          <rect x="526" y="264" width="124" height="60" rx="10" fill="#78350f" fillOpacity="0.76" stroke="#fbbf24" strokeWidth="2.6" />
+          <text x="588" y="281" textAnchor="middle" fill="#fcd34d" fontSize="10" fontWeight="900">
             PRINCIPAL&rsquo;S OFFICE
           </text>
-          <text x="588" y="317" textAnchor="middle" fill="#fcd34d" fontSize="7.5" fontWeight="700">
+          <text x="588" y="317" textAnchor="middle" fill="#fde68a" fontSize="8.4" fontWeight="800">
             (Right Past Big Lawn)
           </text>
 
           {/* 10. General Staff Room (1st Floor Right of Principal's Office — Indigo) */}
-          <rect x="658" y="264" width="120" height="60" rx="10" fill="#1e1b4b" fillOpacity="0.74" stroke="#818cf8" strokeWidth="2" />
-          <text x="718" y="281" textAnchor="middle" fill="#e0e7ff" fontSize="8.5" fontWeight="800">
+          <rect x="658" y="264" width="120" height="60" rx="10" fill="#1e1b4b" fillOpacity="0.78" stroke="#818cf8" strokeWidth="2.2" />
+          <text x="718" y="281" textAnchor="middle" fill="#a5b4fc" fontSize="9.5" fontWeight="900">
             GENERAL STAFF RM
           </text>
-          <text x="718" y="317" textAnchor="middle" fill="#a5b4fc" fontSize="7.5" fontWeight="700">
+          <text x="718" y="317" textAnchor="middle" fill="#c7d2fe" fontSize="8.4" fontWeight="800">
             (1st Floor Right)
           </text>
 
           {/* 11. Islamiat, Islamic Culture & English (1st Floor Right — Flamingo Pink) */}
-          <rect x="786" y="264" width="170" height="60" rx="10" fill="#831843" fillOpacity="0.64" stroke="#ec4899" strokeWidth="2" />
-          <text x="871" y="280" textAnchor="middle" fill="#fce7f3" fontSize="8.3" fontWeight="800">
-            ISLAMIAT · ISLAMIC CULTURE
+          <rect x="786" y="264" width="170" height="60" rx="10" fill="#831843" fillOpacity="0.68" stroke="#ec4899" strokeWidth="2.2" />
+          <text x="871" y="281" textAnchor="middle" fontSize="9.2" fontWeight="900">
+            <tspan fill="#6ee7b7">ISLAMIAT</tspan>
+            <tspan fill="#ffffff"> · </tspan>
+            <tspan fill="#7dd3fc">ISLAMIC CULTURE</tspan>
           </text>
-          <text x="871" y="317" textAnchor="middle" fill="#f9a8d4" fontSize="8.5" fontWeight="800">
+          <text x="871" y="317" textAnchor="middle" fill="#f9a8d4" fontSize="9.4" fontWeight="900">
             ENGLISH (1st Floor)
           </text>
 
           {/* ================= BIG LAWN & LOWER-RIGHT / ENTRANCE ================= */}
 
-          {/* Big Walking Lawn & Gardeners (Right of Twin Grill Paths Before Principal's Office) */}
-          <rect x="536" y="334" width="210" height="58" rx="10" fill="url(#lawn-grad)" stroke="#84cc16" strokeWidth="1.9" />
-          <circle cx="564" cy="354" r="9.5" fill="#22c55e" fillOpacity="0.52" stroke="#a3e635" strokeWidth="1.2" />
-          <circle cx="642" cy="348" r="8.5" fill="#22c55e" fillOpacity="0.52" stroke="#a3e635" strokeWidth="1.2" />
-          <circle cx="718" cy="354" r="9.5" fill="#22c55e" fillOpacity="0.52" stroke="#a3e635" strokeWidth="1.2" />
+          {/* Big Walking Garden Lawn & Gardeners (Right of Twin Grill Paths Before Principal's Office — Lush Green) */}
+          <rect x="536" y="334" width="210" height="58" rx="10" fill="url(#lawn-grad)" stroke="#4ade80" strokeWidth="2.4" />
+          <circle cx="564" cy="354" r="10" fill="#22c55e" fillOpacity="0.68" stroke="#bbf7d0" strokeWidth="1.3" />
+          <circle cx="642" cy="348" r="9" fill="#22c55e" fillOpacity="0.68" stroke="#bbf7d0" strokeWidth="1.3" />
+          <circle cx="718" cy="354" r="10" fill="#22c55e" fillOpacity="0.68" stroke="#bbf7d0" strokeWidth="1.3" />
 
           {/* Gardener 1 in Big Lawn */}
           <g transform="translate(596, 360)">
@@ -734,53 +809,82 @@ export function CampusMapCanvas({
             <path d="M-3.5,4.4 C-3.5,1 3.5,1 3.5,4.4 Z" fill="#22c55e" />
             <circle cx="-5" cy="2" r="1.6" fill="#f472b6" />
           </g>
-          <text x="641" y="384" textAnchor="middle" fill="#ecfccb" fontSize="8.4" fontWeight="800">
-            BIG WALKING LAWN · GARDENERS (RIGHT)
+          <text x="641" y="384" textAnchor="middle" fill="#dcfce7" fontSize="9.4" fontWeight="900">
+            GARDEN &amp; BIG LAWN · GARDENERS (RIGHT)
           </text>
 
-          {/* Shaded West Courtyard (Across from Clerk Office & Big Lawn) */}
-          <rect x="66" y="352" width="230" height="84" rx="12" fill="#064e3b" fillOpacity="0.42" stroke="#34d399" strokeOpacity="0.35" strokeWidth="1.5" />
-          <circle cx="110" cy="388" r="14" fill="#10b981" fillOpacity="0.3" stroke="#6ee7b7" strokeOpacity="0.5" strokeWidth="1.2" />
-          <circle cx="180" cy="396" r="12" fill="#10b981" fillOpacity="0.3" stroke="#6ee7b7" strokeOpacity="0.5" strokeWidth="1.2" />
-          <circle cx="250" cy="386" r="14" fill="#10b981" fillOpacity="0.3" stroke="#6ee7b7" strokeOpacity="0.5" strokeWidth="1.2" />
-          <text x="181" y="424" textAnchor="middle" fill="#a7f3d0" fillOpacity="0.85" fontSize="8.8" fontWeight="700">
-            WEST SHADED TREES &amp; COURTYARD
+          {/* Lush Green West Garden Lawn & Shaded Trees (Across from Clerk Office & Big Lawn) */}
+          <rect x="66" y="352" width="230" height="84" rx="12" fill="url(#lawn-grad)" stroke="#4ade80" strokeWidth="2.2" />
+          <circle cx="110" cy="388" r="15" fill="#22c55e" fillOpacity="0.65" stroke="#bbf7d0" strokeOpacity="0.8" strokeWidth="1.4" />
+          <circle cx="180" cy="396" r="13" fill="#22c55e" fillOpacity="0.65" stroke="#bbf7d0" strokeOpacity="0.8" strokeWidth="1.4" />
+          <circle cx="250" cy="386" r="15" fill="#22c55e" fillOpacity="0.65" stroke="#bbf7d0" strokeOpacity="0.8" strokeWidth="1.4" />
+          <text x="181" y="424" textAnchor="middle" fill="#dcfce7" fontSize="9.8" fontWeight="900">
+            WEST GARDEN LAWN &amp; SHADED TREES
           </text>
 
           {/* 04. Clerk Office (On Straight Path Very First on Right — Teal) */}
-          <rect x="558" y="404" width="154" height="54" rx="10" fill="#115e59" fillOpacity="0.72" stroke="#2dd4bf" strokeWidth="2" />
-          <text x="635" y="421" textAnchor="middle" fill="#ccfbf1" fontSize="9.2" fontWeight="800">
+          <rect x="558" y="404" width="154" height="54" rx="10" fill="#115e59" fillOpacity="0.76" stroke="#2dd4bf" strokeWidth="2.2" />
+          <text x="635" y="421" textAnchor="middle" fill="#5eead4" fontSize="10.2" fontWeight="900">
             CLERK OFFICE
           </text>
-          <text x="635" y="451" textAnchor="middle" fill="#5eead4" fontSize="7.6" fontWeight="700">
+          <text x="635" y="451" textAnchor="middle" fill="#99f6e4" fontSize="8.4" fontWeight="800">
             (First on Right · Straight)
           </text>
 
           {/* 05. Central Library (After Some Walking Distance on Right — Violet) */}
-          <rect x="752" y="400" width="200" height="62" rx="10" fill="#4c1d95" fillOpacity="0.68" stroke="#8b5cf6" strokeWidth="2.2" />
-          <text x="852" y="418" textAnchor="middle" fill="#ede9fe" fontSize="9.6" fontWeight="800">
+          <rect x="752" y="400" width="200" height="62" rx="10" fill="#4c1d95" fillOpacity="0.72" stroke="#8b5cf6" strokeWidth="2.3" />
+          <text x="852" y="418" textAnchor="middle" fill="#c4b5fd" fontSize="10.5" fontWeight="900">
             CENTRAL LIBRARY (RIGHT)
           </text>
-          <text x="852" y="453" textAnchor="middle" fill="#c4b5fd" fontSize="7.8" fontWeight="600">
+          <text x="852" y="453" textAnchor="middle" fill="#ddd6fe" fontSize="8.6" fontWeight="800">
             (Walk Straight Further &rarr; Right)
           </text>
 
           {/* 02. Waiting Room (Entrance Left — Sky Blue) */}
-          <rect x="136" y="472" width="206" height="56" rx="10" fill="#0c4a6e" fillOpacity="0.7" stroke="#0ea5e9" strokeWidth="2" />
-          <text x="239" y="489" textAnchor="middle" fill="#e0f2fe" fontSize="9.4" fontWeight="800">
+          <rect x="136" y="472" width="206" height="56" rx="10" fill="#0c4a6e" fillOpacity="0.74" stroke="#0ea5e9" strokeWidth="2.2" />
+          <text x="239" y="489" textAnchor="middle" fill="#7dd3fc" fontSize="10.4" fontWeight="900">
             WAITING ROOM (LEFT)
           </text>
-          <text x="239" y="520" textAnchor="middle" fill="#7dd3fc" fontSize="7.8" fontWeight="600">
+          <text x="239" y="520" textAnchor="middle" fill="#bae6fd" fontSize="8.6" fontWeight="800">
             (First on Left When Entering)
           </text>
 
           {/* 03. College Canteen (Entrance Right — Vibrant Orange) */}
-          <rect x="572" y="472" width="166" height="56" rx="10" fill="#9a3412" fillOpacity="0.68" stroke="#f97316" strokeWidth="2" />
-          <text x="655" y="489" textAnchor="middle" fill="#ffedd5" fontSize="9.4" fontWeight="800">
+          <rect x="572" y="472" width="166" height="56" rx="10" fill="#9a3412" fillOpacity="0.72" stroke="#f97316" strokeWidth="2.2" />
+          <text x="655" y="489" textAnchor="middle" fill="#fdba74" fontSize="10.4" fontWeight="900">
             CANTEEN (RIGHT)
           </text>
-          <text x="655" y="520" textAnchor="middle" fill="#fdba74" fontSize="7.8" fontWeight="600">
+          <text x="655" y="520" textAnchor="middle" fill="#fed7aa" fontSize="8.6" fontWeight="800">
             (First on Right After Gate)
+          </text>
+
+          {/* Adjacent Entrance Right Landmark: Central Jail & Signal Jammers */}
+          <rect x="752" y="472" width="204" height="62" rx="10" fill="#1e293b" fillOpacity="0.88" stroke="#ef4444" strokeWidth="2.2" strokeDasharray="6 3" />
+          {/* Watchtower & Security Grille Bars */}
+          <rect x="762" y="484" width="24" height="28" rx="3" fill="#0f172a" stroke="#f87171" strokeWidth="1.2" />
+          <line x1="768" y1="484" x2="768" y2="512" stroke="#fca5a5" strokeOpacity="0.75" strokeWidth="1.3" />
+          <line x1="774" y1="484" x2="774" y2="512" stroke="#fca5a5" strokeOpacity="0.75" strokeWidth="1.3" />
+          <line x1="780" y1="484" x2="780" y2="512" stroke="#fca5a5" strokeOpacity="0.75" strokeWidth="1.3" />
+          {/* Signal Jammer Towers & RF Jammer Waves */}
+          <g transform="translate(918, 496)">
+            <path d="M-5,22 L0,-6 L5,22 Z" fill="none" stroke="#fde047" strokeWidth="1.4" />
+            <circle cx="0" cy="-8" r="2.2" fill="#ef4444" />
+            <path d="M-7,-12 A8,8 0 0,1 7,-12" fill="none" stroke="#38bdf8" strokeWidth="1.3" />
+            <path d="M-11,-15 A12,12 0 0,1 11,-15" fill="none" stroke="#f87171" strokeWidth="1.2" strokeDasharray="2 1.5" />
+          </g>
+          <g transform="translate(940, 502)">
+            <path d="M-4,18 L0,-5 L4,18 Z" fill="none" stroke="#fde047" strokeWidth="1.3" />
+            <circle cx="0" cy="-7" r="2" fill="#ef4444" />
+            <path d="M-6,-10 A7,7 0 0,1 6,-10" fill="none" stroke="#38bdf8" strokeWidth="1.2" />
+          </g>
+          <text x="846" y="490" textAnchor="middle" fontSize="10" fontWeight="900">
+            <tspan fill="#fca5a5">CENTRAL JAIL</tspan>
+          </text>
+          <text x="846" y="506" textAnchor="middle" fill="#fde047" fontSize="9.2" fontWeight="900">
+            &amp; SIGNAL JAMMERS
+          </text>
+          <text x="846" y="523" textAnchor="middle" fill="#7dd3fc" fontSize="8" fontWeight="800">
+            (Entrance Right Perimeter)
           </text>
 
           {/* ================= PAVED WALKWAYS & GRILL PATHS ================= */}
@@ -807,18 +911,18 @@ export function CampusMapCanvas({
             strokeOpacity="0.95"
           />
           <rect
-            x="456"
-            y="412"
-            width="88"
-            height="17"
+            x="452"
+            y="410"
+            width="96"
+            height="19"
             rx="4"
             fill="#021b15"
-            fillOpacity="0.95"
+            fillOpacity="0.96"
             stroke="#a3e635"
-            strokeOpacity="0.75"
-            strokeWidth="1.2"
+            strokeOpacity="0.85"
+            strokeWidth="1.3"
           />
-          <text x="500" y="423.5" textAnchor="middle" fill="#ecfccb" fontSize="8" fontWeight="800" letterSpacing="0.5">
+          <text x="500" y="423" textAnchor="middle" fill="#ecfccb" fontSize="9" fontWeight="900" letterSpacing="0.5">
             SMALL GRILL
           </text>
 
@@ -831,19 +935,20 @@ export function CampusMapCanvas({
           <line x1="500" y1="174" x2="720" y2="132" stroke="#94a3b8" strokeOpacity="0.24" strokeWidth="10" strokeLinecap="round" />
           <line x1="720" y1="132" x2="885" y2="132" stroke="#94a3b8" strokeOpacity="0.26" strokeWidth="10" strokeLinecap="round" />
 
-          {/* LEFT PATH BETWEEN TWO GRILLS -> HOSTEL & COMPUTER LAB */}
-          <line x1="485" y1="226" x2="268" y2="226" stroke="#cbd5e1" strokeOpacity="0.34" strokeWidth="10" strokeLinecap="round" />
-          <line x1="485" y1="242" x2="268" y2="242" stroke="#cbd5e1" strokeOpacity="0.34" strokeWidth="10" strokeLinecap="round" />
-          <line x1="480" y1="220" x2="274" y2="220" stroke="#fb923c" strokeWidth="2.2" strokeDasharray="5 3" strokeOpacity="0.85" />
-          <line x1="480" y1="248" x2="274" y2="248" stroke="#fb923c" strokeWidth="2.2" strokeDasharray="5 3" strokeOpacity="0.85" />
-          <rect x="330" y="226" width="114" height="16" rx="4" fill="#021b15" fillOpacity="0.95" stroke="#fb923c" strokeOpacity="0.8" strokeWidth="1" />
-          <text x="387" y="237" textAnchor="middle" fill="#fed7aa" fontSize="7.4" fontWeight="800">
+          {/* LEFT PATH BETWEEN TWO GRILLS -> MULTIMEDIA ROOM, COMPUTER LAB & BIG HOSTEL */}
+          <line x1="485" y1="204" x2="390" y2="204" stroke="#cbd5e1" strokeOpacity="0.34" strokeWidth="9" strokeLinecap="round" />
+          <line x1="485" y1="218" x2="390" y2="218" stroke="#cbd5e1" strokeOpacity="0.34" strokeWidth="9" strokeLinecap="round" />
+          <line x1="482" y1="198" x2="392" y2="198" stroke="#fb923c" strokeWidth="2.2" strokeDasharray="5 3" strokeOpacity="0.9" />
+          <line x1="482" y1="224" x2="392" y2="224" stroke="#fb923c" strokeWidth="2.2" strokeDasharray="5 3" strokeOpacity="0.9" />
+          <line x1="388" y1="210" x2="196" y2="210" stroke="#94a3b8" strokeOpacity="0.3" strokeWidth="10" strokeLinecap="round" />
+          <rect x="394" y="201" width="90" height="17" rx="4" fill="#021b15" fillOpacity="0.96" stroke="#fb923c" strokeOpacity="0.85" strokeWidth="1.2" />
+          <text x="439" y="213" textAnchor="middle" fill="#fed7aa" fontSize="8.2" fontWeight="900">
             2-GRILL LEFT PATH
           </text>
 
           {/* Upper-Left Sports & Corridor Branch (Tennis/Volleyball -> Pak Studies/Urdu/PE & Commerce) */}
-          <line x1="330" y1="226" x2="330" y2="66" stroke="#94a3b8" strokeOpacity="0.26" strokeWidth="10" strokeLinecap="round" />
-          <line x1="330" y1="144" x2="145" y2="96" stroke="#94a3b8" strokeOpacity="0.26" strokeWidth="10" strokeLinecap="round" />
+          <line x1="332" y1="172" x2="332" y2="60" stroke="#94a3b8" strokeOpacity="0.26" strokeWidth="10" strokeLinecap="round" />
+          <line x1="252" y1="129" x2="145" y2="98" stroke="#94a3b8" strokeOpacity="0.26" strokeWidth="10" strokeLinecap="round" />
 
           {/* Straight North Spine -> Sindhi, Economics, Physiology & Big Ground */}
           <line x1="500" y1="165" x2="525" y2="78" stroke="#94a3b8" strokeOpacity="0.32" strokeWidth="14" strokeLinecap="round" />
@@ -1055,7 +1160,7 @@ export function CampusMapCanvas({
               </span>
 
               <span
-                className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-1.5 px-2 py-0.5 rounded bg-[#021611]/95 border text-[10px] font-bold whitespace-nowrap shadow-lg transition-opacity pointer-events-none ${
+                className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-1.5 px-2.5 py-0.5 rounded bg-[#021611]/95 border text-[11px] sm:text-xs font-extrabold whitespace-nowrap shadow-lg transition-opacity pointer-events-none ${
                   theme.textClass
                 } ${
                   isSelected
@@ -1071,35 +1176,39 @@ export function CampusMapCanvas({
       </div>
 
       {/* Map Legend & Route Caption Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-stone-300 px-1">
+      <div className="flex flex-wrap items-center justify-between gap-3 text-xs sm:text-[13px] font-bold text-stone-200 px-1">
         <div className="flex flex-wrap items-center gap-3.5">
-          <span className={`inline-flex items-center gap-1.5 font-semibold ${selectedTheme.textClass}`}>
+          <span className={`inline-flex items-center gap-1.5 font-extrabold ${selectedTheme.textClass}`}>
             <span className={`w-3 h-3 rounded-full ${selectedTheme.pinBg} border border-white inline-block`} />
             <span>Selected: {selectedStop.shortName || selectedStop.name}</span>
           </span>
-          <span className="inline-flex items-center gap-1.5 text-sky-300">
+          <span className="inline-flex items-center gap-1.5 text-sky-300 font-bold">
             <span className="w-3 h-3 rounded-full bg-sky-400 border border-white inline-block" />
             <span>Visitor Walking</span>
           </span>
-          <span className="inline-flex items-center gap-1.5 text-sky-200">
+          <span className="inline-flex items-center gap-1.5 text-sky-200 font-bold">
             <span className="w-5 border-t-2 border-sky-400 inline-block" />
             <span>Walked Path</span>
           </span>
-          <span className="inline-flex items-center gap-1.5 text-amber-300">
+          <span className="inline-flex items-center gap-1.5 text-amber-300 font-bold">
             <span className="w-5 border-t-2 border-dashed border-amber-400 inline-block" />
             <span>Route Ahead</span>
           </span>
-          <span className="inline-flex items-center gap-1.5 text-cyan-200">
+          <span className="inline-flex items-center gap-1.5 text-cyan-200 font-bold">
             <span className="w-3 h-3 rounded-full bg-slate-900 border border-sky-400 inline-block" />
             <span>Gate Security</span>
           </span>
-          <span className="inline-flex items-center gap-1.5 text-lime-200">
+          <span className="inline-flex items-center gap-1.5 text-lime-200 font-bold">
             <span className="w-3 h-3 rounded-full bg-green-950 border border-lime-400 inline-block" />
             <span>Lawn Gardeners</span>
           </span>
+          <span className="inline-flex items-center gap-1.5 text-rose-300 font-bold">
+            <span className="w-3 h-3 rounded-sm bg-slate-800 border border-red-400 inline-block" />
+            <span>Central Jail &amp; Jammers</span>
+          </span>
         </div>
 
-        <span className="inline-flex items-center gap-1.5 font-medium text-amber-300">
+        <span className="inline-flex items-center gap-1.5 font-bold text-amber-300">
           <Navigation className="w-3.5 h-3.5" />
           <span>{selectedStop.gateDirections.distanceFromGate}</span>
         </span>

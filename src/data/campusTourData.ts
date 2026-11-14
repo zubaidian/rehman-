@@ -68,7 +68,7 @@ export const GATE_TO_PRINCIPAL_CHECKPOINTS: SimulationCheckpoint[] = [
     label: 'Entering Main College Gate (Security Check)',
     leftView: 'Security Post & Waiting Room (Entrance Left)',
     aheadView: 'Gate Security Guards & Straight Central Walkway',
-    rightView: 'College Canteen right after entering the Main Gate'
+    rightView: 'College Canteen & Central Jail / Signal Jammers (Entrance Right)'
   },
   {
     progress: 0.25,
@@ -122,7 +122,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     highlights: [
       'Gate Security Cabin & uniformed security guards stationed at the entrance',
       'First on your left upon entering: Visitor Waiting Room',
-      'First on your right upon entering: College Canteen & further straight: Central Library'
+      'On your right at entrance: College Canteen adjacent to Central Jail & Signal Jammers, with Central Library further straight'
     ],
     hotspots: [
       {
@@ -235,7 +235,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       { label: 'Services', value: 'Snacks & Cool Water' }
     ],
     highlights: [
-      'Located right on your right side upon entering the Main Gate',
+      'Located right on your right side upon entering the Main Gate beside Central Jail & Signal Jammers perimeter',
       'Fresh snacks, tea counter, and chilled drinking water stations',
       'Walking straight past the canteen leads onto the twin grill paths'
     ],
@@ -838,50 +838,50 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
   },
   {
     id: 'greenhouse-prayer-ground',
-    name: 'Playing Ground, Lawn, Greenhouse & Prayer Room',
-    shortName: 'Ground, Greenhouse & Prayer',
-    subtitle: 'Before Zoology & Botany on the Right · Ground for Playing, Lawn, Greenhouse & Prayer Room',
+    name: 'Assembly Ground, Flag Hoisting, Greenhouse & Prayer Room',
+    shortName: 'Assembly, Flag, Greenhouse & Prayer',
+    subtitle: 'Before Zoology & Botany Garden · Morning Assembly, Flag Hoisting, Lawn, Greenhouse & Prayer Room',
     category: 'Student Life',
     stopNumber: '14',
     svgType: 'courtyard',
-    badge: 'Before Zoology & Botany · Right',
+    badge: 'Before Zoology · Assembly & Flag',
     description:
-      'Just before reaching Zoology and Botany on the upper-right campus lies an open ground for playing and a green lawn; walking through this lawned court brings you past the College Greenhouse and Prayer Room (Namaz Room) straight to the Zoology & Botany labs.',
+      'Directly before the Zoology & Botany garden and laboratories on the upper-right campus sits the Morning Assembly & Flag Hoisting Ground with its flagpole and dais, alongside the green Lawn, Botanical Greenhouse, and quiet Prayer Room (Namaz Hall).',
     keySpecs: [
-      { label: 'Sequence', value: 'Ground → Greenhouse & Prayer' },
-      { label: 'Lawn', value: 'Green Lawn & Trees' },
-      { label: 'Amenities', value: 'Prayer Room & Greenhouse' },
-      { label: 'Leads To', value: 'Zoology & Botany Labs' }
+      { label: 'Main Feature', value: 'Assembly & Flag Hoisting' },
+      { label: 'Garden & Ground', value: 'Lawn & Playing Ground' },
+      { label: 'Facilities', value: 'Greenhouse & Prayer Room' },
+      { label: 'Next Ahead', value: 'Zoology & Botany Labs' }
     ],
     highlights: [
-      'Open Playing Ground & Green Lawn immediately before Zoology & Botany',
-      'Botanical Greenhouse cultivating live specimens for Biology practicals',
-      'Quiet, clean Prayer Room (Namaz Room) along the path before Zoology & Botany'
+      'Morning Assembly Courtyard & National Flag Hoisting Podium right before Zoology & Botany',
+      'Green Lawn, open Playing Ground, and Botanical Greenhouse for live specimen cultivation',
+      'Clean, peaceful Prayer Room (Namaz Hall) for students and faculty'
     ],
     hotspots: [
       {
-        id: 'playing-ground-east',
-        label: 'Playing Ground & Lawn',
-        description: 'Open green ground and lawn before the life sciences block.',
-        xPercent: 30,
-        yPercent: 52
+        id: 'assembly-flag',
+        label: 'Assembly & Flag Hoisting',
+        description: 'Campus flagpole dais for morning assembly and national celebrations.',
+        xPercent: 28,
+        yPercent: 48
       },
       {
         id: 'greenhouse',
         label: 'Botanical Greenhouse',
-        description: 'Glass-roofed botanical plant nursery.',
-        xPercent: 60,
-        yPercent: 35
+        description: 'Glass-roofed botanical plant nursery right beside the assembly lawn.',
+        xPercent: 58,
+        yPercent: 34
       },
       {
         id: 'prayer-room',
         label: 'Campus Prayer Room',
         description: 'Peaceful Prayer Room (Namaz Hall) for students and staff.',
-        xPercent: 78,
-        yPercent: 65
+        xPercent: 80,
+        yPercent: 64
       }
     ],
-    locationNote: 'Upper-Right Campus · Directly Before Zoology & Botany',
+    locationNote: 'Upper-Right Campus · Assembly Ground Before Zoology & Botany',
     mapX: 72,
     mapY: 22,
     gateDirections: {
@@ -890,7 +890,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       walkingSteps: [
         'Walk straight across the Big Lawn past the Principal’s Office line.',
         'Bear right toward the upper-right campus past Physics & Mathematics.',
-        'Cross the Playing Ground & Lawn to find the Greenhouse and Prayer Room right before Zoology & Botany.'
+        'Arrive at the Assembly & Flag Hoisting Ground, Lawn, Greenhouse & Prayer Room right before Zoology & Botany.'
       ],
       routePath: [
         { x: 50, y: 91 },
@@ -903,23 +903,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'zoology-botany-labs',
     name: 'Zoology, Zoology Lab & Botany, Botany Lab',
     shortName: 'Zoology & Botany Labs',
-    subtitle: 'Upper-Right Past Lawn, Playing Ground, Greenhouse & Prayer Room',
+    subtitle: 'Upper-Right Past Assembly, Flag Hoisting, Garden, Greenhouse & Prayer Room',
     category: 'Laboratories',
     stopNumber: '15',
     svgType: 'science-lab',
     badge: 'Life Sciences · Right North',
     description:
-      'Beyond the Playing Ground, Lawn, Greenhouse, and Prayer Room on the upper-right side sit the Departments of Zoology and Botany along with dedicated Zoology Lab, Botany Lab, microscopy stations, and preserved specimen museums.',
+      'Immediately beyond the Assembly & Flag Hoisting Ground, Garden Lawn, Greenhouse, and Prayer Room on the upper-right side sit the Departments of Zoology and Botany along with the dedicated Zoology Lab, Botany Lab, microscopy stations, and specimen archives.',
     keySpecs: [
       { label: 'Departments', value: 'Zoology & Botany' },
       { label: 'Labs', value: 'Zoology Lab & Botany Lab' },
       { label: 'Programs', value: 'Pre-Medical & BS Zoology' },
-      { label: 'Before It', value: 'Lawn, Greenhouse & Prayer' }
+      { label: 'Before It', value: 'Assembly, Flag & Garden' }
     ],
     highlights: [
       'Department of Zoology & Zoology Lab with comparative anatomy specimens',
       'Department of Botany & Botany Lab connected to the Greenhouse flora',
-      'Preceded directly by the Lawn, Playing Ground, Greenhouse & Prayer Room'
+      'Preceded directly by Assembly Ground, Flag Hoisting, Lawn, Greenhouse & Prayer Room'
     ],
     hotspots: [
       {
@@ -937,7 +937,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 48
       }
     ],
-    locationNote: 'Upper-Right Campus · Past Greenhouse & Prayer Room',
+    locationNote: 'Upper-Right Campus · Past Assembly, Flag & Greenhouse',
     mapX: 88.5,
     mapY: 22,
     gateDirections: {
@@ -945,7 +945,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       distanceFromGate: '82 m North-East',
       walkingSteps: [
         'Walk straight from the Main Gate past the Big Lawn and Principal’s Office line.',
-        'Bear right through the Playing Ground, Lawn, Greenhouse & Prayer Room.',
+        'Bear right through the Assembly & Flag Hoisting Ground, Greenhouse & Prayer Room.',
         'Arrive at Zoology, Zoology Lab, Botany, and Botany Lab.'
       ],
       routePath: [
@@ -958,58 +958,172 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
   },
   {
     id: 'hostel-computer-lab',
-    name: 'College Hostel, Computer Lab & Computer Lab Office',
-    shortName: 'Hostel & Computer Lab',
-    subtitle: 'Left Path Between Two Grills · Straight Ahead Hostel, Beside It Computer Lab & Office',
-    category: 'Laboratories',
+    name: 'College Hostel (Main Residential Wing)',
+    shortName: 'College Hostel',
+    subtitle: 'Left Path Between Two Grills · Large Multi-Wing Residential Hostel Straight Ahead',
+    category: 'Student Life',
     stopNumber: '16',
-    svgType: 'computer-lab',
-    badge: 'Left Twin Grill Path · IT & Hostel',
+    svgType: 'courtyard',
+    badge: 'West Campus · Big Hostel Block',
     description:
-      'Turning left onto the pathway between two grills and walking some distance straight brings you directly to the College Hostel; right beside the Hostel sit the Computer Science Lab and Computer Lab Office with modern systems and faculty mentorship.',
+      'Turning left onto the pathway between two grills and crossing past the Computer Lab & Computer Multimedia Room brings you to Government Girls Zubaida College’s large, secure Residential Hostel complex providing enclosed accommodation, study rooms, and warden supervision.',
     keySpecs: [
-      { label: 'Approach', value: 'Left Path Between Two Grills' },
-      { label: 'Straight End', value: 'College Hostel' },
-      { label: 'Beside Hostel', value: 'Computer Lab & Office' },
-      { label: 'Curriculum', value: 'Python, Figma & IT' }
+      { label: 'Approach', value: 'Left Path Between 2 Grills' },
+      { label: 'Scale', value: 'Large Multi-Wing Complex' },
+      { label: 'Beside It', value: 'Computer Lab & Multimedia' },
+      { label: 'Security', value: '24/7 Enclosed Hostel' }
     ],
     highlights: [
-      'Reachable via the dedicated path between two grills branching to the left',
-      'College Hostel positioned straight ahead after crossing some distance',
-      'Advanced Computer Lab and Computer Lab Office situated right beside the Hostel'
+      'Expansive multi-wing girls hostel complex on the west side of campus',
+      'Directly reachable via the left pathway enclosed between two grills',
+      'Positioned right beside the Computer Lab, Computer Lab Office & Multimedia Room'
     ],
     hotspots: [
       {
-        id: 'hostel-building',
-        label: 'College Hostel',
-        description: 'Secure residential hostel block straight along the left twin-grill path.',
-        xPercent: 28,
+        id: 'hostel-courtyard',
+        label: 'Hostel Residential Wings',
+        description: 'Large secure student hostel complex with enclosed courtyard.',
+        xPercent: 46,
         yPercent: 48
       },
       {
-        id: 'comp-lab-room',
-        label: 'Computer Lab & Office',
-        description: 'Modern computing workstations and Computer Lab Office beside the Hostel.',
-        xPercent: 72,
-        yPercent: 52
+        id: 'hostel-warden',
+        label: 'Warden & Study Hall',
+        description: 'Supervised hostel study room and warden office.',
+        xPercent: 75,
+        yPercent: 62
       }
     ],
-    locationNote: 'West Campus · End of Left Path Between Two Grills',
-    mapX: 16,
-    mapY: 36,
+    locationNote: 'West Campus · Large Residential Block Past Computer Lab',
+    mapX: 12,
+    mapY: 30.5,
     gateDirections: {
       turn: 'Turn Left',
-      distanceFromGate: '74 m Straight · Left Grill Path',
+      distanceFromGate: '78 m Straight · Left Grill Path',
       walkingSteps: [
         'Walk straight from the Main Gate past the Big Lawn and Principal’s Office/Chemistry line.',
         'Turn left onto the pathway enclosed between two grills.',
-        'Walk straight some distance along that path to find the Hostel straight ahead and the Computer Lab & Computer Lab Office beside it.'
+        'Cross past the Computer Multimedia Room and Computer Lab straight into the Big College Hostel.'
       ],
       routePath: [
         { x: 50, y: 91 },
-        { x: 50, y: 39 },
-        { x: 26, y: 39 },
-        { x: 16, y: 36 }
+        { x: 50, y: 35.5 },
+        { x: 34.4, y: 35.5 },
+        { x: 25, y: 35.5 },
+        { x: 12, y: 30.5 }
+      ]
+    }
+  },
+  {
+    id: 'computer-lab',
+    name: 'Computer Lab & Computer Lab Office',
+    shortName: 'Computer Lab & Office',
+    subtitle: 'Beside College Hostel Along Left 2-Grill Path · Modern Workstations & Lab Office',
+    category: 'Laboratories',
+    stopNumber: '17',
+    svgType: 'computer-lab',
+    badge: 'Left 2-Grill Path · Beside Hostel',
+    description:
+      'Located right beside the large College Hostel along the left pathway between two grills, the Computer Lab & Computer Lab Office house modern desktop terminals, fiber networking, Python/Figma studios, and faculty supervision.',
+    keySpecs: [
+      { label: 'Workstations', value: 'Modern Desktop Systems' },
+      { label: 'Beside', value: 'Hostel & Multimedia Room' },
+      { label: 'Curriculum', value: 'Python, Figma & IT' },
+      { label: 'Includes', value: 'Computer Lab Office' }
+    ],
+    highlights: [
+      'Situated directly beside the Big College Hostel and Computer Multimedia Room',
+      'Practical training in Python programming, Figma UI/UX, C++ & databases',
+      'Dedicated Computer Lab Office for lab administration and student mentoring'
+    ],
+    hotspots: [
+      {
+        id: 'pcs',
+        label: 'Computer Lab Workstations',
+        description: 'Desktop computers for Computer Science practicals.',
+        xPercent: 42,
+        yPercent: 52
+      },
+      {
+        id: 'lab-office',
+        label: 'Computer Lab Office',
+        description: 'IT faculty & lab coordinator office inside the Computer Lab block.',
+        xPercent: 78,
+        yPercent: 42
+      }
+    ],
+    locationNote: 'Beside College Hostel · End of Left 2-Grill Path',
+    mapX: 25,
+    mapY: 35,
+    gateDirections: {
+      turn: 'Turn Left',
+      distanceFromGate: '70 m Straight · Left Grill Path',
+      walkingSteps: [
+        'Walk straight from the Main Gate past the Big Lawn and Principal’s Office/Chemistry line.',
+        'Turn left onto the path between two grills past the Computer Multimedia Room.',
+        'Enter the Computer Lab & Computer Lab Office right beside the College Hostel.'
+      ],
+      routePath: [
+        { x: 50, y: 91 },
+        { x: 50, y: 35.5 },
+        { x: 34.4, y: 35.5 },
+        { x: 25, y: 35 }
+      ]
+    }
+  },
+  {
+    id: 'computer-multimedia-room',
+    name: 'Computer Multimedia Room & Smart Studio',
+    shortName: 'Computer Multimedia Room',
+    subtitle: 'Beside Computer Lab Along Left 2-Grill Path · Interactive HD Projection & Seminars',
+    category: 'Laboratories',
+    stopNumber: '18',
+    svgType: 'multimedia-room',
+    badge: 'IT Complex · Multimedia Studio',
+    description:
+      'Adjacent to the Computer Lab & Computer Lab Office along the left twin-grill pathway, the Computer Multimedia Room features large-format HD smart projection, audio-visual equipment, and collaborative seating for software demos and seminars.',
+    keySpecs: [
+      { label: 'Display', value: 'HD Smart Projector' },
+      { label: 'Audio', value: 'Surround Sound & Mic' },
+      { label: 'Next To', value: 'Computer Lab & Hostel' },
+      { label: 'Use Cases', value: 'Demos, Figma & Lectures' }
+    ],
+    highlights: [
+      'Situated directly next to the Computer Lab & Computer Lab Office',
+      'Large HD smart screen for live Python coding and Figma design reviews',
+      'Air-conditioned multimedia workshop room for all departments'
+    ],
+    hotspots: [
+      {
+        id: 'smart-screen',
+        label: 'HD Smart Screen',
+        description: 'High-definition interactive projection wall.',
+        xPercent: 50,
+        yPercent: 30
+      },
+      {
+        id: 'media-podium',
+        label: 'Multimedia Control Console',
+        description: 'Audio-visual switching desk for instructors and seminars.',
+        xPercent: 25,
+        yPercent: 60
+      }
+    ],
+    locationNote: 'Beside Computer Lab · Left 2-Grill Path',
+    mapX: 34.4,
+    mapY: 35,
+    gateDirections: {
+      turn: 'Turn Left',
+      distanceFromGate: '64 m Straight · Left Grill Path',
+      walkingSteps: [
+        'Walk straight from the Main Gate past the Big Lawn and Chemistry/Principal line.',
+        'Turn left onto the pathway enclosed between two grills.',
+        'The Computer Multimedia Room sits right before the Computer Lab & Big Hostel.'
+      ],
+      routePath: [
+        { x: 50, y: 91 },
+        { x: 50, y: 35.5 },
+        { x: 34.4, y: 35 }
       ]
     }
   },
@@ -1019,7 +1133,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Tennis & Volleyball Court',
     subtitle: 'Before Physical Education · Tennis Court & Ground for Volleyball',
     category: 'Student Life',
-    stopNumber: '17',
+    stopNumber: '19',
     svgType: 'sports',
     badge: 'Outdoor Courts · Before Physical Ed.',
     description:
@@ -1053,19 +1167,19 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'North-West Sports Zone · Before Physical Education',
     mapX: 33,
-    mapY: 24,
+    mapY: 21.5,
     gateDirections: {
       turn: 'Bear Left',
       distanceFromGate: '80 m North-West',
       walkingSteps: [
         'Walk straight from the Main Gate past the Big Lawn and Chemistry/Principal line.',
-        'Turn left toward the Hostel/Computer Lab path and continue along the right corridor north.',
+        'Turn left toward the Computer Lab path and continue along the corridor north.',
         'The Tennis Court & Volleyball Ground sit right before Physical Education.'
       ],
       routePath: [
         { x: 50, y: 91 },
-        { x: 50, y: 39 },
-        { x: 33, y: 24 }
+        { x: 50, y: 35.5 },
+        { x: 33, y: 21.5 }
       ]
     }
   },
@@ -1075,7 +1189,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Pak Studies, Urdu & Physical Ed.',
     subtitle: 'Corridor Past Tennis & Volleyball Ground · Pakistan Studies, Urdu & Physical Education',
     category: 'Academics',
-    stopNumber: '18',
+    stopNumber: '20',
     svgType: 'academic-wing',
     badge: 'Humanities & Sports Dept.',
     description:
@@ -1109,7 +1223,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'North-West Corridor · Past Tennis & Volleyball Ground',
     mapX: 14.5,
-    mapY: 16,
+    mapY: 11.5,
     gateDirections: {
       turn: 'Bear Left',
       distanceFromGate: '88 m North-West',
@@ -1120,9 +1234,9 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       ],
       routePath: [
         { x: 50, y: 91 },
-        { x: 50, y: 39 },
-        { x: 33, y: 24 },
-        { x: 14.5, y: 16 }
+        { x: 50, y: 35.5 },
+        { x: 33, y: 21.5 },
+        { x: 14.5, y: 11.5 }
       ]
     }
   },
@@ -1132,7 +1246,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Commerce Dept. & Library',
     subtitle: '1st Floor Above Sports & Humanities Corridor · Commerce Library & Classrooms',
     category: 'Academics',
-    stopNumber: '19',
+    stopNumber: '21',
     svgType: 'library',
     badge: '1st Floor · Commerce Wing',
     description:
@@ -1166,7 +1280,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: '1st Floor · Above Tennis/Volleyball & Pak Studies Corridor',
     mapX: 33,
-    mapY: 11,
+    mapY: 10,
     gateDirections: {
       turn: 'Upstairs (1st Floor)',
       distanceFromGate: '86 m North-West · 1st Floor',
@@ -1177,9 +1291,9 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       ],
       routePath: [
         { x: 50, y: 91 },
-        { x: 50, y: 39 },
-        { x: 33, y: 24 },
-        { x: 33, y: 11 }
+        { x: 50, y: 35.5 },
+        { x: 33, y: 21.5 },
+        { x: 33, y: 10 }
       ]
     }
   },
@@ -1189,7 +1303,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Sindhi, Economics, Physiology & Big Ground',
     subtitle: 'Straight Path North to Big Ground & Lawn · Walking In Line Straight',
     category: 'Academics',
-    stopNumber: '20',
+    stopNumber: '22',
     svgType: 'sports',
     badge: 'North Straight Path · Big Ground',
     description:

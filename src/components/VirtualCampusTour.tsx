@@ -41,10 +41,56 @@ import {
   X,
   Save,
   Footprints,
-  Square
+  Square,
+  Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v8';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v10';
+
+function buildWalkRouteBetween(
+  fromPos: { x: number; y: number },
+  targetStop: TourFacility
+): { x: number; y: number }[] {
+  const gateRoute =
+    targetStop.gateDirections?.routePath && targetStop.gateDirections.routePath.length >= 2
+      ? targetStop.gateDirections.routePath
+      : buildAutoRoutePath(targetStop.mapX, targetStop.mapY);
+
+  if (Math.hypot(fromPos.x - GATE_COORDS.x, fromPos.y - GATE_COORDS.y) < 4) {
+    return gateRoute;
+  }
+
+  const dest = { x: targetStop.mapX, y: targetStop.mapY };
+  const waypoints: { x: number; y: number }[] = [fromPos];
+
+  // If moving between upper-left corridor stops (Hostel, Computer Lab, Multimedia, Sports, Pak Studies, Commerce)
+  if (fromPos.x < 45 && dest.x < 45 && fromPos.y < 42 && dest.y < 42) {
+    waypoints.push({ x: 33.5, y: fromPos.y });
+    waypoints.push({ x: 33.5, y: dest.y });
+    waypoints.push(dest);
+  } else {
+    const spineYFrom = Math.max(18, Math.min(91, fromPos.y));
+    const spineEntry = gateRoute[1] || { x: 50, y: Math.max(18, Math.min(91, dest.y)) };
+
+    if (Math.abs(fromPos.x - 50) > 1.5) {
+      waypoints.push({ x: 50, y: spineYFrom });
+    }
+    waypoints.push(spineEntry);
+
+    for (let i = 2; i < gateRoute.length; i++) {
+      waypoints.push(gateRoute[i]);
+    }
+  }
+
+  const deduped: { x: number; y: number }[] = [];
+  for (const pt of waypoints) {
+    const prev = deduped[deduped.length - 1];
+    if (!prev || Math.hypot(prev.x - pt.x, prev.y - pt.y) > 0.6) {
+      deduped.push(pt);
+    }
+  }
+  return deduped.length >= 2 ? deduped : [fromPos, dest];
+}
 
 type SimTargetMode = 'guided-principal' | 'selected-stop';
 
@@ -138,7 +184,7 @@ function getSurroundingsAtCoord(
       stageLabel: 'Entering Main College Gate (Security Check)',
       leftView: 'Security Post & Visitor Waiting Room (First on Left)',
       aheadView: 'Gate Security Guards & Straight Path Separated by Small Grill',
-      rightView: 'College Canteen right after entering the Main Gate'
+      rightView: 'College Canteen & Central Jail / Signal Jammers (Entrance Right)'
     };
   }
 
@@ -158,14 +204,14 @@ function getSurroundingsAtCoord(
         ? 'Chemistry & Chemistry Labs + Auditorium (Left in Line)'
         : x < 45
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Waiting Room & Left 2-Grill Path to Hostel / Computer Lab',
+          : 'Waiting Room & Left 2-Grill Path to Multimedia Room, Computer Lab & Big Hostel',
     aheadView: `${targetStop.shortName || targetStop.name} (${targetStop.gateDirections.turn})`,
     rightView:
       y < 76 && y > 54
-        ? 'Clerk Office, Central Library & Big Lawn (Gardeners) on Right'
+        ? 'Clerk Office, Central Library & Green Garden Lawn (Gardeners) on Right'
         : x > 55
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Principal’s Office, 1st Floor Staff Room, Islamiat, English, Stats, Maths & Physics'
+          : 'Principal’s Office, 1st Floor Staff Room, Islamiat, English, Stats, Maths, Physics & Assembly Flag Ground'
   };
 }
 
@@ -244,6 +290,8 @@ export function VirtualCampusTour() {
   const [autoLoopWalk, setAutoLoopWalk] = useState(true);
   const [simProgress, setSimProgress] = useState(0);
   const [simSpeed, setSimSpeed] = useState<1 | 2>(1);
+  const [customWalkRoute, setCustomWalkRoute] = useState<{ x: number; y: number }[] | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
   const lastFrameRef = useRef<number | null>(null);
 
   // Persist custom/edited map stops to localStorage
@@ -272,8 +320,34 @@ export function VirtualCampusTour() {
     [stops]
   );
 
+  const searchMatches = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return [];
+    return stops
+      .map((stop, idx) => ({ stop, idx }))
+      .filter(({ stop }) => {
+        const haystack = [
+          stop.stopNumber,
+          stop.name,
+          stop.shortName || '',
+          stop.subtitle,
+          stop.category,
+          stop.locationNote,
+          stop.description,
+          ...stop.highlights,
+          ...stop.hotspots.map((h) => h.label)
+        ]
+          .join(' ')
+          .toLowerCase();
+        return haystack.includes(q);
+      });
+  }, [stops, searchQuery]);
+
   // Active route for the visitor simulation
   const simulationRoute = useMemo(() => {
+    if (simTarget === 'selected-stop' && customWalkRoute && customWalkRoute.length >= 2) {
+      return customWalkRoute;
+    }
     if (simTarget === 'guided-principal') {
       return (
         principalStop?.gateDirections?.routePath || [
@@ -288,7 +362,7 @@ export function VirtualCampusTour() {
     if (stopRoute && stopRoute.length >= 2) return stopRoute;
     // Fallback if user selected Main Gate itself while in 'selected-stop' mode
     return buildAutoRoutePath(currentFacility.mapX, currentFacility.mapY);
-  }, [simTarget, principalStop, currentFacility]);
+  }, [simTarget, customWalkRoute, principalStop, currentFacility]);
 
   const walkerState: VisitorWalkerState | null = useMemo(() => {
     if (!simActive) return null;
@@ -438,6 +512,7 @@ export function VirtualCampusTour() {
     setActiveView('map');
     setIsPlaying(false);
     setMapMode('browse');
+    setCustomWalkRoute(null);
     if (simTarget === 'guided-principal') {
       const pIdx = stops.findIndex((s) => s.id === 'principal-office');
       if (pIdx !== -1) setCurrentIndex(pIdx);
@@ -451,6 +526,7 @@ export function VirtualCampusTour() {
   const handleStopWalkSimulation = () => {
     setIsSimulating(false);
     setAutoLoopWalk(false);
+    setCustomWalkRoute(null);
     setSimActive(false);
     setSimProgress(0);
   };
@@ -477,32 +553,47 @@ export function VirtualCampusTour() {
     }
   };
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % stops.length);
+  const handleWalkEverywhereToStop = (index: number) => {
+    const picked = stops[index];
+    if (!picked) return;
+    const fromPos = walkerState ? { x: walkerState.x, y: walkerState.y } : GATE_COORDS;
+    const dynamicRoute =
+      picked.id === 'historic-gateway'
+        ? [fromPos, GATE_COORDS]
+        : buildWalkRouteBetween(fromPos, picked);
+
+    setActiveView('map');
+    setIsPlaying(false);
+    setMapMode('browse');
+    setCurrentIndex(index);
     setActiveHotspot(null);
-    if (simTarget === 'selected-stop' && simActive) {
-      setSimProgress(0);
+    setCustomWalkRoute(dynamicRoute);
+    setSimTarget('selected-stop');
+    setAutoLoopWalk(false);
+    setSimActive(true);
+    setSimProgress(0);
+    setIsSimulating(true);
+  };
+
+  const handleSearchWalkSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchMatches.length > 0) {
+      handleWalkEverywhereToStop(searchMatches[0].idx);
     }
+  };
+
+  const handleNext = () => {
+    const nextIdx = (safeIndex + 1) % stops.length;
+    handleWalkEverywhereToStop(nextIdx);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + stops.length) % stops.length);
-    setActiveHotspot(null);
-    if (simTarget === 'selected-stop' && simActive) {
-      setSimProgress(0);
-    }
+    const prevIdx = (safeIndex - 1 + stops.length) % stops.length;
+    handleWalkEverywhereToStop(prevIdx);
   };
 
   const handleSelectFacility = (index: number) => {
-    setCurrentIndex(index);
-    setActiveHotspot(null);
-    const picked = stops[index];
-    if (picked && picked.id !== 'historic-gateway') {
-      setSimTarget('selected-stop');
-      setSimActive(true);
-      setSimProgress(0);
-      setIsSimulating(true);
-    }
+    handleWalkEverywhereToStop(index);
   };
 
   // Start inserting a new map point
@@ -749,7 +840,82 @@ export function VirtualCampusTour() {
           </p>
         </div>
 
-        {/* Facility & Map Stop Selector Strip (Distinct Color + Distinct Colored Text per Point) */}
+        {/* Department & Facility Search-to-Walk Bar */}
+        <div className="max-w-3xl mx-auto mb-6">
+          <form onSubmit={handleSearchWalkSubmit} className="relative flex items-center gap-2">
+            <div className="relative flex-1">
+              <Search className="w-4 h-4 text-amber-300 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search any department to walk visitor there (e.g. Hostel, Computer Lab, Multimedia, Flag, Dark Room, Urdu)..."
+                aria-label="Search department or campus location"
+                className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-[#021914] border border-emerald-600/80 text-sm font-semibold text-white placeholder-stone-400 focus:outline-none focus:border-amber-300 shadow-lg"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  aria-label="Clear department search"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-stone-400 hover:text-white"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+            <button
+              type="submit"
+              disabled={searchQuery.trim().length > 0 && searchMatches.length === 0}
+              className="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 disabled:opacity-50 text-emerald-950 font-extrabold text-xs sm:text-sm whitespace-nowrap shrink-0 flex items-center gap-1.5 shadow-lg transition-colors"
+            >
+              <Footprints className="w-4 h-4" />
+              <span>Walk Visitor</span>
+            </button>
+          </form>
+
+          {/* Instant Filtered Search Results */}
+          {searchQuery.trim().length > 0 && (
+            <div className="mt-2.5 p-3 rounded-xl bg-[#021914]/95 border border-emerald-700/80 shadow-xl space-y-2 text-left">
+              {searchMatches.length > 0 ? (
+                <>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-300 px-1">
+                    Click any matching department to walk visitor directly from current spot:
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {searchMatches.map(({ stop, idx }) => {
+                      const theme = getStopColorTheme(stop.id, idx);
+                      return (
+                        <button
+                          key={stop.id}
+                          type="button"
+                          onClick={() => {
+                            handleWalkEverywhereToStop(idx);
+                            setSearchQuery('');
+                          }}
+                          className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-[#052e25] hover:bg-[#074537] border ${theme.activeBorder} ${theme.textClass} flex items-center gap-2 transition-all shadow-sm`}
+                        >
+                          <span
+                            className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold ${theme.pinBg} ${theme.pinText}`}
+                          >
+                            {stop.stopNumber}
+                          </span>
+                          <span>{stop.name}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </>
+              ) : (
+                <p className="text-xs font-semibold text-amber-200 px-1">
+                  No department or room matched &ldquo;{searchQuery}&rdquo;. Try Chemistry, Hostel, Computer Lab, Multimedia, Assembly, Zoology, Commerce, or Physics.
+                </p>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Facility & Map Stop Selector Strip (Distinct Color + Bold Larger Colored Text per Point) */}
         <div className="flex flex-wrap items-center justify-center gap-2 pb-2 mb-8">
           {stops.map((stop, idx) => {
             const isActive = idx === safeIndex;
@@ -758,14 +924,14 @@ export function VirtualCampusTour() {
               <button
                 key={stop.id}
                 onClick={() => handleSelectFacility(idx)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-2 shrink-0 border ${
+                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap transition-all flex items-center gap-2 shrink-0 border ${
                   isActive
-                    ? `bg-[#021914] ${theme.textClass} ${theme.activeBorder} ring-2 ring-white/30 shadow-lg font-bold scale-[1.03]`
-                    : `bg-[#063f35]/90 ${theme.textClass} border-emerald-800/90 hover:bg-[#074c3f] hover:border-emerald-600`
+                    ? `bg-[#021914] ${theme.textClass} ${theme.activeBorder} ring-2 ring-white/35 shadow-lg scale-[1.03]`
+                    : `bg-[#063f35]/90 ${theme.textClass} border-emerald-800/90 hover:bg-[#074c3f] hover:border-emerald-500`
                 }`}
               >
                 <span
-                  className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold tabular-nums shadow-sm ${theme.pinBg} ${theme.pinText}`}
+                  className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-mono font-extrabold tabular-nums shadow-sm ${theme.pinBg} ${theme.pinText}`}
                 >
                   {stop.stopNumber}
                 </span>
@@ -1160,6 +1326,7 @@ export function VirtualCampusTour() {
                         <button
                           type="button"
                           onClick={() => {
+                            setCustomWalkRoute(null);
                             setSimTarget('guided-principal');
                             setSimActive(true);
                             setAutoLoopWalk(true);
@@ -1179,6 +1346,7 @@ export function VirtualCampusTour() {
                         <button
                           type="button"
                           onClick={() => {
+                            setCustomWalkRoute(null);
                             setSimTarget('selected-stop');
                             setSimActive(true);
                             setAutoLoopWalk(true);
@@ -1191,7 +1359,7 @@ export function VirtualCampusTour() {
                               : 'text-stone-300 hover:text-white'
                           }`}
                         >
-                          Walk to Selected Pin
+                          Walk from Gate
                         </button>
                       </div>
                     </div>

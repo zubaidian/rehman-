@@ -13,7 +13,8 @@ import {
   Trash2,
   Upload,
   Copy,
-  Check
+  Check,
+  Award
 } from 'lucide-react';
 
 const DEV_ALUMNAE_STORAGE_KEY = 'zubaida_dev_custom_alumnae_v1';
@@ -316,10 +317,11 @@ export function AlumnaeSection() {
                     ))}
                   </ul>
 
-                  {/* Key Distinction */}
-                  <p className="text-xs font-bold text-amber-800">
-                    {alumna.achievementBadge}
-                  </p>
+                  {/* Key Distinction / Civil Awards */}
+                  <div className="flex items-start gap-1.5 text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200/80 rounded-lg px-2.5 py-1.5">
+                    <Award className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                    <span>{alumna.achievementBadge}</span>
+                  </div>
 
                   {/* Summary Highlight */}
                   <p className="text-xs text-stone-600 leading-relaxed line-clamp-3">
@@ -502,10 +504,11 @@ export function AlumnaeSection() {
               </button>
             </div>
 
-            {/* Key Distinction */}
-            <p className="text-xs font-bold text-amber-800">
-              {selectedAlumna.achievementBadge}
-            </p>
+            {/* Key Distinction / Civil Awards */}
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-amber-900 bg-amber-50 border border-amber-200 rounded-lg px-3 py-1.5">
+              <Award className="w-4 h-4 text-amber-700 shrink-0" />
+              <span>{selectedAlumna.achievementBadge}</span>
+            </div>
 
             {/* Documented Attendance */}
             <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-1">
