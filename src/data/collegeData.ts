@@ -64,12 +64,12 @@ export const COLLEGE_INFO = {
   principalName: "Prof. Yasmeen Panhwar",
   principalTitle: "Principal, Govt Girls Zubaida College Hyderabad",
   images: {
-    logo: "/assets/aistudio/college-logo_075efbff.jpg",
-    campus: "/assets/aistudio/campus_86930cb8.jpg",
-    principal: "/assets/aistudio/principal-photo_e6a19362.jpg",
-    qr: "/assets/aistudio/college-location-qr_602c0c79.png",
-    boardResultsFlyer: "/assets/aistudio/817460125_1493703939446649_9144013667062097966_n_92b09ca6.jpg",
-    boardResultsOfficial: "/assets/aistudio/815703728_1493032862847090_3032195106224050107_n_6a280dce.jpg",
+    logo: "/assets/college/college-logo_075efbff.jpg",
+    campus: "/assets/college/campus_86930cb8.jpg",
+    principal: "/assets/college/principal-photo_e6a19362.jpg",
+    qr: "/assets/college/college-location-qr_602c0c79.png",
+    boardResultsFlyer: "/assets/college/817460125_1493703939446649_9144013667062097966_n_92b09ca6.jpg",
+    boardResultsOfficial: "/assets/college/815703728_1493032862847090_3032195106224050107_n_6a280dce.jpg",
   }
 };
 
@@ -329,7 +329,7 @@ export const NOTICES: Notice[] = [
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
   {
     id: "photo-campus-gate",
-    src: "/assets/aistudio/campus_86930cb8.jpg",
+    src: "/assets/college/campus_86930cb8.jpg",
     title: "Historic Campus Entrance",
     category: "campus",
     caption: "The majestic arched gateway of Government Girls Zubaida College Hyderabad, welcoming students since 1953.",
@@ -337,7 +337,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: "photo-board-banner",
-    src: "/assets/aistudio/817460125_1493703939446649_9144013667062097966_n_92b09ca6.jpg",
+    src: "/assets/college/817460125_1493703939446649_9144013667062097966_n_92b09ca6.jpg",
     title: "Outstanding Board Results Celebration",
     category: "honors",
     caption: "Felicitation banner honouring 2nd & 4th Board positions and zero failures in HSC Part-II Computer Science Group.",
@@ -345,7 +345,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: "photo-position-gazette",
-    src: "/assets/aistudio/815703728_1493032862847090_3032195106224050107_n_6a280dce.jpg",
+    src: "/assets/college/815703728_1493032862847090_3032195106224050107_n_6a280dce.jpg",
     title: "BISE Hyderabad Official Position Holders",
     category: "honors",
     caption: "Official Gazette confirmation of Maryam Bibi securing 2nd Position (916 marks) for Govt Girls College Hyd (Zubaida).",
@@ -353,7 +353,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: "photo-principal",
-    src: "/assets/aistudio/principal-photo_e6a19362.jpg",
+    src: "/assets/college/principal-photo_e6a19362.jpg",
     title: "Principal Prof. Yasmeen Panhwar Address",
     category: "faculty",
     caption: "Principal addressing the faculty and student assembly on academic distinction and Islamic values.",
@@ -361,7 +361,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: "photo-emblem",
-    src: "/assets/aistudio/college-logo_075efbff.jpg",
+    src: "/assets/college/college-logo_075efbff.jpg",
     title: "Official College Crest",
     category: "campus",
     caption: "The revered emblem of Govt Girls Zubaida College bearing the timeless motto: SERVICE ABOVE SELF (ESTD 1954).",
@@ -369,7 +369,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: "photo-location-qr",
-    src: "/assets/aistudio/college-location-qr_602c0c79.png",
+    src: "/assets/college/college-location-qr_602c0c79.png",
     title: "Campus Location QR Code",
     category: "campus",
     caption: "Official GPS navigation QR code for visitors and prospective students traveling to our campus opposite Hyderabad Central Jail in Pathan Colony, Hirabad, Hyderabad.",

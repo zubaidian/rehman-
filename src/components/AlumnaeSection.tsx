@@ -168,7 +168,7 @@ export function AlumnaeSection() {
     const profile: AlumnaProfile = {
       id: `dev-${slug || 'alumna'}-${Date.now()}`,
       name: newName.trim(),
-      photo: newPhoto.trim() || '/assets/aistudio/college-logo_075efbff.jpg',
+      photo: newPhoto.trim() || '/assets/college/college-logo_075efbff.jpg',
       photoFit: 'contain',
       documentedAttendance:
         newAttendance.trim() || 'Confirmed Alumna of Government Girls Zubaida College, Hyderabad',

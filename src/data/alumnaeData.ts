@@ -1,4 +1,4 @@
-import sultanaSiddiquiImg from '../assets/images/sultana_siddiqui_portrait_1794674108823.jpg';
+import sultanaSiddiquiImg from '../assets/images/sultana_extracted_photo_1794675136754.jpg';
 
 export interface AlumnaReferenceLink {
   label: string;
@@ -73,31 +73,32 @@ export const ALUMNAE_PROFILES: AlumnaProfile[] = [
   },
   {
     id: 'sultana-siddiqui',
-    name: 'Sultana Siddiqui',
+    name: 'Dr. Sultana Siddiqui',
     photo: sultanaSiddiquiImg,
     photoFit: 'cover',
-    documentedAttendance: 'Born & educated in Hyderabad; alumna of Government Girls Zubaida College',
+    documentedAttendance: 'Born & educated in Hyderabad; alumna & Mentor, Zubeda College Alumnae Association',
     stream: 'Media Pioneer · Founder & President, HUM Network (HUM TV)',
+    associationRole: 'Mentor, Zubeda College Alumnae Association',
     role: 'Founder & President of HUM TV (HUM Network Limited) · Pioneer Television Director & Producer',
     rolesList: [
       'Founder & President, HUM Network Limited (HUM TV)',
+      'Mentor, Zubeda College Alumnae Association',
       'First woman in South Asia to independently establish & lead a TV network',
-      'Acclaimed PTV television producer, director & cultural patron',
-      'Decorated with Sitara-e-Imtiaz & President’s Pride of Performance'
+      'Decorated with Hilal-e-Imtiaz, Sitara-e-Imtiaz & Pride of Performance'
     ],
-    organization: 'HUM Network Limited (HUM TV) · Pioneer Pakistani Broadcaster',
+    organization: 'HUM Network Limited (HUM TV) · Mentor, Zubeda College Alumnae',
     category: 'Public Service & Media',
-    achievementBadge: 'Civil Awards: Sitara-e-Imtiaz & Pride of Performance · Founder of HUM TV',
+    achievementBadge: 'Civil Awards: Hilal-e-Imtiaz, Sitara-e-Imtiaz & Pride of Performance · Founder of HUM TV',
     summaryHighlight:
-      'Founder and President of HUM Network (HUM TV) and the first woman in South Asia to launch a satellite television network. Honored with Pakistan’s highest civil awards including Sitara-e-Imtiaz and Pride of Performance.',
+      'Founder and President of HUM Network (HUM TV), Mentor of the Zubeda College Alumnae Association, and the first woman in South Asia to launch a satellite television network. Honored with Pakistan’s highest civil awards: Hilal-e-Imtiaz, Sitara-e-Imtiaz, and Pride of Performance.',
     story:
-      'Born and raised in Hyderabad, Sindh, Sultana Siddiqui received her early and college education in Hyderabad—where she stood out in debates, athletics, and dramatics—before beginning an extraordinary career at Pakistan Television (PTV) in 1974. Over five decades, she produced and directed acclaimed dramas and cultural programs before founding Moomal Productions and making history in 2005 as Founder and President of HUM Network Limited (HUM TV)—becoming the first woman in South Asia to independently establish and head a satellite television network.',
+      'Born and raised in Hyderabad, Sindh, Dr. Sultana Siddiqui received her early and college education in Hyderabad before beginning an extraordinary career at Pakistan Television (PTV) in 1974. Over five decades, she produced and directed acclaimed dramas and cultural programs before founding Moomal Productions and making history in 2005 as Founder and President of HUM Network Limited (HUM TV)—becoming the first woman in South Asia to independently establish and head a satellite television network.',
     legacyNote:
-      'Conferred Pakistan’s prestigious Civil Awards—the Sitara-e-Imtiaz (Star of Excellence) and the President’s Award for Pride of Performance—for transforming television broadcasting, women’s empowerment in media, and Pakistani arts.',
+      'Conferred Pakistan’s highest Civil Awards—Hilal-e-Imtiaz, Sitara-e-Imtiaz, and the President’s Award for Pride of Performance—for transforming television broadcasting, women’s empowerment in media, and Pakistani arts.',
     keyCareerHighlights: [
-      'Educated in Hyderabad before pioneering Pakistani television direction and production at PTV',
+      'Educated in Hyderabad; Mentor of the Zubeda College Alumnae Association',
       'Founder & President of HUM Network Limited (HUM TV), Masala TV & HUM Sitaray',
-      'Recipient of the Sitara-e-Imtiaz (Civil Award) and President’s Pride of Performance Award',
+      'Recipient of Hilal-e-Imtiaz, Sitara-e-Imtiaz & President’s Pride of Performance Civil Awards',
       'Champion of women leaders in media, literature, and South Asian cultural arts'
     ],
     referenceLinks: [

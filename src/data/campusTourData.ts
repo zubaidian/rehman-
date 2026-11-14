@@ -68,7 +68,7 @@ export const GATE_TO_PRINCIPAL_CHECKPOINTS: SimulationCheckpoint[] = [
     label: 'Entering Main College Gate (Security Check)',
     leftView: 'Security Post & Waiting Room (Entrance Left)',
     aheadView: 'Gate Security Guards & Straight Central Walkway',
-    rightView: 'College Canteen & Central Jail / Signal Jammers (Entrance Right)'
+    rightView: 'College Canteen Inside Right · Central Jail & Signal Jammers Outside College Right'
   },
   {
     progress: 0.25,
@@ -88,14 +88,14 @@ export const GATE_TO_PRINCIPAL_CHECKPOINTS: SimulationCheckpoint[] = [
     progress: 0.78,
     label: 'Crossing Big Lawn Toward Principal’s Office Line',
     leftView: 'Chemistry & Chemistry Labs + Auditorium (Left in line)',
-    aheadView: 'Sindhi, Economics, Physiology & Big Ground straight north',
+    aheadView: 'Big Ground & Green Lawn FIRST, then Sindhi, Economics & Physiology straight north',
     rightView: 'Principal’s Office & 1st Floor General Staff Room / Humanities on right'
   },
   {
     progress: 1,
     label: 'Arrived at Principal’s Office (Right Side)',
     leftView: 'Chemistry & Chemistry Labs & Auditorium directly across',
-    aheadView: 'Straight north to Sindhi, Economics, Physiology & Big Ground',
+    aheadView: 'Straight north: Big Ground & Lawn first, then Sindhi, Economics & Physiology',
     rightView: 'Principal’s Office · 1st Floor Staff Room, Islamiat, English, Stats, Maths & Physics'
   }
 ];
@@ -108,7 +108,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     subtitle: 'Visitor Entry Point · Security Guards · Waiting Room (Left) · Canteen (Right)',
     category: 'Administration',
     stopNumber: '01',
-    imageSrc: '/assets/aistudio/campus_86930cb8.jpg',
+    imageSrc: '/assets/college/campus_86930cb8.jpg',
     svgType: 'courtyard',
     badge: 'Entry Point · Estd 1953',
     description:
@@ -235,7 +235,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       { label: 'Services', value: 'Snacks & Cool Water' }
     ],
     highlights: [
-      'Located right on your right side upon entering the Main Gate beside Central Jail & Signal Jammers perimeter',
+      'Located right on your right side inside the Main Gate (with Central Jail & Signal Jammers outside the right perimeter wall)',
       'Fresh snacks, tea counter, and chilled drinking water stations',
       'Walking straight past the canteen leads onto the twin grill paths'
     ],
@@ -255,21 +255,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 58
       }
     ],
-    locationNote: 'Entrance Courtyard · On Right Side',
-    mapX: 65.5,
+    locationNote: 'Entrance Courtyard Inside Gate · Right Side',
+    mapX: 64.2,
     mapY: 83.5,
     gateDirections: {
       turn: 'Turn Right',
       distanceFromGate: '14 m Right',
       walkingSteps: [
         'Enter through the Main College Gate.',
-        'Turn right immediately inside the entrance.',
+        'Turn right immediately inside the gate (outside the right boundary sits Central Jail & Signal Jammers).',
         'The College Canteen sits right there on your right.'
       ],
       routePath: [
         { x: 50, y: 91 },
         { x: 50, y: 83.5 },
-        { x: 65.5, y: 83.5 }
+        { x: 64.2, y: 83.5 }
       ]
     }
   },
@@ -958,44 +958,44 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
   },
   {
     id: 'hostel-computer-lab',
-    name: 'College Hostel (Main Residential Wing)',
+    name: 'College Hostel (Main Residential Block)',
     shortName: 'College Hostel',
-    subtitle: 'Left Path Between Two Grills · Large Multi-Wing Residential Hostel Straight Ahead',
+    subtitle: 'Right Beside the Unified IT & Humanities Corridor · Solar-Powered Multi-Wing Hostel',
     category: 'Student Life',
     stopNumber: '16',
     svgType: 'courtyard',
     badge: 'West Campus · Big Hostel Block',
     description:
-      'Turning left onto the pathway between two grills and crossing past the Computer Lab & Computer Multimedia Room brings you to Government Girls Zubaida College’s large, secure Residential Hostel complex providing enclosed accommodation, study rooms, and warden supervision.',
+      'Turning left onto the pathway between two grills brings you past the unified corridor building (housing Computer Lab, Computer Office, Big Multimedia Room, Pakistan Studies, Urdu & Physical Education with 1st-Floor Commerce above) straight into Government Girls Zubaida College’s large, solar-equipped Residential Hostel.',
     keySpecs: [
       { label: 'Approach', value: 'Left Path Between 2 Grills' },
-      { label: 'Scale', value: 'Large Multi-Wing Complex' },
-      { label: 'Beside It', value: 'Computer Lab & Multimedia' },
-      { label: 'Security', value: '24/7 Enclosed Hostel' }
+      { label: 'Scale', value: 'Large Residential Block' },
+      { label: 'Beside It', value: 'One-Corridor Building' },
+      { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Expansive multi-wing girls hostel complex on the west side of campus',
-      'Directly reachable via the left pathway enclosed between two grills',
-      'Positioned right beside the Computer Lab, Computer Lab Office & Multimedia Room'
+      'Expansive multi-wing girls hostel equipped with rooftop solar panels for uninterrupted power',
+      'Positioned directly beside the unified corridor of Computer Lab, Computer Office, Big Multimedia Room, Pak Studies, Urdu & Physical Education',
+      'Directly reachable via the left pathway enclosed between two grills'
     ],
     hotspots: [
       {
         id: 'hostel-courtyard',
         label: 'Hostel Residential Wings',
-        description: 'Large secure student hostel complex with enclosed courtyard.',
+        description: 'Large secure student hostel complex with enclosed courtyard and rooftop solar array.',
         xPercent: 46,
         yPercent: 48
       },
       {
         id: 'hostel-warden',
         label: 'Warden & Study Hall',
-        description: 'Supervised hostel study room and warden office.',
+        description: 'Supervised hostel study room and warden office beside the IT corridor.',
         xPercent: 75,
         yPercent: 62
       }
     ],
-    locationNote: 'West Campus · Large Residential Block Past Computer Lab',
-    mapX: 12,
+    locationNote: 'West Campus · Large Residential Hostel Beside Unified Corridor',
+    mapX: 11.3,
     mapY: 30.5,
     gateDirections: {
       turn: 'Turn Left',
@@ -1003,127 +1003,127 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       walkingSteps: [
         'Walk straight from the Main Gate past the Big Lawn and Principal’s Office/Chemistry line.',
         'Turn left onto the pathway enclosed between two grills.',
-        'Cross past the Computer Multimedia Room and Computer Lab straight into the Big College Hostel.'
+        'Pass the Big Multimedia Room and Computer Lab & Computer Office straight into the Big College Hostel.'
       ],
       routePath: [
         { x: 50, y: 91 },
-        { x: 50, y: 35.5 },
-        { x: 34.4, y: 35.5 },
-        { x: 25, y: 35.5 },
-        { x: 12, y: 30.5 }
+        { x: 50, y: 34.5 },
+        { x: 35.2, y: 34.5 },
+        { x: 24.4, y: 34.5 },
+        { x: 11.3, y: 30.5 }
       ]
     }
   },
   {
     id: 'computer-lab',
-    name: 'Computer Lab & Computer Lab Office',
+    name: 'Computer Lab & Computer Office',
     shortName: 'Computer Lab & Office',
-    subtitle: 'Beside College Hostel Along Left 2-Grill Path · Modern Workstations & Lab Office',
+    subtitle: 'Beside Hostel in One Corridor (with Big Multimedia, Pak Studies, Urdu & PE)',
     category: 'Laboratories',
     stopNumber: '17',
     svgType: 'computer-lab',
-    badge: 'Left 2-Grill Path · Beside Hostel',
+    badge: 'One Corridor Beside Hostel · Solar Roof',
     description:
-      'Located right beside the large College Hostel along the left pathway between two grills, the Computer Lab & Computer Lab Office house modern desktop terminals, fiber networking, Python/Figma studios, and faculty supervision.',
+      'Located right beside the large College Hostel in one continuous ground-floor corridor—connected with the Big Computer Multimedia Room, Pakistan Studies, Urdu, and Physical Education (under 1st-floor Commerce)—the Computer Lab & Computer Office feature modern desktop terminals, fiber networking, and solar-backed power.',
     keySpecs: [
       { label: 'Workstations', value: 'Modern Desktop Systems' },
-      { label: 'Beside', value: 'Hostel & Multimedia Room' },
-      { label: 'Curriculum', value: 'Python, Figma & IT' },
-      { label: 'Includes', value: 'Computer Lab Office' }
+      { label: 'Same Corridor', value: 'Big Multimedia, Pak Studies, Urdu, PE' },
+      { label: '1st Floor Above', value: 'Commerce & Library' },
+      { label: 'Energy', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Situated directly beside the Big College Hostel and Computer Multimedia Room',
-      'Practical training in Python programming, Figma UI/UX, C++ & databases',
-      'Dedicated Computer Lab Office for lab administration and student mentoring'
+      'Situated directly beside the Big College Hostel inside one unified ground-floor corridor',
+      'Houses both the practical Computer Lab workstations and Computer Office administration',
+      'Connected directly in-corridor to Big Multimedia Room, Pakistan Studies, Urdu & Physical Education'
     ],
     hotspots: [
       {
         id: 'pcs',
         label: 'Computer Lab Workstations',
-        description: 'Desktop computers for Computer Science practicals.',
+        description: 'Desktop computers for Computer Science practicals powered by solar energy.',
         xPercent: 42,
         yPercent: 52
       },
       {
         id: 'lab-office',
-        label: 'Computer Lab Office',
-        description: 'IT faculty & lab coordinator office inside the Computer Lab block.',
+        label: 'Computer Office',
+        description: 'IT faculty & Computer Office right beside the lab inside the same corridor.',
         xPercent: 78,
         yPercent: 42
       }
     ],
-    locationNote: 'Beside College Hostel · End of Left 2-Grill Path',
-    mapX: 25,
-    mapY: 35,
+    locationNote: 'Beside Hostel · One Unified Corridor (Ground Floor)',
+    mapX: 24.4,
+    mapY: 34.5,
     gateDirections: {
       turn: 'Turn Left',
       distanceFromGate: '70 m Straight · Left Grill Path',
       walkingSteps: [
         'Walk straight from the Main Gate past the Big Lawn and Principal’s Office/Chemistry line.',
-        'Turn left onto the path between two grills past the Computer Multimedia Room.',
-        'Enter the Computer Lab & Computer Lab Office right beside the College Hostel.'
+        'Turn left onto the path between two grills past the Big Computer Multimedia Room.',
+        'Enter the Computer Lab & Computer Office right beside the Hostel in the same corridor.'
       ],
       routePath: [
         { x: 50, y: 91 },
-        { x: 50, y: 35.5 },
-        { x: 34.4, y: 35.5 },
-        { x: 25, y: 35 }
+        { x: 50, y: 34.5 },
+        { x: 35.2, y: 34.5 },
+        { x: 24.4, y: 34.5 }
       ]
     }
   },
   {
     id: 'computer-multimedia-room',
-    name: 'Computer Multimedia Room & Smart Studio',
-    shortName: 'Computer Multimedia Room',
-    subtitle: 'Beside Computer Lab Along Left 2-Grill Path · Interactive HD Projection & Seminars',
+    name: 'Big Computer Multimedia Room & Smart Hall',
+    shortName: 'Big Multimedia Room',
+    subtitle: 'Extra-Large Smart Hall in One Corridor Beside Computer Office, Hostel & Humanities',
     category: 'Laboratories',
     stopNumber: '18',
     svgType: 'multimedia-room',
-    badge: 'IT Complex · Multimedia Studio',
+    badge: 'One Corridor · Wide Smart Hall',
     description:
-      'Adjacent to the Computer Lab & Computer Lab Office along the left twin-grill pathway, the Computer Multimedia Room features large-format HD smart projection, audio-visual equipment, and collaborative seating for software demos and seminars.',
+      'Occupying an extra-spacious hall at the entry of the unified corridor beside the Computer Office, Computer Lab, and College Hostel—and linked directly in one corridor to Pakistan Studies, Urdu, and Physical Education below the 1st-floor Commerce wing—the Big Computer Multimedia Room hosts HD smart projections, seminars, and software demos.',
     keySpecs: [
-      { label: 'Display', value: 'HD Smart Projector' },
-      { label: 'Audio', value: 'Surround Sound & Mic' },
-      { label: 'Next To', value: 'Computer Lab & Hostel' },
-      { label: 'Use Cases', value: 'Demos, Figma & Lectures' }
+      { label: 'Hall Size', value: 'Big Multimedia Room' },
+      { label: 'Same Corridor', value: 'Comp Lab/Office, Pak Studies, Urdu, PE' },
+      { label: 'Same Building', value: 'Commerce 1st Floor Above' },
+      { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Situated directly next to the Computer Lab & Computer Lab Office',
-      'Large HD smart screen for live Python coding and Figma design reviews',
-      'Air-conditioned multimedia workshop room for all departments'
+      'Extra-large Big Computer Multimedia Room right next to Computer Office & Computer Lab',
+      'Shares one continuous ground-floor corridor with Pakistan Studies, Urdu & Physical Education beside Hostel',
+      'Supported by rooftop solar panels mounted across every building wing'
     ],
     hotspots: [
       {
         id: 'smart-screen',
-        label: 'HD Smart Screen',
-        description: 'High-definition interactive projection wall.',
+        label: 'HD Smart Screen Wall',
+        description: 'High-definition interactive projection wall in the spacious multimedia hall.',
         xPercent: 50,
         yPercent: 30
       },
       {
         id: 'media-podium',
         label: 'Multimedia Control Console',
-        description: 'Audio-visual switching desk for instructors and seminars.',
+        description: 'Audio-visual switching desk for seminars and smart classes.',
         xPercent: 25,
         yPercent: 60
       }
     ],
-    locationNote: 'Beside Computer Lab · Left 2-Grill Path',
-    mapX: 34.4,
-    mapY: 35,
+    locationNote: 'Unified Corridor Beside Computer Office & Hostel · Solar Powered',
+    mapX: 35.2,
+    mapY: 34.5,
     gateDirections: {
       turn: 'Turn Left',
       distanceFromGate: '64 m Straight · Left Grill Path',
       walkingSteps: [
         'Walk straight from the Main Gate past the Big Lawn and Chemistry/Principal line.',
         'Turn left onto the pathway enclosed between two grills.',
-        'The Computer Multimedia Room sits right before the Computer Lab & Big Hostel.'
+        'Enter the Big Computer Multimedia Room inside the same corridor alongside Computer Lab, Computer Office & Hostel.'
       ],
       routePath: [
         { x: 50, y: 91 },
-        { x: 50, y: 35.5 },
-        { x: 34.4, y: 35 }
+        { x: 50, y: 34.5 },
+        { x: 35.2, y: 34.5 }
       ]
     }
   },
@@ -1131,23 +1131,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'tennis-volleyball-grounds',
     name: 'Tennis Court & Volleyball Playing Ground',
     shortName: 'Tennis & Volleyball Court',
-    subtitle: 'Before Physical Education · Tennis Court & Ground for Volleyball',
+    subtitle: 'Beside Hostel & Opening Directly Into Physical Education Corridor',
     category: 'Student Life',
     stopNumber: '19',
     svgType: 'sports',
-    badge: 'Outdoor Courts · Before Physical Ed.',
+    badge: 'Outdoor Courts · Beside Physical Ed.',
     description:
-      'Located right before the Physical Education department along the upper-west corridor, this outdoor sports arena features a marked Tennis Court and a full Volleyball Ground for inter-class tournaments and daily athletics.',
+      'Located right alongside the College Hostel and opening directly into Physical Education along the unified ground-floor corridor, this outdoor sports arena features a marked Tennis Court and a full Volleyball Ground for inter-class tournaments and daily athletics.',
     keySpecs: [
       { label: 'Courts', value: 'Tennis & Volleyball' },
-      { label: 'Position', value: 'Before Physical Education' },
+      { label: 'Next To', value: 'Physical Education Corridor' },
       { label: 'Privacy', value: 'Enclosed Girls Arena' },
       { label: 'Activities', value: 'Inter-Class Matches' }
     ],
     highlights: [
       'Marked outdoor Tennis Court for student training and matches',
-      'Full-size Volleyball Ground directly adjacent',
-      'Positioned immediately before Pakistan Studies, Urdu & Physical Education'
+      'Full-size Volleyball Ground directly adjacent beside the Hostel',
+      'Connects straight into the Physical Education, Urdu & Pak Studies corridor'
     ],
     hotspots: [
       {
@@ -1165,21 +1165,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 52
       }
     ],
-    locationNote: 'North-West Sports Zone · Before Physical Education',
-    mapX: 33,
-    mapY: 21.5,
+    locationNote: 'North-West Sports Zone · Beside Hostel & Physical Education',
+    mapX: 11.3,
+    mapY: 11.2,
     gateDirections: {
       turn: 'Bear Left',
-      distanceFromGate: '80 m North-West',
+      distanceFromGate: '82 m North-West',
       walkingSteps: [
-        'Walk straight from the Main Gate past the Big Lawn and Chemistry/Principal line.',
-        'Turn left toward the Computer Lab path and continue along the corridor north.',
-        'The Tennis Court & Volleyball Ground sit right before Physical Education.'
+        'Walk straight from the Main Gate past the Big Lawn and turn left onto the two-grill path.',
+        'Walk along the unified corridor past Computer Lab, Computer Office & Pak Studies/Urdu/Physical Education.',
+        'Step out beside Physical Education directly onto the Tennis Court & Volleyball Ground.'
       ],
       routePath: [
         { x: 50, y: 91 },
-        { x: 50, y: 35.5 },
-        { x: 33, y: 21.5 }
+        { x: 50, y: 34.5 },
+        { x: 30.3, y: 34.5 },
+        { x: 30.3, y: 21.8 },
+        { x: 11.3, y: 11.2 }
       ]
     }
   },
@@ -1187,169 +1189,171 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'pak-urdu-pe',
     name: 'Pakistan Studies, Urdu & Physical Education',
     shortName: 'Pak Studies, Urdu & Physical Ed.',
-    subtitle: 'Corridor Past Tennis & Volleyball Ground · Pakistan Studies, Urdu & Physical Education',
+    subtitle: 'Same Ground-Floor Corridor with Computer Lab, Computer Office & Big Multimedia Room',
     category: 'Academics',
     stopNumber: '20',
     svgType: 'academic-wing',
-    badge: 'Humanities & Sports Dept.',
+    badge: 'One Corridor · Same Building',
     description:
-      'Walking past the Tennis Court and Volleyball Ground along the corridor brings you to the Departments of Pakistan Studies, Urdu Literature, and Physical Education—supporting both humanities lectures and athletics coordination.',
+      'Inside the very same ground-floor corridor alongside the Computer Lab, Computer Office, and Big Computer Multimedia Room beside the Hostel sit the Departments of Pakistan Studies, Urdu Literature, and Physical Education—opening onto the Tennis & Volleyball Ground and sitting directly beneath the 1st-floor Commerce Department & Commerce Library in the same building.',
     keySpecs: [
+      { label: 'In Same Corridor', value: 'Comp Lab/Office & Multimedia' },
       { label: 'Departments', value: 'Pak Studies, Urdu, Phys. Ed.' },
-      { label: 'Before It', value: 'Tennis & Volleyball Ground' },
-      { label: 'Above (1st Fl.)', value: 'Commerce Dept. & Library' },
-      { label: 'Activities', value: 'Literary & Sports' }
+      { label: 'Same Building (1st Fl.)', value: 'Commerce Dept. & Library' },
+      { label: 'Rooftop', value: 'Solar Panels Equipped' }
     ],
     highlights: [
-      'Department of Pakistan Studies & Historical Studies classrooms',
-      'Department of Urdu classical poetry and literary society hub',
-      'Department of Physical Education right after the Tennis & Volleyball Ground'
+      'Shares ONE unified ground-floor corridor with Computer Lab, Computer Office & Big Multimedia Room beside Hostel',
+      'Houses Pakistan Studies, Urdu Literature, and Physical Education next to the Tennis & Volleyball Ground',
+      'Directly below 1st-Floor Commerce Department & Commerce Library inside the same solar-powered building'
     ],
     hotspots: [
       {
         id: 'urdu-pak',
         label: 'Pakistan Studies & Urdu',
-        description: 'Lecture rooms for Urdu literature and Pakistan Studies.',
+        description: 'Lecture rooms for Urdu literature and Pakistan Studies inside the unified corridor.',
         xPercent: 35,
         yPercent: 48
       },
       {
         id: 'pe-office',
         label: 'Physical Education Dept.',
-        description: 'Sports faculty desk managing equipment and court schedules.',
+        description: 'Sports faculty desk opening onto the adjacent Tennis & Volleyball grounds.',
         xPercent: 74,
         yPercent: 52
       }
     ],
-    locationNote: 'North-West Corridor · Past Tennis & Volleyball Ground',
-    mapX: 14.5,
-    mapY: 11.5,
+    locationNote: 'Ground Floor Same Corridor Beside Hostel · Solar Powered',
+    mapX: 30.3,
+    mapY: 21.8,
     gateDirections: {
       turn: 'Bear Left',
-      distanceFromGate: '88 m North-West',
+      distanceFromGate: '80 m North-West',
       walkingSteps: [
         'Walk straight along the twin grill path past the Big Lawn and turn left onto the two-grill corridor.',
-        'Continue past the Tennis Court & Volleyball Ground.',
-        'Enter the corridor housing Pakistan Studies, Urdu, and Physical Education.'
+        'Enter the unified corridor past the Big Multimedia Room and Computer Lab/Computer Office beside the Hostel.',
+        'Continue straight down the same corridor to Pakistan Studies, Urdu & Physical Education.'
       ],
       routePath: [
         { x: 50, y: 91 },
-        { x: 50, y: 35.5 },
-        { x: 33, y: 21.5 },
-        { x: 14.5, y: 11.5 }
+        { x: 50, y: 34.5 },
+        { x: 30.3, y: 34.5 },
+        { x: 30.3, y: 21.8 }
       ]
     }
   },
   {
     id: 'commerce-dept-library',
     name: 'Commerce Department & Commerce Library (1st Floor)',
-    shortName: 'Commerce Dept. & Library',
-    subtitle: '1st Floor Above Sports & Humanities Corridor · Commerce Library & Classrooms',
+    shortName: 'Commerce Dept. & Library (1st Fl.)',
+    subtitle: '1st Floor of the Same Corridor Building (Above Computer Lab, Multimedia, Pak Studies, Urdu & PE)',
     category: 'Academics',
     stopNumber: '21',
     svgType: 'library',
-    badge: '1st Floor · Commerce Wing',
+    badge: '1st Floor · Same Building · Solar Roof',
     description:
-      'On the 1st Floor above the Tennis/Volleyball and Humanities corridor sit the Commerce Department and specialized Commerce Library—housing accounting, economics, banking, and business administration resources for I.Com and Associate Degree in Commerce students.',
+      'Located on the 1st Floor of the EXACT SAME building directly above the ground-floor corridor (Computer Lab, Computer Office, Big Multimedia Room, Pakistan Studies, Urdu & Physical Education) beside the Hostel, the Commerce Department and specialized Commerce Library house accounting, finance, banking, and business studies resources under solar-powered rooftops.',
     keySpecs: [
-      { label: 'Floor', value: '1st Floor' },
+      { label: 'Floor & Building', value: '1st Floor · Same Building' },
+      { label: 'Ground Floor Below', value: 'IT, Pak Studies, Urdu & PE Corridor' },
       { label: 'Facilities', value: 'Commerce Dept. & Library' },
-      { label: 'Programs', value: 'I.Com & AD Commerce' },
-      { label: 'Resources', value: 'Accounting & Finance Texts' }
+      { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Dedicated Commerce Library stocked with accounting, auditing & finance volumes',
-      'Commerce Department lecture halls for I.Com & B.Com/AD students',
-      'Situated on the 1st Floor directly overlooking the Tennis & Volleyball courts'
+      'Situated on the 1st Floor inside the SAME building above Computer Lab/Office, Big Multimedia, Pak Studies, Urdu & PE',
+      'Dedicated Commerce Library stocked with accounting, auditing, banking & business volumes',
+      'Solar panel array mounted on the building rooftop powering all wings cleanly'
     ],
     hotspots: [
       {
         id: 'commerce-lib',
-        label: 'Commerce Library',
-        description: 'Subject-specific reference library for Commerce & Accounting.',
+        label: 'Commerce Library (1st Floor)',
+        description: 'Subject-specific reference library for Commerce & Accounting upstairs in the same building.',
         xPercent: 34,
         yPercent: 45
       },
       {
         id: 'commerce-halls',
-        label: 'Commerce Classrooms',
-        description: 'Accounting, banking, and business studies lecture rooms.',
+        label: 'Commerce Classrooms (1st Floor)',
+        description: 'Accounting, banking, and business lecture rooms directly above the ground corridor.',
         xPercent: 72,
         yPercent: 52
       }
     ],
-    locationNote: '1st Floor · Above Tennis/Volleyball & Pak Studies Corridor',
-    mapX: 33,
-    mapY: 10,
+    locationNote: '1st Floor Same Building Above Unified Corridor · Solar Powered',
+    mapX: 30.3,
+    mapY: 10.8,
     gateDirections: {
       turn: 'Upstairs (1st Floor)',
-      distanceFromGate: '86 m North-West · 1st Floor',
+      distanceFromGate: '84 m North-West · 1st Floor Same Bldg',
       walkingSteps: [
-        'Walk straight past the Big Lawn and bear left toward the Tennis Court & Volleyball Ground.',
-        'Take the staircase up to the 1st Floor beside Pakistan Studies, Urdu & Physical Education.',
-        'Enter the Commerce Department & Commerce Library.'
+        'Walk straight past the Big Lawn and turn left onto the two-grill corridor beside the Hostel.',
+        'Walk along the unified ground-floor corridor housing Computer Lab, Computer Office, Big Multimedia, Pak Studies, Urdu & PE.',
+        'Take the staircase inside the SAME building up to the 1st Floor Commerce Department & Commerce Library.'
       ],
       routePath: [
         { x: 50, y: 91 },
-        { x: 50, y: 35.5 },
-        { x: 33, y: 21.5 },
-        { x: 33, y: 10 }
+        { x: 50, y: 34.5 },
+        { x: 30.3, y: 34.5 },
+        { x: 30.3, y: 21.8 },
+        { x: 30.3, y: 10.8 }
       ]
     }
   },
   {
     id: 'sindhi-economics-physiology-ground',
-    name: 'Sindhi, Economics, Physiology & Big Ground',
-    shortName: 'Sindhi, Economics, Physiology & Big Ground',
-    subtitle: 'Straight Path North to Big Ground & Lawn · Walking In Line Straight',
+    name: 'Big Ground, Lawn → Sindhi, Economics & Physiology',
+    shortName: 'Big Ground → Sindhi, Econ & Physiology',
+    subtitle: 'Straight Path North: Big Ground & Green Lawn First, Then Sindhi, Economics & Physiology',
     category: 'Academics',
     stopNumber: '22',
     svgType: 'sports',
-    badge: 'North Straight Path · Big Ground',
+    badge: 'North Straight · Ground First',
     description:
-      'Following the straight path north past the Principal’s Office and Chemistry line leads past the in-line Departments of Sindhi, Economics, and Physiology directly onto Zubaida College’s expansive North Big Ground & Lawn.',
+      'Following the straight path north past the Principal’s Office and Chemistry line brings you FIRST onto Zubaida College’s spacious North Big Ground & Green Lawn; walking across the ground directly ahead leads to the in-line Departments of Sindhi, Economics, and Physiology.',
     keySpecs: [
-      { label: 'Departments', value: 'Sindhi, Economics, Physiology' },
-      { label: 'North Field', value: 'Big Ground & Lawn' },
+      { label: 'Comes First', value: 'Big Ground & Green Lawn' },
+      { label: 'Next Ahead', value: 'Sindhi, Economics, Physiology' },
       { label: 'Pathway', value: 'Straight North Spine' },
       { label: 'Care Staff', value: 'Lawn Gardener' }
     ],
     highlights: [
-      'Departments of Sindhi, Economics & Physiology aligned along the straight north path',
-      'Opens directly into the spacious North Big Ground & green campus Lawn',
-      'Maintained by campus gardeners with shaded seating and athletics lawn'
+      'Big Ground & Green Lawn appear FIRST along the straight north path',
+      'Immediately beyond the ground stand the in-line Departments of Sindhi, Economics & Physiology',
+      'Maintained by campus gardeners with shaded trees and athletics lawn'
     ],
     hotspots: [
       {
-        id: 'sep-depts',
-        label: 'Sindhi, Economics & Physiology',
-        description: 'Three adjacent departments aligned along the straight north walkway.',
-        xPercent: 48,
-        yPercent: 72
+        id: 'big-ground-north',
+        label: 'North Big Ground & Lawn (First)',
+        description: 'Expansive enclosed green sports ground and lawn encountered first walking straight.',
+        xPercent: 50,
+        yPercent: 68
       },
       {
-        id: 'big-ground-north',
-        label: 'North Big Ground & Lawn',
-        description: 'Expansive enclosed green sports ground and lawn at the north end.',
-        xPercent: 50,
-        yPercent: 30
+        id: 'sep-depts',
+        label: 'Sindhi, Economics & Physiology',
+        description: 'Three adjacent departments positioned immediately beyond the Big Ground.',
+        xPercent: 48,
+        yPercent: 28
       }
     ],
-    locationNote: 'North Campus · Straight Path Past Principal & Chemistry Line',
+    locationNote: 'North Campus · Ground First, Then Sindhi, Economics & Physiology',
     mapX: 52.5,
-    mapY: 13,
+    mapY: 9,
     gateDirections: {
       turn: 'Straight Ahead',
       distanceFromGate: '92 m Straight North',
       walkingSteps: [
         'Walk straight from the Main Gate along the twin grill paths past the Clerk Office and Big Lawn.',
-        'Continue straight north past the Principal’s Office / Chemistry line.',
-        'Pass the in-line Departments of Sindhi, Economics, and Physiology arriving at the Big Ground & Lawn.'
+        'Continue straight north past the Principal’s Office / Chemistry line onto the Big Ground & Green Lawn FIRST.',
+        'Walk straight across the Big Ground to reach Sindhi, Economics, and Physiology beyond it.'
       ],
       routePath: [
         { x: 50, y: 91 },
         { x: 50, y: 49 },
-        { x: 52.5, y: 13 }
+        { x: 52.5, y: 21 },
+        { x: 52.5, y: 9 }
       ]
     }
   }

@@ -45,7 +45,7 @@ import {
   Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v10';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v12';
 
 function buildWalkRouteBetween(
   fromPos: { x: number; y: number },
@@ -63,10 +63,10 @@ function buildWalkRouteBetween(
   const dest = { x: targetStop.mapX, y: targetStop.mapY };
   const waypoints: { x: number; y: number }[] = [fromPos];
 
-  // If moving between upper-left corridor stops (Hostel, Computer Lab, Multimedia, Sports, Pak Studies, Commerce)
+  // If moving between upper-left corridor stops (Hostel, Computer Lab/Office, Big Multimedia, Sports, Pak Studies, Commerce)
   if (fromPos.x < 45 && dest.x < 45 && fromPos.y < 42 && dest.y < 42) {
-    waypoints.push({ x: 33.5, y: fromPos.y });
-    waypoints.push({ x: 33.5, y: dest.y });
+    waypoints.push({ x: 30.3, y: fromPos.y });
+    waypoints.push({ x: 30.3, y: dest.y });
     waypoints.push(dest);
   } else {
     const spineYFrom = Math.max(18, Math.min(91, fromPos.y));
@@ -184,7 +184,7 @@ function getSurroundingsAtCoord(
       stageLabel: 'Entering Main College Gate (Security Check)',
       leftView: 'Security Post & Visitor Waiting Room (First on Left)',
       aheadView: 'Gate Security Guards & Straight Path Separated by Small Grill',
-      rightView: 'College Canteen & Central Jail / Signal Jammers (Entrance Right)'
+      rightView: 'College Canteen Inside Right (Central Jail & Signal Jammers Outside College Right)'
     };
   }
 
