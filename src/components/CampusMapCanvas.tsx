@@ -1330,7 +1330,7 @@ export function CampusMapCanvas({
               RECORDS · ADMISSIONS · AFTER GARDEN
             </text>
 
-            {/* 19. BIG COLLEGE HOSTEL (Positioned Directly BETWEEN Computer Lab Above & West Garden Lawn Below) */}
+            {/* 19. BIG COLLEGE HOSTEL (Positioned Directly BETWEEN Computer Lab Above & Tennis Court Below) */}
             <rect x="64" y="310" width="282" height="134" rx="14" fill="#7c2d12" fillOpacity="0.86" stroke="#fb923c" strokeWidth="3" />
             <rect x="78" y="328" width="66" height="74" rx="7" fill="#9a3412" fillOpacity="0.82" stroke="#fdba74" strokeOpacity="0.68" strokeWidth="1.4" />
             <rect x="266" y="328" width="66" height="74" rx="7" fill="#9a3412" fillOpacity="0.82" stroke="#fdba74" strokeOpacity="0.68" strokeWidth="1.4" />
@@ -1348,31 +1348,31 @@ export function CampusMapCanvas({
               BIG COLLEGE HOSTEL
             </text>
             <text x="205" y="436" textAnchor="middle" fill="#fde68a" fontSize="9.2" fontWeight="900">
-              (BETWEEN COMPUTER LAB &amp; WEST GARDEN)
+              (BETWEEN COMPUTER LAB &amp; TENNIS COURT)
             </text>
 
-            {/* Lush Green West Garden Lawn & Shaded Trees (Below Hostel) */}
-            <rect x="64" y="458" width="282" height="104" rx="14" fill="url(#lawn-grad)" stroke="#4ade80" strokeWidth="2.4" />
-            <circle cx="116" cy="500" r="17" fill="#22c55e" fillOpacity="0.68" stroke="#bbf7d0" strokeOpacity="0.85" strokeWidth="1.6" />
-            <circle cx="205" cy="510" r="15" fill="#22c55e" fillOpacity="0.68" stroke="#bbf7d0" strokeOpacity="0.85" strokeWidth="1.6" />
-            <circle cx="294" cy="498" r="17" fill="#22c55e" fillOpacity="0.68" stroke="#bbf7d0" strokeOpacity="0.85" strokeWidth="1.6" />
-            <text x="205" y="548" textAnchor="middle" fill="#dcfce7" fontSize="11.8" fontWeight="900">
-              WEST GARDEN LAWN &amp; TREES
-            </text>
-
-            {/* 22. TENNIS COURT & VOLLEYBALL PLAYING GROUND (Moved Down in Map Before Pakistan Studies, Urdu & Physical Education) */}
-            <rect x="64" y="576" width="282" height="92" rx="13" fill="#713f12" fillOpacity="0.78" stroke="#facc15" strokeWidth="2.8" />
-            <rect x="82" y="588" width="104" height="44" rx="4" fill="none" stroke="#fde047" strokeOpacity="0.78" strokeWidth="1.6" />
-            <line x1="134" y1="588" x2="134" y2="632" stroke="#fde047" strokeOpacity="0.9" strokeWidth="1.4" strokeDasharray="3 2" />
-            <rect x="224" y="588" width="104" height="44" rx="4" fill="none" stroke="#fef08a" strokeOpacity="0.78" strokeWidth="1.6" />
-            <line x1="276" y1="588" x2="276" y2="632" stroke="#fef08a" strokeOpacity="0.9" strokeWidth="1.4" strokeDasharray="3 2" />
-            <text x="205" y="649" textAnchor="middle" fontSize="12.5" fontWeight="900">
+            {/* 22. TENNIS COURT & VOLLEYBALL PLAYING GROUND (Exchanged with West Garden — Now Directly Below Hostel) */}
+            <rect x="64" y="458" width="282" height="100" rx="13" fill="#713f12" fillOpacity="0.78" stroke="#facc15" strokeWidth="2.8" />
+            <rect x="82" y="470" width="104" height="46" rx="4" fill="none" stroke="#fde047" strokeOpacity="0.78" strokeWidth="1.6" />
+            <line x1="134" y1="470" x2="134" y2="516" stroke="#fde047" strokeOpacity="0.9" strokeWidth="1.4" strokeDasharray="3 2" />
+            <rect x="224" y="470" width="104" height="46" rx="4" fill="none" stroke="#fef08a" strokeOpacity="0.78" strokeWidth="1.6" />
+            <line x1="276" y1="470" x2="276" y2="516" stroke="#fef08a" strokeOpacity="0.9" strokeWidth="1.4" strokeDasharray="3 2" />
+            <text x="205" y="535" textAnchor="middle" fontSize="12.5" fontWeight="900">
               <tspan fill="#fef08a">TENNIS COURT</tspan>
               <tspan fill="#ffffff"> &amp; </tspan>
               <tspan fill="#fdba74">VOLLEYBALL GROUND</tspan>
             </text>
-            <text x="205" y="663" textAnchor="middle" fill="#fde68a" fontSize="8.8" fontWeight="900">
-              (BEFORE WEST GARDEN, HOSTEL &amp; PAK STUDIES / URDU)
+            <text x="205" y="550" textAnchor="middle" fill="#fde68a" fontSize="8.8" fontWeight="900">
+              (BETWEEN HOSTEL &amp; WEST GARDEN LAWN)
+            </text>
+
+            {/* Lush Green West Garden Lawn & Shaded Trees (Exchanged with Tennis Court — Now Below Tennis Court) */}
+            <rect x="64" y="572" width="282" height="96" rx="14" fill="url(#lawn-grad)" stroke="#4ade80" strokeWidth="2.4" />
+            <circle cx="116" cy="608" r="16" fill="#22c55e" fillOpacity="0.68" stroke="#bbf7d0" strokeOpacity="0.85" strokeWidth="1.6" />
+            <circle cx="205" cy="616" r="15" fill="#22c55e" fillOpacity="0.68" stroke="#bbf7d0" strokeOpacity="0.85" strokeWidth="1.6" />
+            <circle cx="294" cy="606" r="16" fill="#22c55e" fillOpacity="0.68" stroke="#bbf7d0" strokeOpacity="0.85" strokeWidth="1.6" />
+            <text x="205" y="654" textAnchor="middle" fill="#dcfce7" fontSize="11.8" fontWeight="900">
+              WEST GARDEN LAWN &amp; TREES
             </text>
 
             {/* ================= GARDEN BEFORE CLERK OFFICE (RIGHT OF CORRIDOR) ================= */}
@@ -1555,9 +1555,10 @@ export function CampusMapCanvas({
             <line x1="532" y1="60" x2="504" y2="60" stroke="#fde047" strokeOpacity="0.58" strokeWidth="8" strokeLinecap="round" />
             <line x1="297" y1="286" x2="297" y2="310" stroke="#fb923c" strokeOpacity="0.65" strokeWidth="10" strokeLinecap="round" />
             <line x1="346" y1="358" x2="362" y2="358" stroke="#94a3b8" strokeOpacity="0.42" strokeWidth="12" strokeLinecap="round" />
-            <line x1="205" y1="444" x2="205" y2="458" stroke="#4ade80" strokeOpacity="0.6" strokeWidth="10" strokeLinecap="round" />
-            <line x1="205" y1="562" x2="205" y2="576" stroke="#facc15" strokeOpacity="0.6" strokeWidth="10" strokeLinecap="round" />
-            <line x1="582" y1="622" x2="346" y2="622" stroke="#94a3b8" strokeOpacity="0.34" strokeWidth="12" strokeLinecap="round" />
+            <line x1="205" y1="444" x2="205" y2="458" stroke="#facc15" strokeOpacity="0.6" strokeWidth="10" strokeLinecap="round" />
+            <line x1="205" y1="558" x2="205" y2="572" stroke="#4ade80" strokeOpacity="0.6" strokeWidth="10" strokeLinecap="round" />
+            <line x1="582" y1="508" x2="346" y2="508" stroke="#94a3b8" strokeOpacity="0.34" strokeWidth="12" strokeLinecap="round" />
+            <line x1="582" y1="622" x2="346" y2="622" stroke="#94a3b8" strokeOpacity="0.3" strokeWidth="10" strokeLinecap="round" />
 
             <rect x="506" y="278" width="88" height="19" rx="5" fill="#021b15" fillOpacity="0.96" stroke="#fb923c" strokeOpacity="0.92" strokeWidth="1.4" />
             <text x="550" y="291" textAnchor="middle" fill="#fed7aa" fontSize="9.4" fontWeight="900">

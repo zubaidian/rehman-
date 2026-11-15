@@ -1109,50 +1109,50 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'hostel-computer-lab',
     name: 'College Hostel (Main Residential Block)',
     shortName: 'College Hostel',
-    subtitle: 'Between Computer Lab & West Garden Lawn · Solar-Powered Multi-Wing Hostel',
+    subtitle: 'Between Computer Lab & Tennis Court / West Garden · Solar-Powered Multi-Wing Hostel',
     category: 'Student Life',
     stopNumber: '19',
     svgType: 'courtyard',
-    badge: 'Between Computer Lab & West Garden',
+    badge: 'Between Computer Lab & Tennis Court',
     description:
-      'Positioned directly between the Computer Lab & Office above and the West Garden Lawn & Trees below (just across the Central Courtyard), Government Girls Zubaida College’s large solar-equipped Residential Hostel gives students quiet shaded garden views and immediate access to the unified IT & Humanities corridor.',
+      'Positioned directly between the Computer Department above and the Tennis Court & Volleyball Ground below (with West Garden Lawn just below the courts across the Central Courtyard), Government Girls Zubaida College’s large solar-equipped Residential Hostel gives students shaded campus views and immediate access to the unified IT & Humanities corridor.',
     keySpecs: [
-      { label: 'Location', value: 'Between Computer Lab & West Garden' },
+      { label: 'Location', value: 'Between Computer Lab & Tennis Court' },
       { label: 'Scale', value: 'Large Residential Block' },
-      { label: 'Above It', value: 'Computer Lab & Unified Corridor' },
+      { label: 'Above It', value: 'Computer Dept. & Unified Corridor' },
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Positioned directly between the Computer Lab above and the West Garden Lawn below',
+      'Positioned directly between the Computer Lab above and the Tennis Court & Volleyball Ground below',
       'Expansive multi-wing girls hostel equipped with rooftop solar panels',
-      'Directly linked to the Central Courtyard, 2-Grill Computer Lab path, and West Garden'
+      'Directly linked to the Central Courtyard, 2-Grill Computer Lab path, Tennis Court, and West Garden'
     ],
     hotspots: [
       {
         id: 'hostel-courtyard',
         label: 'Hostel Residential Wings',
-        description: 'Large secure student hostel complex between Computer Lab and West Garden Lawn.',
+        description: 'Large secure student hostel complex between Computer Lab and Tennis Court.',
         xPercent: 46,
         yPercent: 48
       },
       {
         id: 'hostel-warden',
         label: 'Warden & Study Hall',
-        description: 'Supervised hostel study room and warden office overlooking the West Garden.',
+        description: 'Supervised hostel study room and warden office overlooking the sports courts & West Garden.',
         xPercent: 75,
         yPercent: 62
       }
     ],
-    locationNote: 'West Campus · Directly Between Computer Lab & West Garden Lawn',
+    locationNote: 'West Campus · Between Computer Lab & Tennis Court / West Garden',
     mapX: 17.1,
     mapY: 44.9,
     gateDirections: {
       turn: 'Turn Left',
       distanceFromGate: '68 m Straight · Left Courtyard',
       walkingSteps: [
-        'Walk straight from the Main Gate past the Tennis/Volleyball Left Turn, Garden, and Big Clerk Office Corridor.',
+        'Walk straight from the Main Gate past the West Garden, Tennis/Volleyball Left Turn, Garden, and Big Clerk Office Corridor.',
         'Turn left across the Central Courtyard promenade (just below the Computer Lab & Office).',
-        'Arrive at the Big College Hostel situated right between Computer Lab and West Garden Lawn.'
+        'Arrive at the Big College Hostel situated between Computer Lab and Tennis Court.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
@@ -1279,29 +1279,29 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'tennis-volleyball-grounds',
     name: 'Tennis Court & Volleyball Playing Ground',
     shortName: 'Tennis & Volleyball',
-    subtitle: 'Moved Down on West Campus · Before West Garden, Hostel, Pak Studies & Urdu',
+    subtitle: 'Between Hostel & West Garden Lawn · Before Hostel, Pak Studies & Urdu',
     category: 'Student Life',
     stopNumber: '22',
     svgType: 'sports',
-    badge: 'Lower-West Courts · Before Pak Studies',
+    badge: 'Between Hostel & West Garden',
     description:
-      'Moved down to the lower-west sports zone right above the Waiting Room and directly before West Garden, Big College Hostel, Computer Lab, Pakistan Studies, and Urdu, this outdoor sports arena features a marked Tennis Court and a full Volleyball Ground for inter-class tournaments and daily athletics.',
+      'Positioned right between the Big College Hostel above and the West Garden Lawn & Trees below (before Hostel, Computer Department, Pakistan Studies, and Urdu), this outdoor sports arena features a marked Tennis Court and a full Volleyball Ground for inter-class tournaments and daily athletics.',
     keySpecs: [
       { label: 'Courts', value: 'Tennis & Volleyball' },
-      { label: 'Position', value: 'Lower-West · Before Pak Studies' },
-      { label: 'Next Above', value: 'West Garden → Hostel → Comp Lab' },
+      { label: 'Position', value: 'Between Hostel & West Garden' },
+      { label: 'Above It', value: 'Hostel → Computer Dept.' },
       { label: 'Activities', value: 'Inter-Class Matches' }
     ],
     highlights: [
-      'Positioned lower down on the West wing so visitors encounter it BEFORE West Garden, Hostel, Pakistan Studies & Urdu',
+      'Positioned between Big College Hostel (above) and West Garden Lawn (below) before Pakistan Studies & Urdu',
       'Marked outdoor Tennis Court for student training and matches',
-      'Full-size Volleyball Ground directly connected to the central walkway and West Garden'
+      'Full-size Volleyball Ground directly connected to the central walkway, Hostel, and West Garden'
     ],
     hotspots: [
       {
         id: 'tennis-court',
         label: 'Tennis Court',
-        description: 'Marked campus tennis court on the lower-west sports lawn.',
+        description: 'Marked campus tennis court between the Hostel and West Garden Lawn.',
         xPercent: 34,
         yPercent: 50
       },
@@ -1313,21 +1313,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 52
       }
     ],
-    locationNote: 'Lower-West Sports Zone · Before West Garden, Hostel & Pak Studies / Urdu',
+    locationNote: 'West Campus · Between Big College Hostel & West Garden Lawn',
     mapX: 17.1,
-    mapY: 74.0,
+    mapY: 60.5,
     gateDirections: {
       turn: 'Turn Left',
-      distanceFromGate: '38 m Left · Before Pak Studies',
+      distanceFromGate: '46 m Left · Between Hostel & West Garden',
       walkingSteps: [
-        'Enter Main Gate (Waiting Room left, Canteen & Central Library right) and walk straight ~20m.',
-        'Turn left onto the West Sports walkway before reaching West Garden, Hostel, Pakistan Studies & Urdu.',
+        'Enter Main Gate (Waiting Room left, Canteen & Central Library right) and walk straight past West Garden Lawn on your left.',
+        'Turn left onto the West Sports walkway between West Garden Lawn and Big College Hostel.',
         'Arrive directly at the Tennis Court & Volleyball Ground.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 74.0 },
-        { x: 17.1, y: 74.0 }
+        { x: 50, y: 60.5 },
+        { x: 17.1, y: 60.5 }
       ]
     }
   },

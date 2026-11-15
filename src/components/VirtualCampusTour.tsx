@@ -45,7 +45,7 @@ import {
   Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v22';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v23';
 
 const EAST_STAIRS_STOP_IDS = new Set([
   'general-staff-room',
@@ -249,7 +249,7 @@ function getSurroundingsAtCoord(
           : '';
     return {
       stageLabel: `${stairNote}Arrived at ${targetStop.shortName || targetStop.name}`,
-      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Central Courtyard · Hostel (Between Computer Dept. & West Garden)',
+      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Central Courtyard · Hostel (Between Computer Dept. & Tennis Court)',
       aheadView: targetStop.locationNote,
       rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Garden (before Clerk), Big Clerk Office Corridor, Principal’s Office → Path to Auditorium Hall · By Stairs: Staff Room, English, Physics, Statistics (before Dark Room), Maths, Islamiat'
     };
@@ -280,10 +280,10 @@ function getSurroundingsAtCoord(
     stageLabel: `Walking toward ${targetStop.shortName || targetStop.name}`,
     leftView:
       y < 52 && y > 36
-        ? 'Central Courtyard Promenade · Big Hostel (Between Computer Department & West Garden Lawn)'
+        ? 'Central Courtyard Promenade · Big Hostel (Between Computer Department & Tennis Court)'
         : x < 45
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Waiting Room, Tennis & Volleyball Courts (Lower-West) & Left 2-Grill Path to Computer Dept.',
+          : 'Waiting Room, West Garden Lawn, Tennis & Volleyball Courts & Left 2-Grill Path to Computer Dept.',
     aheadView: `${targetStop.shortName || targetStop.name} (${targetStop.gateDirections.turn})`,
     rightView:
       y < 82 && y > 58
