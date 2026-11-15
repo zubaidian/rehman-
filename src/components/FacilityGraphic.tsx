@@ -147,10 +147,9 @@ export function FacilityGraphic({
         {facility.svgType === 'sports' && (
           <svg className="w-full h-full" viewBox="0 0 800 500" fill="none" preserveAspectRatio="none">
             <rect width="800" height="500" fill="#053327" />
-            {/* Court boundary */}
-            <rect x="150" y="160" width="500" height="260" rx="8" stroke="#f2d77a" strokeWidth="2" strokeOpacity="0.6" fill="#074435" />
-            <line x1="400" y1="160" x2="400" y2="420" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.7" />
-            <circle cx="400" cy="290" r="50" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.5" />
+            {/* Open Green Playing Ground & Track Oval */}
+            <ellipse cx="400" cy="285" rx="260" ry="135" stroke="#f2d77a" strokeWidth="2.5" strokeOpacity="0.6" strokeDasharray="10 6" fill="#074435" />
+            <ellipse cx="400" cy="285" rx="195" ry="92" stroke="#4ade80" strokeWidth="2" strokeOpacity="0.6" fill="#065f46" fillOpacity="0.55" />
           </svg>
         )}
         {facility.svgType === 'multimedia-room' && (

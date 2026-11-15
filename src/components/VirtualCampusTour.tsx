@@ -349,11 +349,16 @@ interface PointFormState {
 export function VirtualCampusTour() {
   const [stops, setStops] = useState<TourFacility[]>(() => {
     try {
+      localStorage.removeItem('ggzc_campus_tour_map_stops_v29');
+      localStorage.removeItem('ggzc_campus_tour_map_stops_v30');
       const saved = localStorage.getItem(TOUR_STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed;
+          const cleaned = parsed.filter(
+            (s: TourFacility) => s && s.id !== 'tennis-volleyball-grounds'
+          );
+          if (cleaned.length > 0) return cleaned;
         }
       }
     } catch {
