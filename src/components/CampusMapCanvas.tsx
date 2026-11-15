@@ -629,7 +629,7 @@ export function CampusMapCanvas({
             <span>Golden College Boundary Wall</span>
           </span>
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-900/70 border border-emerald-600/70 text-emerald-100">
-            <span>Canteen → Central Library (Right) · Straight: Garden → Big Clerk Office Corridor → Principal &amp; Chemistry Corridor</span>
+            <span>Principal → Chemistry Lab → Stairs → Auditorium (Right) · 1st Floor: Staff Room, English, Physics Lab/Office/Dark Room &amp; Maths</span>
           </span>
         </div>
 
@@ -763,12 +763,12 @@ export function CampusMapCanvas({
               INSIDE COLLEGE | OUTSIDE JAIL →
             </text>
 
-            {/* Vertical Sightline Guide showing Auditorium in direct line below Zoology & Botany */}
+            {/* Vertical Sightline Guide showing Auditorium shifted right under Botany/Zoology line */}
             <line
-              x1="1054"
+              x1="1098"
               y1="104"
-              x2="1054"
-              y2="508"
+              x2="1098"
+              y2="480"
               stroke="#fb7185"
               strokeOpacity="0.28"
               strokeWidth="2.2"
@@ -919,25 +919,45 @@ export function CampusMapCanvas({
               NORTH BIG GROUND &amp; LAWN (FIRST)
             </text>
 
-            {/* ================= NORTH-EAST & RIGHT CORRIDORS ================= */}
+            {/* ================= NORTH-EAST UPPER STRIP: ISLAMIAT & STATISTICS + ASSEMBLY, ZOOLOGY & BOTANY ================= */}
+
+            {/* 11. Islamiat & Islamic Culture (North-East Top Strip) */}
+            <rect x="778" y="30" width="144" height="62" rx="9" fill="#065f46" fillOpacity="0.88" stroke="#34d399" strokeWidth="2.2" />
+            <SolarPanelArray x={880} y={33} w={36} h={9} />
+            <text x="832" y="51" textAnchor="middle" fill="#6ee7b7" fontSize="11.2" fontWeight="900">
+              ISLAMIAT &amp;
+            </text>
+            <text x="850" y="64" textAnchor="middle" fill="#a7f3d0" fontSize="9.8" fontWeight="900">
+              ISLAMIC CULTURE
+            </text>
+
+            {/* 13. Department of Statistics (North-East Top Strip Quantitative Wing) */}
+            <rect x="928" y="30" width="132" height="62" rx="9" fill="#701a75" fillOpacity="0.84" stroke="#e879f9" strokeWidth="2.2" />
+            <SolarPanelArray x={1018} y={33} w={36} h={9} />
+            <text x="976" y="51" textAnchor="middle" fill="#f0abfc" fontSize="11.5" fontWeight="900">
+              STATISTICS
+            </text>
+            <text x="994" y="64" textAnchor="middle" fill="#f5d0fe" fontSize="9.2" fontWeight="800">
+              (Quantitative Dept.)
+            </text>
 
             {/* 16. Assembly Ground, Flag Hoisting, Garden Lawn, Greenhouse & Prayer Room */}
-            <rect x="778" y="102" width="144" height="96" rx="11" fill="url(#lawn-grad)" stroke="#4ade80" strokeWidth="2.4" />
-            <SolarPanelArray x={882} y={106} w={34} h={10} />
-            <rect x="788" y="160" width="24" height="9" rx="2" fill="#d1fae5" fillOpacity="0.88" />
-            <line x1="796" y1="160" x2="796" y2="124" stroke="#fde047" strokeWidth="2.2" strokeLinecap="round" />
-            <circle cx="796" cy="123" r="2.2" fill="#fde047" />
-            <rect x="797" y="125" width="7" height="15" fill="#ffffff" />
-            <rect x="804" y="125" width="18" height="15" fill="#15803d" stroke="#bbf7d0" strokeWidth="0.7" />
-            <circle cx="813" cy="132.5" r="3.2" fill="#ffffff" />
-            <circle cx="814.3" cy="132.2" r="2.6" fill="#15803d" />
-            <path d="M830,164 C830,146 862,146 862,164 Z" fill="#38bdf8" fillOpacity="0.34" stroke="#7dd3fc" strokeWidth="1.4" />
-            <circle cx="898" cy="148" r="10.5" fill="#064e3b" stroke="#86efac" strokeWidth="1.4" />
-            <path d="M900,142.5 A5,5 0 1,0 900,153.5 A3.8,3.8 0 1,1 900,142.5 Z" fill="#fde047" />
-            <text x="832" y="120" textAnchor="middle" fill="#86efac" fontSize="11" fontWeight="900">
+            <rect x="778" y="100" width="144" height="86" rx="11" fill="url(#lawn-grad)" stroke="#4ade80" strokeWidth="2.4" />
+            <SolarPanelArray x={882} y={104} w={34} h={10} />
+            <rect x="788" y="152" width="24" height="9" rx="2" fill="#d1fae5" fillOpacity="0.88" />
+            <line x1="796" y1="152" x2="796" y2="118" stroke="#fde047" strokeWidth="2.2" strokeLinecap="round" />
+            <circle cx="796" cy="117" r="2.2" fill="#fde047" />
+            <rect x="797" y="119" width="7" height="15" fill="#ffffff" />
+            <rect x="804" y="119" width="18" height="15" fill="#15803d" stroke="#bbf7d0" strokeWidth="0.7" />
+            <circle cx="813" cy="126.5" r="3.2" fill="#ffffff" />
+            <circle cx="814.3" cy="126.2" r="2.6" fill="#15803d" />
+            <path d="M830,156 C830,138 862,138 862,156 Z" fill="#38bdf8" fillOpacity="0.34" stroke="#7dd3fc" strokeWidth="1.4" />
+            <circle cx="898" cy="142" r="10.5" fill="#064e3b" stroke="#86efac" strokeWidth="1.4" />
+            <path d="M900,136.5 A5,5 0 1,0 900,147.5 A3.8,3.8 0 1,1 900,136.5 Z" fill="#fde047" />
+            <text x="832" y="117" textAnchor="middle" fill="#86efac" fontSize="10.8" fontWeight="900">
               ASSEMBLY &amp; FLAG
             </text>
-            <text x="850" y="189" textAnchor="middle" fontSize="9.2" fontWeight="900">
+            <text x="850" y="180" textAnchor="middle" fontSize="9.2" fontWeight="900">
               <tspan fill="#bef264">LAWN</tspan>
               <tspan fill="#ffffff"> · </tspan>
               <tspan fill="#7dd3fc">GREENHOUSE</tspan>
@@ -946,83 +966,127 @@ export function CampusMapCanvas({
             </text>
 
             {/* 17 & 18. SEPARATE DEPARTMENTS: Zoology | Botany */}
-            <rect x="928" y="102" width="112" height="96" rx="11" fill="#065f46" fillOpacity="0.84" stroke="#10b981" strokeWidth="2.4" />
-            <SolarPanelArray x={998} y={106} w={36} h={10} />
-            <text x="984" y="130" textAnchor="middle" fill="#a7f3d0" fontSize="12.5" fontWeight="900">
+            <rect x="928" y="100" width="112" height="86" rx="11" fill="#065f46" fillOpacity="0.84" stroke="#10b981" strokeWidth="2.4" />
+            <SolarPanelArray x={998} y={104} w={36} h={10} />
+            <text x="984" y="126" textAnchor="middle" fill="#a7f3d0" fontSize="12.5" fontWeight="900">
               ZOOLOGY
             </text>
-            <text x="984" y="189" textAnchor="middle" fill="#6ee7b7" fontSize="10.2" fontWeight="900">
+            <text x="984" y="180" textAnchor="middle" fill="#6ee7b7" fontSize="10.2" fontWeight="900">
               &amp; ZOO LAB
             </text>
 
-            <rect x="1046" y="102" width="116" height="96" rx="11" fill="#1a2e05" fillOpacity="0.84" stroke="#a3e635" strokeWidth="2.4" />
-            <SolarPanelArray x={1120} y={106} w={36} h={10} />
-            <text x="1104" y="130" textAnchor="middle" fill="#d9f99d" fontSize="12.5" fontWeight="900">
+            <rect x="1046" y="100" width="116" height="86" rx="11" fill="#1a2e05" fillOpacity="0.84" stroke="#a3e635" strokeWidth="2.4" />
+            <SolarPanelArray x={1120} y={104} w={36} h={10} />
+            <text x="1104" y="126" textAnchor="middle" fill="#d9f99d" fontSize="12.5" fontWeight="900">
               BOTANY
             </text>
-            <text x="1104" y="189" textAnchor="middle" fill="#bef264" fontSize="10.2" fontWeight="900">
+            <text x="1104" y="180" textAnchor="middle" fill="#bef264" fontSize="10.2" fontWeight="900">
               &amp; BOTANY LAB
             </text>
 
-            {/* 13, 14, 15. SEPARATE DEPARTMENTS: Statistics | Mathematics | Physics & Dark Room */}
-            <rect x="778" y="208" width="112" height="86" rx="10" fill="#701a75" fillOpacity="0.74" stroke="#e879f9" strokeWidth="2.3" />
-            <SolarPanelArray x={848} y={212} w={36} h={10} />
-            <text x="834" y="232" textAnchor="middle" fill="#f0abfc" fontSize="11.8" fontWeight="900">
-              STATISTICS
-            </text>
-            <text x="834" y="286" textAnchor="middle" fill="#f5d0fe" fontSize="9.2" fontWeight="800">
-              (First Quantitative)
+            {/* ================= 1ST FLOOR BUILDING (ABOVE PRINCIPAL & CHEMISTRY): STAFF ROOM | ENGLISH CLASSES | PHYSICS LAB, OFFICE & DARK ROOM | MATHEMATICS ================= */}
+
+            <rect
+              x="642"
+              y="194"
+              width="522"
+              height="96"
+              rx="13"
+              fill="#0f172a"
+              fillOpacity="0.72"
+              stroke="#93c5fd"
+              strokeWidth="2.4"
+            />
+            <rect x="658" y="187" width="388" height="17" rx="5" fill="#1e1b4b" stroke="#93c5fd" strokeWidth="1.4" />
+            <text x="852" y="199" textAnchor="middle" fill="#e0f2fe" fontSize="9.2" fontWeight="900" letterSpacing="0.5">
+              1ST FLOOR BUILDING (VIA STAIRS): STAFF ROOM · ENGLISH · PHYSICS · MATHS
             </text>
 
-            <rect x="896" y="208" width="110" height="86" rx="10" fill="#115e59" fillOpacity="0.78" stroke="#2dd4bf" strokeWidth="2.3" />
-            <SolarPanelArray x={964} y={212} w={36} h={10} />
-            <text x="951" y="232" textAnchor="middle" fill="#99f6e4" fontSize="11.5" fontWeight="900">
+            {/* 10. General Staff Room (1st Floor) */}
+            <rect x="648" y="210" width="100" height="74" rx="9" fill="#1e1b4b" fillOpacity="0.88" stroke="#818cf8" strokeWidth="2.2" />
+            <SolarPanelArray x={706} y={214} w={36} h={9} />
+            <text x="698" y="232" textAnchor="middle" fill="#a5b4fc" fontSize="11" fontWeight="900">
+              GENERAL
+            </text>
+            <text x="698" y="245" textAnchor="middle" fill="#c7d2fe" fontSize="10.6" fontWeight="900">
+              STAFF ROOM
+            </text>
+
+            {/* 12. English Classes (1st Floor) */}
+            <rect x="754" y="210" width="96" height="74" rx="9" fill="#831843" fillOpacity="0.84" stroke="#f472b6" strokeWidth="2.2" />
+            <SolarPanelArray x={808} y={214} w={36} h={9} />
+            <text x="802" y="232" textAnchor="middle" fill="#f9a8d4" fontSize="11.2" fontWeight="900">
+              ENGLISH
+            </text>
+            <text x="802" y="245" textAnchor="middle" fill="#fbcfe8" fontSize="10.2" fontWeight="900">
+              CLASSES
+            </text>
+
+            {/* 15. Physics Lab, Physics Office & Dark Room (1st Floor) */}
+            <rect x="856" y="210" width="192" height="74" rx="9" fill="#1e3a8a" fillOpacity="0.86" stroke="#60a5fa" strokeWidth="2.2" />
+            <SolarPanelArray x={862} y={213} w={34} h={9} />
+            <rect x="862" y="232" width="60" height="44" rx="5" fill="#1d4ed8" fillOpacity="0.48" stroke="#93c5fd" strokeWidth="1" />
+            <text x="892" y="256" textAnchor="middle" fill="#dbeafe" fontSize="8.8" fontWeight="900">
+              PHYSICS LAB
+            </text>
+            <rect x="926" y="232" width="58" height="44" rx="5" fill="#1e40af" fillOpacity="0.6" stroke="#bae6fd" strokeWidth="1" />
+            <text x="955" y="251" textAnchor="middle" fill="#fef08a" fontSize="8.2" fontWeight="900">
+              PHYSICS
+            </text>
+            <text x="955" y="262" textAnchor="middle" fill="#fef08a" fontSize="8.2" fontWeight="900">
+              OFFICE
+            </text>
+            <rect x="988" y="232" width="54" height="44" rx="5" fill="#020617" stroke="#93c5fd" strokeWidth="1.2" />
+            <text x="1015" y="251" textAnchor="middle" fill="#fde047" fontSize="8.2" fontWeight="900">
+              DARK
+            </text>
+            <text x="1015" y="262" textAnchor="middle" fill="#fde047" fontSize="8.2" fontWeight="900">
+              ROOM
+            </text>
+            <text x="970" y="225" textAnchor="middle" fill="#93c5fd" fontSize="10.8" fontWeight="900">
+              PHYSICS LAB · OFFICE · DARK ROOM
+            </text>
+
+            {/* 14. Department of Mathematics (1st Floor) */}
+            <rect x="1054" y="210" width="104" height="74" rx="9" fill="#115e59" fillOpacity="0.84" stroke="#2dd4bf" strokeWidth="2.2" />
+            <SolarPanelArray x={1116} y={214} w={36} h={9} />
+            <text x="1106" y="233" textAnchor="middle" fill="#99f6e4" fontSize="10.8" fontWeight="900">
               MATHEMATICS
             </text>
-
-            <rect x="1014" y="208" width="148" height="86" rx="10" fill="#1e3a8a" fillOpacity="0.8" stroke="#60a5fa" strokeWidth="2.3" />
-            <SolarPanelArray x={1020} y={212} w={34} h={10} />
-            <rect x="1118" y="216" width="36" height="24" rx="4" fill="#020617" stroke="#93c5fd" strokeWidth="1.3" />
-            <text x="1088" y="232" textAnchor="middle" fill="#93c5fd" fontSize="12" fontWeight="900">
-              PHYSICS &amp; LAB
-            </text>
-            <text x="1088" y="286" textAnchor="middle" fill="#fde047" fontSize="10.4" fontWeight="900">
-              + OPTICS DARK ROOM
+            <text x="1106" y="276" textAnchor="middle" fill="#ccfbf1" fontSize="8.8" fontWeight="800">
+              (1ST FLOOR)
             </text>
 
-            {/* ================= CORRIDOR OF PRINCIPAL'S OFFICE + CHEMISTRY OFFICE & LAB + 1ST FLOOR ================= */}
+            {/* ================= GROUND FLOOR: PRINCIPAL'S OFFICE → CHEMISTRY LAB (IN LINE) → STAIRS IN BETWEEN → AUDITORIUM HALL (SHIFTED RIGHT) ================= */}
 
-            {/* 07. Chemistry Office & Chemistry Labs (Left of Corridor Opposite Principal's Office) */}
-            <rect x="144" y="302" width="332" height="82" rx="12" fill="#164e63" fillOpacity="0.84" stroke="#22d3ee" strokeWidth="2.6" />
-            <rect x="152" y="328" width="194" height="36" rx="7" fill="#0e7490" fillOpacity="0.58" stroke="#67e8f9" strokeOpacity="0.7" strokeWidth="1.2" />
-            <text x="249" y="349" textAnchor="middle" fill="#cffafe" fontSize="10.5" fontWeight="900">
-              CHEMISTRY LAB
+            {/* Open Shaded West Courtyard Plaza (Gives Clear Space & Connects Girls Computer Lab Path + West Lawn to Principal Corridor) */}
+            <rect
+              x="362"
+              y="324"
+              width="270"
+              height="52"
+              rx="10"
+              fill="#022c22"
+              fillOpacity="0.58"
+              stroke="#34d399"
+              strokeOpacity="0.45"
+              strokeWidth="1.4"
+              strokeDasharray="6 4"
+            />
+            <text x="497" y="346" textAnchor="middle" fill="#a7f3d0" fontSize="10.6" fontWeight="900">
+              CENTRAL COURTYARD &amp; PROMENADE
             </text>
-            <rect x="352" y="328" width="116" height="36" rx="7" fill="#155e75" fillOpacity="0.75" stroke="#a5f3fc" strokeOpacity="0.75" strokeWidth="1.2" />
-            <text x="410" y="349" textAnchor="middle" fill="#fef08a" fontSize="10.2" fontWeight="900">
-              CHEM. OFFICE
-            </text>
-            <SolarPanelArray x={430} y={306} w={40} h={10} />
-            <text x="294" y="321" textAnchor="middle" fill="#67e8f9" fontSize="12.8" fontWeight="900">
-              CHEMISTRY OFFICE &amp; LABS
-            </text>
-            <text x="310" y="378" textAnchor="middle" fill="#a5f3fc" fontSize="10.2" fontWeight="800">
-              (Corridor Connects Chemistry Office &amp; Lab ↔ Principal&rsquo;s Office)
-            </text>
-
-            {/* Main Horizontal Corridor Connecting Chemistry Office & Lab <-> Principal's Office */}
-            <rect x="476" y="330" width="166" height="22" rx="6" fill="#0f172a" fillOpacity="0.88" stroke="#cbd5e1" strokeOpacity="0.75" strokeWidth="1.5" />
-            <text x="559" y="344.5" textAnchor="middle" fill="#fef08a" fontSize="8.8" fontWeight="900" letterSpacing="0.3">
-              PRINCIPAL / CHEM CORRIDOR ↔
+            <text x="497" y="364" textAnchor="middle" fill="#fef08a" fontSize="9.2" fontWeight="800">
+              → PRINCIPAL&rsquo;S OFFICE &amp; CHEMISTRY LAB IN LINE
             </text>
 
             {/* 09. PRINCIPAL'S OFFICE (EXTRA BIG & ROYAL BRIGHT GOLDEN LANDMARK) */}
             <rect
               x="642"
-              y="292"
-              width="192"
-              height="94"
-              rx="15"
+              y="298"
+              width="156"
+              height="106"
+              rx="14"
               fill="url(#gold-principal-grad)"
               fillOpacity="0.94"
               stroke="#fef08a"
@@ -1030,126 +1094,159 @@ export function CampusMapCanvas({
             />
             <rect
               x="648"
-              y="298"
-              width="180"
-              height="82"
-              rx="11"
+              y="304"
+              width="144"
+              height="94"
+              rx="10"
               fill="#451a03"
               fillOpacity="0.45"
               stroke="#fde047"
               strokeWidth="1.5"
             />
-            <SolarPanelArray x={652} y={301} w={38} h={10} />
+            <SolarPanelArray x={652} y={307} w={36} h={9.5} />
             <polygon
-              points="808,301 812,310 822,310 814,316 817,325 808,320 799,325 802,316 794,310 804,310"
+              points="774,307 778,315 787,315 780,321 783,329 774,324 765,329 768,321 761,315 770,315"
               fill="#fef08a"
               stroke="#92400e"
               strokeWidth="1"
             />
-            <text x="738" y="326" textAnchor="middle" fill="#fef9c3" fontSize="15.2" fontWeight="900" letterSpacing="0.6">
+            <text x="720" y="335" textAnchor="middle" fill="#fef9c3" fontSize="13.8" fontWeight="900" letterSpacing="0.5">
               PRINCIPAL&rsquo;S OFFICE
             </text>
-            <text x="738" y="374" textAnchor="middle" fill="#fef08a" fontSize="10.8" fontWeight="900">
-              EXECUTIVE SUITE · BIG GOLDEN HALL
+            <text x="720" y="392" textAnchor="middle" fill="#fef08a" fontSize="9.8" fontWeight="900">
+              GOLDEN EXECUTIVE HALL
             </text>
 
-            {/* 10. General Staff Room (1st Floor) */}
-            <rect x="842" y="298" width="100" height="82" rx="10" fill="#1e1b4b" fillOpacity="0.82" stroke="#818cf8" strokeWidth="2.3" />
-            <SolarPanelArray x={900} y={302} w={36} h={10} />
-            <text x="892" y="322" textAnchor="middle" fill="#a5b4fc" fontSize="11.2" fontWeight="900">
-              STAFF ROOM
+            {/* 07. CHEMISTRY LAB & CHEMISTRY OFFICE (In Line of Principal's Office Where Auditorium Was!) */}
+            <rect
+              x="806"
+              y="298"
+              width="162"
+              height="106"
+              rx="12"
+              fill="#164e63"
+              fillOpacity="0.9"
+              stroke="#22d3ee"
+              strokeWidth="2.8"
+            />
+            <SolarPanelArray x={922} y={302} w={40} h={9.5} />
+            <rect x="814" y="332" width="90" height="44" rx="6" fill="#0e7490" fillOpacity="0.65" stroke="#67e8f9" strokeWidth="1.2" />
+            <text x="859" y="357" textAnchor="middle" fill="#cffafe" fontSize="10" fontWeight="900">
+              CHEM. LAB
             </text>
-            <text x="892" y="372" textAnchor="middle" fill="#c7d2fe" fontSize="9.4" fontWeight="800">
-              (1st Fl. Right)
+            <rect x="908" y="332" width="52" height="44" rx="6" fill="#155e75" fillOpacity="0.82" stroke="#a5f3fc" strokeWidth="1.2" />
+            <text x="934" y="351" textAnchor="middle" fill="#fef08a" fontSize="8.8" fontWeight="900">
+              CHEM
+            </text>
+            <text x="934" y="363" textAnchor="middle" fill="#fef08a" fontSize="8.8" fontWeight="900">
+              OFFICE
+            </text>
+            <text x="876" y="322" textAnchor="middle" fill="#67e8f9" fontSize="12" fontWeight="900">
+              CHEMISTRY LAB
+            </text>
+            <text x="887" y="396" textAnchor="middle" fill="#a5f3fc" fontSize="9.2" fontWeight="900">
+              (IN LINE OF PRINCIPAL&rsquo;S OFFICE)
             </text>
 
-            {/* 11. Islamiat & Islamic Culture */}
-            <rect x="950" y="298" width="104" height="82" rx="10" fill="#065f46" fillOpacity="0.78" stroke="#34d399" strokeWidth="2.3" />
-            <SolarPanelArray x={1012} y={302} w={36} h={10} />
-            <text x="1002" y="320" textAnchor="middle" fill="#6ee7b7" fontSize="11.2" fontWeight="900">
-              ISLAMIAT &amp;
+            {/* STAIRS IN BETWEEN (Between Chemistry Lab/1st-Floor Wing and Shifted Auditorium Hall) */}
+            <rect
+              x="974"
+              y="298"
+              width="52"
+              height="106"
+              rx="8"
+              fill="#1e293b"
+              fillOpacity="0.96"
+              stroke="#facc15"
+              strokeWidth="2.2"
+            />
+            <line x1="980" y1="316" x2="1020" y2="316" stroke="#fde047" strokeWidth="2.4" />
+            <line x1="980" y1="326" x2="1020" y2="326" stroke="#fde047" strokeWidth="2.4" />
+            <line x1="980" y1="336" x2="1020" y2="336" stroke="#fde047" strokeWidth="2.4" />
+            <line x1="980" y1="346" x2="1020" y2="346" stroke="#fde047" strokeWidth="2.4" />
+            <line x1="980" y1="356" x2="1020" y2="356" stroke="#fde047" strokeWidth="2.4" />
+            <line x1="980" y1="366" x2="1020" y2="366" stroke="#fde047" strokeWidth="2.4" />
+            <line x1="1000" y1="312" x2="1000" y2="370" stroke="#38bdf8" strokeWidth="2" />
+            <polygon points="995,316 1000,306 1005,316" fill="#38bdf8" />
+            <text x="1000" y="384" textAnchor="middle" fill="#fef08a" fontSize="9.4" fontWeight="900">
+              STAIRS
             </text>
-            <text x="1002" y="333" textAnchor="middle" fill="#a7f3d0" fontSize="9.6" fontWeight="900">
-              CULTURE (1st Fl)
+            <text x="1000" y="397" textAnchor="middle" fill="#bae6fd" fontSize="8" fontWeight="900">
+              ↑ 1ST FL
             </text>
 
-            {/* 12. Department of English */}
-            <rect x="1062" y="298" width="100" height="82" rx="10" fill="#831843" fillOpacity="0.78" stroke="#f472b6" strokeWidth="2.3" />
-            <SolarPanelArray x={1118} y={302} w={36} h={10} />
-            <text x="1112" y="322" textAnchor="middle" fill="#f9a8d4" fontSize="12" fontWeight="900">
-              ENGLISH
+            {/* 08. AUDITORIUM HALL (SHIFTED ON THE RIGHT BEYOND THE STAIRS) */}
+            <rect x="1032" y="298" width="132" height="184" rx="12" fill="#881337" fillOpacity="0.86" stroke="#fb7185" strokeWidth="2.8" />
+            <SolarPanelArray x={1118} y={302} w={40} h={10} />
+            <text x="1098" y="330" textAnchor="middle" fill="#fda4af" fontSize="13.2" fontWeight="900">
+              AUDITORIUM
             </text>
-            <text x="1112" y="372" textAnchor="middle" fill="#fbcfe8" fontSize="9.4" fontWeight="800">
-              (1st Floor)
+            <text x="1098" y="346" textAnchor="middle" fill="#fda4af" fontSize="12.6" fontWeight="900">
+              HALL
+            </text>
+            <text x="1098" y="458" textAnchor="middle" fill="#fecdd3" fontSize="9.2" fontWeight="900">
+              SHIFTED RIGHT
+            </text>
+            <text x="1098" y="471" textAnchor="middle" fill="#fecdd3" fontSize="8.8" fontWeight="900">
+              (PAST STAIRS)
             </text>
 
-            {/* ================= ON RIGHT OF CORRIDOR: BIG CLERK OFFICE CORRIDOR + AUDITORIUM BEFORE PRINCIPAL ================= */}
+            {/* ================= ON RIGHT OF CORRIDOR: BIG CLERK OFFICE & BIG CLERK OFFICE CORRIDOR ================= */}
 
-            {/* 04. BIG CLERK OFFICE & BIG CLERK OFFICE CORRIDOR (Right of Principal / Chemistry Corridor) */}
+            {/* 04. BIG CLERK OFFICE & BIG CLERK OFFICE CORRIDOR */}
             <rect
               x="642"
-              y="394"
-              width="296"
-              height="116"
+              y="414"
+              width="326"
+              height="100"
               rx="13"
               fill="#0f292e"
               fillOpacity="0.92"
               stroke="#5eead4"
               strokeWidth="2.8"
             />
-            {/* Wide L-Shaped Big Clerk Office Corridor Gallery (Left & Front Veranda Linking Directly to Principal/Chem Corridor) */}
+            {/* Wide L-Shaped Big Clerk Office Corridor Gallery */}
             <path
-              d="M 644 396 L 710 396 L 710 476 L 936 476 L 936 508 L 644 508 Z"
+              d="M 644 416 L 714 416 L 714 482 L 966 482 L 966 512 L 644 512 Z"
               fill="#134e4a"
-              fillOpacity="0.72"
+              fillOpacity="0.74"
               stroke="#99f6e4"
-              strokeOpacity="0.6"
+              strokeOpacity="0.62"
               strokeWidth="1.4"
               strokeDasharray="6 4"
             />
             {/* Corridor Architectural Pillars */}
-            <circle cx="676" cy="414" r="4.2" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
-            <circle cx="676" cy="444" r="4.2" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
-            <circle cx="676" cy="474" r="4.2" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
-            <circle cx="752" cy="492" r="4.2" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
-            <circle cx="832" cy="492" r="4.2" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
-            <circle cx="912" cy="492" r="4.2" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
-            <text x="792" y="497" textAnchor="middle" fill="#fef08a" fontSize="11.6" fontWeight="900" letterSpacing="0.8">
+            <circle cx="678" cy="432" r="4" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
+            <circle cx="678" cy="458" r="4" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
+            <circle cx="678" cy="484" r="4" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
+            <circle cx="764" cy="498" r="4" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
+            <circle cx="854" cy="498" r="4" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
+            <circle cx="944" cy="498" r="4" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1.2" />
+            <text x="812" y="502" textAnchor="middle" fill="#fef08a" fontSize="11.2" fontWeight="900" letterSpacing="0.7">
               BIG CLERK OFFICE CORRIDOR (RIGHT OF CORRIDOR)
             </text>
 
             {/* Big Clerk Office Main Administrative Wing */}
             <rect
-              x="714"
-              y="398"
-              width="218"
-              height="74"
+              x="718"
+              y="418"
+              width="244"
+              height="62"
               rx="10"
               fill="#115e59"
               fillOpacity="0.92"
               stroke="#2dd4bf"
               strokeWidth="2.4"
             />
-            <SolarPanelArray x={886} y={402} w={40} h={10} />
-            {/* Service Counter Windows */}
-            <rect x="724" y="406" width="22" height="12" rx="2" fill="#042f2e" stroke="#99f6e4" strokeWidth="1" />
-            <rect x="752" y="406" width="22" height="12" rx="2" fill="#042f2e" stroke="#99f6e4" strokeWidth="1" />
-            <rect x="780" y="406" width="22" height="12" rx="2" fill="#042f2e" stroke="#99f6e4" strokeWidth="1" />
-            <text x="822" y="432" textAnchor="middle" fill="#5eead4" fontSize="14.2" fontWeight="900">
+            <SolarPanelArray x={916} y={422} w={40} h={9} />
+            <rect x="728" y="424" width="22" height="10" rx="2" fill="#042f2e" stroke="#99f6e4" strokeWidth="1" />
+            <rect x="756" y="424" width="22" height="10" rx="2" fill="#042f2e" stroke="#99f6e4" strokeWidth="1" />
+            <rect x="784" y="424" width="22" height="10" rx="2" fill="#042f2e" stroke="#99f6e4" strokeWidth="1" />
+            <text x="840" y="446" textAnchor="middle" fill="#5eead4" fontSize="13.8" fontWeight="900">
               BIG CLERK OFFICE
             </text>
-            <text x="822" y="465" textAnchor="middle" fill="#ccfbf1" fontSize="9.8" fontWeight="800">
+            <text x="840" y="473" textAnchor="middle" fill="#ccfbf1" fontSize="9.4" fontWeight="800">
               RECORDS · ADMISSIONS · AFTER GARDEN
-            </text>
-
-            {/* 08. AUDITORIUM HALL (Before Principal's Office, Aligned Vertically Under Zoology & Botany) */}
-            <rect x="946" y="394" width="216" height="116" rx="12" fill="#881337" fillOpacity="0.82" stroke="#fb7185" strokeWidth="2.6" />
-            <SolarPanelArray x={1114} y={398} w={40} h={10} />
-            <text x="1054" y="422" textAnchor="middle" fill="#fda4af" fontSize="14" fontWeight="900">
-              AUDITORIUM HALL
-            </text>
-            <text x="1054" y="496" textAnchor="middle" fill="#fecdd3" fontSize="9.8" fontWeight="900">
-              (BEFORE PRINCIPAL · ZOO/BOTANY LINE)
             </text>
 
             {/* Lush Green West Garden Lawn & Shaded Trees */}
@@ -1163,12 +1260,12 @@ export function CampusMapCanvas({
 
             {/* ================= GARDEN BEFORE CLERK OFFICE (RIGHT OF CORRIDOR) ================= */}
 
-            <rect x="642" y="520" width="296" height="94" rx="13" fill="url(#lawn-grad)" stroke="#4ade80" strokeWidth="2.6" />
-            <circle cx="678" cy="552" r="14" fill="#22c55e" fillOpacity="0.78" stroke="#bbf7d0" strokeWidth="1.5" />
-            <circle cx="790" cy="542" r="13" fill="#22c55e" fillOpacity="0.78" stroke="#bbf7d0" strokeWidth="1.5" />
-            <circle cx="902" cy="552" r="14" fill="#22c55e" fillOpacity="0.78" stroke="#bbf7d0" strokeWidth="1.5" />
+            <rect x="642" y="524" width="326" height="90" rx="13" fill="url(#lawn-grad)" stroke="#4ade80" strokeWidth="2.6" />
+            <circle cx="682" cy="554" r="14" fill="#22c55e" fillOpacity="0.78" stroke="#bbf7d0" strokeWidth="1.5" />
+            <circle cx="805" cy="544" r="13" fill="#22c55e" fillOpacity="0.78" stroke="#bbf7d0" strokeWidth="1.5" />
+            <circle cx="928" cy="554" r="14" fill="#22c55e" fillOpacity="0.78" stroke="#bbf7d0" strokeWidth="1.5" />
             {/* Gardener 1 in Garden */}
-            <g transform="translate(734, 562)">
+            <g transform="translate(744, 562)">
               <circle cx="0" cy="0" r="11" fill="#052e16" stroke="#a3e635" strokeWidth="1.5" />
               <ellipse cx="0" cy="-4.2" rx="6.2" ry="1.9" fill="#fde047" />
               <circle cx="0" cy="-1.8" r="2.5" fill="#fef3c7" />
@@ -1176,17 +1273,17 @@ export function CampusMapCanvas({
               <rect x="4" y="0.9" width="4" height="3" rx="0.6" fill="#38bdf8" />
             </g>
             {/* Gardener 2 in Garden */}
-            <g transform="translate(848, 562)">
+            <g transform="translate(868, 562)">
               <circle cx="0" cy="0" r="11" fill="#052e16" stroke="#a3e635" strokeWidth="1.5" />
               <ellipse cx="0" cy="-4.2" rx="6.2" ry="1.9" fill="#fde047" />
               <circle cx="0" cy="-1.8" r="2.5" fill="#fef3c7" />
               <path d="M-4,5 C-4,1 4,1 4,5 Z" fill="#22c55e" />
               <circle cx="-5.8" cy="2.2" r="2" fill="#f472b6" />
             </g>
-            <text x="790" y="596" textAnchor="middle" fill="#dcfce7" fontSize="13.2" fontWeight="900">
+            <text x="805" y="594" textAnchor="middle" fill="#dcfce7" fontSize="13.2" fontWeight="900">
               GARDEN &amp; GARDENERS (BEFORE CLERK OFFICE)
             </text>
-            <text x="790" y="610" textAnchor="middle" fill="#fef08a" fontSize="9.4" fontWeight="900">
+            <text x="805" y="608" textAnchor="middle" fill="#fef08a" fontSize="9.4" fontWeight="900">
               ON RIGHT OF CORRIDOR · BEFORE BIG CLERK OFFICE CORRIDOR
             </text>
 
@@ -1195,7 +1292,7 @@ export function CampusMapCanvas({
             <rect
               x="642"
               y="624"
-              width="296"
+              width="308"
               height="48"
               rx="10"
               fill="#022c22"
@@ -1207,10 +1304,10 @@ export function CampusMapCanvas({
             />
             <line x1="658" y1="648" x2="730" y2="648" stroke="#fde047" strokeWidth="2.4" strokeDasharray="5 4" />
             <polygon points="730,643 740,648 730,653" fill="#fde047" />
-            <text x="836" y="643" textAnchor="middle" fill="#fef08a" fontSize="11.6" fontWeight="900">
+            <text x="840" y="643" textAnchor="middle" fill="#fef08a" fontSize="11.6" fontWeight="900">
               ~25m WALKING DISTANCE
             </text>
-            <text x="836" y="661" textAnchor="middle" fill="#a7f3d0" fontSize="9.4" fontWeight="800">
+            <text x="840" y="661" textAnchor="middle" fill="#a7f3d0" fontSize="9.4" fontWeight="800">
               Straight Past Canteen → Garden → Clerk Corridor
             </text>
 
@@ -1283,11 +1380,11 @@ export function CampusMapCanvas({
 
             {/* Branch to Garden (Before Clerk Office) on Right */}
             <line x1="600" y1="567" x2="642" y2="567" stroke="#94a3b8" strokeOpacity="0.34" strokeWidth="14" strokeLinecap="round" />
-            {/* Branch into Big Clerk Office Corridor -> Auditorium Hall before Principal */}
-            <line x1="600" y1="492" x2="644" y2="492" stroke="#cbd5e1" strokeOpacity="0.45" strokeWidth="16" strokeLinecap="round" />
-            <line x1="938" y1="452" x2="1054" y2="452" stroke="#94a3b8" strokeOpacity="0.32" strokeWidth="14" strokeLinecap="round" />
-            {/* Vertical Connector Linking Big Clerk Office Corridor Straight Up into Principal & Chemistry Corridor */}
-            <line x1="676" y1="396" x2="676" y2="340" stroke="#cbd5e1" strokeOpacity="0.42" strokeWidth="16" strokeLinecap="round" />
+            {/* Branch into Big Clerk Office Corridor */}
+            <line x1="600" y1="496" x2="644" y2="496" stroke="#cbd5e1" strokeOpacity="0.45" strokeWidth="16" strokeLinecap="round" />
+            {/* Vertical Connector Linking Big Clerk Office Corridor up to Principal's Office, Chemistry Lab & Stairs */}
+            <line x1="678" y1="416" x2="678" y2="351" stroke="#cbd5e1" strokeOpacity="0.42" strokeWidth="16" strokeLinecap="round" />
+            <line x1="968" y1="452" x2="1032" y2="452" stroke="#94a3b8" strokeOpacity="0.32" strokeWidth="13" strokeLinecap="round" />
 
             {/* CENTRAL TWIN PATHS SEPARATED BY SMALL GRILL (X=582 & X=618, Y=670 -> Y=210) */}
             <line x1="582" y1="670" x2="582" y2="210" stroke="#cbd5e1" strokeOpacity="0.38" strokeWidth="15" strokeLinecap="round" />
@@ -1318,14 +1415,16 @@ export function CampusMapCanvas({
               SMALL GRILL
             </text>
 
-            {/* Principal's Office & Chemistry Office/Lab Horizontal Corridor */}
-            <line x1="310" y1="340" x2="1112" y2="340" stroke="#94a3b8" strokeOpacity="0.36" strokeWidth="16" strokeLinecap="round" />
+            {/* Horizontal Corridor Connecting Central Courtyard -> Principal's Office -> Chemistry Lab -> Stairs -> Auditorium */}
+            <line x1="362" y1="351" x2="1098" y2="351" stroke="#94a3b8" strokeOpacity="0.36" strokeWidth="16" strokeLinecap="round" />
 
-            {/* Upper-Right Academic & Life-Science Connections */}
-            <line x1="738" y1="306" x2="738" y2="250" stroke="#94a3b8" strokeOpacity="0.28" strokeWidth="12" strokeLinecap="round" />
-            <line x1="738" y1="250" x2="1088" y2="250" stroke="#94a3b8" strokeOpacity="0.3" strokeWidth="12" strokeLinecap="round" />
-            <line x1="600" y1="210" x2="850" y2="150" stroke="#94a3b8" strokeOpacity="0.28" strokeWidth="12" strokeLinecap="round" />
-            <line x1="850" y1="150" x2="1104" y2="150" stroke="#94a3b8" strokeOpacity="0.3" strokeWidth="12" strokeLinecap="round" />
+            {/* Stairs Vertical Link up to 1st Floor Building + Top North-East Links */}
+            <line x1="1000" y1="300" x2="1000" y2="245" stroke="#fde047" strokeOpacity="0.38" strokeWidth="12" strokeLinecap="round" />
+            <line x1="698" y1="245" x2="1106" y2="245" stroke="#94a3b8" strokeOpacity="0.3" strokeWidth="12" strokeLinecap="round" />
+            <line x1="600" y1="210" x2="850" y2="142" stroke="#94a3b8" strokeOpacity="0.28" strokeWidth="12" strokeLinecap="round" />
+            <line x1="850" y1="142" x2="1104" y2="142" stroke="#94a3b8" strokeOpacity="0.3" strokeWidth="12" strokeLinecap="round" />
+            <line x1="850" y1="102" x2="850" y2="60" stroke="#94a3b8" strokeOpacity="0.26" strokeWidth="10" strokeLinecap="round" />
+            <line x1="850" y1="60" x2="994" y2="60" stroke="#94a3b8" strokeOpacity="0.26" strokeWidth="10" strokeLinecap="round" />
 
             {/* LEFT PATH BETWEEN TWO GRILLS -> GIRLS WALKING ON PATH OF COMPUTER LAB */}
             <line x1="582" y1="244" x2="504" y2="244" stroke="#cbd5e1" strokeOpacity="0.4" strokeWidth="12" strokeLinecap="round" />

@@ -45,7 +45,7 @@ import {
   Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v16';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v17';
 
 function buildWalkRouteBetween(
   fromPos: { x: number; y: number },
@@ -191,9 +191,9 @@ function getSurroundingsAtCoord(
   if (progress >= 0.96) {
     return {
       stageLabel: `Arrived at ${targetStop.shortName || targetStop.name}`,
-      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Chemistry Office & Labs across Corridor',
+      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Central Courtyard & West Lawn',
       aheadView: targetStop.locationNote,
-      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Garden (before Clerk), Big Clerk Office Corridor, Auditorium & Golden Principal’s Office'
+      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Garden (before Clerk), Big Clerk Office Corridor, Principal’s Office → Chemistry Lab → Stairs → Auditorium'
     };
   }
 
@@ -201,7 +201,7 @@ function getSurroundingsAtCoord(
     stageLabel: `Walking toward ${targetStop.shortName || targetStop.name}`,
     leftView:
       y < 52 && y > 36
-        ? 'Chemistry Office & Chemistry Labs (In Line Left)'
+        ? 'Central Courtyard Promenade & West Garden Lawn'
         : x < 45
           ? `${targetStop.shortName || targetStop.name}`
           : 'Waiting Room & Left 2-Grill Path (Girls Walking toward Computer Lab & Hostel)',
@@ -211,7 +211,7 @@ function getSurroundingsAtCoord(
         ? 'Canteen & Central Library passed · Garden & Gardeners before Big Clerk Office Corridor'
         : x > 55
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Big Clerk Office Corridor, Auditorium, Golden Principal’s Office, Staff Room, Islamiat, English, Stats & Maths'
+          : 'Big Clerk Office Corridor, Principal’s Office, Chemistry Lab, Stairs, Auditorium & 1st Floor (Staff Room, English, Physics Lab/Office/Dark Room, Maths)'
   };
 }
 

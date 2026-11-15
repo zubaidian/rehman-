@@ -80,23 +80,23 @@ export const GATE_TO_PRINCIPAL_CHECKPOINTS: SimulationCheckpoint[] = [
   {
     progress: 0.56,
     label: 'Garden & Gardeners on Right (Before Big Clerk Office Corridor)',
-    leftView: 'West Garden Lawn & Chemistry Office & Labs ahead',
-    aheadView: 'Big Clerk Office Corridor & Principal / Chemistry Corridor straight ahead',
+    leftView: 'West Garden Lawn & Central Courtyard ahead',
+    aheadView: 'Big Clerk Office Corridor & Principal’s Office / Chemistry Lab line ahead',
     rightView: 'Garden & Gardeners on right right BEFORE Big Clerk Office & Corridor'
   },
   {
     progress: 0.80,
-    label: 'Passing Big Clerk Office Corridor & Auditorium Hall',
-    leftView: 'Chemistry Office & Chemistry Labs directly across corridor',
+    label: 'Passing Big Clerk Office Corridor Toward Principal & Chemistry Line',
+    leftView: 'Central Courtyard & Left 2-Grill Computer Lab Path ahead',
     aheadView: 'Big Ground & Green Lawn FIRST, then Sindhi, Economics & Physiology straight north',
-    rightView: 'Big Clerk Office Corridor & Auditorium Hall (in Zoology/Botany line) before Principal’s Office'
+    rightView: 'Big Clerk Office Corridor · Principal’s Office, Chemistry Lab, Stairs & Auditorium right'
   },
   {
     progress: 1,
-    label: 'Arrived at Grand Golden Principal’s Office (Corridor of Principal & Chemistry Office/Lab)',
-    leftView: 'Chemistry Office & Chemistry Labs across Principal/Chemistry Corridor',
+    label: 'Arrived at Grand Golden Principal’s Office (In Line with Chemistry Lab, Stairs & Auditorium)',
+    leftView: 'Central Courtyard Promenade directly across',
     aheadView: 'Straight north: Big Ground & Lawn first, then Sindhi, Economics & Physiology',
-    rightView: 'Principal’s Office · Big Clerk Office Corridor right behind · 1st Floor Staff Room, Islamiat, English'
+    rightView: 'Principal’s Office → Chemistry Lab → Stairs → Auditorium Hall · 1st Floor: Staff Room, English, Physics Lab/Office/Dark Room & Maths'
   }
 ];
 
@@ -311,22 +311,22 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 68
       }
     ],
-    locationNote: 'After Garden · Big Corridor on Right of Principal/Chemistry Corridor',
-    mapX: 68.5,
-    mapY: 51.9,
+    locationNote: 'After Garden · Big Corridor Below Principal & Chemistry Line',
+    mapX: 70.0,
+    mapY: 53.5,
     gateDirections: {
       turn: 'Turn Right',
       distanceFromGate: '46 m Straight · After Garden',
       walkingSteps: [
         'Enter Main Gate (Canteen & Central Library on your right) and walk across ~25m walking distance.',
         'Pass the Garden & Gardeners on your right (located directly before Clerk Office).',
-        'Step into the Big Clerk Office Corridor on the right side just below the Principal & Chemistry Corridor.'
+        'Step into the Big Clerk Office Corridor right below the Principal & Chemistry Lab line.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 58.6 },
-        { x: 68.5, y: 58.6 },
-        { x: 68.5, y: 51.9 }
+        { x: 50, y: 59.0 },
+        { x: 70.0, y: 59.0 },
+        { x: 70.0, y: 53.5 }
       ]
     }
   },
@@ -450,25 +450,25 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
   },
   {
     id: 'chemistry-labs',
-    name: 'Chemistry Office & Chemistry Labs',
-    shortName: 'Chemistry Office & Labs',
-    subtitle: 'Left Side of Principal & Chemistry Corridor · Facing Principal’s Office',
+    name: 'Chemistry Lab & Chemistry Office',
+    shortName: 'Chemistry Lab',
+    subtitle: 'Right In Line of Principal’s Office · Before Stairs & Shifted Auditorium Hall',
     category: 'Laboratories',
     stopNumber: '07',
     svgType: 'science-lab',
-    badge: 'Chemistry Corridor · Office & Labs',
+    badge: 'In Line of Principal · Before Stairs',
     description:
-      'Directly across the horizontal corridor from the Principal’s Office stand the Chemistry Office and Chemistry Laboratories equipped with titration benches, reagent chambers, and fume hoods.',
+      'Located right in line beside the Principal’s Office (where the earlier hall stood), the Chemistry Lab and Chemistry Office house titration benches, reagent chambers, and fume hoods—with the Staircase in between leading to the 1st floor and the shifted Auditorium Hall further right.',
     keySpecs: [
-      { label: 'Wing Layout', value: 'Chemistry Office + Labs' },
-      { label: 'Corridor', value: 'Faces Principal’s Office' },
-      { label: 'Safety', value: 'Fume Hoods & Eye-Wash' },
+      { label: 'Alignment', value: 'In Line of Principal’s Office' },
+      { label: 'Next Right', value: 'Stairs → Auditorium Hall' },
+      { label: 'Above (1st Fl)', value: 'Staff Room, English, Physics & Maths' },
       { label: 'Capacity', value: '40 Students / Lab' }
     ],
     highlights: [
-      'Contains both the dedicated Chemistry Office and practical Chemistry Labs',
-      'Linked straight across the central corridor to the Principal’s Office and Big Clerk Office Corridor',
-      'Rooftop solar panels powering laboratory instrumentation and ventilation'
+      'Positioned directly in line beside Principal’s Office on the Ground Floor',
+      'Houses both the Chemistry Practical Lab and Chemistry Office',
+      'Staircase sits immediately to the right between Chemistry Lab and Auditorium Hall'
     ],
     hotspots: [
       {
@@ -481,27 +481,26 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       {
         id: 'chem-hood',
         label: 'Chemistry Faculty Office',
-        description: 'Chemistry department faculty & preparation office beside the corridor.',
+        description: 'Chemistry department faculty & preparation office right beside the stairs.',
         xPercent: 78,
         yPercent: 48
       }
     ],
-    locationNote: 'Left Side · Corridor of Principal’s Office & Chemistry Office/Lab',
-    mapX: 25.8,
-    mapY: 41.0,
+    locationNote: 'Ground Floor · In Line of Principal’s Office (Before Stairs)',
+    mapX: 73.9,
+    mapY: 41.8,
     gateDirections: {
-      turn: 'Turn Left',
-      distanceFromGate: '56 m Straight · Left',
+      turn: 'Turn Right',
+      distanceFromGate: '58 m Straight · Right',
       walkingSteps: [
         'Walk straight along the twin grill paths past the Garden and Big Clerk Office Corridor.',
-        'At the Principal & Chemistry Corridor, turn left across from Principal’s Office.',
-        'Enter the Chemistry Office & Chemistry Labs.'
+        'Turn right past the Golden Principal’s Office along the same line.',
+        'Enter the Chemistry Lab & Office immediately before the Stairs and Auditorium Hall.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 67.5 },
-        { x: 50, y: 41.0 },
-        { x: 25.8, y: 41.0 }
+        { x: 50, y: 41.8 },
+        { x: 73.9, y: 41.8 }
       ]
     }
   },
@@ -509,22 +508,22 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'auditorium-hall',
     name: 'College Auditorium Hall',
     shortName: 'Auditorium Hall',
-    subtitle: 'Beside Big Clerk Office Corridor · Before Principal · In Line with Zoology & Botany',
+    subtitle: 'Shifted on the Right Past the Stairs In Between · In Line of Zoology & Botany',
     category: 'Student Life',
     stopNumber: '08',
     svgType: 'auditorium',
-    badge: 'Before Principal · Zoology/Botany Line',
+    badge: 'Shifted Right · Past Stairs In Between',
     description:
-      'Positioned on the right sector beside the Big Clerk Office Corridor immediately before the Principal’s Office line and aligned directly in the vertical corridor of Zoology and Botany, the College Auditorium Hall hosts convocations, Seerat conferences, debates, and prize ceremonies.',
+      'Shifted to the far right wing just past the central Staircase (in between Chemistry Lab / 1st-Floor Wing and Auditorium Hall) and aligned vertically beneath Zoology & Botany, the College Auditorium Hall hosts convocations, Seerat conferences, and prize ceremonies.',
     keySpecs: [
       { label: 'Seating', value: '600+ Attendees' },
-      { label: 'Position', value: 'Before Principal’s Office' },
-      { label: 'Alignment', value: 'In Line of Zoology & Botany' },
-      { label: 'Events', value: 'Convocations & Debates' }
+      { label: 'Position', value: 'Shifted Right Past Stairs' },
+      { label: 'In Between', value: 'Stairs to 1st Floor Wing' },
+      { label: 'Alignment', value: 'Zoology & Botany Line' }
     ],
     highlights: [
-      'Positioned right before the Principal’s Office in vertical alignment with Zoology & Botany',
-      'Accessible directly through the Big Clerk Office Corridor on the right',
+      'Shifted to the right beyond the Stairs sitting in between Chemistry Lab and Auditorium',
+      'Directly in vertical alignment below the Botany & Zoology labs',
       'Elevated stage with formal Principal podium and solar-powered acoustics'
     ],
     hotspots: [
@@ -543,22 +542,22 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 72
       }
     ],
-    locationNote: 'Right Sector · In Line with Zoology & Botany (Past Big Clerk Corridor)',
-    mapX: 87.8,
-    mapY: 53.8,
+    locationNote: 'Far Right Wing · Past Stairs (Below Botany & Zoology Line)',
+    mapX: 91.5,
+    mapY: 46.3,
     gateDirections: {
-      turn: 'Bear Right',
-      distanceFromGate: '54 m Straight · Right',
+      turn: 'Turn Right',
+      distanceFromGate: '68 m Straight · Far Right',
       walkingSteps: [
-        'Walk straight along the twin grill paths past the Garden into the Big Clerk Office Corridor.',
-        'Continue right along the Big Clerk Office Corridor directly under Zoology & Botany.',
-        'Enter the College Auditorium Hall before the Principal’s Office line.'
+        'Walk straight along the twin grill paths past the Garden and Big Clerk Office Corridor.',
+        'Pass the Principal’s Office, Chemistry Lab & Office, and the Stairs in between.',
+        'Enter the Auditorium Hall shifted on the far right.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 58.6 },
-        { x: 87.8, y: 58.6 },
-        { x: 87.8, y: 53.8 }
+        { x: 50, y: 41.8 },
+        { x: 83.3, y: 41.8 },
+        { x: 91.5, y: 46.3 }
       ]
     }
   },
@@ -566,23 +565,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'principal-office',
     name: 'Principal’s Office & Executive Suite',
     shortName: 'Principal’s Office',
-    subtitle: 'Grand Golden Landmark Along Principal & Chemistry Corridor · Right Side',
+    subtitle: 'Grand Golden Landmark · Directly In Line with Chemistry Lab, Stairs & Auditorium',
     category: 'Administration',
     stopNumber: '09',
     svgType: 'principal-office',
     badge: 'Executive Suite · Right Side',
     description:
-      'Walking straight past the Garden and Big Clerk Office Corridor brings you to the prominent Golden Principal’s Office on your right along the Principal & Chemistry Corridor—executive office of Principal Prof. Yasmeen Panhwar, facing the Chemistry Office & Labs on the left.',
+      'Walking straight past the Garden and Big Clerk Office Corridor brings you to the prominent Golden Principal’s Office—the executive office of Principal Prof. Yasmeen Panhwar—sitting directly in line with the Chemistry Lab, Stairs in between, and the shifted Auditorium Hall on the right.',
     keySpecs: [
       { label: 'Principal', value: 'Prof. Yasmeen Panhwar' },
-      { label: 'Direction', value: 'Straight · Past Clerk Corridor' },
-      { label: 'Opposite Left', value: 'Chemistry Office & Labs' },
+      { label: 'In Line Right', value: 'Chemistry Lab → Stairs → Auditorium' },
+      { label: 'Above (1st Fl)', value: 'Staff Room, English, Physics, Maths' },
       { label: 'Office Hours', value: '8:00 AM – 2:00 PM' }
     ],
     highlights: [
-      'Positioned prominently on the right side right past the Garden & Big Clerk Office Corridor',
-      'Directly in line across the corridor with Chemistry Office & Chemistry Labs',
-      'Connected to General Staff Room, Islamiat, English, Statistics & Mathematics'
+      'Positioned prominently right past the Garden & Big Clerk Office Corridor',
+      'Directly in line on the right with Chemistry Lab, Stairs, and Auditorium Hall',
+      'Stairs in between lead up to 1st Floor: General Staff Room, English Classes, Physics Lab/Office/Dark Room & Mathematics'
     ],
     hotspots: [
       {
@@ -600,45 +599,45 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 34
       }
     ],
-    locationNote: 'Right Side · Corridor of Principal’s Office & Chemistry Office/Lab',
-    mapX: 61.5,
-    mapY: 40.4,
+    locationNote: 'Right Side · In Line with Chemistry Lab, Stairs & Auditorium Hall',
+    mapX: 60.0,
+    mapY: 41.8,
     gateDirections: {
       turn: 'Turn Right',
       distanceFromGate: '58 m Straight · Right',
       walkingSteps: [
         'Enter Main Gate (Canteen & Central Library on your right) and walk straight past ~25m walking distance.',
-        'Pass the Garden (before Clerk Office) and walk past the Big Clerk Office Corridor.',
-        'Turn right along the Principal & Chemistry Corridor into the grand Golden Principal’s Office.'
+        'Pass the Garden (before Clerk Office) and Big Clerk Office Corridor.',
+        'Turn right into the grand Golden Principal’s Office (in line with Chemistry Lab, Stairs & Auditorium).'
       ],
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 67.5 },
-        { x: 50, y: 40.4 },
-        { x: 61.5, y: 40.4 }
+        { x: 50, y: 41.8 },
+        { x: 60.0, y: 41.8 }
       ]
     }
   },
   {
     id: 'general-staff-room',
-    name: 'General Staff Room (1st Floor)',
-    shortName: 'Staff Room',
-    subtitle: 'On the Right of Principal’s Office · 1st Floor Faculty Lounge',
+    name: 'General Staff Room (1st Floor Building)',
+    shortName: 'General Staff Room',
+    subtitle: '1st Floor Building via Stairs · With English, Physics Lab/Office/Dark Room & Maths',
     category: 'Administration',
     stopNumber: '10',
     svgType: 'academic-wing',
-    badge: '1st Floor · Right of Principal',
+    badge: '1st Floor · Via Stairs',
     description:
-      'Situated on the 1st Floor immediately to the right of the Principal’s Office, the General Staff Room serves as the central faculty lounge and academic planning suite for professors across departments.',
+      'Climbing the Stairs in between Chemistry Lab and Auditorium Hall brings you to the 1st Floor Building housing the General Staff Room, English Classes, Physics Lab, Physics Office & Optics Dark Room, and Department of Mathematics.',
     keySpecs: [
-      { label: 'Floor', value: '1st Floor' },
-      { label: 'Location', value: 'Right of Principal’s Office' },
-      { label: 'Next Along', value: 'Islamiat & English' },
+      { label: 'Floor', value: '1st Floor Building' },
+      { label: 'Access', value: 'Stairs In Between' },
+      { label: 'Same Floor', value: 'English, Physics & Maths' },
       { label: 'Purpose', value: 'Faculty Suite' }
     ],
     highlights: [
-      'First room on the 1st Floor turning right from the Principal’s Office',
-      'Central faculty coordination room overlooking the Big Clerk Office Corridor & Auditorium',
+      'First suite in the 1st Floor Building reached via the central Stairs',
+      'Shares the 1st floor with English Classes, Physics Lab/Office/Dark Room & Mathematics',
       'Equipped with rooftop solar power for year-round faculty operations'
     ],
     hotspots: [
@@ -650,21 +649,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 50
       }
     ],
-    locationNote: '1st Floor · Immediately Right of Principal’s Office',
-    mapX: 74.3,
-    mapY: 42.1,
+    locationNote: '1st Floor Building · Above Principal’s Office (Via Stairs)',
+    mapX: 58.2,
+    mapY: 29.2,
     gateDirections: {
       turn: 'Upstairs (1st Floor)',
-      distanceFromGate: '64 m Right · 1st Floor',
+      distanceFromGate: '68 m · 1st Floor via Stairs',
       walkingSteps: [
-        'Walk straight past the Garden and Big Clerk Office Corridor to the Principal’s Office on the right.',
-        'Take the stairs right beside the Principal’s Office up to the 1st Floor.',
-        'Enter the General Staff Room immediately on the right corridor.'
+        'Walk past Principal’s Office and Chemistry Lab to the Stairs in between.',
+        'Climb the Stairs up to the 1st Floor Building.',
+        'Walk along the 1st Floor corridor to the General Staff Room.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 42.1 },
-        { x: 74.3, y: 42.1 }
+        { x: 50, y: 41.8 },
+        { x: 83.3, y: 41.8 },
+        { x: 83.3, y: 29.2 },
+        { x: 58.2, y: 29.2 }
       ]
     }
   },
@@ -672,23 +673,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'islamiat-english',
     name: 'Department of Islamiat & Islamic Culture',
     shortName: 'Islamiat & Culture',
-    subtitle: '1st Floor Right of Principal’s Office · Dedicated Department Point',
+    subtitle: 'North-East Academic Wing · Separate Department Point Above Assembly Ground',
     category: 'Academics',
     stopNumber: '11',
     svgType: 'academic-wing',
-    badge: '1st Floor · Separate Dept.',
+    badge: 'Separate Dept. · North-East',
     description:
-      'On the 1st Floor past the General Staff Room sit the dedicated Departments of Islamiat and Islamic Culture—hosting compulsory Islamiat lectures, Quranic & Hadith studies, and Seerat seminars.',
+      'In the dedicated North-East wing overlooking the Assembly & Flag Hoisting Ground and Campus Prayer Room sit the Departments of Islamiat and Islamic Culture—hosting compulsory Islamiat lectures, Quranic & Hadith studies, and Seerat seminars.',
     keySpecs: [
       { label: 'Department', value: 'Islamiat & Islamic Culture' },
-      { label: 'Floor', value: '1st Floor Right' },
-      { label: 'Next Beside', value: 'Dept. of English' },
+      { label: 'Adjacent To', value: 'Prayer Room & Statistics' },
+      { label: 'Streams', value: 'HSC, BA & ADS' },
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
       'Dedicated classrooms for Islamiat & Islamic Culture degree and HSC groups',
       'Hosts annual Seerat-un-Nabi and Qirat competitions',
-      'Positioned between General Staff Room and Department of English'
+      'Right beside the Statistics Dept. and Assembly & Prayer wing'
     ],
     hotspots: [
       {
@@ -699,45 +700,46 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 48
       }
     ],
-    locationNote: '1st Floor · Past General Staff Room',
-    mapX: 83.5,
-    mapY: 42.1,
+    locationNote: 'North-East Wing · Above Assembly Ground & Prayer Room',
+    mapX: 70.8,
+    mapY: 7.0,
     gateDirections: {
-      turn: 'Upstairs (1st Floor)',
-      distanceFromGate: '64 m Right · 1st Floor',
+      turn: 'Bear Right',
+      distanceFromGate: '78 m North-East',
       walkingSteps: [
-        'Walk straight across the Big Lawn to the Principal’s Office on the right.',
-        'Go to the 1st Floor past the General Staff Room.',
-        'Enter the Department of Islamiat & Islamic Culture.'
+        'Walk straight along the twin grill spine toward North Big Ground.',
+        'Bear right through the Assembly & Prayer wing.',
+        'Arrive at the Department of Islamiat & Islamic Culture.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 42.1 },
-        { x: 83.5, y: 42.1 }
+        { x: 50, y: 25.0 },
+        { x: 70.8, y: 16.8 },
+        { x: 70.8, y: 7.0 }
       ]
     }
   },
   {
     id: 'english-dept',
-    name: 'Department of English',
-    shortName: 'English Dept.',
-    subtitle: '1st Floor East Corridor Past Islamiat · Literature & Language',
+    name: 'English Classes & Department of English',
+    shortName: 'English Classes',
+    subtitle: '1st Floor Building Beside General Staff Room · Literature & Composition',
     category: 'Academics',
     stopNumber: '12',
     svgType: 'academic-wing',
-    badge: '1st Floor · Separate Dept.',
+    badge: '1st Floor · Beside Staff Room',
     description:
-      'At the eastern end of the 1st-floor corridor past the General Staff Room and Islamiat sits the Department of English—teaching composition, prose, poetry, and academic communication across HSC, BS, and Associate Degree cohorts.',
+      'Located inside the 1st Floor Building right between the General Staff Room and Physics Lab/Office/Dark Room, the English Classes teach composition, prose, poetry, and academic communication across HSC and Degree cohorts.',
     keySpecs: [
-      { label: 'Department', value: 'Department of English' },
-      { label: 'Floor', value: '1st Floor East' },
-      { label: 'Adjacent To', value: 'Islamiat & Islamic Culture' },
+      { label: 'Department', value: 'English Classes' },
+      { label: 'Floor', value: '1st Floor Building' },
+      { label: 'Between', value: 'Staff Room & Physics Lab' },
       { label: 'Focus', value: 'Literature & Rhetoric' }
     ],
     highlights: [
-      'Dedicated English language and literature classrooms on the 1st Floor',
-      'Supports essay writing, debate coaching, and English degree seminars',
-      'Solar-lit rooms overlooking the campus courtyard'
+      'Dedicated English lecture classes in the 1st Floor Building',
+      'Direct access via the central Stairs between Chemistry Lab and Auditorium',
+      'Adjacent to General Staff Room and Physics Lab / Office / Dark Room'
     ],
     hotspots: [
       {
@@ -748,21 +750,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 50
       }
     ],
-    locationNote: '1st Floor · East Corridor End',
-    mapX: 92.7,
-    mapY: 42.1,
+    locationNote: '1st Floor Building · Between Staff Room & Physics Lab/Office/Dark Room',
+    mapX: 66.8,
+    mapY: 29.2,
     gateDirections: {
       turn: 'Upstairs (1st Floor)',
-      distanceFromGate: '68 m Right · 1st Floor',
+      distanceFromGate: '68 m · 1st Floor via Stairs',
       walkingSteps: [
-        'Walk straight across the Big Lawn to the Principal’s Office on the right.',
-        'Go to the 1st Floor past General Staff Room and Islamiat & Islamic Culture.',
-        'Enter the Department of English at the eastern end of the corridor.'
+        'Walk past Principal’s Office and Chemistry Lab to the Stairs in between.',
+        'Climb the Stairs up to the 1st Floor Building.',
+        'Enter English Classes right next to the General Staff Room.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 42.1 },
-        { x: 92.7, y: 42.1 }
+        { x: 50, y: 41.8 },
+        { x: 83.3, y: 41.8 },
+        { x: 83.3, y: 29.2 },
+        { x: 66.8, y: 29.2 }
       ]
     }
   },
@@ -770,49 +774,50 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'statistics-mathematics',
     name: 'Department of Statistics',
     shortName: 'Statistics Dept.',
-    subtitle: 'First Quantitative Room Before Mathematics · Right Side Corridor',
+    subtitle: 'Upper-Right Quantitative Room Above Zoology · Probability & Applied Data',
     category: 'Academics',
     stopNumber: '13',
     svgType: 'academic-wing',
-    badge: 'Separate Dept. · Before Math',
+    badge: 'Separate Dept. · Quantitative',
     description:
-      'Along the right-side quantitative corridor immediately before Mathematics stands the Department of Statistics—teaching probability, biostatistics, sampling theory, and economic data analysis for ICS, Commerce, and Science students.',
+      'Positioned in the upper-right quantitative block beside Islamiat & overlooking the Zoology & Assembly zone, the Department of Statistics teaches probability, biostatistics, sampling theory, and economic data analysis for ICS, Commerce, and Science students.',
     keySpecs: [
-      { label: 'Department', value: 'Statistics (First)' },
-      { label: 'Next Beside', value: 'Dept. of Mathematics' },
+      { label: 'Department', value: 'Statistics' },
+      { label: 'Location', value: 'North-East Quantitative Block' },
       { label: 'Streams', value: 'ICS, Commerce & B.Sc/AD' },
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Separate dedicated point & lecture room for Statistics right before Mathematics',
+      'Separate dedicated point & lecture room for Statistics',
       'Covers applied probability, statistical inference, and quantitative analysis',
-      'Direct indoor access to Mathematics and Physics'
+      'Close connection to Assembly Ground and Mathematics wing'
     ],
     hotspots: [
       {
         id: 'stats-room',
         label: 'Statistics Lecture Room',
-        description: 'Positioned before Mathematics for probability & data analysis.',
+        description: 'Dedicated lecture room for probability & data analysis.',
         xPercent: 50,
         yPercent: 50
       }
     ],
-    locationNote: 'Right Academic Corridor · Statistics Before Mathematics',
-    mapX: 69.5,
-    mapY: 29.8,
+    locationNote: 'North-East Quantitative Block · Beside Islamiat',
+    mapX: 82.7,
+    mapY: 7.0,
     gateDirections: {
-      turn: 'Turn Right',
-      distanceFromGate: '66 m Right Side',
+      turn: 'Bear Right',
+      distanceFromGate: '82 m North-East',
       walkingSteps: [
-        'Walk straight across the Big Lawn past the Principal’s Office line.',
-        'Turn right onto the quantitative corridor.',
-        'The Department of Statistics is the very first room before Mathematics.'
+        'Walk straight along the twin grill spine toward North Big Ground.',
+        'Bear right past Assembly Ground & Islamiat.',
+        'Enter the Department of Statistics.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 42.1 },
-        { x: 60.7, y: 42.1 },
-        { x: 69.5, y: 29.8 }
+        { x: 50, y: 25.0 },
+        { x: 70.8, y: 16.8 },
+        { x: 70.8, y: 7.0 },
+        { x: 82.7, y: 7.0 }
       ]
     }
   },
@@ -820,107 +825,115 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'mathematics-dept',
     name: 'Department of Mathematics',
     shortName: 'Mathematics Dept.',
-    subtitle: 'Past Statistics Along the Right Quantitative Corridor',
+    subtitle: '1st Floor Building Beside Physics Lab, Physics Office & Dark Room',
     category: 'Academics',
     stopNumber: '14',
     svgType: 'academic-wing',
-    badge: 'Separate Dept. · Quantitative',
+    badge: '1st Floor · Quantitative',
     description:
-      'Situated immediately between Statistics and Physics on the right academic wing, the Department of Mathematics conducts Pre-Engineering, ICS, and Associate Degree lectures in calculus, linear algebra, and differential equations.',
+      'Located at the eastern end of the 1st Floor Building right next to Physics Lab, Physics Office & Optics Dark Room (above the shifted Auditorium / Stairs wing), the Department of Mathematics conducts Pre-Engineering, ICS, and Associate Degree lectures.',
     keySpecs: [
       { label: 'Department', value: 'Mathematics' },
-      { label: 'Between', value: 'Statistics & Physics' },
-      { label: 'Programs', value: 'Pre-Eng, ICS & ADS' },
+      { label: 'Floor', value: '1st Floor Building' },
+      { label: 'Adjacent To', value: 'Physics Lab, Office & Dark Room' },
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Separate dedicated point & classrooms for Mathematics past Statistics',
-      'Prepares students for BISE Engineering honors and university STEM degrees',
-      'Directly adjacent to Physics, Physics Lab & Dark Room'
+      'Dedicated Mathematics classrooms inside the 1st Floor Building via Stairs',
+      'Shares the 1st Floor corridor with General Staff Room, English Classes & Physics Lab/Office/Dark Room',
+      'Prepares students for BISE Engineering honors and university STEM degrees'
     ],
     hotspots: [
       {
         id: 'math-room',
         label: 'Mathematics Classrooms',
-        description: 'Pure & applied mathematics classrooms.',
+        description: 'Pure & applied mathematics classrooms on the 1st Floor.',
         xPercent: 50,
         yPercent: 50
       }
     ],
-    locationNote: 'Right Academic Corridor · Between Statistics & Physics',
-    mapX: 79.3,
-    mapY: 29.8,
+    locationNote: '1st Floor Building · Beside Physics Lab, Physics Office & Dark Room',
+    mapX: 92.2,
+    mapY: 29.2,
     gateDirections: {
-      turn: 'Turn Right',
-      distanceFromGate: '70 m Right Side',
+      turn: 'Upstairs (1st Floor)',
+      distanceFromGate: '74 m · 1st Floor via Stairs',
       walkingSteps: [
-        'Walk straight across the Big Lawn past the Principal’s Office.',
-        'Bear right past the Department of Statistics.',
-        'Enter the Department of Mathematics.'
+        'Walk past Principal’s Office and Chemistry Lab to the Stairs in between.',
+        'Climb the Stairs up to the 1st Floor Building.',
+        'Turn right past Physics Lab, Physics Office & Dark Room into Mathematics.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 42.1 },
-        { x: 60.7, y: 42.1 },
-        { x: 69.5, y: 29.8 },
-        { x: 79.3, y: 29.8 }
+        { x: 50, y: 41.8 },
+        { x: 83.3, y: 41.8 },
+        { x: 83.3, y: 29.2 },
+        { x: 92.2, y: 29.2 }
       ]
     }
   },
   {
     id: 'physics-lab-darkroom',
-    name: 'Physics, Physics Lab & Optics Dark Room',
-    shortName: 'Physics, Lab & Dark Room',
-    subtitle: 'East Right Corridor Past Mathematics · Optics Dark Room & Mechanics Lab',
+    name: 'Physics Lab, Physics Office & Dark Room',
+    shortName: 'Physics Lab, Office & Dark Room',
+    subtitle: '1st Floor Building Right at Top of Stairs · Between English Classes & Mathematics',
     category: 'Laboratories',
     stopNumber: '15',
     svgType: 'science-lab',
-    badge: 'Physics & Dark Room · Right Side',
+    badge: '1st Floor · Lab, Office & Dark Room',
     description:
-      'Past Statistics and Mathematics along the right-hand academic corridor sit the Department of Physics, the Physics Practical Laboratory, and the specialized Optics Dark Room for light, prism, spectrometer, and laser experiments.',
+      'Directly at the top of the central Staircase inside the 1st Floor Building (between English Classes and Mathematics) sit the Physics Practical Laboratory, the dedicated Physics Faculty Office, and the light-sealed Optics Dark Room.',
     keySpecs: [
-      { label: 'Facilities', value: 'Dept, Lab & Dark Room' },
-      { label: 'Optics Room', value: 'Light-Sealed Dark Room' },
-      { label: 'Equipment', value: 'Spectrometers & Circuits' },
+      { label: 'Floor', value: '1st Floor Building' },
+      { label: 'Sections', value: 'Physics Lab · Office · Dark Room' },
+      { label: 'Access', value: 'Direct Top of Stairs' },
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Department of Physics theory lecture rooms',
-      'Full Physics Laboratory for mechanics, electricity & magnetism practicals',
-      'Dedicated Dark Room for optical refraction, diffraction & wave experiments'
+      'Contains three distinct sections in the 1st Floor Building: Physics Lab, Physics Office & Dark Room',
+      'Accessible directly at the top of the Stairs between Chemistry Lab and Auditorium Hall',
+      'Adjacent to English Classes on the left and Mathematics on the right'
     ],
     hotspots: [
       {
         id: 'physics-lab-bench',
         label: 'Physics Practical Hall',
         description: 'Electrical bridges, pendulums, and mechanics apparatus.',
-        xPercent: 36,
-        yPercent: 50
+        xPercent: 25,
+        yPercent: 52
+      },
+      {
+        id: 'physics-office-room',
+        label: 'Physics Office',
+        description: 'Physics department office & apparatus store between Lab and Dark Room.',
+        xPercent: 55,
+        yPercent: 52
       },
       {
         id: 'optics-dark-room',
         label: 'Physics Optics Dark Room',
         description: 'Light-controlled chamber for optical bench and prism practicals.',
-        xPercent: 78,
-        yPercent: 50
+        xPercent: 85,
+        yPercent: 52
       }
     ],
-    locationNote: 'East Right Corridor · Past Mathematics',
-    mapX: 90.7,
-    mapY: 29.8,
+    locationNote: '1st Floor Building · Top of Stairs (Between English & Maths)',
+    mapX: 79.3,
+    mapY: 29.2,
     gateDirections: {
-      turn: 'Turn Right',
-      distanceFromGate: '75 m Right Side',
+      turn: 'Upstairs (1st Floor)',
+      distanceFromGate: '68 m · 1st Floor via Stairs',
       walkingSteps: [
-        'Walk straight across the Big Lawn past the Principal’s Office and bear right.',
-        'Pass Statistics and Mathematics.',
-        'Enter Physics, the Physics Lab, and the Optics Dark Room.'
+        'Walk past Principal’s Office and Chemistry Lab to the Stairs in between.',
+        'Climb the Stairs straight up into the 1st Floor Building.',
+        'Step directly into the Physics Lab, Physics Office, and Optics Dark Room.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 42.1 },
-        { x: 60.7, y: 42.1 },
-        { x: 90.7, y: 29.8 }
+        { x: 50, y: 41.8 },
+        { x: 83.3, y: 41.8 },
+        { x: 83.3, y: 29.2 },
+        { x: 79.3, y: 29.2 }
       ]
     }
   },
@@ -971,19 +984,19 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Upper-Right Campus · Assembly Ground Before Zoology & Botany',
     mapX: 70.8,
-    mapY: 17.8,
+    mapY: 16.8,
     gateDirections: {
       turn: 'Bear Right',
       distanceFromGate: '76 m North-East',
       walkingSteps: [
-        'Walk straight across the Big Lawn past the Principal’s Office line.',
-        'Bear right toward the upper-right campus past Statistics & Mathematics.',
+        'Walk straight across the twin grill spine toward North Big Ground.',
+        'Bear right toward the upper-right campus above the 1st Floor Building.',
         'Arrive at the Assembly & Flag Hoisting Ground, Lawn, Greenhouse & Prayer Room right before Zoology.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 25.0 },
-        { x: 70.8, y: 17.8 }
+        { x: 70.8, y: 16.8 }
       ]
     }
   },
@@ -1020,7 +1033,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Upper-Right Campus · Past Assembly & Flag Ground',
     mapX: 82.0,
-    mapY: 17.8,
+    mapY: 16.8,
     gateDirections: {
       turn: 'Bear Right',
       distanceFromGate: '82 m North-East',
@@ -1032,8 +1045,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 25.0 },
-        { x: 70.8, y: 17.8 },
-        { x: 82.0, y: 17.8 }
+        { x: 70.8, y: 16.8 },
+        { x: 82.0, y: 16.8 }
       ]
     }
   },
@@ -1057,7 +1070,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     highlights: [
       'Separate dedicated point & lab for Botany, plant taxonomy, and physiology',
       'Herbarium specimen collections and botanical slide microscopy hall',
-      'Aligned vertically in the same line above the Auditorium & East Academic Wings'
+      'Aligned vertically in the same line above the Auditorium & 1st Floor Wing'
     ],
     hotspots: [
       {
@@ -1070,7 +1083,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'North-East Corner · Right Past Zoology & Zoo Lab',
     mapX: 92.0,
-    mapY: 17.8,
+    mapY: 16.8,
     gateDirections: {
       turn: 'Bear Right',
       distanceFromGate: '88 m North-East',
@@ -1082,8 +1095,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 25.0 },
-        { x: 70.8, y: 17.8 },
-        { x: 92.0, y: 17.8 }
+        { x: 70.8, y: 16.8 },
+        { x: 92.0, y: 16.8 }
       ]
     }
   },
