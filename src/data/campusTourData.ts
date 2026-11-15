@@ -1109,50 +1109,50 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'hostel-computer-lab',
     name: 'College Hostel (Main Residential Block)',
     shortName: 'College Hostel',
-    subtitle: 'Between Computer Lab & Tennis Court / West Garden · Solar-Powered Multi-Wing Hostel',
+    subtitle: 'Between Computer Lab & North-West Trees / West Garden · Solar-Powered Multi-Wing Hostel',
     category: 'Student Life',
     stopNumber: '19',
     svgType: 'courtyard',
-    badge: 'Between Computer Lab & Tennis Court',
+    badge: 'Between Computer Lab & North-West Trees',
     description:
-      'Positioned directly between the Computer Department above and the Tennis Court & Volleyball Ground below (with West Garden Lawn just below the courts across the Central Courtyard), Government Girls Zubaida College’s large solar-equipped Residential Hostel gives students shaded campus views and immediate access to the unified IT & Humanities corridor.',
+      'Positioned directly between the Computer Department above and the North-West Trees & West Garden Lawn below (with the Tennis Court & Volleyball Ground at the north-west corner above Hostel), Government Girls Zubaida College’s large solar-equipped Residential Hostel gives students shaded campus views and immediate access to the unified IT & Humanities corridor.',
     keySpecs: [
-      { label: 'Location', value: 'Between Computer Lab & Tennis Court' },
+      { label: 'Location', value: 'Between Computer Lab & Trees' },
       { label: 'Scale', value: 'Large Residential Block' },
-      { label: 'Above It', value: 'Computer Dept. & Unified Corridor' },
+      { label: 'Above It', value: 'Computer Dept. & Tennis Court' },
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Positioned directly between the Computer Lab above and the Tennis Court & Volleyball Ground below',
+      'Positioned directly between the Computer Lab above and the North-West Trees & West Garden below',
       'Expansive multi-wing girls hostel equipped with rooftop solar panels',
-      'Directly linked to the Central Courtyard, 2-Grill Computer Lab path, Tennis Court, and West Garden'
+      'Directly linked to the Central Courtyard, 2-Grill Computer Lab path, Tennis Court, and North-West Trees'
     ],
     hotspots: [
       {
         id: 'hostel-courtyard',
         label: 'Hostel Residential Wings',
-        description: 'Large secure student hostel complex between Computer Lab and Tennis Court.',
+        description: 'Large secure student hostel complex between Computer Lab and North-West Trees.',
         xPercent: 46,
         yPercent: 48
       },
       {
         id: 'hostel-warden',
         label: 'Warden & Study Hall',
-        description: 'Supervised hostel study room and warden office overlooking the sports courts & West Garden.',
+        description: 'Supervised hostel study room and warden office overlooking the North-West Trees & West Garden.',
         xPercent: 75,
         yPercent: 62
       }
     ],
-    locationNote: 'West Campus · Between Computer Lab & Tennis Court / West Garden',
+    locationNote: 'West Campus · Between Computer Lab & North-West Trees / West Garden',
     mapX: 17.1,
     mapY: 44.9,
     gateDirections: {
       turn: 'Turn Left',
       distanceFromGate: '68 m Straight · Left Courtyard',
       walkingSteps: [
-        'Walk straight from the Main Gate past the West Garden, Tennis/Volleyball Left Turn, Garden, and Big Clerk Office Corridor.',
+        'Walk straight from the Main Gate past the West Garden, North-West Trees, Garden, and Big Clerk Office Corridor.',
         'Turn left across the Central Courtyard promenade (just below the Computer Lab & Office).',
-        'Arrive at the Big College Hostel situated between Computer Lab and Tennis Court.'
+        'Arrive at the Big College Hostel situated between Computer Lab and North-West Trees.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
@@ -1279,55 +1279,57 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'tennis-volleyball-grounds',
     name: 'Tennis Court & Volleyball Playing Ground',
     shortName: 'Tennis & Volleyball',
-    subtitle: 'Between Hostel & West Garden Lawn · Before Hostel, Pak Studies & Urdu',
+    subtitle: 'North-West Corner (Exchanged with North-West Trees) · Beside Pak Studies, Commerce & Computer Dept.',
     category: 'Student Life',
     stopNumber: '22',
     svgType: 'sports',
-    badge: 'Between Hostel & West Garden',
+    badge: 'North-West Corner · Tennis & Volleyball',
     description:
-      'Positioned right between the Big College Hostel above and the West Garden Lawn & Trees below (before Hostel, Computer Department, Pakistan Studies, and Urdu), this outdoor sports arena features a marked Tennis Court and a full Volleyball Ground for inter-class tournaments and daily athletics.',
+      'Positioned at the north-west corner beside Pakistan Studies, Commerce, and the Computer Department (having exchanged positions with the North-West Trees, which now stand below the Hostel), this outdoor sports arena features a marked Tennis Court and a full Volleyball Ground for inter-class tournaments and daily athletics.',
     keySpecs: [
       { label: 'Courts', value: 'Tennis & Volleyball' },
-      { label: 'Position', value: 'Between Hostel & West Garden' },
-      { label: 'Above It', value: 'Hostel → Computer Dept.' },
+      { label: 'Position', value: 'North-West Corner' },
+      { label: 'Beside It', value: 'Same Building & Hostel' },
       { label: 'Activities', value: 'Inter-Class Matches' }
     ],
     highlights: [
-      'Positioned between Big College Hostel (above) and West Garden Lawn (below) before Pakistan Studies & Urdu',
+      'Positioned at the north-west corner directly beside Pakistan Studies, Commerce & Computer Department (exchanged with North-West Trees)',
       'Marked outdoor Tennis Court for student training and matches',
-      'Full-size Volleyball Ground directly connected to the central walkway, Hostel, and West Garden'
+      'Full-size Volleyball Ground directly connected to the Computer Lab walkway and Big College Hostel below'
     ],
     hotspots: [
       {
         id: 'tennis-court',
         label: 'Tennis Court',
-        description: 'Marked campus tennis court between the Hostel and West Garden Lawn.',
+        description: 'Marked campus tennis court at the north-west corner beside the unified academic building.',
         xPercent: 34,
         yPercent: 50
       },
       {
         id: 'volleyball-ground',
         label: 'Volleyball Ground',
-        description: 'Dedicated outdoor volleyball ground beside the tennis court.',
+        description: 'Dedicated outdoor volleyball ground beside the tennis court above the Hostel.',
         xPercent: 72,
         yPercent: 52
       }
     ],
-    locationNote: 'West Campus · Between Big College Hostel & West Garden Lawn',
-    mapX: 17.1,
-    mapY: 60.5,
+    locationNote: 'North-West Corner · Beside Unified Same Building & Above Hostel',
+    mapX: 10.8,
+    mapY: 16.5,
     gateDirections: {
-      turn: 'Turn Left',
-      distanceFromGate: '46 m Left · Between Hostel & West Garden',
+      turn: 'Bear Left',
+      distanceFromGate: '82 m North-West · Left of Same Building',
       walkingSteps: [
-        'Enter Main Gate (Waiting Room left, Canteen & Central Library right) and walk straight past West Garden Lawn on your left.',
-        'Turn left onto the West Sports walkway between West Garden Lawn and Big College Hostel.',
-        'Arrive directly at the Tennis Court & Volleyball Ground.'
+        'Enter Main Gate and walk straight past West Garden Lawn, North-West Trees, and Garden before Clerk Office.',
+        'Turn left onto the 2-grill Computer Lab walkway past Big Multimedia Room and Computer Lab.',
+        'Step west beside the Unified Same Building directly onto the Tennis Court & Volleyball Ground.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 60.5 },
-        { x: 17.1, y: 60.5 }
+        { x: 50, y: 29.0 },
+        { x: 18.5, y: 29.0 },
+        { x: 10.8, y: 29.0 },
+        { x: 10.8, y: 16.5 }
       ]
     }
   },
@@ -1349,7 +1351,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Separate dedicated point inside the unified corridor above Hostel & Tennis/Volleyball',
+      'Separate dedicated point inside the unified corridor beside the North-West Tennis & Volleyball Courts',
       'Compulsory and elective civic & historical studies classrooms',
       'Connected directly in-corridor to Urdu and Physical Education'
     ],
@@ -1369,7 +1371,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       turn: 'Bear Left',
       distanceFromGate: '78 m North-West',
       walkingSteps: [
-        'Walk straight along the twin grill path past Tennis/Volleyball & Garden and turn left onto the two-grill Computer Lab corridor.',
+        'Walk straight along the twin grill path past West Garden, North-West Trees & Garden and turn left onto the two-grill Computer Lab corridor.',
         'Continue past the Computer Department inside the same building.',
         'Enter the Department of Pakistan Studies.'
       ],
@@ -1435,13 +1437,13 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'physical-education-dept',
     name: 'Department of Physical Education',
     shortName: 'Physical Education',
-    subtitle: 'Separate Point Beside Urdu & Connected Down to Tennis & Volleyball Courts',
+    subtitle: 'Separate Point Beside Urdu & Connected to North-West Tennis & Volleyball Courts',
     category: 'Academics',
     stopNumber: '25',
     svgType: 'sports',
     badge: 'Separate Dept. · Sports Hub',
     description:
-      'At the upper corridor end alongside Urdu and Pakistan Studies (directly above Big Computer Multimedia Room in the Computer Department and under 1st-floor Commerce), the Department of Physical Education coordinates athletics, inter-collegiate tournaments, and equipment for the Tennis & Volleyball grounds.',
+      'At the upper corridor end alongside Urdu and Pakistan Studies (directly above Big Computer Multimedia Room in the Computer Department and under 1st-floor Commerce), the Department of Physical Education coordinates athletics, inter-collegiate tournaments, and equipment for the north-west Tennis & Volleyball grounds.',
     keySpecs: [
       { label: 'Department', value: 'Physical Education' },
       { label: 'Courts Access', value: 'Tennis & Volleyball' },
@@ -1450,7 +1452,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     highlights: [
       'Separate dedicated point for Physical Education & Sports Faculty Office',
-      'Coordinates matches for the lower-west Tennis Court & Volleyball Ground',
+      'Coordinates matches for the north-west Tennis Court & Volleyball Ground',
       'Part of the unified solar-powered ground-floor corridor above the Hostel'
     ],
     hotspots: [

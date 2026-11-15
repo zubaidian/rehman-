@@ -45,7 +45,7 @@ import {
   Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v23';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v24';
 
 const EAST_STAIRS_STOP_IDS = new Set([
   'general-staff-room',
@@ -79,15 +79,30 @@ function buildWalkRouteBetween(
       waypoints.push({ x: 44.3, y: 20.5 });
     }
     if (targetStop.id === 'commerce-dept-library') {
+      if (fromPos.x < 15) {
+        waypoints.push({ x: 10.8, y: 29.0 });
+        waypoints.push({ x: 18.5, y: 29.0 });
+      }
       waypoints.push({ x: 44.3, y: Math.max(20.5, Math.min(30.4, fromPos.y)) });
       waypoints.push({ x: 44.3, y: 20.5 });
       waypoints.push({ x: 44.3, y: 7.1 });
       waypoints.push(dest);
     } else if (targetStop.id === 'hostel-computer-lab' || fromPos.y > 38) {
+      if (fromPos.x < 15) {
+        waypoints.push({ x: 10.8, y: 29.0 });
+      }
       waypoints.push({ x: 24.8, y: 37.8 });
       waypoints.push(dest);
+    } else if (targetStop.id === 'tennis-volleyball-grounds') {
+      waypoints.push({ x: 18.5, y: 29.0 });
+      waypoints.push({ x: 10.8, y: 29.0 });
+      waypoints.push(dest);
     } else {
-      waypoints.push({ x: 30.6, y: fromPos.y });
+      if (fromPos.x < 15) {
+        waypoints.push({ x: 10.8, y: 29.0 });
+        waypoints.push({ x: 18.5, y: 29.0 });
+      }
+      waypoints.push({ x: 30.6, y: Math.min(30.4, fromPos.y) });
       waypoints.push({ x: 30.6, y: dest.y });
       waypoints.push(dest);
     }
@@ -249,7 +264,7 @@ function getSurroundingsAtCoord(
           : '';
     return {
       stageLabel: `${stairNote}Arrived at ${targetStop.shortName || targetStop.name}`,
-      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Central Courtyard · Hostel (Between Computer Dept. & Tennis Court)',
+      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Central Courtyard · Hostel (Between Computer Dept. & North-West Trees)',
       aheadView: targetStop.locationNote,
       rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Garden (before Clerk), Big Clerk Office Corridor, Principal’s Office → Path to Auditorium Hall · By Stairs: Staff Room, English, Physics, Statistics (before Dark Room), Maths, Islamiat'
     };
@@ -280,10 +295,10 @@ function getSurroundingsAtCoord(
     stageLabel: `Walking toward ${targetStop.shortName || targetStop.name}`,
     leftView:
       y < 52 && y > 36
-        ? 'Central Courtyard Promenade · Big Hostel (Between Computer Department & Tennis Court)'
+        ? 'Central Courtyard Promenade · Big Hostel (Between Computer Department & North-West Trees)'
         : x < 45
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Waiting Room, West Garden Lawn, Tennis & Volleyball Courts & Left 2-Grill Path to Computer Dept.',
+          : 'Waiting Room, West Garden Lawn, North-West Trees & Left 2-Grill Path to Computer Dept. & Tennis/Volleyball',
     aheadView: `${targetStop.shortName || targetStop.name} (${targetStop.gateDirections.turn})`,
     rightView:
       y < 82 && y > 58
