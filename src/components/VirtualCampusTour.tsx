@@ -45,7 +45,7 @@ import {
   Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v25';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v29';
 
 const EAST_STAIRS_STOP_IDS = new Set([
   'general-staff-room',
@@ -112,29 +112,36 @@ function buildWalkRouteBetween(
     fromPos.y >= 16 &&
     fromPos.y <= 46 &&
     dest.y >= 16 &&
-    dest.y <= 46
+    dest.y <= 46 &&
+    fromPos.x < 88 &&
+    dest.x < 88
   ) {
-    // Direct walking along Principal's Office <-> Chemistry Lab <-> Stairs (x=80.6) <-> By-Stairs 1st Floor / Auditorium Hall path
+    // Direct walking along Principal's Office <-> Chemistry Lab <-> Stairs (x=76.8) <-> By-Stairs 1st Floor / Auditorium Hall path
     if (Math.abs(fromPos.y - 41.9) < 3 && targetStop.id === 'auditorium-hall') {
-      waypoints.push({ x: 92.7, y: 41.9 });
+      waypoints.push({ x: 84.4, y: 41.9 });
       waypoints.push(dest);
     } else {
       if (fromPos.y < 36) {
-        waypoints.push({ x: 80.6, y: fromPos.y });
-        waypoints.push({ x: 80.6, y: 41.9 });
+        waypoints.push({ x: 76.8, y: fromPos.y });
+        waypoints.push({ x: 76.8, y: 41.9 });
       } else {
-        waypoints.push({ x: 80.6, y: 41.9 });
+        waypoints.push({ x: 76.8, y: 41.9 });
       }
       if (targetStop.id === 'auditorium-hall') {
-        waypoints.push({ x: 92.7, y: 41.9 });
+        waypoints.push({ x: 84.4, y: 41.9 });
         waypoints.push(dest);
       } else if (dest.y < 36) {
-        waypoints.push({ x: 80.6, y: dest.y });
+        waypoints.push({ x: 76.8, y: dest.y });
         waypoints.push(dest);
       } else {
         waypoints.push(dest);
       }
     }
+  } else if (fromPos.x >= 87 && dest.x >= 87 && fromPos.y <= 75 && dest.y <= 75) {
+    // Direct walk along the East Academic Walkway connecting Garden -> Sindhi -> Economics -> Physiology -> Psychology -> Geography
+    waypoints.push({ x: 88.7, y: fromPos.y });
+    waypoints.push({ x: 88.7, y: dest.y });
+    waypoints.push(dest);
   } else {
     const spineYFrom = Math.max(18, Math.min(91, fromPos.y));
     const spineEntry = gateRoute[1] || { x: 50, y: Math.max(18, Math.min(91, dest.y)) };
@@ -264,9 +271,9 @@ function getSurroundingsAtCoord(
           : '';
     return {
       stageLabel: `${stairNote}Arrived at ${targetStop.shortName || targetStop.name}`,
-      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Central Courtyard · Hostel (Between Computer Dept. & North-West Trees)',
+      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Central Courtyard · Hostel (Between Computer Dept. & Tennis Court)',
       aheadView: targetStop.locationNote,
-      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Garden (before Clerk), Big Clerk Office Corridor, Principal’s Office → Path to Auditorium Hall · By Stairs: Staff Room, English, Physics, Statistics (before Dark Room), Maths, Islamiat'
+      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Big Clerk Office Corridor, Garden (after Clerk), Principal’s Office → Path to Auditorium Hall · By Stairs: Staff Room, English, Physics, Statistics (before Dark Room), Maths, Islamiat'
     };
   }
 
@@ -286,8 +293,8 @@ function getSurroundingsAtCoord(
         ? 'Climbing Commerce Stairs ↑ directly to 1st Floor Commerce & Commerce Library'
         : `Climbing Central Stairs ↑ directly to ${targetStop.shortName || targetStop.name} (Statistics right before Dark Room)`,
       rightView: isCommerce
-        ? 'North Big Ground & Sindhi / Economics / Physiology straight ahead'
-        : 'Physics Optics Dark Room & Auditorium Hall Path on the right'
+        ? 'Assembly, Zoology & Botany Lab → Long Distance → Ground & Garden straight ahead'
+        : 'Physics Optics Dark Room, Auditorium Hall & East Wing (Sindhi, Economics, Physiology, Psychology, Geography) on the right'
     };
   }
 
@@ -295,17 +302,17 @@ function getSurroundingsAtCoord(
     stageLabel: `Walking toward ${targetStop.shortName || targetStop.name}`,
     leftView:
       y < 52 && y > 36
-        ? 'Central Courtyard Promenade · Big Hostel (Between Computer Department & North-West Trees)'
+        ? 'Central Courtyard Promenade · Big Hostel (Between Computer Department & Tennis Court)'
         : x < 45
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Waiting Room, West Garden Lawn, North-West Trees & Left 2-Grill Path to Computer Dept. & Tennis/Volleyball',
+          : 'Waiting Room, West Garden Lawn, Tennis & Volleyball Courts & Left 2-Grill Path to Computer Dept.',
     aheadView: `${targetStop.shortName || targetStop.name} (${targetStop.gateDirections.turn})`,
     rightView:
       y < 82 && y > 58
-        ? 'Canteen & Central Library passed · Garden & Gardeners before Big Clerk Office Corridor'
+        ? 'Canteen & Central Library passed · Big Clerk Office Corridor before Garden & Gardeners'
         : x > 55
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Big Clerk Office Corridor, Principal’s Office → Path to Auditorium Hall & Stairs to 6 Depts (Staff Room, Largest Physics Dept., English, Statistics before Dark Room, Maths, Islamiat)'
+          : 'Garden & Gardeners (after Clerk), Principal’s Office → Path to Auditorium Hall & Stairs to 6 Depts (Staff Room, Largest Physics Dept., English, Statistics before Dark Room, Maths, Islamiat)'
   };
 }
 
@@ -960,7 +967,7 @@ export function VirtualCampusTour() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search any department to walk visitor there (e.g. Hostel, Computer Lab, Multimedia, Flag, Dark Room, Urdu)..."
+                placeholder="Search any department to walk visitor there (e.g. Psychology, Geography, Sindhi, Economics, Physiology, Ground, Hostel, Physics)..."
                 aria-label="Search department or campus location"
                 className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-[#021914] border border-emerald-600/80 text-sm font-semibold text-white placeholder-stone-400 focus:outline-none focus:border-amber-300 shadow-lg"
               />
@@ -1019,7 +1026,7 @@ export function VirtualCampusTour() {
                 </>
               ) : (
                 <p className="text-xs font-semibold text-amber-200 px-1">
-                  No department or room matched &ldquo;{searchQuery}&rdquo;. Try Chemistry, Hostel, Computer Lab, Multimedia, Assembly, Zoology, Commerce, or Physics.
+                  No department or room matched &ldquo;{searchQuery}&rdquo;. Try Psychology, Geography, Sindhi, Economics, Physiology, Chemistry, Hostel, Computer Lab, Zoology, or Physics.
                 </p>
               )}
             </div>
