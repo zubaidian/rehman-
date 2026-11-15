@@ -45,7 +45,7 @@ import {
   Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v13';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v14';
 
 function buildWalkRouteBetween(
   fromPos: { x: number; y: number },
@@ -64,9 +64,9 @@ function buildWalkRouteBetween(
   const waypoints: { x: number; y: number }[] = [fromPos];
 
   // If moving between upper-left corridor stops (Hostel, Computer Lab/Office, Big Multimedia, Sports, Pak Studies, Urdu, PE, Commerce)
-  if (fromPos.x < 45 && dest.x < 45 && fromPos.y < 42 && dest.y < 42) {
-    waypoints.push({ x: 30.8, y: fromPos.y });
-    waypoints.push({ x: 30.8, y: dest.y });
+  if (fromPos.x < 45 && dest.x < 45 && fromPos.y < 36 && dest.y < 36) {
+    waypoints.push({ x: 30.6, y: fromPos.y });
+    waypoints.push({ x: 30.6, y: dest.y });
     waypoints.push(dest);
   } else {
     const spineYFrom = Math.max(18, Math.min(91, fromPos.y));
@@ -117,9 +117,9 @@ function interpolateWalkerOnRoute(
   for (let i = 0; i < route.length - 1; i++) {
     const start = route[i];
     const end = route[i + 1];
-    // Scale to 1200x780 SVG aspect ratio for natural walking speed & heading
+    // Scale to 1200x840 SVG aspect ratio for natural walking speed & heading
     const dxSvg = (end.x - start.x) * 12;
-    const dySvg = (end.y - start.y) * 7.8;
+    const dySvg = (end.y - start.y) * 8.4;
     const len = Math.hypot(dxSvg, dySvg);
     if (len > 0.01) {
       const angleDeg = (Math.atan2(dxSvg, -dySvg) * 180) / Math.PI;
@@ -179,39 +179,39 @@ function getSurroundingsAtCoord(
     };
   }
 
-  if (y >= 80 && Math.abs(x - 50) <= 12) {
+  if (y >= 82 && Math.abs(x - 50) <= 12) {
     return {
-      stageLabel: 'Entering Main College Gate (Security Check)',
+      stageLabel: 'Entering Main College Gate (Golden Boundary Wall)',
       leftView: 'Security Post & Visitor Waiting Room (First on Left)',
       aheadView: 'Gate Security Guards & Straight Path Separated by Small Grill',
-      rightView: 'College Canteen Inside Right (Central Jail & Signal Jammers Outside College Right)'
+      rightView: 'Front Garden & College Canteen Inside Golden Wall · Central Jail & Jammers Outside Boundary'
     };
   }
 
   if (progress >= 0.96) {
     return {
       stageLabel: `Arrived at ${targetStop.shortName || targetStop.name}`,
-      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Chemistry Labs, Auditorium & West Corridor',
+      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Chemistry Labs & West Corridor',
       aheadView: targetStop.locationNote,
-      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Big Lawn (Gardeners), Principal’s Office & Right Departments'
+      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Front Garden, Clerk Office, Auditorium & Golden Principal’s Office'
     };
   }
 
   return {
     stageLabel: `Walking toward ${targetStop.shortName || targetStop.name}`,
     leftView:
-      y < 58 && y > 40
-        ? 'Chemistry & Chemistry Labs + Auditorium (Left in Line)'
+      y < 52 && y > 36
+        ? 'Chemistry & Chemistry Labs (In Line Left)'
         : x < 45
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Waiting Room & Left 2-Grill Path to Multimedia Room, Computer Lab & Big Hostel',
+          : 'Waiting Room & Left 2-Grill Path (Girls Walking toward Computer Lab & Hostel)',
     aheadView: `${targetStop.shortName || targetStop.name} (${targetStop.gateDirections.turn})`,
     rightView:
-      y < 76 && y > 54
-        ? 'Clerk Office, Central Library & Green Garden Lawn (Gardeners) on Right'
+      y < 82 && y > 58
+        ? 'Front Garden & ~25m Walking Distance Straight Ahead -> Clerk Office & Central Library on Right'
         : x > 55
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Principal’s Office, 1st Floor Staff Room, Islamiat, English, Stats, Maths, Physics & Assembly Flag Ground'
+          : 'Auditorium, Golden Principal’s Office, Staff Room, Islamiat, English, Stats, Maths & Physics'
   };
 }
 
@@ -827,7 +827,7 @@ export function VirtualCampusTour() {
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-10 sm:mb-12">
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
@@ -942,7 +942,7 @@ export function VirtualCampusTour() {
         </div>
 
         {/* Main Map & Tour Showcase Container */}
-        <div className="bg-[#03241e] border border-amber-300/35 rounded-3xl p-5 sm:p-8 shadow-2xl space-y-6">
+        <div className="bg-[#03241e] border border-amber-300/40 rounded-3xl p-3 sm:p-5 lg:p-6 shadow-2xl space-y-6">
           {/* Top Control Bar */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-emerald-800/80 pb-5">
             {/* Left Metadata + Mode Switcher */}

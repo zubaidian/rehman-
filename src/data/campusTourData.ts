@@ -52,7 +52,7 @@ export interface TourFacility {
   isCustom?: boolean;
 }
 
-export const GATE_COORDS = { x: 50, y: 91 };
+export const GATE_COORDS = { x: 50, y: 92.6 };
 
 export interface SimulationCheckpoint {
   progress: number; // 0 to 1
@@ -67,34 +67,34 @@ export const GATE_TO_PRINCIPAL_CHECKPOINTS: SimulationCheckpoint[] = [
     progress: 0,
     label: 'Entering Main College Gate (Security Check)',
     leftView: 'Security Post & Waiting Room (Entrance Left)',
-    aheadView: 'Gate Security Guards & Straight Central Walkway',
-    rightView: 'College Canteen Inside Right · Central Jail & Signal Jammers Outside College Right'
+    aheadView: 'Gate Security Guards & Straight Twin-Grill Walkway',
+    rightView: 'Front Garden & Canteen Inside Golden Boundary · Central Jail & Jammers Outside Boundary'
   },
   {
-    progress: 0.25,
-    label: 'Entering Two Paths Separated by Small Grill',
-    leftView: 'Waiting Room Courtyard & West Path',
-    aheadView: 'Two parallel paths separated down the center by a small grill',
-    rightView: 'Clerk Office (first on right) & Central Library ahead on right'
+    progress: 0.28,
+    label: 'Passing Front Garden & Walking Distance Toward Clerk Office',
+    leftView: 'Waiting Room Courtyard & West Garden Lawn',
+    aheadView: 'Walking Straight Along Twin Grill Path (~25m Walking Distance)',
+    rightView: 'Front Garden & Gardeners (before/along Canteen), Walking Distance ahead to Clerk Office'
   },
   {
-    progress: 0.52,
-    label: 'Walking Straight Along Twin Grill Paths & Big Lawn',
-    leftView: 'Chemistry, Chemistry Labs & Left Twin-Grill Branch ahead',
-    aheadView: 'Straight path crossing the Big Lawn to Principal’s Office',
-    rightView: 'Central Library passed · Big Walking Lawn & Gardeners on right'
+    progress: 0.54,
+    label: 'Clerk Office & Central Library on Right After Walking Distance',
+    leftView: 'West Garden Lawn & Chemistry Wing ahead',
+    aheadView: 'Straight path past Big Lawn & Auditorium toward Principal’s Office',
+    rightView: 'Clerk Office (after walking distance) & Central Library further right'
   },
   {
     progress: 0.78,
-    label: 'Crossing Big Lawn Toward Principal’s Office Line',
-    leftView: 'Chemistry & Chemistry Labs + Auditorium (Left in line)',
+    label: 'Passing Auditorium Hall & Inner Lawn to Principal’s Office',
+    leftView: 'Chemistry & Chemistry Labs + Left 2-Grill Computer Lab Path ahead',
     aheadView: 'Big Ground & Green Lawn FIRST, then Sindhi, Economics & Physiology straight north',
-    rightView: 'Principal’s Office & 1st Floor General Staff Room / Humanities on right'
+    rightView: 'Auditorium Hall (in Zoology/Botany line) & Golden Principal’s Office'
   },
   {
     progress: 1,
-    label: 'Arrived at Principal’s Office (Right Side)',
-    leftView: 'Chemistry & Chemistry Labs & Auditorium directly across',
+    label: 'Arrived at Grand Golden Principal’s Office (Right Side)',
+    leftView: 'Chemistry & Chemistry Labs directly across',
     aheadView: 'Straight north: Big Ground & Lawn first, then Sindhi, Economics & Physiology',
     rightView: 'Principal’s Office · 1st Floor Staff Room, Islamiat, English, Stats, Maths & Physics'
   }
@@ -149,16 +149,16 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'South Boundary · Pathan Colony Road (Security Gate)',
     mapX: 50,
-    mapY: 91,
+    mapY: 92.6,
     gateDirections: {
       turn: 'Entry Gate',
       distanceFromGate: '0 m (Start Point)',
       walkingSteps: [
-        'Enter through the Security-monitored Main College Gate (Waiting Room on left, Canteen on right).',
-        'Walk straight onto the two paths separated by a small grill (Clerk Office first on right, then Central Library on right).',
-        'Cross the Big Lawn (with Gardeners) to reach the Principal’s Office line.'
+        'Enter through the Security-monitored Main College Gate inside the Golden Boundary Wall (Waiting Room on left, Front Garden & Canteen on right).',
+        'Walk straight along the two paths separated by a small grill passing the Front Garden and ~25m walking distance.',
+        'Reach the Clerk Office & Central Library on your right, then continue past the Auditorium to the Golden Principal’s Office.'
       ],
-      routePath: [{ x: 50, y: 91 }]
+      routePath: [{ x: 50, y: 92.6 }]
     }
   },
   {
@@ -200,8 +200,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Entrance Courtyard · First Room on Left',
-    mapX: 23.3,
-    mapY: 83.8,
+    mapX: 22.0,
+    mapY: 87.2,
     gateDirections: {
       turn: 'Turn Left',
       distanceFromGate: '14 m Left',
@@ -211,9 +211,9 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'First comes the Visitor Waiting Room on your left.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 83.8 },
-        { x: 23.3, y: 83.8 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 87.2 },
+        { x: 22.0, y: 87.2 }
       ]
     }
   },
@@ -255,21 +255,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 58
       }
     ],
-    locationNote: 'Entrance Courtyard Inside Gate · Right Side',
-    mapX: 63.0,
-    mapY: 83.8,
+    locationNote: 'Entrance Courtyard Inside Golden Wall · Beside Front Garden',
+    mapX: 68.4,
+    mapY: 87.2,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '14 m Right',
+      distanceFromGate: '16 m Right',
       walkingSteps: [
         'Enter through the Main College Gate.',
-        'Turn right immediately inside the gate (outside the right boundary sits Central Jail & Signal Jammers).',
-        'The College Canteen sits right there on your right.'
+        'Look right past the Front Entrance Garden inside the Golden College Boundary (Central Jail & Signal Jammers sit outside the golden wall).',
+        'The College Canteen sits on your right inside the campus wall.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 83.8 },
-        { x: 63.0, y: 83.8 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 87.2 },
+        { x: 68.4, y: 87.2 }
       ]
     }
   },
@@ -277,23 +277,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'clerk-office',
     name: 'Clerk Office & Student Records',
     shortName: 'Clerk Office',
-    subtitle: 'Walking Straight Along Grill Path · Very First Office on the Right',
+    subtitle: 'After Passing Front Garden & Walking Distance Straight · First Office on the Right',
     category: 'Administration',
     stopNumber: '04',
     svgType: 'principal-office',
-    badge: 'Straight Path · First on Right',
+    badge: 'After Garden & Walk · Right',
     description:
-      'As you walk straight onto the two paths separated by the small grill, the very first office on your right side is the Clerk Office—handling student enrollment forms, verification, bonafide certificates, and official records.',
+      'Walking straight from the gate past the Front Garden and along a distinct ~25m walking-distance stretch brings you on your right side to the Clerk Office—handling student enrollment forms, verification, bonafide certificates, and official records.',
     keySpecs: [
-      { label: 'Direction', value: 'Straight · First Right' },
-      { label: 'Distance', value: '24 Meters Straight' },
+      { label: 'Direction', value: 'Straight Past Garden · Right' },
+      { label: 'Distance', value: '~36 Meters Straight' },
       { label: 'Office Hours', value: '8:00 AM – 2:00 PM' },
       { label: 'Services', value: 'Records & Verification' }
     ],
     highlights: [
-      'Very first office on the right side when walking straight along the twin grill path',
+      'Appears on the right side after passing the Front Garden and walking distance straight',
       'Handles SECCAP admissions, enrollment slips & document verification',
-      'Just before the Central Library and Big Walking Lawn further along on the right'
+      'Leads onward to Central Library on the right and Auditorium/Principal’s Office ahead'
     ],
     hotspots: [
       {
@@ -311,21 +311,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 48
       }
     ],
-    locationNote: 'Twin Grill Path · Very First Office on Right',
-    mapX: 61.5,
-    mapY: 71.3,
+    locationNote: 'Past Front Garden & ~25m Walking Distance · Right Side',
+    mapX: 61.7,
+    mapY: 63.2,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '24 m Straight · First Right',
+      distanceFromGate: '36 m Straight · Right',
       walkingSteps: [
-        'Enter the Main Gate (passing Canteen on right and Waiting Room on left).',
-        'Walk straight onto the central pathway separated by the small grill.',
-        'The Clerk Office is the very first office on your right side.'
+        'Enter the Main Gate and walk straight past the Front Entrance Garden & Canteen.',
+        'Continue along the straight Twin-Grill walking-distance stretch (~25m).',
+        'Turn right into the Clerk Office after the garden walk.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 71.3 },
-        { x: 61.5, y: 71.3 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 63.2 },
+        { x: 61.7, y: 63.2 }
       ]
     }
   },
@@ -375,20 +375,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Right Side Past Clerk Office · Some Distance Inside Gate',
-    mapX: 84.7,
-    mapY: 70.9,
+    mapX: 85.3,
+    mapY: 63.2,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '38 m Straight · Right',
+      distanceFromGate: '46 m Straight · Right',
       walkingSteps: [
-        'Enter the Main Gate (Canteen on right) and walk straight forward.',
+        'Enter the Main Gate and walk straight past the Front Garden & walking distance.',
         'Pass the Clerk Office turn-off on your right.',
-        'Continue along the right side to enter the Central College Library.'
+        'Continue along the right wing to enter the Central College Library.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 71.3 },
-        { x: 84.7, y: 70.9 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 63.2 },
+        { x: 85.3, y: 63.2 }
       ]
     }
   },
@@ -432,18 +432,18 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Central Spine · Twin Grill Paths & Big Walking Lawn',
     mapX: 50,
-    mapY: 61.5,
+    mapY: 53.5,
     gateDirections: {
       turn: 'Straight Ahead',
-      distanceFromGate: '35 m Straight',
+      distanceFromGate: '44 m Straight',
       walkingSteps: [
-        'Enter Main Gate (Security) and walk straight past Waiting Room (left) and Canteen (right).',
-        'Step onto the two parallel paths separated by a small central grill past the Clerk Office.',
-        'Cross beside the Big Lawn (with Gardeners) on your right toward the Principal’s Office line.'
+        'Enter Main Gate (Security) and walk straight past the Front Garden & Canteen.',
+        'Walk the central twin paths separated by the small grill past the ~25m walking distance and Clerk Office.',
+        'Cross beside the Big Lawn (with Gardeners) and Auditorium toward the Golden Principal’s Office.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 61.5 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 53.5 }
       ]
     }
   },
@@ -486,21 +486,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Left Side · In Line with Principal’s Office',
-    mapX: 26.7,
-    mapY: 49.1,
+    mapX: 26.2,
+    mapY: 42.6,
     gateDirections: {
       turn: 'Turn Left',
-      distanceFromGate: '52 m Straight · Left',
+      distanceFromGate: '56 m Straight · Left',
       walkingSteps: [
-        'Walk straight along the twin grill paths past the Clerk Office and Big Lawn.',
+        'Walk straight along the twin grill paths past the Front Garden, Clerk Office, and Big Lawn.',
         'When you reach the Principal’s Office line, look directly to your left.',
         'Enter the Department of Chemistry & Chemistry Labs.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 61.5 },
-        { x: 50, y: 49.1 },
-        { x: 26.7, y: 49.1 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 53.5 },
+        { x: 50, y: 42.6 },
+        { x: 26.2, y: 42.6 }
       ]
     }
   },
@@ -543,20 +543,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Right Sector Before Principal’s Office · In Line with Zoology & Botany',
-    mapX: 77.6,
-    mapY: 59.1,
+    mapX: 79.4,
+    mapY: 53.3,
     gateDirections: {
       turn: 'Bear Right',
-      distanceFromGate: '46 m Straight · Right',
+      distanceFromGate: '48 m Straight · Right',
       walkingSteps: [
-        'Walk straight along the twin grill paths past the Clerk Office and Big Lawn.',
-        'Bear right just before reaching the Principal’s Office along the Zoology & Botany wing line.',
+        'Walk straight along the twin grill paths past the Front Garden and Clerk Office.',
+        'Bear right just before reaching the Golden Principal’s Office along the Zoology & Botany wing line.',
         'Enter the College Auditorium Hall on your right.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 59.1 },
-        { x: 77.6, y: 59.1 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 53.3 },
+        { x: 79.4, y: 53.3 }
       ]
     }
   },
@@ -599,28 +599,28 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Right Side · Immediately After Big Lawn & Auditorium',
-    mapX: 60.8,
-    mapY: 47.6,
+    mapX: 60.7,
+    mapY: 42.1,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '48 m Straight · Right',
+      distanceFromGate: '54 m Straight · Right',
       walkingSteps: [
-        'Enter Main Gate (Security) and walk straight past Canteen & Clerk Office onto the twin grill paths.',
-        'Walk straight crossing the Big Lawn (with Gardeners) and Auditorium on your right.',
-        'Turn right into the grand Principal’s Office.'
+        'Enter Main Gate (Security) and walk straight past the Front Garden & walking distance onto the twin grill paths.',
+        'Pass the Clerk Office, Inner Lawn, and Auditorium on your right.',
+        'Turn right into the grand Golden Principal’s Office.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 61.5 },
-        { x: 50, y: 47.6 },
-        { x: 60.8, y: 47.6 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 53.5 },
+        { x: 50, y: 42.1 },
+        { x: 60.7, y: 42.1 }
       ]
     }
   },
   {
     id: 'general-staff-room',
     name: 'General Staff Room (1st Floor)',
-    shortName: 'General Staff Room',
+    shortName: 'Staff Room',
     subtitle: 'On the Right of Principal’s Office · 1st Floor Faculty Lounge',
     category: 'Administration',
     stopNumber: '10',
@@ -649,27 +649,27 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: '1st Floor · Immediately Right of Principal’s Office',
-    mapX: 73.8,
-    mapY: 46.7,
+    mapX: 73.9,
+    mapY: 42.1,
     gateDirections: {
       turn: 'Upstairs (1st Floor)',
-      distanceFromGate: '55 m Right · 1st Floor',
+      distanceFromGate: '60 m Right · 1st Floor',
       walkingSteps: [
-        'Walk straight past the Big Lawn to the Principal’s Office on the right.',
+        'Walk straight past the Clerk Office and Big Lawn to the Principal’s Office on the right.',
         'Take the stairs right beside the Principal’s Office up to the 1st Floor.',
         'Enter the General Staff Room immediately on the right corridor.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 47.6 },
-        { x: 73.8, y: 46.7 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 42.1 },
+        { x: 73.9, y: 42.1 }
       ]
     }
   },
   {
     id: 'islamiat-english',
     name: 'Department of Islamiat & Islamic Culture',
-    shortName: 'Islamiat & Islamic Culture',
+    shortName: 'Islamiat & Culture',
     subtitle: '1st Floor Right of Principal’s Office · Dedicated Department Point',
     category: 'Academics',
     stopNumber: '11',
@@ -698,20 +698,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: '1st Floor · Past General Staff Room',
-    mapX: 83.6,
-    mapY: 46.7,
+    mapX: 83.5,
+    mapY: 42.1,
     gateDirections: {
       turn: 'Upstairs (1st Floor)',
-      distanceFromGate: '60 m Right · 1st Floor',
+      distanceFromGate: '64 m Right · 1st Floor',
       walkingSteps: [
         'Walk straight across the Big Lawn to the Principal’s Office on the right.',
         'Go to the 1st Floor past the General Staff Room.',
         'Enter the Department of Islamiat & Islamic Culture.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 47.6 },
-        { x: 83.6, y: 46.7 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 42.1 },
+        { x: 83.5, y: 42.1 }
       ]
     }
   },
@@ -747,20 +747,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: '1st Floor · East Corridor End',
-    mapX: 92.5,
-    mapY: 46.7,
+    mapX: 92.7,
+    mapY: 42.1,
     gateDirections: {
       turn: 'Upstairs (1st Floor)',
-      distanceFromGate: '64 m Right · 1st Floor',
+      distanceFromGate: '68 m Right · 1st Floor',
       walkingSteps: [
         'Walk straight across the Big Lawn to the Principal’s Office on the right.',
         'Go to the 1st Floor past General Staff Room and Islamiat & Islamic Culture.',
         'Enter the Department of English at the eastern end of the corridor.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 47.6 },
-        { x: 92.5, y: 46.7 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 42.1 },
+        { x: 92.7, y: 42.1 }
       ]
     }
   },
@@ -796,21 +796,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Right Academic Corridor · Statistics Before Mathematics',
-    mapX: 69.4,
-    mapY: 34.5,
+    mapX: 69.5,
+    mapY: 29.8,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '62 m Right Side',
+      distanceFromGate: '66 m Right Side',
       walkingSteps: [
         'Walk straight across the Big Lawn past the Principal’s Office line.',
         'Turn right onto the quantitative corridor.',
         'The Department of Statistics is the very first room before Mathematics.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 47.6 },
-        { x: 60.8, y: 47.6 },
-        { x: 69.4, y: 34.5 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 42.1 },
+        { x: 60.7, y: 42.1 },
+        { x: 69.5, y: 29.8 }
       ]
     }
   },
@@ -847,21 +847,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Right Academic Corridor · Between Statistics & Physics',
     mapX: 79.3,
-    mapY: 34.5,
+    mapY: 29.8,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '66 m Right Side',
+      distanceFromGate: '70 m Right Side',
       walkingSteps: [
         'Walk straight across the Big Lawn past the Principal’s Office.',
         'Bear right past the Department of Statistics.',
         'Enter the Department of Mathematics.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 47.6 },
-        { x: 60.8, y: 47.6 },
-        { x: 69.4, y: 34.5 },
-        { x: 79.3, y: 34.5 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 42.1 },
+        { x: 60.7, y: 42.1 },
+        { x: 69.5, y: 29.8 },
+        { x: 79.3, y: 29.8 }
       ]
     }
   },
@@ -904,21 +904,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'East Right Corridor · Past Mathematics',
-    mapX: 90.6,
-    mapY: 34.5,
+    mapX: 90.7,
+    mapY: 29.8,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '72 m Right Side',
+      distanceFromGate: '75 m Right Side',
       walkingSteps: [
         'Walk straight across the Big Lawn past the Principal’s Office and bear right.',
         'Pass Statistics and Mathematics.',
         'Enter Physics, the Physics Lab, and the Optics Dark Room.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 47.6 },
-        { x: 60.8, y: 47.6 },
-        { x: 90.6, y: 34.5 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 42.1 },
+        { x: 60.7, y: 42.1 },
+        { x: 90.7, y: 29.8 }
       ]
     }
   },
@@ -969,19 +969,19 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Upper-Right Campus · Assembly Ground Before Zoology & Botany',
     mapX: 70.8,
-    mapY: 21.3,
+    mapY: 17.8,
     gateDirections: {
       turn: 'Bear Right',
-      distanceFromGate: '74 m North-East',
+      distanceFromGate: '76 m North-East',
       walkingSteps: [
         'Walk straight across the Big Lawn past the Principal’s Office line.',
         'Bear right toward the upper-right campus past Statistics & Mathematics.',
         'Arrive at the Assembly & Flag Hoisting Ground, Lawn, Greenhouse & Prayer Room right before Zoology.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 29 },
-        { x: 70.8, y: 21.3 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 25.0 },
+        { x: 70.8, y: 17.8 }
       ]
     }
   },
@@ -1018,20 +1018,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Upper-Right Campus · Past Assembly & Flag Ground',
     mapX: 82.0,
-    mapY: 21.3,
+    mapY: 17.8,
     gateDirections: {
       turn: 'Bear Right',
-      distanceFromGate: '80 m North-East',
+      distanceFromGate: '82 m North-East',
       walkingSteps: [
         'Walk straight from the Main Gate past the Big Lawn and Principal’s Office line.',
         'Bear right through the Assembly & Flag Hoisting Ground.',
         'Enter the Department of Zoology & Zoology Lab.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 29 },
-        { x: 70.8, y: 21.3 },
-        { x: 82.0, y: 21.3 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 25.0 },
+        { x: 70.8, y: 17.8 },
+        { x: 82.0, y: 17.8 }
       ]
     }
   },
@@ -1068,20 +1068,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'North-East Corner · Right Past Zoology & Zoo Lab',
     mapX: 92.0,
-    mapY: 21.3,
+    mapY: 17.8,
     gateDirections: {
       turn: 'Bear Right',
-      distanceFromGate: '86 m North-East',
+      distanceFromGate: '88 m North-East',
       walkingSteps: [
         'Walk straight past the Big Lawn and Principal’s Office line.',
         'Bear right past Assembly & Flag Ground and Zoology & Zoo Lab.',
         'Enter the Department of Botany & Botany Lab at the north-east wing.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 29 },
-        { x: 70.8, y: 21.3 },
-        { x: 92.0, y: 21.3 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 25.0 },
+        { x: 70.8, y: 17.8 },
+        { x: 92.0, y: 17.8 }
       ]
     }
   },
@@ -1124,8 +1124,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'West Campus · Large Residential Hostel Beside Unified Corridor',
-    mapX: 10.8,
-    mapY: 30.5,
+    mapX: 10.3,
+    mapY: 26.2,
     gateDirections: {
       turn: 'Turn Left',
       distanceFromGate: '78 m Straight · Left Grill Path',
@@ -1135,11 +1135,11 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Pass Big Multimedia Room and Computer Lab & Office straight into the Big College Hostel.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 35.1 },
-        { x: 36.1, y: 35.1 },
-        { x: 24.7, y: 35.1 },
-        { x: 10.8, y: 30.5 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 30.4 },
+        { x: 36.2, y: 30.4 },
+        { x: 24.6, y: 30.4 },
+        { x: 10.3, y: 26.2 }
       ]
     }
   },
@@ -1182,8 +1182,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Beside Hostel · One Unified Corridor (Ground Floor)',
-    mapX: 24.7,
-    mapY: 35.1,
+    mapX: 24.6,
+    mapY: 30.4,
     gateDirections: {
       turn: 'Turn Left',
       distanceFromGate: '70 m Straight · Left Grill Path',
@@ -1193,10 +1193,10 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Enter the Computer Lab & Computer Office right beside the Hostel in the same corridor.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 35.1 },
-        { x: 36.1, y: 35.1 },
-        { x: 24.7, y: 35.1 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 30.4 },
+        { x: 36.2, y: 30.4 },
+        { x: 24.6, y: 30.4 }
       ]
     }
   },
@@ -1239,8 +1239,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Unified Corridor Beside Computer Office & Hostel · Solar Powered',
-    mapX: 36.1,
-    mapY: 35.1,
+    mapX: 36.2,
+    mapY: 30.4,
     gateDirections: {
       turn: 'Turn Left',
       distanceFromGate: '64 m Straight · Left Grill Path',
@@ -1250,9 +1250,9 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Enter the Big Computer Multimedia Room right alongside Computer Lab, Computer Office & Hostel.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 35.1 },
-        { x: 36.1, y: 35.1 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 30.4 },
+        { x: 36.2, y: 30.4 }
       ]
     }
   },
@@ -1295,8 +1295,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'North-West Sports Zone · Beside Hostel & Physical Education',
-    mapX: 10.8,
-    mapY: 11.0,
+    mapX: 10.3,
+    mapY: 8.8,
     gateDirections: {
       turn: 'Bear Left',
       distanceFromGate: '82 m North-West',
@@ -1306,18 +1306,18 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Step out directly onto the Tennis Court & Volleyball Ground.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 35.1 },
-        { x: 30.8, y: 35.1 },
-        { x: 30.8, y: 22.0 },
-        { x: 10.8, y: 11.0 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 30.4 },
+        { x: 30.6, y: 30.4 },
+        { x: 30.6, y: 17.6 },
+        { x: 10.3, y: 8.8 }
       ]
     }
   },
   {
     id: 'pak-urdu-pe',
     name: 'Department of Pakistan Studies',
-    shortName: 'Pakistan Studies',
+    shortName: 'Pak Studies',
     subtitle: 'Separate Point in Same Corridor with Urdu, PE, Computer Lab & Big Multimedia',
     category: 'Academics',
     stopNumber: '23',
@@ -1346,8 +1346,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Ground Floor Same Corridor Beside Hostel · Separate Point',
-    mapX: 23.5,
-    mapY: 22.0,
+    mapX: 22.9,
+    mapY: 17.6,
     gateDirections: {
       turn: 'Bear Left',
       distanceFromGate: '78 m North-West',
@@ -1357,10 +1357,10 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Enter the Department of Pakistan Studies.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 35.1 },
-        { x: 23.5, y: 35.1 },
-        { x: 23.5, y: 22.0 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 30.4 },
+        { x: 22.9, y: 30.4 },
+        { x: 22.9, y: 17.6 }
       ]
     }
   },
@@ -1396,8 +1396,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Ground Floor Same Corridor · Center Point',
-    mapX: 30.8,
-    mapY: 22.0,
+    mapX: 30.6,
+    mapY: 17.6,
     gateDirections: {
       turn: 'Bear Left',
       distanceFromGate: '78 m North-West',
@@ -1407,17 +1407,17 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Enter the Department of Urdu between Pakistan Studies and Physical Education.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 35.1 },
-        { x: 30.8, y: 35.1 },
-        { x: 30.8, y: 22.0 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 30.4 },
+        { x: 30.6, y: 30.4 },
+        { x: 30.6, y: 17.6 }
       ]
     }
   },
   {
     id: 'physical-education-dept',
     name: 'Department of Physical Education',
-    shortName: 'Physical Education',
+    shortName: 'Phys. Ed.',
     subtitle: 'Separate Point Beside Urdu & Opening Directly to Tennis & Volleyball Courts',
     category: 'Academics',
     stopNumber: '25',
@@ -1447,7 +1447,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Ground Floor Same Corridor · Next to Sports Ground',
     mapX: 38.3,
-    mapY: 22.0,
+    mapY: 17.6,
     gateDirections: {
       turn: 'Bear Left',
       distanceFromGate: '80 m North-West',
@@ -1457,10 +1457,10 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Reach the Department of Physical Education opening toward the Tennis & Volleyball Ground.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 35.1 },
-        { x: 38.3, y: 35.1 },
-        { x: 38.3, y: 22.0 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 30.4 },
+        { x: 38.3, y: 30.4 },
+        { x: 38.3, y: 17.6 }
       ]
     }
   },
@@ -1503,8 +1503,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: '1st Floor Same Building Above Unified Corridor · Solar Powered',
-    mapX: 30.8,
-    mapY: 10.4,
+    mapX: 30.7,
+    mapY: 7.6,
     gateDirections: {
       turn: 'Upstairs (1st Floor)',
       distanceFromGate: '84 m North-West · 1st Floor Same Bldg',
@@ -1514,11 +1514,11 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Take the staircase inside the SAME building up to the 1st Floor Commerce Department & Commerce Library.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 35.1 },
-        { x: 30.8, y: 35.1 },
-        { x: 30.8, y: 22.0 },
-        { x: 30.8, y: 10.4 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 30.4 },
+        { x: 30.7, y: 30.4 },
+        { x: 30.7, y: 17.6 },
+        { x: 30.7, y: 7.6 }
       ]
     }
   },
@@ -1555,7 +1555,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'North Straight Campus · Ground Comes First Before Northern Depts.',
     mapX: 53.7,
-    mapY: 22.1,
+    mapY: 17.8,
     gateDirections: {
       turn: 'Straight Ahead',
       distanceFromGate: '80 m Straight North',
@@ -1564,16 +1564,16 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Continue straight north onto the Big Ground & Green Lawn FIRST.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 47.6 },
-        { x: 53.7, y: 22.1 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 42.1 },
+        { x: 53.7, y: 17.8 }
       ]
     }
   },
   {
     id: 'sindhi-dept',
     name: 'Department of Sindhi',
-    shortName: 'Sindhi Dept.',
+    shortName: 'Sindhi',
     subtitle: 'Beyond North Big Ground · Separate Point for Sindhi Literature & Language',
     category: 'Academics',
     stopNumber: '28',
@@ -1602,8 +1602,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'North Wing Beyond Ground · Separate Dept.',
-    mapX: 46.7,
-    mapY: 9.2,
+    mapX: 46.8,
+    mapY: 7.2,
     gateDirections: {
       turn: 'Straight Ahead',
       distanceFromGate: '92 m Straight North',
@@ -1612,16 +1612,16 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Cross the ground straight ahead to reach the Department of Sindhi.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 22.1 },
-        { x: 46.7, y: 9.2 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 17.8 },
+        { x: 46.8, y: 7.2 }
       ]
     }
   },
   {
     id: 'economics-dept',
     name: 'Department of Economics',
-    shortName: 'Economics Dept.',
+    shortName: 'Economics',
     subtitle: 'Beyond North Big Ground · Between Sindhi & Physiology',
     category: 'Academics',
     stopNumber: '29',
@@ -1650,8 +1650,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'North Wing Beyond Ground · Separate Dept.',
-    mapX: 53.6,
-    mapY: 9.2,
+    mapX: 53.5,
+    mapY: 7.2,
     gateDirections: {
       turn: 'Straight Ahead',
       distanceFromGate: '92 m Straight North',
@@ -1660,16 +1660,16 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Cross the ground directly ahead to reach the Department of Economics.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 22.1 },
-        { x: 53.6, y: 9.2 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 17.8 },
+        { x: 53.5, y: 7.2 }
       ]
     }
   },
   {
     id: 'physiology-dept',
     name: 'Department of Physiology',
-    shortName: 'Physiology Dept.',
+    shortName: 'Physiology',
     subtitle: 'Beyond North Big Ground · Adjacent to Economics on the Northern Wing',
     category: 'Laboratories',
     stopNumber: '30',
@@ -1698,8 +1698,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'North Wing Beyond Ground · Separate Dept.',
-    mapX: 60.6,
-    mapY: 9.2,
+    mapX: 60.5,
+    mapY: 7.2,
     gateDirections: {
       turn: 'Straight Ahead',
       distanceFromGate: '93 m Straight North',
@@ -1708,9 +1708,9 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         'Cross the ground past Economics to enter the Department of Physiology.'
       ],
       routePath: [
-        { x: 50, y: 91 },
-        { x: 50, y: 22.1 },
-        { x: 60.6, y: 9.2 }
+        { x: 50, y: 92.6 },
+        { x: 50, y: 17.8 },
+        { x: 60.5, y: 7.2 }
       ]
     }
   }
