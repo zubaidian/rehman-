@@ -71,32 +71,32 @@ export const GATE_TO_PRINCIPAL_CHECKPOINTS: SimulationCheckpoint[] = [
     rightView: 'Canteen & Central Library Right · Central Jail & Jammers Outside Golden Boundary'
   },
   {
-    progress: 0.28,
-    label: 'Walking Straight Past Canteen & Central Library (~25m Walking Distance)',
+    progress: 0.30,
+    label: 'Passing Canteen & Central Library (~25m Walking Distance) → Garden Ahead',
     leftView: 'Waiting Room Courtyard & West Garden Lawn',
-    aheadView: 'Walking Straight Along Twin Grill Path Toward Clerk Office',
-    rightView: 'Canteen & Central Library (on right of Canteen) passed · Clerk Office straight ahead'
+    aheadView: 'Garden & Gardeners straight ahead BEFORE Big Clerk Office Corridor',
+    rightView: 'Canteen & Central Library passed · Garden & Gardeners on right before Clerk Office'
   },
   {
-    progress: 0.54,
-    label: 'Clerk Office on Right Straight Before the Garden',
-    leftView: 'West Garden Lawn & Chemistry Wing ahead',
-    aheadView: 'Garden & Gardeners straight ahead before Principal’s Office',
-    rightView: 'Clerk Office (straight before the Garden) on your right'
+    progress: 0.56,
+    label: 'Garden & Gardeners on Right (Before Big Clerk Office Corridor)',
+    leftView: 'West Garden Lawn & Chemistry Office & Labs ahead',
+    aheadView: 'Big Clerk Office Corridor & Principal / Chemistry Corridor straight ahead',
+    rightView: 'Garden & Gardeners on right right BEFORE Big Clerk Office & Corridor'
   },
   {
-    progress: 0.78,
-    label: 'Passing Garden & Auditorium Hall Toward Principal’s Office',
-    leftView: 'Chemistry & Chemistry Labs + Left 2-Grill Computer Lab Path ahead',
+    progress: 0.80,
+    label: 'Passing Big Clerk Office Corridor & Auditorium Hall',
+    leftView: 'Chemistry Office & Chemistry Labs directly across corridor',
     aheadView: 'Big Ground & Green Lawn FIRST, then Sindhi, Economics & Physiology straight north',
-    rightView: 'Garden (with Gardeners) & Auditorium Hall (in Zoology/Botany line) before Principal’s Office'
+    rightView: 'Big Clerk Office Corridor & Auditorium Hall (in Zoology/Botany line) before Principal’s Office'
   },
   {
     progress: 1,
-    label: 'Arrived at Grand Golden Principal’s Office (Right Side)',
-    leftView: 'Chemistry & Chemistry Labs directly across',
+    label: 'Arrived at Grand Golden Principal’s Office (Corridor of Principal & Chemistry Office/Lab)',
+    leftView: 'Chemistry Office & Chemistry Labs across Principal/Chemistry Corridor',
     aheadView: 'Straight north: Big Ground & Lawn first, then Sindhi, Economics & Physiology',
-    rightView: 'Principal’s Office · 1st Floor Staff Room, Islamiat, English, Stats, Maths & Physics'
+    rightView: 'Principal’s Office · Big Clerk Office Corridor right behind · 1st Floor Staff Room, Islamiat, English'
   }
 ];
 
@@ -112,17 +112,17 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     svgType: 'courtyard',
     badge: 'Entry Point · Estd 1953',
     description:
-      'Enter Government Girls Zubaida College through the Security-monitored 1953 Main Gate inside the Golden Boundary Wall on Pathan Colony Road. Immediately on your left is the Waiting Room and on your right is the College Canteen with the Central Library directly on the right of the Canteen (outside the golden wall sits Central Jail & Signal Jammers). Walking straight along the twin grill paths past ~25m walking distance brings you first to the Clerk Office before the Garden, then past the Garden & Auditorium to the Principal’s Office.',
+      'Enter Government Girls Zubaida College through the Security-monitored 1953 Main Gate inside the Golden Boundary Wall on Pathan Colony Road. Immediately on your left is the Waiting Room and on your right is the College Canteen with the Central Library directly on the right of the Canteen (outside the golden wall sits Central Jail & Signal Jammers). Walking straight along the twin grill paths past ~25m walking distance brings you first to the Garden & Gardeners, then to the Big Clerk Office Corridor right beside the Corridor of Principal’s Office & Chemistry Office and Lab.',
     keySpecs: [
       { label: 'Security', value: '24/7 Gate Guards' },
       { label: 'Entrance Left', value: 'Waiting Room' },
       { label: 'Entrance Right', value: 'Canteen → Central Library' },
-      { label: 'Straight Path', value: 'Clerk Office Before Garden' }
+      { label: 'Straight Path', value: 'Garden → Big Clerk Corridor' }
     ],
     highlights: [
       'Gate Security Cabin & uniformed security guards stationed inside the Golden Boundary Wall',
       'First on your left upon entering: Visitor Waiting Room',
-      'On your right at entrance: College Canteen with Central Library directly to its right; walking straight leads to Clerk Office before the Garden'
+      'On your right at entrance: Canteen & Central Library; walking straight reaches Garden BEFORE Big Clerk Office Corridor'
     ],
     hotspots: [
       {
@@ -155,8 +155,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       distanceFromGate: '0 m (Start Point)',
       walkingSteps: [
         'Enter through the Security-monitored Main Gate inside the Golden Boundary Wall (Waiting Room on left, Canteen & Central Library on right).',
-        'Walk straight along the twin grill path across ~25m walking distance to reach the Clerk Office before the Garden.',
-        'Pass the Garden & Auditorium Hall to reach the Golden Principal’s Office.'
+        'Walk straight along the twin grill path past ~25m walking distance into the Garden BEFORE the Big Clerk Office Corridor.',
+        'Pass the Big Clerk Office Corridor & Auditorium Hall into the Principal & Chemistry Office/Lab Corridor.'
       ],
       routePath: [{ x: 50, y: 92.6 }]
     }
@@ -237,7 +237,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     highlights: [
       'Located immediately on your right upon entering the Main Gate',
       'Central College Library sits directly on the right side of the Canteen inside the Golden Boundary',
-      'Walking straight past Canteen leads across ~25m walking distance to the Clerk Office before the Garden'
+      'Walking straight past Canteen leads across ~25m walking distance to the Garden before Big Clerk Office Corridor'
     ],
     hotspots: [
       {
@@ -256,7 +256,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Entrance Right · Central Library Directly on Its Right',
-    mapX: 59.1,
+    mapX: 59.3,
     mapY: 86.2,
     gateDirections: {
       turn: 'Turn Right',
@@ -269,63 +269,64 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 86.2 },
-        { x: 59.1, y: 86.2 }
+        { x: 59.3, y: 86.2 }
       ]
     }
   },
   {
     id: 'clerk-office',
-    name: 'Clerk Office & Student Records',
+    name: 'Big Clerk Office & Corridor',
     shortName: 'Clerk Office',
-    subtitle: 'Walking Straight After Canteen Distance · Comes Directly Before the Garden on Right',
+    subtitle: 'Big Clerk Office Corridor After Garden · On Right of Principal & Chemistry Corridor',
     category: 'Administration',
     stopNumber: '04',
     svgType: 'principal-office',
-    badge: 'Straight · Before Garden on Right',
+    badge: 'Big Corridor · Right of Principal/Chem Corridor',
     description:
-      'Walking straight along the twin-grill path past the Canteen and a clear ~25m walking distance brings you FIRST—right before the Garden—to the Clerk Office on your right side, handling admissions, verification, and student records.',
+      'Walking straight along the twin-grill path past the Canteen, ~25m walking distance, and the lush Garden & Gardeners brings you into the spacious Big Clerk Office & Big Clerk Office Corridor on the right—directly connecting to the Corridor of Principal’s Office & Chemistry Office and Lab.',
     keySpecs: [
-      { label: 'Position', value: 'Straight · Before Garden' },
-      { label: 'Distance', value: '~36 Meters Straight' },
+      { label: 'Corridor', value: 'Big Clerk Office Corridor' },
+      { label: 'Approach', value: 'After Garden (Before Principal)' },
       { label: 'Office Hours', value: '8:00 AM – 2:00 PM' },
       { label: 'Services', value: 'Records & Verification' }
     ],
     highlights: [
-      'Positioned in straight path directly BEFORE the Garden on your right side',
-      'Reached after walking a short distance straight ahead past Canteen & Central Library',
-      'Garden (with Gardeners), Auditorium & Golden Principal’s Office continue straight ahead'
+      'Wide colonnaded Big Clerk Office Corridor linking directly to Principal & Chemistry Office Corridor',
+      'Positioned right after the Garden & Gardeners on the right side',
+      'Handles admissions, student certificates, BISE verification & academic archives'
     ],
     hotspots: [
       {
         id: 'clerk-counter',
-        label: 'Student Records Window',
-        description: 'Bonafide certificates, marksheet verification, and admission counters.',
+        label: 'Student Records Windows',
+        description: 'Bonafide certificates, marksheet verification, and admission counters along the corridor.',
         xPercent: 36,
         yPercent: 52
       },
       {
         id: 'clerk-archive',
-        label: 'Admissions & Files Desk',
-        description: 'BISE and University of Sindh affiliation record counters.',
+        label: 'Big Clerk Office Corridor Gallery',
+        description: 'Covered veranda corridor linking straight up to Principal’s Office & Chemistry Office/Lab.',
         xPercent: 72,
-        yPercent: 48
+        yPercent: 68
       }
     ],
-    locationNote: 'Straight Twin-Grill Path · Right Before the Garden',
-    mapX: 61.8,
-    mapY: 62.2,
+    locationNote: 'After Garden · Big Corridor on Right of Principal/Chemistry Corridor',
+    mapX: 68.5,
+    mapY: 51.9,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '36 m Straight · Before Garden',
+      distanceFromGate: '46 m Straight · After Garden',
       walkingSteps: [
-        'Enter the Main Gate (Canteen & Central Library on your right).',
-        'Walk straight along the twin grill paths across the ~25m walking distance.',
-        'Turn right into the Clerk Office directly before the Garden.'
+        'Enter Main Gate (Canteen & Central Library on your right) and walk across ~25m walking distance.',
+        'Pass the Garden & Gardeners on your right (located directly before Clerk Office).',
+        'Step into the Big Clerk Office Corridor on the right side just below the Principal & Chemistry Corridor.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 62.2 },
-        { x: 61.8, y: 62.2 }
+        { x: 50, y: 58.6 },
+        { x: 68.5, y: 58.6 },
+        { x: 68.5, y: 51.9 }
       ]
     }
   },
@@ -375,7 +376,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Right of Canteen Inside Golden Wall',
-    mapX: 72.4,
+    mapX: 72.6,
     mapY: 86.2,
     gateDirections: {
       turn: 'Turn Right',
@@ -388,31 +389,31 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 86.2 },
-        { x: 72.4, y: 86.2 }
+        { x: 72.6, y: 86.2 }
       ]
     }
   },
   {
     id: 'grill-divided-walkway',
-    name: 'Twin Paths (Small Grill) & Big Lawn',
-    shortName: 'Twin Grill & Big Lawn',
-    subtitle: 'Two Paths Separated by Small Grill · Crossing Big Lawn (with Gardeners) to Principal’s Office',
+    name: 'Garden (Before Clerk) & Twin Grill Paths',
+    shortName: 'Garden & Twin Grill',
+    subtitle: 'Garden & Gardeners Before Big Clerk Office Corridor · On Right of Corridor',
     category: 'Student Life',
     stopNumber: '06',
     svgType: 'courtyard',
-    badge: 'Central Promenade · Big Lawn',
+    badge: 'Before Clerk Office · Right of Corridor',
     description:
-      'Along the central axis, two parallel paved pathways are separated down the center by a small iron grill. As you walk straight, you cross the lush green Big Lawn tended by college gardeners on the right before reaching the Auditorium & Principal’s Office.',
+      'Along the central twin paths divided by a small iron grill, you first reach the lush green Garden tended by college gardeners on the right side—situated directly BEFORE the Big Clerk Office & Corridor leading to Principal’s Office and Chemistry Office/Lab.',
     keySpecs: [
+      { label: 'Garden Spot', value: 'Before Big Clerk Office' },
       { label: 'Pathway', value: 'Two Grill-Divided Paths' },
-      { label: 'Lawn Side', value: 'Big Lawn on Right' },
       { label: 'Care Staff', value: 'Campus Gardeners' },
-      { label: 'Straight Ahead', value: 'Principal’s Office' }
+      { label: 'Next Ahead', value: 'Big Clerk Corridor & Principal' }
     ],
     highlights: [
+      'Expansive Garden tended by college gardeners appears BEFORE the Big Clerk Office Corridor',
       'Two clean parallel walkways separated by a small central iron grill',
-      'Big green walking lawn tended by college gardeners on your right side',
-      'Crossing the Big Lawn leads straight to the Auditorium & Principal’s Office'
+      'Leads directly past Big Clerk Office Corridor into Principal’s Office & Chemistry Corridor'
     ],
     hotspots: [
       {
@@ -424,83 +425,83 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       },
       {
         id: 'big-lawn-gardeners',
-        label: 'Big Lawn & Gardeners (Right)',
-        description: 'Expansive green lawn, trees, and flowerbeds tended by gardeners.',
+        label: 'Garden & Gardeners (Before Clerk)',
+        description: 'Expansive green lawn, shaded trees, and flowerbeds tended by gardeners before Clerk Office.',
         xPercent: 75,
         yPercent: 55
       }
     ],
-    locationNote: 'Central Spine · Twin Grill Paths & Big Walking Lawn',
+    locationNote: 'Central Spine · Garden on Right Before Big Clerk Office Corridor',
     mapX: 50,
-    mapY: 52.0,
+    mapY: 67.5,
     gateDirections: {
       turn: 'Straight Ahead',
-      distanceFromGate: '44 m Straight',
+      distanceFromGate: '32 m Straight · Before Clerk Office',
       walkingSteps: [
         'Enter Main Gate (Security) with Canteen & Central Library on right and Waiting Room on left.',
-        'Walk straight along the twin paths separated by the small grill past the ~25m walking distance and Clerk Office.',
-        'Cross the lush Garden (with Gardeners) and Auditorium toward the Golden Principal’s Office.'
+        'Walk straight along the twin paths separated by the small grill past ~25m walking distance.',
+        'Reach the lush Garden & Gardeners on your right directly BEFORE the Big Clerk Office Corridor.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 52.0 }
+        { x: 50, y: 67.5 }
       ]
     }
   },
   {
     id: 'chemistry-labs',
-    name: 'Department of Chemistry & Chemistry Labs',
-    shortName: 'Chemistry & Labs',
-    subtitle: 'Directly In Line with Principal’s Office on the Left Side',
+    name: 'Chemistry Office & Chemistry Labs',
+    shortName: 'Chemistry Office & Labs',
+    subtitle: 'Left Side of Principal & Chemistry Corridor · Facing Principal’s Office',
     category: 'Laboratories',
     stopNumber: '07',
     svgType: 'science-lab',
-    badge: 'In Line with Principal · Left',
+    badge: 'Chemistry Corridor · Office & Labs',
     description:
-      'Directly across on the left side—in exact alignment with the Principal’s Office—stand the Department of Chemistry lecture rooms and Chemistry Laboratories equipped with titration benches, reagent cabinets, and fume hoods.',
+      'Directly across the horizontal corridor from the Principal’s Office stand the Chemistry Office and Chemistry Laboratories equipped with titration benches, reagent chambers, and fume hoods.',
     keySpecs: [
-      { label: 'Alignment', value: 'In Line · Left Side' },
-      { label: 'Facilities', value: 'Chemistry Lecture & Labs' },
+      { label: 'Wing Layout', value: 'Chemistry Office + Labs' },
+      { label: 'Corridor', value: 'Faces Principal’s Office' },
       { label: 'Safety', value: 'Fume Hoods & Eye-Wash' },
       { label: 'Capacity', value: '40 Students / Lab' }
     ],
     highlights: [
-      'Positioned directly in line with the Principal’s Office on the left side',
-      'Dedicated organic, inorganic, and analytical Chemistry practical benches',
+      'Contains both the dedicated Chemistry Office and practical Chemistry Labs',
+      'Linked straight across the central corridor to the Principal’s Office and Big Clerk Office Corridor',
       'Rooftop solar panels powering laboratory instrumentation and ventilation'
     ],
     hotspots: [
       {
         id: 'chem-benches',
-        label: 'Titration & Practical Benches',
+        label: 'Chemistry Practical Lab',
         description: 'Lab tables outfitted with burettes, Bunsen burners, and sinks.',
-        xPercent: 35,
+        xPercent: 32,
         yPercent: 52
       },
       {
         id: 'chem-hood',
-        label: 'Reagent & Fume Chamber',
-        description: 'Ventilated chemical preparation and safety stations.',
-        xPercent: 74,
-        yPercent: 40
+        label: 'Chemistry Faculty Office',
+        description: 'Chemistry department faculty & preparation office beside the corridor.',
+        xPercent: 78,
+        yPercent: 48
       }
     ],
-    locationNote: 'Left Side · In Line with Principal’s Office',
-    mapX: 26.2,
+    locationNote: 'Left Side · Corridor of Principal’s Office & Chemistry Office/Lab',
+    mapX: 25.8,
     mapY: 41.0,
     gateDirections: {
       turn: 'Turn Left',
       distanceFromGate: '56 m Straight · Left',
       walkingSteps: [
-        'Walk straight along the twin grill paths past Clerk Office and the Garden.',
-        'When you reach the Golden Principal’s Office line, look directly to your left.',
-        'Enter the Department of Chemistry & Chemistry Labs.'
+        'Walk straight along the twin grill paths past the Garden and Big Clerk Office Corridor.',
+        'At the Principal & Chemistry Corridor, turn left across from Principal’s Office.',
+        'Enter the Chemistry Office & Chemistry Labs.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 52.0 },
+        { x: 50, y: 67.5 },
         { x: 50, y: 41.0 },
-        { x: 26.2, y: 41.0 }
+        { x: 25.8, y: 41.0 }
       ]
     }
   },
@@ -508,13 +509,13 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'auditorium-hall',
     name: 'College Auditorium Hall',
     shortName: 'Auditorium Hall',
-    subtitle: 'Before Principal’s Office · In Vertical Line with Zoology & Botany',
+    subtitle: 'Beside Big Clerk Office Corridor · Before Principal · In Line with Zoology & Botany',
     category: 'Student Life',
     stopNumber: '08',
     svgType: 'auditorium',
     badge: 'Before Principal · Zoology/Botany Line',
     description:
-      'Positioned on the right sector immediately before the Principal’s Office line and aligned directly in the vertical corridor of Zoology and Botany, the College Auditorium Hall hosts convocations, Seerat conferences, debates, and prize ceremonies.',
+      'Positioned on the right sector beside the Big Clerk Office Corridor immediately before the Principal’s Office line and aligned directly in the vertical corridor of Zoology and Botany, the College Auditorium Hall hosts convocations, Seerat conferences, debates, and prize ceremonies.',
     keySpecs: [
       { label: 'Seating', value: '600+ Attendees' },
       { label: 'Position', value: 'Before Principal’s Office' },
@@ -523,8 +524,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     highlights: [
       'Positioned right before the Principal’s Office in vertical alignment with Zoology & Botany',
-      'Elevated stage with formal Principal podium and solar-powered acoustics',
-      'Spacious assembly hall for major college ceremonies'
+      'Accessible directly through the Big Clerk Office Corridor on the right',
+      'Elevated stage with formal Principal podium and solar-powered acoustics'
     ],
     hotspots: [
       {
@@ -542,21 +543,22 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 72
       }
     ],
-    locationNote: 'Right Sector Before Principal’s Office · In Line with Zoology & Botany',
-    mapX: 81.1,
-    mapY: 52.0,
+    locationNote: 'Right Sector · In Line with Zoology & Botany (Past Big Clerk Corridor)',
+    mapX: 87.8,
+    mapY: 53.8,
     gateDirections: {
       turn: 'Bear Right',
-      distanceFromGate: '48 m Straight · Right',
+      distanceFromGate: '54 m Straight · Right',
       walkingSteps: [
-        'Walk straight along the twin grill paths past the Clerk Office into the Garden line.',
-        'Bear right beside the Garden just before reaching the Golden Principal’s Office (in Zoology & Botany line).',
-        'Enter the College Auditorium Hall on your right.'
+        'Walk straight along the twin grill paths past the Garden into the Big Clerk Office Corridor.',
+        'Continue right along the Big Clerk Office Corridor directly under Zoology & Botany.',
+        'Enter the College Auditorium Hall before the Principal’s Office line.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 52.0 },
-        { x: 81.1, y: 52.0 }
+        { x: 50, y: 58.6 },
+        { x: 87.8, y: 58.6 },
+        { x: 87.8, y: 53.8 }
       ]
     }
   },
@@ -564,22 +566,22 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'principal-office',
     name: 'Principal’s Office & Executive Suite',
     shortName: 'Principal’s Office',
-    subtitle: 'Grand Golden Landmark After Crossing Big Lawn & Auditorium · Right Side',
+    subtitle: 'Grand Golden Landmark Along Principal & Chemistry Corridor · Right Side',
     category: 'Administration',
     stopNumber: '09',
     svgType: 'principal-office',
     badge: 'Executive Suite · Right Side',
     description:
-      'Walking straight along the twin grill-divided paths past the Big Lawn and Auditorium brings you directly to the prominent Principal’s Office on your right side—the executive office of Principal Prof. Yasmeen Panhwar.',
+      'Walking straight past the Garden and Big Clerk Office Corridor brings you to the prominent Golden Principal’s Office on your right along the Principal & Chemistry Corridor—executive office of Principal Prof. Yasmeen Panhwar, facing the Chemistry Office & Labs on the left.',
     keySpecs: [
       { label: 'Principal', value: 'Prof. Yasmeen Panhwar' },
-      { label: 'Direction', value: 'Straight · Right Past Lawn' },
-      { label: 'Opposite Left', value: 'Chemistry & Labs' },
+      { label: 'Direction', value: 'Straight · Past Clerk Corridor' },
+      { label: 'Opposite Left', value: 'Chemistry Office & Labs' },
       { label: 'Office Hours', value: '8:00 AM – 2:00 PM' }
     ],
     highlights: [
-      'Positioned prominently on the right side right past the Big Walking Lawn & Auditorium',
-      'Directly in line with Chemistry & Chemistry Labs on the left',
+      'Positioned prominently on the right side right past the Garden & Big Clerk Office Corridor',
+      'Directly in line across the corridor with Chemistry Office & Chemistry Labs',
       'Connected to General Staff Room, Islamiat, English, Statistics & Mathematics'
     ],
     hotspots: [
@@ -598,22 +600,22 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 34
       }
     ],
-    locationNote: 'Right Side · Immediately After Big Lawn & Auditorium',
-    mapX: 60.7,
-    mapY: 40.5,
+    locationNote: 'Right Side · Corridor of Principal’s Office & Chemistry Office/Lab',
+    mapX: 61.5,
+    mapY: 40.4,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '54 m Straight · Right',
+      distanceFromGate: '58 m Straight · Right',
       walkingSteps: [
-        'Enter Main Gate (Canteen & Central Library on your right) and walk straight along the twin grill paths.',
-        'Pass the ~25m walking distance, Clerk Office, Garden (with Gardeners), and Auditorium Hall.',
-        'Turn right into the grand Golden Principal’s Office.'
+        'Enter Main Gate (Canteen & Central Library on your right) and walk straight past ~25m walking distance.',
+        'Pass the Garden (before Clerk Office) and walk past the Big Clerk Office Corridor.',
+        'Turn right along the Principal & Chemistry Corridor into the grand Golden Principal’s Office.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 52.0 },
-        { x: 50, y: 40.5 },
-        { x: 60.7, y: 40.5 }
+        { x: 50, y: 67.5 },
+        { x: 50, y: 40.4 },
+        { x: 61.5, y: 40.4 }
       ]
     }
   },
@@ -636,7 +638,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     highlights: [
       'First room on the 1st Floor turning right from the Principal’s Office',
-      'Central faculty coordination room overlooking the Auditorium & Big Lawn',
+      'Central faculty coordination room overlooking the Big Clerk Office Corridor & Auditorium',
       'Equipped with rooftop solar power for year-round faculty operations'
     ],
     hotspots: [
@@ -649,20 +651,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: '1st Floor · Immediately Right of Principal’s Office',
-    mapX: 73.9,
+    mapX: 74.3,
     mapY: 42.1,
     gateDirections: {
       turn: 'Upstairs (1st Floor)',
-      distanceFromGate: '60 m Right · 1st Floor',
+      distanceFromGate: '64 m Right · 1st Floor',
       walkingSteps: [
-        'Walk straight past the Clerk Office and Big Lawn to the Principal’s Office on the right.',
+        'Walk straight past the Garden and Big Clerk Office Corridor to the Principal’s Office on the right.',
         'Take the stairs right beside the Principal’s Office up to the 1st Floor.',
         'Enter the General Staff Room immediately on the right corridor.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 42.1 },
-        { x: 73.9, y: 42.1 }
+        { x: 74.3, y: 42.1 }
       ]
     }
   },
