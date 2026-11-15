@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ALUMNAE_PROFILES, ALUMNAE_IMPACT_METRICS, AlumnaProfile } from '../data/alumnaeData';
-import { submitAlumnaRegistration } from '../services/collegeSubmissions';
 import {
-  HeartHandshake,
   ArrowRight,
   X,
   CheckCircle2,
   BookOpen,
   ExternalLink,
-  Send,
   Plus,
   Trash2,
   Upload,
@@ -22,17 +19,6 @@ const DEV_ALUMNAE_STORAGE_KEY = 'zubaida_dev_custom_alumnae_v1';
 export function AlumnaeSection() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [selectedAlumna, setSelectedAlumna] = useState<AlumnaProfile | null>(null);
-  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
-
-  // Alumnae Join Form State
-  const [joinName, setJoinName] = useState('');
-  const [joinBatch, setJoinBatch] = useState('');
-  const [joinProfession, setJoinProfession] = useState('');
-  const [joinEmail, setJoinEmail] = useState('');
-  const [joinMessage, setJoinMessage] = useState('');
-  const [joinSubmitted, setJoinSubmitted] = useState(false);
-  const [joinSubmitting, setJoinSubmitting] = useState(false);
-  const [joinError, setJoinError] = useState('');
 
   // DEV-only: Add More Alumnae (completely hidden in production/live builds)
   const [devAlumnae, setDevAlumnae] = useState<AlumnaProfile[]>(() => {
@@ -86,38 +72,6 @@ export function AlumnaeSection() {
     activeCategory === 'all'
       ? allVisibleAlumnae
       : allVisibleAlumnae.filter((a) => a.category === activeCategory);
-
-  const handleJoinSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!joinName.trim() || !joinEmail.trim()) return;
-    setJoinError('');
-    setJoinSubmitting(true);
-    try {
-      await submitAlumnaRegistration({
-        name: joinName,
-        batch: joinBatch || 'Zubaida College',
-        profession: joinProfession,
-        email: joinEmail,
-        message: joinMessage,
-      });
-      setJoinSubmitted(true);
-    } catch {
-      setJoinError('Could not save your registration right now. Please try again.');
-    } finally {
-      setJoinSubmitting(false);
-    }
-  };
-
-  const resetJoinForm = () => {
-    setJoinName('');
-    setJoinBatch('');
-    setJoinProfession('');
-    setJoinEmail('');
-    setJoinMessage('');
-    setJoinError('');
-    setJoinSubmitted(false);
-    setIsJoinModalOpen(false);
-  };
 
   const resetAddDevForm = () => {
     setNewName('');
@@ -410,47 +364,22 @@ export function AlumnaeSection() {
           </div>
         )}
 
-        {/* Alumnae Impact Metrics Bar */}
-        <div className="mt-16 p-8 rounded-2xl bg-[#042f28] text-white border-2 border-amber-300/40 shadow-xl">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left divide-y sm:divide-y-0 sm:divide-x divide-emerald-800/80">
+        {/* Researched Alumnae Career Fields & Verified Institutional Impact */}
+        <div className="mt-16 p-6 sm:p-8 rounded-2xl bg-[#042f28] text-white border-2 border-amber-300/40 shadow-xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left divide-y sm:divide-y-0 lg:divide-x divide-emerald-800/80">
             {ALUMNAE_IMPACT_METRICS.map((metric, idx) => (
-              <div key={idx} className={idx !== 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''}>
-                <div className="font-serif font-bold text-3xl sm:text-4xl text-amber-300 tabular-nums">
+              <div key={idx} className={idx !== 0 ? 'pt-4 sm:pt-0 lg:pl-6' : ''}>
+                <div className="font-serif font-bold text-xl sm:text-2xl text-amber-300 tabular-nums">
                   {metric.value}
                 </div>
                 <div className="font-bold text-xs sm:text-sm text-white mt-1">
                   {metric.label}
                 </div>
-                <p className="text-xs text-emerald-200 mt-0.5">
+                <p className="text-xs text-emerald-100/90 mt-1.5 leading-relaxed">
                   {metric.sub}
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Reconnect with Alma Mater CTA Box */}
-        <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#064b36] to-[#042f28] text-white border border-amber-300/40 shadow-xl">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 text-center lg:text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-amber-300">
-                Are You a Graduate of Zubaida College?
-              </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold">
-                Reconnect with Your Alma Mater &amp; Inspire the Next Generation
-              </h3>
-              <p className="text-xs sm:text-sm text-stone-200 max-w-2xl leading-relaxed">
-                Join our official Zubeidian Alumnae Network to participate in guest lectures, career guidance mentorships for current students, and annual reunion assemblies.
-              </p>
-            </div>
-
-            <button
-              onClick={() => setIsJoinModalOpen(true)}
-              className="px-6 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 active:scale-95 flex items-center gap-2"
-            >
-              <HeartHandshake className="w-4 h-4 text-emerald-950" />
-              <span>Join Alumnae Directory</span>
-            </button>
           </div>
         </div>
       </div>
@@ -579,148 +508,6 @@ export function AlumnaeSection() {
                 Close Profile
               </button>
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* Join Alumnae Directory Modal */}
-      {isJoinModalOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
-          onClick={resetJoinForm}
-        >
-          <div
-            className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl text-left border border-stone-200 relative max-h-[92vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={resetJoinForm}
-              className="absolute top-5 right-5 text-stone-400 hover:text-stone-700 p-1 rounded-lg"
-              aria-label="Close directory join modal"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            <div className="flex items-center gap-2 mb-2 text-[#064b36]">
-              <HeartHandshake className="w-5 h-5 text-amber-600" />
-              <span className="text-xs font-bold uppercase tracking-wider">
-                Alumnae Registration
-              </span>
-            </div>
-
-            <h3 className="font-serif text-2xl font-bold text-[#064b36] mb-1">
-              Join the Zubeidian Alumnae Network
-            </h3>
-            <p className="text-xs text-stone-600 mb-6">
-              Reconnect with your teachers, mentor current students, and stay informed on college reunions.
-            </p>
-
-            {joinSubmitted ? (
-              <div className="text-center py-6 space-y-4">
-                <div className="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center">
-                  <CheckCircle2 className="w-7 h-7" />
-                </div>
-                <h4 className="font-serif text-xl font-bold text-stone-900">
-                  Welcome Back, {joinName}!
-                </h4>
-                <p className="text-xs text-stone-600 leading-relaxed max-w-sm mx-auto">
-                  Your graduation registration for the <strong>Class of {joinBatch || 'Zubaida College'}</strong> has been recorded. Our alumnae coordinator will contact you at <strong>{joinEmail}</strong>.
-                </p>
-                <button
-                  onClick={resetJoinForm}
-                  className="px-6 py-2.5 bg-[#064b36] text-white rounded-lg text-xs font-semibold"
-                >
-                  Close Window
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleJoinSubmit} className="space-y-4 text-xs">
-                <div>
-                  <label className="block font-bold text-stone-700 mb-1">
-                    Your Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={joinName}
-                    onChange={(e) => setJoinName(e.target.value)}
-                    placeholder={import.meta.env.DEV ? 'e.g. Dr. Hina Memon' : undefined}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-bold text-stone-700 mb-1">
-                      Passing / Graduation Year *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={joinBatch}
-                      onChange={(e) => setJoinBatch(e.target.value)}
-                      placeholder={import.meta.env.DEV ? 'e.g. 2004 or 2018' : undefined}
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block font-bold text-stone-700 mb-1">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={joinEmail}
-                      onChange={(e) => setJoinEmail(e.target.value)}
-                      placeholder={import.meta.env.DEV ? 'alumna@example.com' : undefined}
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block font-bold text-stone-700 mb-1">
-                    Current Profession / Organization
-                  </label>
-                  <input
-                    type="text"
-                    value={joinProfession}
-                    onChange={(e) => setJoinProfession(e.target.value)}
-                    placeholder={import.meta.env.DEV ? 'e.g. Assistant Professor, LUMHS or Civil Judge' : undefined}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-bold text-stone-700 mb-1">
-                    Would you like to mentor current students or deliver a guest lecture?
-                  </label>
-                  <textarea
-                    rows={2}
-                    value={joinMessage}
-                    onChange={(e) => setJoinMessage(e.target.value)}
-                    placeholder={import.meta.env.DEV ? "Share any special memories or areas you'd like to support (optional)..." : undefined}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#064b36]"
-                  />
-                </div>
-
-                {joinError && (
-                  <p className="text-xs text-rose-700 bg-rose-50 border border-rose-200 p-2.5 rounded-lg">
-                    {joinError}
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={joinSubmitting}
-                  className="w-full py-3 bg-[#064b36] hover:bg-[#042f28] text-white rounded-lg font-bold text-sm shadow transition-all flex items-center justify-center gap-2 active:scale-95 disabled:opacity-60"
-                >
-                  <Send className="w-4 h-4 text-amber-300" />
-                  <span>{joinSubmitting ? 'Submitting Registration...' : 'Submit Registration'}</span>
-                </button>
-              </form>
-            )}
           </div>
         </div>
       )}

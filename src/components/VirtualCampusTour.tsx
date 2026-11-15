@@ -45,7 +45,7 @@ import {
   Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v12';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v13';
 
 function buildWalkRouteBetween(
   fromPos: { x: number; y: number },
@@ -63,10 +63,10 @@ function buildWalkRouteBetween(
   const dest = { x: targetStop.mapX, y: targetStop.mapY };
   const waypoints: { x: number; y: number }[] = [fromPos];
 
-  // If moving between upper-left corridor stops (Hostel, Computer Lab/Office, Big Multimedia, Sports, Pak Studies, Commerce)
+  // If moving between upper-left corridor stops (Hostel, Computer Lab/Office, Big Multimedia, Sports, Pak Studies, Urdu, PE, Commerce)
   if (fromPos.x < 45 && dest.x < 45 && fromPos.y < 42 && dest.y < 42) {
-    waypoints.push({ x: 30.3, y: fromPos.y });
-    waypoints.push({ x: 30.3, y: dest.y });
+    waypoints.push({ x: 30.8, y: fromPos.y });
+    waypoints.push({ x: 30.8, y: dest.y });
     waypoints.push(dest);
   } else {
     const spineYFrom = Math.max(18, Math.min(91, fromPos.y));
@@ -117,9 +117,9 @@ function interpolateWalkerOnRoute(
   for (let i = 0; i < route.length - 1; i++) {
     const start = route[i];
     const end = route[i + 1];
-    // Scale to 1000x600 SVG aspect ratio for natural walking speed & heading
-    const dxSvg = (end.x - start.x) * 10;
-    const dySvg = (end.y - start.y) * 6;
+    // Scale to 1200x780 SVG aspect ratio for natural walking speed & heading
+    const dxSvg = (end.x - start.x) * 12;
+    const dySvg = (end.y - start.y) * 7.8;
     const len = Math.hypot(dxSvg, dySvg);
     if (len > 0.01) {
       const angleDeg = (Math.atan2(dxSvg, -dySvg) * 180) / Math.PI;
@@ -827,7 +827,7 @@ export function VirtualCampusTour() {
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-10 sm:mb-12">
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
@@ -1285,24 +1285,42 @@ export function VirtualCampusTour() {
             </form>
           )}
 
-          {/* Interactive Map / Facility Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left 7 Columns: Interactive Campus Map + Virtual Visitor Walk Simulation OR Facility Graphic */}
-            <div className="lg:col-span-7 space-y-4">
-              {activeView === 'map' ? (
-                <>
-                  <CampusMapCanvas
-                    stops={stops}
-                    selectedIndex={safeIndex}
-                    onSelectStop={handleSelectFacility}
-                    mapMode={mapMode}
-                    onMapCoordinatePick={handleMapCoordinatePick}
-                    draftPinCoords={draftPinCoords}
-                    walker={walkerState}
-                    customRoutePath={simActive ? simulationRoute : null}
-                  />
+          {/* Full-Width Spacious Interactive Map + Two-Column Walk Simulator & Details Below */}
+          <div className="space-y-8">
+            {activeView === 'map' ? (
+              <CampusMapCanvas
+                stops={stops}
+                selectedIndex={safeIndex}
+                onSelectStop={handleSelectFacility}
+                mapMode={mapMode}
+                onMapCoordinatePick={handleMapCoordinatePick}
+                draftPinCoords={draftPinCoords}
+                walker={walkerState}
+                customRoutePath={simActive ? simulationRoute : null}
+              />
+            ) : (
+              <div>
+                <FacilityGraphic
+                  facility={currentFacility}
+                  activeHotspot={activeHotspot}
+                  onSelectHotspot={setActiveHotspot}
+                />
+                <div className="mt-3 flex items-center justify-between text-xs text-stone-400 px-1">
+                  <span>Click info pins on the graphic to inspect facility features</span>
+                  <button
+                    onClick={() => setActiveView('map')}
+                    className="text-amber-300 hover:text-amber-200 font-semibold flex items-center gap-1"
+                  >
+                    <MapIcon className="w-3.5 h-3.5" />
+                    <span>Back to Campus Map</span>
+                  </button>
+                </div>
+              </div>
+            )}
 
-                  {/* Virtual Visitor Walk Simulator Bar & Live Horizon Viewfinder */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* Left 6 Columns: Virtual Visitor Walk Simulator Bar & Live Horizon Viewfinder */}
+              <div className="lg:col-span-6 space-y-4">
                   <div className="bg-[#021914] border border-emerald-700/70 rounded-2xl p-4 sm:p-5 space-y-4 text-left">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <div className="flex items-center gap-2.5">
@@ -1498,30 +1516,10 @@ export function VirtualCampusTour() {
                       </div>
                     </div>
                   </div>
-                </>
-              ) : (
-                <div>
-                  <FacilityGraphic
-                    facility={currentFacility}
-                    activeHotspot={activeHotspot}
-                    onSelectHotspot={setActiveHotspot}
-                  />
-                  <div className="mt-3 flex items-center justify-between text-xs text-stone-400 px-1">
-                    <span>Click info pins on the graphic to inspect facility features</span>
-                    <button
-                      onClick={() => setActiveView('map')}
-                      className="text-amber-300 hover:text-amber-200 font-semibold flex items-center gap-1"
-                    >
-                      <MapIcon className="w-3.5 h-3.5" />
-                      <span>Back to Campus Map</span>
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
+              </div>
 
-            {/* Right 5 Columns: Selected Stop + Gate-Entry Walking Directions */}
-            <div className="lg:col-span-5 space-y-5 text-left">
+              {/* Right 6 Columns: Selected Stop + Gate-Entry Walking Directions */}
+              <div className="lg:col-span-6 space-y-5 text-left">
               {(() => {
                 const activeTheme = getStopColorTheme(currentFacility.id, safeIndex);
                 return (
@@ -1645,6 +1643,7 @@ export function VirtualCampusTour() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

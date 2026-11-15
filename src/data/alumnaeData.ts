@@ -259,8 +259,25 @@ export const ALUMNAE_PROFILES: AlumnaProfile[] = [
 ];
 
 export const ALUMNAE_IMPACT_METRICS = [
-  { value: '70+', label: 'Years of Alumni Legacy', sub: 'Since founding in 1953' },
-  { value: '5,000+', label: 'Serving Medical Professionals', sub: 'Doctors, specialists & nurses' },
-  { value: '1,200+', label: 'Educators & Professors', sub: 'Teaching in colleges & universities' },
-  { value: '100+', label: 'Civil Servants & Judiciary', sub: 'Officers across federal & Sindh depts' }
+  {
+    value: '1953–2026',
+    label: 'Over 7 Decades of Alumni Legacy',
+    sub: 'Educating generations of women scholars & leaders in Hyderabad, Sindh'
+  },
+  {
+    value: 'Medicine & Health',
+    label: 'Serving Doctors & Medical Professors',
+    sub: 'HSC Pre-Medical & BS Zoology alumnae advancing to LUMHS Jamshoro, PUMHSW & tertiary teaching hospitals as clinicians and medical faculty'
+  },
+  {
+    value: 'Academia & Faculty',
+    label: 'Educators & University Professors',
+    sub: 'Documented graduates include Prof. Mahtab Akbar Rashdi (Chair, IR, Univ. of Sindh), Prof. Dr. Seher Imdad (35+ yrs, Univ. of Sindh), & Principal Anisa Memon'
+  },
+  {
+    value: 'CSS · PMS · Law',
+    label: 'Civil Servants & Judiciary',
+    sub: 'Documented leaders include Senior Sindh Secretary Mahtab Akbar Rashdi & PSP SSP Suhai Aziz Talpur alongside graduates entering CSS, PMS & judicial service'
+  }
 ];
+
