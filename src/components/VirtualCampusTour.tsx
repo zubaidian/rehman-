@@ -45,7 +45,16 @@ import {
   Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v17';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v22';
+
+const EAST_STAIRS_STOP_IDS = new Set([
+  'general-staff-room',
+  'islamiat-english',
+  'english-dept',
+  'statistics-mathematics',
+  'mathematics-dept',
+  'physics-lab-darkroom'
+]);
 
 function buildWalkRouteBetween(
   fromPos: { x: number; y: number },
@@ -63,11 +72,54 @@ function buildWalkRouteBetween(
   const dest = { x: targetStop.mapX, y: targetStop.mapY };
   const waypoints: { x: number; y: number }[] = [fromPos];
 
-  // If moving between upper-left corridor stops (Hostel, Computer Lab/Office, Big Multimedia, Sports, Pak Studies, Urdu, PE, Commerce)
-  if (fromPos.x < 45 && dest.x < 45 && fromPos.y < 36 && dest.y < 36) {
-    waypoints.push({ x: 30.6, y: fromPos.y });
-    waypoints.push({ x: 30.6, y: dest.y });
-    waypoints.push(dest);
+  // If moving between west-wing stops (Tennis/Volleyball, Hostel, Computer Dept, Pak Studies, Urdu, Physical Education, Commerce by Stairs)
+  if (fromPos.x < 48 && dest.x < 48 && fromPos.y < 80 && dest.y < 80) {
+    if (fromPos.y < 10 && targetStop.id !== 'commerce-dept-library') {
+      waypoints.push({ x: 44.3, y: 7.1 });
+      waypoints.push({ x: 44.3, y: 20.5 });
+    }
+    if (targetStop.id === 'commerce-dept-library') {
+      waypoints.push({ x: 44.3, y: Math.max(20.5, Math.min(30.4, fromPos.y)) });
+      waypoints.push({ x: 44.3, y: 20.5 });
+      waypoints.push({ x: 44.3, y: 7.1 });
+      waypoints.push(dest);
+    } else if (targetStop.id === 'hostel-computer-lab' || fromPos.y > 38) {
+      waypoints.push({ x: 24.8, y: 37.8 });
+      waypoints.push(dest);
+    } else {
+      waypoints.push({ x: 30.6, y: fromPos.y });
+      waypoints.push({ x: 30.6, y: dest.y });
+      waypoints.push(dest);
+    }
+  } else if (
+    fromPos.x >= 53 &&
+    dest.x >= 53 &&
+    fromPos.y >= 16 &&
+    fromPos.y <= 46 &&
+    dest.y >= 16 &&
+    dest.y <= 46
+  ) {
+    // Direct walking along Principal's Office <-> Chemistry Lab <-> Stairs (x=80.6) <-> By-Stairs 1st Floor / Auditorium Hall path
+    if (Math.abs(fromPos.y - 41.9) < 3 && targetStop.id === 'auditorium-hall') {
+      waypoints.push({ x: 92.7, y: 41.9 });
+      waypoints.push(dest);
+    } else {
+      if (fromPos.y < 36) {
+        waypoints.push({ x: 80.6, y: fromPos.y });
+        waypoints.push({ x: 80.6, y: 41.9 });
+      } else {
+        waypoints.push({ x: 80.6, y: 41.9 });
+      }
+      if (targetStop.id === 'auditorium-hall') {
+        waypoints.push({ x: 92.7, y: 41.9 });
+        waypoints.push(dest);
+      } else if (dest.y < 36) {
+        waypoints.push({ x: 80.6, y: dest.y });
+        waypoints.push(dest);
+      } else {
+        waypoints.push(dest);
+      }
+    }
   } else {
     const spineYFrom = Math.max(18, Math.min(91, fromPos.y));
     const spineEntry = gateRoute[1] || { x: 50, y: Math.max(18, Math.min(91, dest.y)) };
@@ -189,11 +241,38 @@ function getSurroundingsAtCoord(
   }
 
   if (progress >= 0.96) {
+    const stairNote =
+      targetStop.id === 'commerce-dept-library'
+        ? 'Reached By Stairs ↑ (1st Floor) · '
+        : EAST_STAIRS_STOP_IDS.has(targetStop.id)
+          ? 'Reached By Stairs ↑ (1st Floor) · '
+          : '';
     return {
-      stageLabel: `Arrived at ${targetStop.shortName || targetStop.name}`,
-      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Central Courtyard & West Lawn',
+      stageLabel: `${stairNote}Arrived at ${targetStop.shortName || targetStop.name}`,
+      leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Central Courtyard · Hostel (Between Computer Dept. & West Garden)',
       aheadView: targetStop.locationNote,
-      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Garden (before Clerk), Big Clerk Office Corridor, Principal’s Office → Chemistry Lab → Stairs → Auditorium'
+      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Garden (before Clerk), Big Clerk Office Corridor, Principal’s Office → Path to Auditorium Hall · By Stairs: Staff Room, English, Physics, Statistics (before Dark Room), Maths, Islamiat'
+    };
+  }
+
+  if (
+    (EAST_STAIRS_STOP_IDS.has(targetStop.id) || targetStop.id === 'commerce-dept-library') &&
+    progress >= 0.42
+  ) {
+    const isCommerce = targetStop.id === 'commerce-dept-library';
+    return {
+      stageLabel: isCommerce
+        ? `Using Stairs ↑ to 1st Floor ${targetStop.shortName || targetStop.name}`
+        : `Going By Stairs ↑ to 1st Floor ${targetStop.shortName || targetStop.name}`,
+      leftView: isCommerce
+        ? 'Computer Department (Computer Lab & Big Multimedia), Pak Studies, Urdu & Physical Education below'
+        : 'Principal’s Office & Chemistry Lab below · General Staff Room & English Classes on 1st Floor',
+      aheadView: isCommerce
+        ? 'Climbing Commerce Stairs ↑ directly to 1st Floor Commerce & Commerce Library'
+        : `Climbing Central Stairs ↑ directly to ${targetStop.shortName || targetStop.name} (Statistics right before Dark Room)`,
+      rightView: isCommerce
+        ? 'North Big Ground & Sindhi / Economics / Physiology straight ahead'
+        : 'Physics Optics Dark Room & Auditorium Hall Path on the right'
     };
   }
 
@@ -201,17 +280,17 @@ function getSurroundingsAtCoord(
     stageLabel: `Walking toward ${targetStop.shortName || targetStop.name}`,
     leftView:
       y < 52 && y > 36
-        ? 'Central Courtyard Promenade & West Garden Lawn'
+        ? 'Central Courtyard Promenade · Big Hostel (Between Computer Department & West Garden Lawn)'
         : x < 45
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Waiting Room & Left 2-Grill Path (Girls Walking toward Computer Lab & Hostel)',
+          : 'Waiting Room, Tennis & Volleyball Courts (Lower-West) & Left 2-Grill Path to Computer Dept.',
     aheadView: `${targetStop.shortName || targetStop.name} (${targetStop.gateDirections.turn})`,
     rightView:
       y < 82 && y > 58
         ? 'Canteen & Central Library passed · Garden & Gardeners before Big Clerk Office Corridor'
         : x > 55
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Big Clerk Office Corridor, Principal’s Office, Chemistry Lab, Stairs, Auditorium & 1st Floor (Staff Room, English, Physics Lab/Office/Dark Room, Maths)'
+          : 'Big Clerk Office Corridor, Principal’s Office → Path to Auditorium Hall & Stairs to 6 Depts (Staff Room, Largest Physics Dept., English, Statistics before Dark Room, Maths, Islamiat)'
   };
 }
 
@@ -364,17 +443,34 @@ export function VirtualCampusTour() {
     return buildAutoRoutePath(currentFacility.mapX, currentFacility.mapY);
   }, [simTarget, customWalkRoute, principalStop, currentFacility]);
 
+  const activeSimDestination = simTarget === 'guided-principal' ? principalStop : currentFacility;
+
   const walkerState: VisitorWalkerState | null = useMemo(() => {
     if (!simActive) return null;
     const base = interpolateWalkerOnRoute(simulationRoute, simProgress);
+    const usesStairs =
+      activeSimDestination.id === 'commerce-dept-library' ||
+      EAST_STAIRS_STOP_IDS.has(activeSimDestination.id);
+    let stepLabel: string | undefined;
+    if (usesStairs) {
+      if (simProgress >= 0.96) {
+        stepLabel = 'By Stairs ↑ (1st Floor)';
+      } else if (simProgress >= 0.42) {
+        stepLabel =
+          activeSimDestination.id === 'commerce-dept-library'
+            ? 'Commerce Stairs ↑ (1st Fl.)'
+            : 'Using Stairs ↑ (1st Fl.)';
+      } else {
+        stepLabel = 'To Stairs ↑ (1st Floor)';
+      }
+    }
     return {
       ...base,
       isMoving: isSimulating,
-      progress: simProgress
+      progress: simProgress,
+      stepLabel
     };
-  }, [simActive, simulationRoute, simProgress, isSimulating]);
-
-  const activeSimDestination = simTarget === 'guided-principal' ? principalStop : currentFacility;
+  }, [simActive, simulationRoute, simProgress, isSimulating, activeSimDestination.id]);
 
   const visitorHorizon = useMemo(() => {
     const pos = walkerState || { x: GATE_COORDS.x, y: GATE_COORDS.y };
@@ -1328,8 +1424,14 @@ export function VirtualCampusTour() {
                           <Footprints className="w-4 h-4" />
                         </div>
                         <div>
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-sky-300 block">
-                            Virtual Visitor Walk Simulation
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-sky-300 flex flex-wrap items-center gap-2">
+                            <span>Virtual Visitor Walk Simulation</span>
+                            {(activeSimDestination.id === 'commerce-dept-library' ||
+                              EAST_STAIRS_STOP_IDS.has(activeSimDestination.id)) && (
+                              <span className="px-2 py-0.5 rounded bg-amber-400/20 border border-amber-300/60 text-amber-200 text-[10px] font-extrabold">
+                                By Stairs ↑ (1st Floor)
+                              </span>
+                            )}
                           </span>
                           <h4 className="text-sm font-semibold text-white">
                             {simActive
