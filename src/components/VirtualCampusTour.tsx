@@ -45,7 +45,7 @@ import {
   Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v30';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v31';
 
 const EAST_STAIRS_STOP_IDS = new Set([
   'general-staff-room',
@@ -72,7 +72,7 @@ function buildWalkRouteBetween(
   const dest = { x: targetStop.mapX, y: targetStop.mapY };
   const waypoints: { x: number; y: number }[] = [fromPos];
 
-  // If moving between west-wing stops (Tennis/Volleyball, Hostel, Small Garden, Computer Dept, Pak Studies, Urdu, Physical Education, Commerce by Stairs)
+  // If moving between west-wing stops (Hostel, Small Garden, Computer Dept, Pak Studies, Urdu, Physical Education, Commerce by Stairs)
   if (fromPos.x < 48 && dest.x < 48 && fromPos.y < 80 && dest.y < 80) {
     if (fromPos.y < 10 && targetStop.id !== 'commerce-dept-library') {
       waypoints.push({ x: 44.3, y: 7.1 });
@@ -80,28 +80,16 @@ function buildWalkRouteBetween(
     }
     if (targetStop.id === 'commerce-dept-library') {
       if (fromPos.x < 15) {
-        waypoints.push({ x: 10.8, y: 29.0 });
-        waypoints.push({ x: 18.5, y: 29.0 });
+        waypoints.push({ x: 18.5, y: 30.4 });
       }
       waypoints.push({ x: 44.3, y: Math.max(20.5, Math.min(30.4, fromPos.y)) });
       waypoints.push({ x: 44.3, y: 20.5 });
       waypoints.push({ x: 44.3, y: 7.1 });
       waypoints.push(dest);
     } else if (targetStop.id === 'hostel-computer-lab' || targetStop.id === 'small-garden-computer-lab' || fromPos.y > 46) {
-      if (fromPos.x < 15) {
-        waypoints.push({ x: 10.8, y: 30.4 });
-      }
       waypoints.push({ x: 24.1, y: 39.5 });
       waypoints.push(dest);
-    } else if (targetStop.id === 'tennis-volleyball-grounds') {
-      waypoints.push({ x: 18.5, y: 30.4 });
-      waypoints.push({ x: 10.8, y: 30.4 });
-      waypoints.push(dest);
     } else {
-      if (fromPos.x < 15) {
-        waypoints.push({ x: 10.8, y: 30.4 });
-        waypoints.push({ x: 18.5, y: 30.4 });
-      }
       waypoints.push({ x: 30.6, y: Math.min(30.4, fromPos.y) });
       waypoints.push({ x: 30.6, y: dest.y });
       waypoints.push(dest);
@@ -967,7 +955,7 @@ export function VirtualCampusTour() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search any department or spot (e.g. Small Garden, Tennis & Volleyball, Sindhi, Geography, Psychology, Hostel, Physics)..."
+                placeholder="Search any department or spot (e.g. Small Garden, Sindhi, Geography, Psychology, Hostel, Computer Lab, Physics)..."
                 aria-label="Search department or campus location"
                 className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-[#021914] border border-emerald-600/80 text-sm font-semibold text-white placeholder-stone-400 focus:outline-none focus:border-amber-300 shadow-lg"
               />
@@ -1026,7 +1014,7 @@ export function VirtualCampusTour() {
                 </>
               ) : (
                 <p className="text-xs font-semibold text-amber-200 px-1">
-                  No department or room matched &ldquo;{searchQuery}&rdquo;. Try Small Garden, Tennis &amp; Volleyball, Sindhi, Geography, Economics, Physiology, Psychology, Hostel, Computer Lab, or Physics.
+                  No department or room matched &ldquo;{searchQuery}&rdquo;. Try Small Garden, Sindhi, Geography, Economics, Physiology, Psychology, Hostel, Computer Lab, or Physics.
                 </p>
               )}
             </div>

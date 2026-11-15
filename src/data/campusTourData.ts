@@ -1113,7 +1113,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     svgType: 'courtyard',
     badge: 'Below Small Garden · Above West Garden',
     description:
-      'Positioned cleanly between the Small Garden & Computer Department above and West Garden Lawn & Trees below—along the Straight North-West Trees line leading up to the Tennis Court & Volleyball Ground—Government Girls Zubaida College’s large solar-equipped Residential Hostel gives students quiet, green views.',
+      'Positioned cleanly between the Small Garden & Computer Department above and West Garden Lawn & Trees below—along the Straight North-West Trees line—Government Girls Zubaida College’s large solar-equipped Residential Hostel gives students quiet, green views.',
     keySpecs: [
       { label: 'Location', value: 'Below Small Garden & Comp Lab' },
       { label: 'Scale', value: 'Large Residential Block' },
@@ -1122,7 +1122,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     highlights: [
       'Positioned right below the Small Garden & Computer Lab and directly above West Garden Lawn & Trees',
-      'Connected directly along the Straight North-West Trees line up to Tennis Court & Volleyball Ground',
+      'Bordered on the west by the Straight North-West Trees line',
       'Expansive multi-wing girls hostel equipped with rooftop solar panels'
     ],
     hotspots: [
@@ -1274,69 +1274,12 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     }
   },
   {
-    id: 'tennis-volleyball-grounds',
-    name: 'Tennis Court & Volleyball Ground (Straight North-West Trees Line)',
-    shortName: 'Tennis & Volleyball',
-    subtitle: 'Placed in Line of Straight North-West Trees · Left of Commerce, Pak Studies, Urdu & Physical Education',
-    category: 'Student Life',
-    stopNumber: '22',
-    svgType: 'sports',
-    badge: 'In Line of Straight North-West Trees',
-    description:
-      'Relocated out of the south hostel space directly into the North-West sector in line with the Straight North-West Trees—right on the left of Commerce, Pakistan Studies, Urdu, and Physical Education—this dedicated outdoor arena combines marked Tennis Courts and the Volleyball Ground shaded by a straight north-south row of campus trees.',
-    keySpecs: [
-      { label: 'Courts', value: 'Tennis & Volleyball Ground' },
-      { label: 'Tree Alignment', value: 'Straight North-West Trees Line' },
-      { label: 'Right Beside', value: 'Commerce, Pak Studies, Urdu & PE' },
-      { label: 'Activities', value: 'Inter-Class Matches' }
-    ],
-    highlights: [
-      'Positioned cleanly in line with the Straight North-West Trees running north-to-south along the West edge',
-      'Directly on the left side of Commerce, Pakistan Studies, Urdu & Physical Education',
-      'Combines full Tennis Court & Volleyball Ground markings for student training and tournaments'
-    ],
-    hotspots: [
-      {
-        id: 'tennis-court',
-        label: 'Tennis Court (North-West)',
-        description: 'Marked campus tennis court shaded along the Straight North-West Trees line.',
-        xPercent: 34,
-        yPercent: 50
-      },
-      {
-        id: 'volleyball-ground',
-        label: 'Volleyball Ground (North-West)',
-        description: 'Outdoor volleyball court placed alongside Tennis Court in the North-West line.',
-        xPercent: 72,
-        yPercent: 52
-      }
-    ],
-    locationNote: 'North-West Corner · In Line of Straight N-W Trees · Left of Commerce & PE',
-    mapX: 10.8,
-    mapY: 12.9,
-    gateDirections: {
-      turn: 'Bear Left',
-      distanceFromGate: '86 m North-West · Straight N-W Trees',
-      walkingSteps: [
-        'Walk straight from the Main Gate past Waiting Room, Clerk Office Corridor, and Garden, then turn left onto the 2-grill Computer Lab path.',
-        'Continue west past Computer Lab (with Small Garden right before it) to the Straight North-West Trees walkway.',
-        'Follow the Straight North-West Trees line straight up to the Tennis Court & Volleyball Ground.'
-      ],
-      routePath: [
-        { x: 50, y: 92.6 },
-        { x: 50, y: 30.4 },
-        { x: 10.8, y: 30.4 },
-        { x: 10.8, y: 12.9 }
-      ]
-    }
-  },
-  {
     id: 'pak-urdu-pe',
     name: 'Department of Pakistan Studies',
     shortName: 'Pak Studies',
     subtitle: 'Separate Point in Same Corridor with Urdu, Physical Education & Computer Department',
     category: 'Academics',
-    stopNumber: '23',
+    stopNumber: '22',
     svgType: 'academic-wing',
     badge: 'Separate Dept. · One Corridor',
     description:
@@ -1348,7 +1291,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Separate dedicated point inside the unified corridor immediately to the right of the Tennis Courts',
+      'Separate dedicated point inside the unified corridor directly beside the Straight North-West Trees',
       'Compulsory and elective civic & historical studies classrooms',
       'Connected directly in-corridor to Urdu and Physical Education'
     ],
@@ -1368,7 +1311,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       turn: 'Bear Left',
       distanceFromGate: '78 m North-West',
       walkingSteps: [
-        'Walk straight along the twin grill path past West Garden, Tennis/Volleyball & Garden and turn left onto the two-grill Computer Lab corridor.',
+        'Walk straight along the twin grill path past West Garden & Garden and turn left onto the two-grill Computer Lab corridor.',
         'Continue past the Computer Department inside the same building.',
         'Enter the Department of Pakistan Studies.'
       ],
@@ -1386,7 +1329,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Urdu Dept.',
     subtitle: 'Separate Point Between Pakistan Studies & Physical Education in Same Corridor',
     category: 'Academics',
-    stopNumber: '24',
+    stopNumber: '23',
     svgType: 'academic-wing',
     badge: 'Separate Dept. · One Corridor',
     description:
@@ -1434,29 +1377,29 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'physical-education-dept',
     name: 'Department of Physical Education',
     shortName: 'Physical Education',
-    subtitle: 'Separate Point Beside Urdu & Connected to Tennis Courts on Left of Commerce/Pak/Urdu/Physical Education',
+    subtitle: 'Separate Point Beside Urdu & Pakistan Studies in Same Unified Corridor',
     category: 'Academics',
-    stopNumber: '25',
+    stopNumber: '24',
     svgType: 'sports',
     badge: 'Separate Dept. · Sports Hub',
     description:
-      'At the upper corridor end alongside Urdu and Pakistan Studies (directly above Big Computer Multimedia Room in the Computer Department and under 1st-floor Commerce), the Department of Physical Education coordinates athletics, inter-collegiate tournaments, and equipment for the Tennis Courts & Volleyball Ground on the left of this wing.',
+      'At the upper corridor end alongside Urdu and Pakistan Studies (directly above Big Computer Multimedia Room in the Computer Department and under 1st-floor Commerce), the Department of Physical Education coordinates athletics, inter-collegiate tournaments, and sports programs.',
     keySpecs: [
       { label: 'Department', value: 'Physical Education' },
-      { label: 'Courts Access', value: 'Tennis & Volleyball' },
+      { label: 'Programs', value: 'Athletics & Sports Science' },
       { label: 'Same Corridor', value: 'Pak Studies, Urdu & Computer Dept.' },
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
       'Separate dedicated point for Physical Education & Sports Faculty Office',
-      'Coordinates matches for the Tennis Courts & Volleyball Ground positioned on the left of Commerce, Pak Studies, Urdu & Physical Education',
+      'Coordinates student athletics, track training, and inter-college sports tournaments',
       'Part of the unified solar-powered ground-floor corridor above the Hostel'
     ],
     hotspots: [
       {
         id: 'pe-office',
         label: 'Physical Education Desk',
-        description: 'Sports faculty office managing athletics and court schedules.',
+        description: 'Sports faculty office managing athletics and tournament schedules.',
         xPercent: 50,
         yPercent: 50
       }
@@ -1486,7 +1429,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Commerce & Library (1st Fl.)',
     subtitle: 'By Stairs (1st Floor) · Same Building Above Computer Department, Pak Studies, Urdu & Physical Education',
     category: 'Academics',
-    stopNumber: '26',
+    stopNumber: '25',
     svgType: 'library',
     badge: 'By Stairs · 1st Floor Same Building',
     description:
@@ -1545,7 +1488,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Ground',
     subtitle: 'After Long Distance Beyond Zoology & Botany Lab · Preceding Garden, Sindhi & Geography',
     category: 'Student Life',
-    stopNumber: '27',
+    stopNumber: '26',
     svgType: 'sports',
     badge: 'After Long Distance · Ground First',
     description:
@@ -1596,7 +1539,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Garden',
     subtitle: 'Directly After Ground · Leading to Sindhi & Geography, Economics, Physiology & Psychology',
     category: 'Student Life',
-    stopNumber: '28',
+    stopNumber: '27',
     svgType: 'courtyard',
     badge: 'After Ground · Before Sindhi & Geography',
     description:
@@ -1648,7 +1591,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Sindhi',
     subtitle: 'After Garden With Geography · Past Zoology/Botany → Long Distance → Ground → Garden',
     category: 'Academics',
-    stopNumber: '29',
+    stopNumber: '28',
     svgType: 'academic-wing',
     badge: 'East Wing · Paired With Geography',
     description:
@@ -1700,7 +1643,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Geography',
     subtitle: 'Located Directly With Sindhi After Garden · Followed by Economics, Physiology & Psychology',
     category: 'Academics',
-    stopNumber: '30',
+    stopNumber: '29',
     svgType: 'academic-wing',
     badge: 'East Wing · With Sindhi',
     description:
@@ -1752,7 +1695,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Economics',
     subtitle: 'East Wing After Garden · Between Sindhi & Geography and Physiology',
     category: 'Academics',
-    stopNumber: '31',
+    stopNumber: '30',
     svgType: 'academic-wing',
     badge: 'East Wing · After Sindhi & Geography',
     description:
@@ -1804,7 +1747,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Physiology',
     subtitle: 'East Wing After Garden · Between Economics & Psychology',
     category: 'Laboratories',
-    stopNumber: '32',
+    stopNumber: '31',
     svgType: 'science-lab',
     badge: 'East Wing · After Economics',
     description:
@@ -1856,7 +1799,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Psychology',
     subtitle: 'East Wing After Garden · Following Sindhi & Geography, Economics & Physiology',
     category: 'Academics',
-    stopNumber: '33',
+    stopNumber: '32',
     svgType: 'academic-wing',
     badge: 'East Wing · After Physiology',
     description:
@@ -1908,7 +1851,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Small Garden',
     subtitle: 'Green Pocket Garden Directly Before Computer Lab & Above Big College Hostel',
     category: 'Student Life',
-    stopNumber: '34',
+    stopNumber: '33',
     svgType: 'courtyard',
     badge: 'Right Before Computer Lab',
     description:
