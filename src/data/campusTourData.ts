@@ -1277,59 +1277,59 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
   },
   {
     id: 'tennis-volleyball-grounds',
-    name: 'Tennis Court & Volleyball Playing Ground',
+    name: 'Tennis Courts & Volleyball Playing Ground',
     shortName: 'Tennis & Volleyball',
-    subtitle: 'North-West Corner (Exchanged with North-West Trees) · Beside Pak Studies, Commerce & Computer Dept.',
+    subtitle: 'Directly on the Left of Commerce, Pakistan Studies, Urdu & Physical Education',
     category: 'Student Life',
     stopNumber: '22',
     svgType: 'sports',
-    badge: 'North-West Corner · Tennis & Volleyball',
+    badge: 'Left of Commerce · Pak · Urdu · Physical Ed.',
     description:
-      'Positioned at the north-west corner beside Pakistan Studies, Commerce, and the Computer Department (having exchanged positions with the North-West Trees, which now stand below the Hostel), this outdoor sports arena features a marked Tennis Court and a full Volleyball Ground for inter-class tournaments and daily athletics.',
+      'Positioned directly on the left of Commerce, Pakistan Studies, Urdu, and Physical Education at the north-west corner (having exchanged positions with the North-West Trees, which now stand below the Hostel), this outdoor sports arena features marked Tennis Courts and a full Volleyball Ground for inter-class tournaments and daily athletics.',
     keySpecs: [
       { label: 'Courts', value: 'Tennis & Volleyball' },
-      { label: 'Position', value: 'North-West Corner' },
-      { label: 'Beside It', value: 'Same Building & Hostel' },
+      { label: 'On Its Right', value: 'Commerce, Pak, Urdu & Physical Ed.' },
+      { label: 'Below It', value: 'West Walkway → Hostel' },
       { label: 'Activities', value: 'Inter-Class Matches' }
     ],
     highlights: [
-      'Positioned at the north-west corner directly beside Pakistan Studies, Commerce & Computer Department (exchanged with North-West Trees)',
-      'Marked outdoor Tennis Court for student training and matches',
-      'Full-size Volleyball Ground directly connected to the Computer Lab walkway and Big College Hostel below'
+      'Positioned directly on the left of Commerce, Pakistan Studies, Urdu & Physical Education',
+      'Marked outdoor Tennis Courts for student training and matches',
+      'Full-size Volleyball Ground connected via the West Courtyard walkway to the Computer Department and Big College Hostel'
     ],
     hotspots: [
       {
         id: 'tennis-court',
-        label: 'Tennis Court',
-        description: 'Marked campus tennis court at the north-west corner beside the unified academic building.',
+        label: 'Tennis Courts',
+        description: 'Marked campus tennis courts immediately on the left of Commerce, Pakistan Studies, Urdu & Physical Education.',
         xPercent: 34,
         yPercent: 50
       },
       {
         id: 'volleyball-ground',
         label: 'Volleyball Ground',
-        description: 'Dedicated outdoor volleyball ground beside the tennis court above the Hostel.',
+        description: 'Dedicated outdoor volleyball ground beside the tennis courts.',
         xPercent: 72,
         yPercent: 52
       }
     ],
-    locationNote: 'North-West Corner · Beside Unified Same Building & Above Hostel',
+    locationNote: 'North-West · On the Left of Commerce, Pak Studies, Urdu & Physical Education',
     mapX: 10.8,
-    mapY: 16.5,
+    mapY: 11.8,
     gateDirections: {
       turn: 'Bear Left',
-      distanceFromGate: '82 m North-West · Left of Same Building',
+      distanceFromGate: '84 m North-West · Left of Commerce/Pak/Urdu/PE',
       walkingSteps: [
         'Enter Main Gate and walk straight past West Garden Lawn, North-West Trees, and Garden before Clerk Office.',
-        'Turn left onto the 2-grill Computer Lab walkway past Big Multimedia Room and Computer Lab.',
-        'Step west beside the Unified Same Building directly onto the Tennis Court & Volleyball Ground.'
+        'Turn left onto the 2-grill Computer Lab walkway past Big Multimedia Room and Computer Lab into the West Courtyard.',
+        'Walk north into the Tennis Courts & Volleyball Ground directly on the left of Commerce, Pakistan Studies, Urdu & Physical Education.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 29.0 },
         { x: 18.5, y: 29.0 },
         { x: 10.8, y: 29.0 },
-        { x: 10.8, y: 16.5 }
+        { x: 10.8, y: 11.8 }
       ]
     }
   },
@@ -1351,7 +1351,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Separate dedicated point inside the unified corridor beside the North-West Tennis & Volleyball Courts',
+      'Separate dedicated point inside the unified corridor immediately to the right of the Tennis Courts',
       'Compulsory and elective civic & historical studies classrooms',
       'Connected directly in-corridor to Urdu and Physical Education'
     ],
@@ -1437,13 +1437,13 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'physical-education-dept',
     name: 'Department of Physical Education',
     shortName: 'Physical Education',
-    subtitle: 'Separate Point Beside Urdu & Connected to North-West Tennis & Volleyball Courts',
+    subtitle: 'Separate Point Beside Urdu & Connected to Tennis Courts on Left of Commerce/Pak/Urdu/Physical Education',
     category: 'Academics',
     stopNumber: '25',
     svgType: 'sports',
     badge: 'Separate Dept. · Sports Hub',
     description:
-      'At the upper corridor end alongside Urdu and Pakistan Studies (directly above Big Computer Multimedia Room in the Computer Department and under 1st-floor Commerce), the Department of Physical Education coordinates athletics, inter-collegiate tournaments, and equipment for the north-west Tennis & Volleyball grounds.',
+      'At the upper corridor end alongside Urdu and Pakistan Studies (directly above Big Computer Multimedia Room in the Computer Department and under 1st-floor Commerce), the Department of Physical Education coordinates athletics, inter-collegiate tournaments, and equipment for the Tennis Courts & Volleyball Ground on the left of this wing.',
     keySpecs: [
       { label: 'Department', value: 'Physical Education' },
       { label: 'Courts Access', value: 'Tennis & Volleyball' },
@@ -1452,7 +1452,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     highlights: [
       'Separate dedicated point for Physical Education & Sports Faculty Office',
-      'Coordinates matches for the north-west Tennis Court & Volleyball Ground',
+      'Coordinates matches for the Tennis Courts & Volleyball Ground positioned on the left of Commerce, Pak Studies, Urdu & Physical Education',
       'Part of the unified solar-powered ground-floor corridor above the Hostel'
     ],
     hotspots: [

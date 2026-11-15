@@ -777,20 +777,34 @@ export function CampusMapCanvas({
 
             {/* ================= NORTH-WEST SECTOR ================= */}
 
-            {/* 22. TENNIS COURT & VOLLEYBALL PLAYING GROUND (Exchanged with North-West Trees — Now at North-West Corner Left of Same Building) */}
-            <rect x="44" y="30" width="170" height="254" rx="13" fill="#713f12" fillOpacity="0.8" stroke="#facc15" strokeWidth="2.8" />
-            <rect x="64" y="44" width="130" height="54" rx="4" fill="none" stroke="#fde047" strokeOpacity="0.82" strokeWidth="1.6" />
-            <line x1="129" y1="44" x2="129" y2="98" stroke="#fde047" strokeOpacity="0.92" strokeWidth="1.4" strokeDasharray="3 2" />
-            <rect x="64" y="186" width="130" height="50" rx="4" fill="none" stroke="#fef08a" strokeOpacity="0.82" strokeWidth="1.6" />
-            <line x1="129" y1="186" x2="129" y2="236" stroke="#fef08a" strokeOpacity="0.92" strokeWidth="1.4" strokeDasharray="3 2" />
-            <text x="129" y="255" textAnchor="middle" fill="#fef08a" fontSize="11.2" fontWeight="900">
-              TENNIS COURT
+            {/* 22. TENNIS COURTS & VOLLEYBALL GROUND (On the Left of Commerce, Pakistan Studies, Urdu & Physical Education) */}
+            <rect x="44" y="30" width="170" height="148" rx="13" fill="#713f12" fillOpacity="0.82" stroke="#facc15" strokeWidth="2.8" />
+            <rect x="54" y="38" width="70" height="40" rx="4" fill="none" stroke="#fde047" strokeOpacity="0.85" strokeWidth="1.6" />
+            <line x1="89" y1="38" x2="89" y2="78" stroke="#fde047" strokeOpacity="0.92" strokeWidth="1.4" strokeDasharray="3 2" />
+            <rect x="134" y="38" width="70" height="40" rx="4" fill="none" stroke="#fef08a" strokeOpacity="0.85" strokeWidth="1.6" />
+            <line x1="169" y1="38" x2="169" y2="78" stroke="#fef08a" strokeOpacity="0.92" strokeWidth="1.4" strokeDasharray="3 2" />
+            <text x="129" y="151" textAnchor="middle" fontSize="9.8" fontWeight="900">
+              <tspan fill="#fef08a">TENNIS COURTS</tspan>
+              <tspan fill="#ffffff"> &amp; </tspan>
+              <tspan fill="#fdba74">VOLLEYBALL</tspan>
             </text>
-            <text x="129" y="269" textAnchor="middle" fill="#fdba74" fontSize="10" fontWeight="900">
-              &amp; VOLLEYBALL GROUND
+            <text x="129" y="163" textAnchor="middle" fill="#fde68a" fontSize="7.3" fontWeight="900">
+              LEFT OF COMMERCE · PAK STUDIES
             </text>
-            <text x="129" y="280" textAnchor="middle" fill="#fde68a" fontSize="7.4" fontWeight="900">
-              (NORTH-WEST · EXCHANGED WITH TREES)
+            <text x="129" y="173" textAnchor="middle" fill="#fde68a" fontSize="7.3" fontWeight="900">
+              URDU &amp; PHYSICAL EDUCATION
+            </text>
+
+            {/* West Sports & Hostel Courtyard Connector (Left of Computer Dept., Linking Tennis Courts to Hostel) */}
+            <rect x="44" y="186" width="170" height="98" rx="12" fill="#022c22" fillOpacity="0.62" stroke="#34d399" strokeOpacity="0.52" strokeWidth="1.8" strokeDasharray="5 3" />
+            <text x="129" y="220" textAnchor="middle" fill="#a7f3d0" fontSize="8.8" fontWeight="900">
+              WEST COURTYARD WALKWAY
+            </text>
+            <text x="129" y="235" textAnchor="middle" fill="#fef08a" fontSize="7.8" fontWeight="900">
+              ↑ TENNIS COURTS · COMPUTER →
+            </text>
+            <text x="129" y="249" textAnchor="middle" fill="#fdba74" fontSize="7.8" fontWeight="900">
+              ↓ TO BIG COLLEGE HOSTEL
             </text>
 
             {/* UNIFIED SAME BUILDING (Ground Floor: ONE CORRIDOR + COMPUTER DEPARTMENT | 1st Floor: Commerce & Library BY STAIRS) */}
@@ -1553,12 +1567,12 @@ export function CampusMapCanvas({
             <line x1="582" y1="266" x2="504" y2="266" stroke="#cbd5e1" strokeOpacity="0.4" strokeWidth="12" strokeLinecap="round" />
             <line x1="578" y1="235" x2="506" y2="235" stroke="#fb923c" strokeWidth="2.5" strokeDasharray="5 3" strokeOpacity="0.92" />
             <line x1="578" y1="275" x2="506" y2="275" stroke="#fb923c" strokeWidth="2.5" strokeDasharray="5 3" strokeOpacity="0.92" />
-            <line x1="504" y1="255" x2="214" y2="255" stroke="#94a3b8" strokeOpacity="0.34" strokeWidth="12" strokeLinecap="round" />
+            <line x1="504" y1="255" x2="129" y2="255" stroke="#94a3b8" strokeOpacity="0.34" strokeWidth="12" strokeLinecap="round" />
             <line x1="504" y1="172" x2="532" y2="172" stroke="#fde047" strokeOpacity="0.58" strokeWidth="9" strokeLinecap="round" />
             <line x1="532" y1="172" x2="532" y2="60" stroke="#fde047" strokeOpacity="0.55" strokeWidth="8" strokeDasharray="6 4" strokeLinecap="round" />
             <line x1="532" y1="60" x2="504" y2="60" stroke="#fde047" strokeOpacity="0.58" strokeWidth="8" strokeLinecap="round" />
             <line x1="297" y1="286" x2="297" y2="310" stroke="#fb923c" strokeOpacity="0.65" strokeWidth="10" strokeLinecap="round" />
-            <line x1="129" y1="284" x2="129" y2="310" stroke="#facc15" strokeOpacity="0.6" strokeWidth="10" strokeLinecap="round" />
+            <line x1="129" y1="178" x2="129" y2="310" stroke="#facc15" strokeOpacity="0.6" strokeWidth="10" strokeLinecap="round" />
             <line x1="346" y1="358" x2="362" y2="358" stroke="#94a3b8" strokeOpacity="0.42" strokeWidth="12" strokeLinecap="round" />
             <line x1="205" y1="444" x2="205" y2="458" stroke="#4ade80" strokeOpacity="0.6" strokeWidth="10" strokeLinecap="round" />
             <line x1="205" y1="558" x2="205" y2="572" stroke="#4ade80" strokeOpacity="0.6" strokeWidth="10" strokeLinecap="round" />

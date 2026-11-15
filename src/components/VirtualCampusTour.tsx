@@ -45,7 +45,7 @@ import {
   Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v24';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v25';
 
 const EAST_STAIRS_STOP_IDS = new Set([
   'general-staff-room',
