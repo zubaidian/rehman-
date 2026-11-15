@@ -158,6 +158,12 @@ export function FacebookEventsTracker() {
   const [newFbUrl, setNewFbUrl] = useState(COLLEGE_INFO.facebookUrl);
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const firstCardRef = useRef<HTMLDivElement>(null);
+  const secondCopyStartRef = useRef<HTMLDivElement>(null);
+  const scrollPosRef = useRef<number>(0);
+  const loopWidthRef = useRef<number>(0);
+  const isProgrammaticScrollRef = useRef<boolean>(false);
+  const manualPauseUntilRef = useRef<number>(0);
 
   // Save to localStorage whenever events change
   useEffect(() => {
@@ -175,34 +181,139 @@ export function FacebookEventsTracker() {
     });
   }, [events, filterCategory]);
 
-  // Smooth continuous auto-scroll ticker
+  const shouldLoop = filteredEvents.length > 1;
+  const renderedEvents = useMemo(() => {
+    if (!shouldLoop) return filteredEvents.map((ev, idx) => ({ ev, copyIdx: 0, idx }));
+    return [
+      ...filteredEvents.map((ev, idx) => ({ ev, copyIdx: 0, idx })),
+      ...filteredEvents.map((ev, idx) => ({ ev, copyIdx: 1, idx }))
+    ];
+  }, [filteredEvents, shouldLoop]);
+
+  // Measure exact pixel offset between copy 1 start and copy 2 start for seamless looping
   useEffect(() => {
     const container = scrollContainerRef.current;
-    if (!container || isPaused) return;
+    if (!container) return;
 
-    let step = 1;
-    if (scrollSpeed === 'fast') step = 2;
-    if (scrollSpeed === 'slow') step = 0.5;
+    const updateWidth = () => {
+      if (!container) return;
+      if (shouldLoop && secondCopyStartRef.current && firstCardRef.current) {
+        loopWidthRef.current =
+          secondCopyStartRef.current.offsetLeft - firstCardRef.current.offsetLeft;
+      } else {
+        loopWidthRef.current = container.scrollWidth;
+      }
+    };
 
-    const interval = setInterval(() => {
-      if (container) {
-        // If reached end, wrap back smoothly
-        if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 5) {
-          container.scrollLeft = 0;
-        } else {
-          container.scrollLeft += step;
+    updateWidth();
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(updateWidth) : null;
+    ro?.observe(container);
+    return () => ro?.disconnect();
+  }, [renderedEvents.length, shouldLoop]);
+
+  // Reset scroll smoothly when category filter changes
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    scrollPosRef.current = 0;
+    isProgrammaticScrollRef.current = true;
+    container.scrollLeft = 0;
+    requestAnimationFrame(() => {
+      isProgrammaticScrollRef.current = false;
+    });
+  }, [filterCategory]);
+
+  // Smooth continuous 60/120fps requestAnimationFrame ticker (sub-pixel float accumulator, seamless loop)
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container || isPaused || selectedEvent || isAddModalOpen || filteredEvents.length === 0) {
+      return;
+    }
+
+    const pxPerSecond = scrollSpeed === 'fast' ? 88 : scrollSpeed === 'slow' ? 28 : 52;
+    let rafId = 0;
+    let lastTime = performance.now();
+
+    scrollPosRef.current = container.scrollLeft;
+
+    const tick = (now: number) => {
+      const dt = Math.min((now - lastTime) / 1000, 0.05);
+      lastTime = now;
+
+      if (now >= manualPauseUntilRef.current && container) {
+        const maxNativeScroll = container.scrollWidth - container.clientWidth;
+        if (maxNativeScroll > 4) {
+          let nextPos = scrollPosRef.current + pxPerSecond * dt;
+          const loopWidth = shouldLoop
+            ? loopWidthRef.current || container.scrollWidth / 2
+            : maxNativeScroll;
+
+          if (shouldLoop && loopWidth > 0) {
+            if (nextPos >= loopWidth) {
+              nextPos -= loopWidth;
+            }
+          } else if (nextPos >= maxNativeScroll) {
+            nextPos = 0;
+          }
+
+          scrollPosRef.current = nextPos;
+          isProgrammaticScrollRef.current = true;
+          container.scrollLeft = nextPos;
         }
       }
-    }, 25);
 
-    return () => clearInterval(interval);
-  }, [isPaused, scrollSpeed]);
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(rafId);
+      isProgrammaticScrollRef.current = false;
+    };
+  }, [isPaused, scrollSpeed, selectedEvent, isAddModalOpen, filteredEvents.length, shouldLoop]);
+
+  const handleContainerScroll = () => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    if (isProgrammaticScrollRef.current) {
+      isProgrammaticScrollRef.current = false;
+      return;
+    }
+    // User dragged / scrolled with wheel or scrollbar — sync float accumulator cleanly
+    scrollPosRef.current = container.scrollLeft;
+  };
 
   const handleManualScroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const offset = direction === 'left' ? -320 : 320;
-      scrollContainerRef.current.scrollBy({ left: offset, behavior: 'smooth' });
-    }
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    const offset = direction === 'left' ? -340 : 340;
+    const start = container.scrollLeft;
+    const loopWidth = shouldLoop
+      ? loopWidthRef.current || container.scrollWidth / 2
+      : Math.max(0, container.scrollWidth - container.clientWidth);
+
+    manualPauseUntilRef.current = performance.now() + 650;
+    const animStart = performance.now();
+    const duration = 380;
+
+    const animateStep = (now: number) => {
+      const t = Math.min(1, (now - animStart) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      let val = start + offset * eased;
+      if (shouldLoop && loopWidth > 0) {
+        val = ((val % loopWidth) + loopWidth) % loopWidth;
+      } else {
+        val = Math.max(0, Math.min(loopWidth, val));
+      }
+      scrollPosRef.current = val;
+      isProgrammaticScrollRef.current = true;
+      container.scrollLeft = val;
+      if (t < 1) {
+        requestAnimationFrame(animateStep);
+      }
+    };
+
+    requestAnimationFrame(animateStep);
   };
 
   const handleSyncWithFacebook = () => {
@@ -367,17 +478,28 @@ export function FacebookEventsTracker() {
           </span>
         </div>
 
-        {/* Scrolling Window Container (Marquee Auto-Tracker) */}
+        {/* Scrolling Window Container (Smooth 60fps Seamless Marquee Auto-Tracker) */}
         <div
           ref={scrollContainerRef}
+          onScroll={handleContainerScroll}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          className="flex items-stretch gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2 cursor-grab active:cursor-grabbing"
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+          className="flex items-stretch gap-4 overflow-x-auto no-scrollbar py-2 cursor-grab active:cursor-grabbing"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {filteredEvents.map((ev) => (
+          {renderedEvents.map(({ ev, copyIdx, idx }) => (
             <div
-              key={ev.id}
+              key={`${ev.id}-copy-${copyIdx}-${idx}`}
+              ref={
+                copyIdx === 0 && idx === 0
+                  ? firstCardRef
+                  : copyIdx === 1 && idx === 0
+                    ? secondCopyStartRef
+                    : undefined
+              }
+              aria-hidden={copyIdx === 1}
               onClick={() => setSelectedEvent(ev)}
               className="w-80 sm:w-96 shrink-0 rounded-2xl p-5 bg-gradient-to-b from-[#064b36] to-[#042f28] border-2 border-amber-300/40 hover:border-amber-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-left group"
             >

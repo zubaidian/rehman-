@@ -87,15 +87,15 @@ export const GATE_TO_PRINCIPAL_CHECKPOINTS: SimulationCheckpoint[] = [
   {
     progress: 0.80,
     label: 'Passing Garden & Gardeners Toward Principal & Chemistry Line',
-    leftView: 'Central Courtyard & Left 2-Grill Computer Lab Path ahead',
-    aheadView: 'Assembly, Zoology & Botany Lab → Long Distance → Ground → Garden → Sindhi, Economics, Physiology, Psychology & Geography',
+    leftView: 'Central Courtyard, Small Garden & Left 2-Grill Computer Lab Path ahead',
+    aheadView: 'Assembly, Zoology & Botany Lab → Long Distance → Ground → Garden → Sindhi & Geography, Economics, Physiology & Psychology',
     rightView: 'Garden & Gardeners · Principal’s Office, Chemistry Lab, Stairs & Auditorium right'
   },
   {
     progress: 1,
     label: 'Arrived at Grand Golden Principal’s Office (Path to Auditorium Hall & 6 Depts By Stairs)',
-    leftView: 'Central Courtyard Promenade directly across',
-    aheadView: 'Straight north: Assembly, Zoology & Botany Lab → Long Distance → Ground → Garden → Sindhi, Economics, Physiology, Psychology & Geography',
+    leftView: 'Central Courtyard Promenade, Small Garden & Computer Lab directly across',
+    aheadView: 'Straight north: Assembly, Zoology & Botany Lab → Long Distance → Ground → Garden → Sindhi & Geography, Economics, Physiology & Psychology',
     rightView: 'Principal’s Office → Chemistry Lab → Stairs (↑ 6 Depts: Staff Room, Islamiat, English, Stats, Maths, Physics) → Path to Auditorium Hall'
   }
 ];
@@ -543,7 +543,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Upper-Right Wing · Direct Path from Principal’s Office',
-    mapX: 84.4,
+    mapX: 83.9,
     mapY: 25.0,
     gateDirections: {
       turn: 'Turn Right',
@@ -557,8 +557,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         { x: 50, y: 92.6 },
         { x: 50, y: 41.9 },
         { x: 58.8, y: 41.9 },
-        { x: 84.4, y: 41.9 },
-        { x: 84.4, y: 25.0 }
+        { x: 83.9, y: 41.9 },
+        { x: 83.9, y: 25.0 }
       ]
     }
   },
@@ -1063,7 +1063,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     svgType: 'science-lab',
     badge: 'Before Long Distance · Botany Lab',
     description:
-      'Beside Zoology sits the dedicated Department of Botany and Botany Laboratory—housing a curated Sindh regional herbarium, plant anatomy slides, and botanical charts. Directly after Zoology & Botany Lab, a marked Long Distance walkway leads east to the Ground, Garden, and the five departments of Sindhi, Economics, Physiology, Psychology, and Geography.',
+      'Beside Zoology sits the dedicated Department of Botany and Botany Laboratory—housing a curated Sindh regional herbarium, plant anatomy slides, and botanical charts. Directly after Zoology & Botany Lab, a marked Long Distance walkway leads east to the Ground, Garden, Sindhi & Geography, Economics, Physiology, and Psychology.',
     keySpecs: [
       { label: 'Department', value: 'Botany & Botany Lab' },
       { label: 'Adjacent To', value: 'Zoology & Zoo Lab' },
@@ -1073,7 +1073,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     highlights: [
       'Separate dedicated point & lab for Botany, plant taxonomy, and physiology',
       'Herbarium specimen collections and botanical slide microscopy hall',
-      'Marks the start of the Long Distance corridor leading to Ground, Garden, Sindhi, Economics, Physiology, Psychology & Geography'
+      'Marks the start of the Long Distance corridor leading to Ground, Garden, Sindhi & Geography, Economics, Physiology & Psychology'
     ],
     hotspots: [
       {
@@ -1107,56 +1107,56 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'hostel-computer-lab',
     name: 'College Hostel (Main Residential Block)',
     shortName: 'College Hostel',
-    subtitle: 'Between Computer Lab & Tennis Court / West Garden · Solar-Powered Multi-Wing Hostel',
+    subtitle: 'Below Small Garden & Computer Lab · Above West Garden Lawn & Straight N-W Trees Line',
     category: 'Student Life',
     stopNumber: '19',
     svgType: 'courtyard',
-    badge: 'Between Computer Lab & Tennis Court',
+    badge: 'Below Small Garden · Above West Garden',
     description:
-      'Positioned directly between the Computer Department above and the Tennis Court & Volleyball Ground below (with West Garden Lawn just below the courts across the Central Courtyard), Government Girls Zubaida College’s large solar-equipped Residential Hostel gives students shaded campus views and immediate access to the unified IT & Humanities corridor.',
+      'Positioned cleanly between the Small Garden & Computer Department above and West Garden Lawn & Trees below—along the Straight North-West Trees line leading up to the Tennis Court & Volleyball Ground—Government Girls Zubaida College’s large solar-equipped Residential Hostel gives students quiet, green views.',
     keySpecs: [
-      { label: 'Location', value: 'Between Computer Lab & Tennis Court' },
+      { label: 'Location', value: 'Below Small Garden & Comp Lab' },
       { label: 'Scale', value: 'Large Residential Block' },
-      { label: 'Above It', value: 'Computer Dept. & Upper Tennis Courts' },
+      { label: 'Below It', value: 'West Garden Lawn & Trees' },
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Positioned directly between the Computer Lab above and the Tennis Court & Volleyball Ground below',
-      'Expansive multi-wing girls hostel equipped with rooftop solar panels',
-      'Directly linked to the Central Courtyard, 2-Grill Computer Lab path, Tennis Court, and West Garden'
+      'Positioned right below the Small Garden & Computer Lab and directly above West Garden Lawn & Trees',
+      'Connected directly along the Straight North-West Trees line up to Tennis Court & Volleyball Ground',
+      'Expansive multi-wing girls hostel equipped with rooftop solar panels'
     ],
     hotspots: [
       {
         id: 'hostel-courtyard',
         label: 'Hostel Residential Wings',
-        description: 'Large secure student hostel complex between Computer Lab and Tennis Court.',
+        description: 'Large secure student hostel complex between Small Garden and West Garden Lawn.',
         xPercent: 46,
         yPercent: 48
       },
       {
         id: 'hostel-warden',
         label: 'Warden & Study Hall',
-        description: 'Supervised hostel study room and warden office overlooking the sports courts & West Garden.',
+        description: 'Supervised hostel study room and warden office overlooking West Garden & Small Garden.',
         xPercent: 75,
         yPercent: 62
       }
     ],
-    locationNote: 'West Campus · Between Computer Lab & Tennis Court / West Garden',
+    locationNote: 'West Campus · Below Small Garden & Computer Lab · Above West Garden',
     mapX: 17.1,
-    mapY: 44.9,
+    mapY: 55.4,
     gateDirections: {
       turn: 'Turn Left',
-      distanceFromGate: '68 m Straight · Left Courtyard',
+      distanceFromGate: '58 m Straight · Left Above West Garden',
       walkingSteps: [
-        'Walk straight from the Main Gate past the West Garden, Tennis/Volleyball Left Turn, Big Clerk Office Corridor, and Garden.',
-        'Turn left across the Central Courtyard promenade (just below the Computer Lab & Office).',
-        'Arrive at the Big College Hostel situated between Computer Lab and Tennis Court.'
+        'Walk straight from the Main Gate past the Waiting Room, West Garden Lawn, and Clerk Office Corridor.',
+        'Turn left cleanly above West Garden Lawn (below the Small Garden & Computer Lab).',
+        'Arrive at the Big College Hostel connected to the Straight North-West Trees line.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 41.8 },
-        { x: 30.0, y: 41.8 },
-        { x: 17.1, y: 44.9 }
+        { x: 50, y: 58.3 },
+        { x: 32.0, y: 58.3 },
+        { x: 17.1, y: 55.4 }
       ]
     }
   },
@@ -1164,22 +1164,22 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'computer-lab',
     name: 'Computer Department · Computer Lab & Computer Office',
     shortName: 'Computer Lab & Office',
-    subtitle: 'Computer Department · Above Hostel in One Corridor (with Big Multimedia, Pak Studies, Urdu & Physical Education)',
+    subtitle: 'Computer Department · Directly Behind Small Garden (with Big Multimedia, Pak Studies, Urdu & Physical Education)',
     category: 'Laboratories',
     stopNumber: '20',
     svgType: 'computer-lab',
-    badge: 'Computer Department · Solar Roof',
+    badge: 'Computer Department · Past Small Garden',
     description:
-      'Part of the labeled Computer Department wing directly above the College Hostel in one continuous ground-floor corridor—alongside Big Computer Multimedia Room, Pakistan Studies, Urdu, and Physical Education (under 1st-floor Commerce)—the Computer Lab & Computer Office feature modern desktop terminals and solar-backed power.',
+      'Part of the labeled Computer Department wing positioned right behind the Small Garden (before Computer Lab) in one continuous ground-floor corridor—alongside Big Computer Multimedia Room, Pakistan Studies, Urdu, and Physical Education (under 1st-floor Commerce)—the Computer Lab & Computer Office feature modern desktop terminals and solar-backed power.',
     keySpecs: [
       { label: 'Department', value: 'Computer Department' },
+      { label: 'Before Entry', value: 'Small Garden' },
       { label: 'Same Corridor', value: 'Big Multimedia, Pak Studies, Urdu, Physical Education' },
-      { label: 'Below It', value: 'Hostel & West Garden' },
       { label: 'Energy', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Labeled Computer Department wing uniting Computer Lab & Office with Big Multimedia Room',
-      'Situated directly above the Big College Hostel inside one unified ground-floor corridor',
+      'Labeled Computer Department wing directly preceded by the lush Small Garden before Computer Lab',
+      'Situated in one unified ground-floor corridor with Pak Studies, Urdu & Physical Education',
       'Reachable along the dedicated 2-grill Computer Lab walkway'
     ],
     hotspots: [
@@ -1198,7 +1198,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 42
       }
     ],
-    locationNote: 'Computer Department · Above Hostel · One Unified Corridor (Ground Floor)',
+    locationNote: 'Computer Department · Directly Past Small Garden · Unified Ground Corridor',
     mapX: 24.8,
     mapY: 28.8,
     gateDirections: {
@@ -1206,8 +1206,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       distanceFromGate: '70 m Straight · Left Grill Path',
       walkingSteps: [
         'Walk straight from the Main Gate past the Garden, Clerk Corridor, and Principal’s Office line.',
-        'Turn left onto the 2-grill Computer Lab path into the Computer Department.',
-        'Enter the Computer Lab & Computer Office beside Big Multimedia Room right above the Hostel.'
+        'Turn left onto the 2-grill Computer Lab path (passing right beside the Small Garden before Computer Lab).',
+        'Enter the Computer Lab & Computer Office beside Big Multimedia Room.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
@@ -1275,57 +1275,58 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
   },
   {
     id: 'tennis-volleyball-grounds',
-    name: 'Tennis Courts & Volleyball Playing Ground',
+    name: 'Tennis Court & Volleyball Ground (Straight North-West Trees Line)',
     shortName: 'Tennis & Volleyball',
-    subtitle: 'Between Hostel & West Garden Lawn · Also Left of Commerce, Pak Studies, Urdu & Physical Education',
+    subtitle: 'Placed in Line of Straight North-West Trees · Left of Commerce, Pak Studies, Urdu & Physical Education',
     category: 'Student Life',
     stopNumber: '22',
     svgType: 'sports',
-    badge: 'Between Hostel & West Garden · Left of Commerce',
+    badge: 'In Line of Straight North-West Trees',
     description:
-      'Positioned directly between the Big College Hostel above and West Garden Lawn & Trees below—alongside additional Tennis Courts on the left of Commerce, Pakistan Studies, Urdu, and Physical Education—this outdoor sports arena features marked Tennis Courts and a full Volleyball Ground for inter-class tournaments and daily athletics.',
+      'Relocated out of the south hostel space directly into the North-West sector in line with the Straight North-West Trees—right on the left of Commerce, Pakistan Studies, Urdu, and Physical Education—this dedicated outdoor arena combines marked Tennis Courts and the Volleyball Ground shaded by a straight north-south row of campus trees.',
     keySpecs: [
-      { label: 'Courts', value: 'Tennis & Volleyball' },
-      { label: 'Position', value: 'Between Hostel & West Garden' },
-      { label: 'Upper Courts', value: 'Left of Commerce/Pak/Urdu/PE' },
+      { label: 'Courts', value: 'Tennis & Volleyball Ground' },
+      { label: 'Tree Alignment', value: 'Straight North-West Trees Line' },
+      { label: 'Right Beside', value: 'Commerce, Pak Studies, Urdu & PE' },
       { label: 'Activities', value: 'Inter-Class Matches' }
     ],
     highlights: [
-      'Positioned between Big College Hostel and West Garden Lawn, with Tennis Courts also on the left of Commerce, Pak Studies, Urdu & Physical Education',
-      'Marked outdoor Tennis Courts for student training and matches',
-      'Full-size Volleyball Ground directly connected to the central walkway, Hostel, and West Garden'
+      'Positioned cleanly in line with the Straight North-West Trees running north-to-south along the West edge',
+      'Directly on the left side of Commerce, Pakistan Studies, Urdu & Physical Education',
+      'Combines full Tennis Court & Volleyball Ground markings for student training and tournaments'
     ],
     hotspots: [
       {
         id: 'tennis-court',
-        label: 'Tennis Courts',
-        description: 'Marked campus tennis courts between the Hostel and West Garden Lawn and on the left of Commerce & Pak Studies.',
+        label: 'Tennis Court (North-West)',
+        description: 'Marked campus tennis court shaded along the Straight North-West Trees line.',
         xPercent: 34,
         yPercent: 50
       },
       {
         id: 'volleyball-ground',
-        label: 'Volleyball Ground',
-        description: 'Dedicated outdoor volleyball ground beside the tennis court.',
+        label: 'Volleyball Ground (North-West)',
+        description: 'Outdoor volleyball court placed alongside Tennis Court in the North-West line.',
         xPercent: 72,
         yPercent: 52
       }
     ],
-    locationNote: 'West Campus · Between Hostel & West Garden (Plus Left of Commerce/Pak/Urdu/PE)',
-    mapX: 17.1,
-    mapY: 60.5,
+    locationNote: 'North-West Corner · In Line of Straight N-W Trees · Left of Commerce & PE',
+    mapX: 10.8,
+    mapY: 12.9,
     gateDirections: {
-      turn: 'Turn Left',
-      distanceFromGate: '46 m Left · Between Hostel & West Garden',
+      turn: 'Bear Left',
+      distanceFromGate: '86 m North-West · Straight N-W Trees',
       walkingSteps: [
-        'Enter Main Gate (Waiting Room left, Canteen & Central Library right) and walk straight past West Garden Lawn on your left.',
-        'Turn left onto the West Sports walkway between West Garden Lawn and Big College Hostel.',
-        'Arrive directly at the Tennis Court & Volleyball Ground.'
+        'Walk straight from the Main Gate past Waiting Room, Clerk Office Corridor, and Garden, then turn left onto the 2-grill Computer Lab path.',
+        'Continue west past Computer Lab (with Small Garden right before it) to the Straight North-West Trees walkway.',
+        'Follow the Straight North-West Trees line straight up to the Tennis Court & Volleyball Ground.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 60.5 },
-        { x: 17.1, y: 60.5 }
+        { x: 50, y: 30.4 },
+        { x: 10.8, y: 30.4 },
+        { x: 10.8, y: 12.9 }
       ]
     }
   },
@@ -1542,23 +1543,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'sindhi-economics-physiology-ground',
     name: 'Ground & Playing Lawn (After Long Distance Past Zoology & Botany)',
     shortName: 'Ground',
-    subtitle: 'After Long Distance Beyond Zoology & Botany Lab · Preceding Garden & 5 Departments',
+    subtitle: 'After Long Distance Beyond Zoology & Botany Lab · Preceding Garden, Sindhi & Geography',
     category: 'Student Life',
     stopNumber: '27',
     svgType: 'sports',
     badge: 'After Long Distance · Ground First',
     description:
-      'Continuing east past Zoology & Botany Lab across the marked Long Distance walkway brings you first to this expansive green Playing Ground & Lawn, immediately followed by the East Garden and the five academic departments of Sindhi, Economics, Physiology, Psychology, and Geography.',
+      'Continuing east past Zoology & Botany Lab across the marked Long Distance walkway brings you first to this expansive green Playing Ground & Lawn, immediately followed by the East Garden and the eastern academic wing of Sindhi & Geography, Economics, Physiology, and Psychology.',
     keySpecs: [
       { label: 'Sequence', value: 'After Zoology/Botany Long Distance' },
       { label: 'Next Stop', value: 'East Garden' },
-      { label: 'Then Follow', value: 'Sindhi, Economics, Physiology, Psychology, Geography' },
+      { label: 'Then Follow', value: 'Sindhi & Geography, Economics, Physiology, Psychology' },
       { label: 'Feature', value: 'Open Green Playing Ground' }
     ],
     highlights: [
       'Reached directly after the Long Distance walk past Zoology & Botany Lab',
       'Open green playing ground immediately preceding the Garden',
-      'Leads directly to Sindhi, Economics, Physiology, Psychology & Geography'
+      'Leads directly to Sindhi & Geography, Economics, Physiology & Psychology'
     ],
     hotspots: [
       {
@@ -1593,29 +1594,29 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'east-garden',
     name: 'East Campus Garden & Trees (After Ground)',
     shortName: 'Garden',
-    subtitle: 'Directly After Ground · Leading to Sindhi, Economics, Physiology, Psychology & Geography',
+    subtitle: 'Directly After Ground · Leading to Sindhi & Geography, Economics, Physiology & Psychology',
     category: 'Student Life',
     stopNumber: '28',
     svgType: 'courtyard',
-    badge: 'After Ground · Before 5 Depts.',
+    badge: 'After Ground · Before Sindhi & Geography',
     description:
-      'Positioned immediately after the Ground at the end of the north-east Long Distance corridor past Zoology & Botany Lab, this flowering campus Garden tended by college gardeners opens directly into the eastern academic row of Sindhi, Economics, Physiology, Psychology, and Geography.',
+      'Positioned immediately after the Ground at the end of the north-east Long Distance corridor past Zoology & Botany Lab, this flowering campus Garden tended by college gardeners opens directly into Sindhi & Geography, Economics, Physiology, and Psychology.',
     keySpecs: [
       { label: 'Sequence', value: 'Directly After Ground' },
       { label: 'Care Staff', value: 'Campus Gardeners' },
-      { label: 'Next South', value: 'Sindhi, Economics, Physiology, Psychology, Geography' },
+      { label: 'Next South', value: 'Sindhi & Geography, Economics, Physiology, Psychology' },
       { label: 'Environment', value: 'Shaded Trees & Flower Beds' }
     ],
     highlights: [
-      'Situated cleanly between the Playing Ground and the 5-department Eastern Wing',
+      'Situated cleanly between the Playing Ground and the Sindhi & Geography paired East Wing',
       'Tended daily with flowering beds and shaded green trees',
-      'Gateway into Sindhi, Economics, Physiology, Psychology & Geography'
+      'Gateway into Sindhi & Geography, Economics, Physiology & Psychology'
     ],
     hotspots: [
       {
         id: 'east-garden-beds',
         label: 'Garden Flowerbeds & Trees',
-        description: 'Lush shaded garden sitting right after the Ground before Sindhi.',
+        description: 'Lush shaded garden sitting right after the Ground before Sindhi & Geography.',
         xPercent: 50,
         yPercent: 52
       }
@@ -1629,7 +1630,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       walkingSteps: [
         'Walk straight north to Assembly, Zoology & Botany Lab.',
         'Cross the Long Distance walkway east past the Ground.',
-        'Arrive at the Garden right before Sindhi, Economics, Physiology, Psychology & Geography.'
+        'Arrive at the Garden right before Sindhi & Geography, Economics, Physiology & Psychology.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
@@ -1643,23 +1644,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
   },
   {
     id: 'sindhi-dept',
-    name: 'Department of Sindhi',
+    name: 'Department of Sindhi (Paired with Geography)',
     shortName: 'Sindhi',
-    subtitle: 'First Department After Garden (Past Zoology/Botany → Long Distance → Ground → Garden)',
+    subtitle: 'After Garden With Geography · Past Zoology/Botany → Long Distance → Ground → Garden',
     category: 'Academics',
     stopNumber: '29',
     svgType: 'academic-wing',
-    badge: 'East Wing · After Garden',
+    badge: 'East Wing · Paired With Geography',
     description:
-      'Located directly south of the Garden following the Ground past Zoology & Botany Lab’s Long Distance corridor, the Department of Sindhi preserves and teaches Sindhi language, Shah Abdul Latif Bhittai’s poetry, classical prose, and regional literary research.',
+      'Located directly south of the Garden (alongside the Department of Geography in the same paired block after Ground past Zoology & Botany Lab’s Long Distance corridor), the Department of Sindhi preserves and teaches Sindhi language, Shah Abdul Latif Bhittai’s poetry, classical prose, and regional literary research.',
     keySpecs: [
       { label: 'Department', value: 'Department of Sindhi' },
+      { label: 'Paired With', value: 'Department of Geography' },
       { label: 'Before It', value: 'Ground → Garden' },
-      { label: 'Next Beside', value: 'Economics, Physiology, Psychology, Geography' },
-      { label: 'Power', value: 'Rooftop Solar Panels' }
+      { label: 'Next South', value: 'Economics, Physiology, Psychology' }
     ],
     highlights: [
-      'First department reached directly after Ground & Garden past Zoology/Botany Long Distance',
+      'First department reached directly after Ground & Garden, sharing its wing with Geography',
       'Classical Sindhi literature, Latifiyat seminars, and undergraduate programs',
       'Solar-equipped eastern academic block'
     ],
@@ -1667,29 +1668,81 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       {
         id: 'sindhi-hall',
         label: 'Sindhi Lecture Hall',
-        description: 'Dedicated classrooms for Sindhi literature & language.',
+        description: 'Dedicated classrooms for Sindhi literature & language alongside Geography.',
         xPercent: 50,
         yPercent: 50
       }
     ],
-    locationNote: 'East Academic Wing · Directly After Garden',
-    mapX: 93.1,
-    mapY: 20.2,
+    locationNote: 'East Academic Wing · Directly After Garden (With Geography)',
+    mapX: 90.5,
+    mapY: 17.9,
     gateDirections: {
       turn: 'Bear Right',
       distanceFromGate: '124 m · Past Ground & Garden',
       walkingSteps: [
         'Walk north to Assembly, Zoology & Botany Lab, then cross the Long Distance path east through Ground & Garden.',
         'Turn right onto the East Academic Walkway right after Garden.',
-        'Enter the Department of Sindhi.'
+        'Enter the Department of Sindhi (paired directly with Geography).'
       ],
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 25.0 },
         { x: 48.3, y: 7.6 },
-        { x: 88.7, y: 7.6 },
-        { x: 88.7, y: 20.2 },
-        { x: 93.1, y: 20.2 }
+        { x: 87.8, y: 7.6 },
+        { x: 87.8, y: 17.9 },
+        { x: 90.5, y: 17.9 }
+      ]
+    }
+  },
+  {
+    id: 'geography-dept',
+    name: 'Department of Geography (With Sindhi)',
+    shortName: 'Geography',
+    subtitle: 'Located Directly With Sindhi After Garden · Followed by Economics, Physiology & Psychology',
+    category: 'Academics',
+    stopNumber: '30',
+    svgType: 'academic-wing',
+    badge: 'East Wing · With Sindhi',
+    description:
+      'Located directly WITH the Department of Sindhi right after Ground and Garden beyond Zoology & Botany Lab, the Department of Geography houses physical and commercial geography maps, globes, cartography tables, and environmental survey instruments before Economics, Physiology, and Psychology.',
+    keySpecs: [
+      { label: 'Department', value: 'Department of Geography' },
+      { label: 'Paired With', value: 'Department of Sindhi' },
+      { label: 'Next South', value: 'Economics, Physiology, Psychology' },
+      { label: 'Programs', value: 'I.Com & FA Geography' }
+    ],
+    highlights: [
+      'Positioned together right alongside Sindhi immediately after Garden',
+      'Cartography & physical geography practical hall with regional Sindh & Pakistan maps',
+      'Supports Commercial Geography (I.Com) and FA Humanities Geography groups'
+    ],
+    hotspots: [
+      {
+        id: 'geography-cartography',
+        label: 'Geography & Cartography Lab',
+        description: 'Topographical map tables, globes, and survey instruments paired with Sindhi.',
+        xPercent: 50,
+        yPercent: 50
+      }
+    ],
+    locationNote: 'East Academic Wing · Directly With Sindhi After Garden',
+    mapX: 94.8,
+    mapY: 25.2,
+    gateDirections: {
+      turn: 'Bear Right',
+      distanceFromGate: '125 m · With Sindhi After Garden',
+      walkingSteps: [
+        'Walk north to Assembly, Zoology & Botany Lab, then cross the Long Distance path east through Ground & Garden.',
+        'Turn right onto the East Academic Walkway right after Garden.',
+        'Enter the Department of Geography located directly with Sindhi.'
+      ],
+      routePath: [
+        { x: 50, y: 92.6 },
+        { x: 50, y: 25.0 },
+        { x: 48.3, y: 7.6 },
+        { x: 87.8, y: 7.6 },
+        { x: 87.8, y: 25.2 },
+        { x: 94.8, y: 25.2 }
       ]
     }
   },
@@ -1697,17 +1750,17 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'economics-dept',
     name: 'Department of Economics',
     shortName: 'Economics',
-    subtitle: 'East Wing After Garden · Between Sindhi & Physiology',
+    subtitle: 'East Wing After Garden · Between Sindhi & Geography and Physiology',
     category: 'Academics',
-    stopNumber: '30',
+    stopNumber: '31',
     svgType: 'academic-wing',
-    badge: 'East Wing · After Sindhi',
+    badge: 'East Wing · After Sindhi & Geography',
     description:
-      'Situated right beside Sindhi after the Ground and Garden beyond Zoology & Botany Lab, the Department of Economics teaches microeconomics, macroeconomics, development economics, and economic policy of Pakistan across Intermediate, Associate Degree, and Commerce programs.',
+      'Situated right beside Sindhi & Geography after the Ground and Garden beyond Zoology & Botany Lab, the Department of Economics teaches microeconomics, macroeconomics, development economics, and economic policy of Pakistan across Intermediate, Associate Degree, and Commerce programs.',
     keySpecs: [
       { label: 'Department', value: 'Department of Economics' },
-      { label: 'Between', value: 'Sindhi & Physiology' },
-      { label: 'Before It', value: 'Ground → Garden → Sindhi' },
+      { label: 'Between', value: 'Sindhi/Geography & Physiology' },
+      { label: 'Before It', value: 'Ground → Garden → Sindhi & Geography' },
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
@@ -1724,24 +1777,24 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 50
       }
     ],
-    locationNote: 'East Academic Wing · Between Sindhi & Physiology',
-    mapX: 93.1,
-    mapY: 32.4,
+    locationNote: 'East Academic Wing · After Sindhi & Geography',
+    mapX: 92.9,
+    mapY: 36.1,
     gateDirections: {
       turn: 'Bear Right',
-      distanceFromGate: '130 m · Past Garden & Sindhi',
+      distanceFromGate: '132 m · Past Sindhi & Geography',
       walkingSteps: [
         'Walk north to Assembly, Zoology & Botany Lab, then cross the Long Distance path east through Ground & Garden.',
-        'Walk south along the East Academic Walkway past Sindhi.',
+        'Walk south along the East Academic Walkway past Sindhi & Geography.',
         'Enter the Department of Economics.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 25.0 },
         { x: 48.3, y: 7.6 },
-        { x: 88.7, y: 7.6 },
-        { x: 88.7, y: 32.4 },
-        { x: 93.1, y: 32.4 }
+        { x: 87.8, y: 7.6 },
+        { x: 87.8, y: 36.1 },
+        { x: 92.9, y: 36.1 }
       ]
     }
   },
@@ -1751,11 +1804,11 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     shortName: 'Physiology',
     subtitle: 'East Wing After Garden · Between Economics & Psychology',
     category: 'Laboratories',
-    stopNumber: '31',
+    stopNumber: '32',
     svgType: 'science-lab',
     badge: 'East Wing · After Economics',
     description:
-      'Following Sindhi and Economics along the eastern wing past the Ground and Garden is the Department of Physiology—supporting our distinctive Associate Degree in Physiology & Health Sciences (ADS) with physiological models, blood-pressure/hematology apparatus, and Pre-Medical foundations.',
+      'Following Sindhi & Geography and Economics along the eastern wing past the Ground and Garden is the Department of Physiology—supporting our distinctive Associate Degree in Physiology & Health Sciences (ADS) with physiological models, blood-pressure/hematology apparatus, and Pre-Medical foundations.',
     keySpecs: [
       { label: 'Department', value: 'Department of Physiology' },
       { label: 'Program', value: 'AD Physiology & Health (ADS)' },
@@ -1777,23 +1830,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'East Academic Wing · Between Economics & Psychology',
-    mapX: 93.1,
-    mapY: 44.5,
+    mapX: 92.9,
+    mapY: 49.2,
     gateDirections: {
       turn: 'Bear Right',
-      distanceFromGate: '136 m · Past Sindhi & Economics',
+      distanceFromGate: '138 m · Past Economics',
       walkingSteps: [
         'Walk north to Assembly, Zoology & Botany Lab, then cross the Long Distance path east through Ground & Garden.',
-        'Continue south along the East Academic Walkway past Sindhi and Economics.',
+        'Continue south along the East Academic Walkway past Sindhi & Geography and Economics.',
         'Enter the Department of Physiology.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 25.0 },
         { x: 48.3, y: 7.6 },
-        { x: 88.7, y: 7.6 },
-        { x: 88.7, y: 44.5 },
-        { x: 93.1, y: 44.5 }
+        { x: 87.8, y: 7.6 },
+        { x: 87.8, y: 49.2 },
+        { x: 92.9, y: 49.2 }
       ]
     }
   },
@@ -1801,23 +1854,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'psychology-dept',
     name: 'Department of Psychology',
     shortName: 'Psychology',
-    subtitle: 'East Wing After Garden · Between Physiology & Geography',
+    subtitle: 'East Wing After Garden · Following Sindhi & Geography, Economics & Physiology',
     category: 'Academics',
-    stopNumber: '32',
+    stopNumber: '33',
     svgType: 'academic-wing',
     badge: 'East Wing · After Physiology',
     description:
-      'Directly south of Physiology along the eastern academic corridor (after Ground, Garden, Sindhi, and Economics past Zoology & Botany Lab), the Department of Psychology hosts behavioral sciences lectures, cognitive testing exercises, and student counseling orientation.',
+      'Completing the eastern academic row directly south of Physiology (after Ground, Garden, Sindhi & Geography, and Economics past Zoology & Botany Lab), the Department of Psychology hosts behavioral sciences lectures, cognitive testing exercises, and student counseling orientation.',
     keySpecs: [
       { label: 'Department', value: 'Department of Psychology' },
-      { label: 'Between', value: 'Physiology & Geography' },
+      { label: 'Before It', value: 'Sindhi & Geography, Economics, Physiology' },
       { label: 'Focus', value: 'Cognitive & Social Psychology' },
       { label: 'Power', value: 'Rooftop Solar Panels' }
     ],
     highlights: [
-      'Dedicated Psychology lecture room & counseling testing suite between Physiology and Geography',
+      'Dedicated Psychology lecture room & counseling testing suite right after Physiology',
       'Serves Intermediate Humanities and Associate Degree in Arts (ADA) cohorts',
-      'Powered cleanly with rooftop solar panels'
+      'Positioned cleanly inside the Golden College Boundary just north of Central Jail'
     ],
     hotspots: [
       {
@@ -1828,76 +1881,74 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 50
       }
     ],
-    locationNote: 'East Academic Wing · Between Physiology & Geography',
-    mapX: 93.1,
-    mapY: 56.7,
+    locationNote: 'East Academic Wing · After Physiology (Inside Golden Boundary)',
+    mapX: 92.9,
+    mapY: 62.3,
     gateDirections: {
       turn: 'Bear Right',
-      distanceFromGate: '142 m · Past Physiology',
+      distanceFromGate: '144 m · Past Physiology',
       walkingSteps: [
         'Walk north to Assembly, Zoology & Botany Lab, then cross the Long Distance path east through Ground & Garden.',
-        'Proceed down the East Academic Walkway past Sindhi, Economics, and Physiology.',
-        'Enter the Department of Psychology.'
+        'Proceed down the East Academic Walkway past Sindhi & Geography, Economics, and Physiology.',
+        'Arrive at the Department of Psychology inside the Golden Boundary.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
         { x: 50, y: 25.0 },
         { x: 48.3, y: 7.6 },
-        { x: 88.7, y: 7.6 },
-        { x: 88.7, y: 56.7 },
-        { x: 93.1, y: 56.7 }
+        { x: 87.8, y: 7.6 },
+        { x: 87.8, y: 62.3 },
+        { x: 92.9, y: 62.3 }
       ]
     }
   },
   {
-    id: 'geography-dept',
-    name: 'Department of Geography',
-    shortName: 'Geography',
-    subtitle: 'East Wing After Garden · Following Sindhi, Economics, Physiology & Psychology',
-    category: 'Academics',
-    stopNumber: '33',
-    svgType: 'academic-wing',
-    badge: 'East Wing · After Psychology',
+    id: 'small-garden-computer-lab',
+    name: 'Small Garden (Before Computer Lab)',
+    shortName: 'Small Garden',
+    subtitle: 'Green Pocket Garden Directly Before Computer Lab & Above Big College Hostel',
+    category: 'Student Life',
+    stopNumber: '34',
+    svgType: 'courtyard',
+    badge: 'Right Before Computer Lab',
     description:
-      'Completing the eastern academic row right after Psychology—following Ground, Garden, Sindhi, Economics, and Physiology beyond Zoology & Botany Lab—the Department of Geography houses physical and commercial geography maps, globes, cartography tables, and environmental survey instruments.',
+      'Nestled directly in front of the Computer Lab & Computer Office (and above the Big College Hostel right beside the Central Courtyard Promenade), this welcoming Small Garden frames the entry to the Computer Department with shaded greenery and colorful flowerbeds.',
     keySpecs: [
-      { label: 'Department', value: 'Department of Geography' },
-      { label: 'Before It', value: 'Sindhi, Economics, Physiology, Psychology' },
-      { label: 'Programs', value: 'I.Com & FA Geography' },
-      { label: 'Power', value: 'Rooftop Solar Panels' }
+      { label: 'Location', value: 'Before Computer Lab' },
+      { label: 'Directly North', value: 'Computer Lab & Office' },
+      { label: 'Directly South', value: 'Big College Hostel' },
+      { label: 'West Neighbor', value: 'Straight North-West Trees' }
     ],
     highlights: [
-      'Cartography & physical geography practical hall with regional Sindh & Pakistan maps',
-      'Supports Commercial Geography (I.Com) and FA Humanities Geography groups',
-      'Positioned cleanly inside the Golden College Boundary just north of Central Jail'
+      'Green pocket garden positioned directly before Computer Lab & Computer Office',
+      'Shades the walkway linking Central Courtyard, Computer Department, and Big College Hostel',
+      'Connects seamlessly westward into the Straight North-West Trees line'
     ],
     hotspots: [
       {
-        id: 'geography-cartography',
-        label: 'Geography & Cartography Lab',
-        description: 'Topographical map tables, globes, and climate survey instruments.',
+        id: 'small-garden-lawn',
+        label: 'Small Garden Flowerbeds',
+        description: 'Neat manicured greenery directly before the Computer Lab entrance.',
         xPercent: 50,
-        yPercent: 50
+        yPercent: 52
       }
     ],
-    locationNote: 'East Academic Wing · After Psychology (Inside Golden Boundary)',
-    mapX: 93.1,
-    mapY: 68.8,
+    locationNote: 'Directly Before Computer Lab · Between Computer Dept. & Hostel',
+    mapX: 24.1,
+    mapY: 39.5,
     gateDirections: {
-      turn: 'Bear Right',
-      distanceFromGate: '148 m · Past Psychology',
+      turn: 'Turn Left',
+      distanceFromGate: '62 m · Directly Before Computer Lab',
       walkingSteps: [
-        'Walk north to Assembly, Zoology & Botany Lab, then cross the Long Distance path east through Ground & Garden.',
-        'Continue south down the East Academic Walkway past Sindhi, Economics, Physiology, and Psychology.',
-        'Arrive at the Department of Geography inside the Golden Boundary.'
+        'Walk straight along the twin grill path past Big Clerk Office Corridor and the Garden.',
+        'Turn left across Central Courtyard Promenade toward the Computer Department.',
+        'Pause at the Small Garden positioned directly before Computer Lab & Office.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 25.0 },
-        { x: 48.3, y: 7.6 },
-        { x: 88.7, y: 7.6 },
-        { x: 88.7, y: 68.8 },
-        { x: 93.1, y: 68.8 }
+        { x: 50, y: 41.9 },
+        { x: 30.2, y: 41.9 },
+        { x: 24.1, y: 39.5 }
       ]
     }
   }
