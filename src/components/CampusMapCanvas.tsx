@@ -359,6 +359,16 @@ const STOP_THEMES_BY_ID: Record<string, StopColorTheme> = {
     textClass: 'text-[#bbf7d0]',
     activeBorder: 'border-[#4ade80]',
     badgeBg: 'bg-[#4ade80] text-slate-950'
+  },
+  'tennis-volleyball-grounds': {
+    pinBg: 'bg-[#22d3ee]',
+    pinText: 'text-slate-950',
+    pinBorder: 'border-[#cffafe]',
+    ringGlow: 'bg-[#67e8f9]/45',
+    hex: '#22d3ee',
+    textClass: 'text-[#a5f3fc]',
+    activeBorder: 'border-[#22d3ee]',
+    badgeBg: 'bg-[#22d3ee] text-slate-950'
   }
 };
 
@@ -428,14 +438,14 @@ export function suggestDirectionsFromGate(
   } else if (dx <= -8) {
     turn = 'Bear Left';
     step2 =
-      'Take the left path between two grills toward Small Garden, Computer Lab, Big Multimedia Room & Big College Hostel along the Straight North-West Trees.';
+      'Take the left path between two grills toward Small Garden, Computer Lab, Big Multimedia Room, Big Hostel, and Tennis Court & Volleyball on the left of Pakistan Studies.';
   } else if (dx >= 15 && y > 76) {
     turn = 'Turn Right';
     step2 = 'Upon entering the Main Gate, turn right past the Front Garden to the College Canteen inside the Golden Boundary.';
   } else if (dx >= 8) {
     turn = dx >= 20 ? 'Turn Right' : 'Bear Right';
     step2 =
-      'Walk straight along the twin grill paths past the walking distance, Clerk Office, Garden & Auditorium toward Principal’s Office, then bear right.';
+      'Walk straight along the twin grill paths past the walking distance, Clerk Office, Garden & Auditorium or head north-east via Straight Long Path → Ground → Garden → Straight Long Corridor.';
   }
 
   return {
@@ -664,7 +674,7 @@ export function CampusMapCanvas({
             <span className="text-stone-300">· ← Left · Right →</span>
           </span>
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-900/70 border border-emerald-600/70 text-emerald-100">
-            <span>After Zoology &amp; Botany → Long Distance → Ground → Garden → Sindhi &amp; Geography, Economics, Physiology &amp; Psychology</span>
+            <span>Straight Long Path → Ground → Garden → Straight Long Corridor (Sindhi, Physiology, Economics, Geography) · Tennis &amp; Volleyball Left of Pak Studies</span>
           </span>
         </div>
 
@@ -800,9 +810,9 @@ export function CampusMapCanvas({
 
             {/* Vertical Sightline Guide showing Auditorium Hall on Principal Path */}
             <line
-              x1="1007"
+              x1="1005"
               y1="126"
-              x2="1007"
+              x2="1005"
               y2="302"
               stroke="#fb7185"
               strokeOpacity="0.28"
@@ -810,37 +820,56 @@ export function CampusMapCanvas({
               strokeDasharray="6 5"
             />
 
-            {/* ================= NORTH-WEST SECTOR: STRAIGHT NORTH-WEST TREES ================= */}
+            {/* ================= NORTH-WEST SECTOR: 34. TENNIS COURT & VOLLEYBALL (LEFT OF PAKISTAN STUDIES) & NORTH-WEST TREES ================= */}
 
-            {/* Straight North-West Trees Line (Left of Commerce, Pak Studies, Urdu, Physical Education & Computer Department Down to Hostel) */}
-            <rect x="44" y="30" width="170" height="256" rx="14" fill="#052e16" fillOpacity="0.82" stroke="#4ade80" strokeOpacity="0.78" strokeWidth="2.4" />
-            <line x1="68" y1="42" x2="68" y2="274" stroke="#86efac" strokeOpacity="0.48" strokeWidth="2.4" strokeDasharray="5 4" />
-            <line x1="190" y1="42" x2="190" y2="274" stroke="#86efac" strokeOpacity="0.48" strokeWidth="2.4" strokeDasharray="5 4" />
-            <circle cx="68" cy="54" r="10.5" fill="#22c55e" fillOpacity="0.84" stroke="#bbf7d0" strokeWidth="1.4" />
-            <circle cx="68" cy="98" r="11" fill="#16a34a" fillOpacity="0.86" stroke="#bbf7d0" strokeWidth="1.4" />
-            <circle cx="68" cy="142" r="10.5" fill="#22c55e" fillOpacity="0.84" stroke="#bbf7d0" strokeWidth="1.4" />
-            <circle cx="68" cy="186" r="11" fill="#16a34a" fillOpacity="0.86" stroke="#bbf7d0" strokeWidth="1.4" />
-            <circle cx="68" cy="230" r="10.5" fill="#22c55e" fillOpacity="0.84" stroke="#bbf7d0" strokeWidth="1.4" />
-            <circle cx="68" cy="270" r="10" fill="#16a34a" fillOpacity="0.86" stroke="#bbf7d0" strokeWidth="1.4" />
-            <circle cx="190" cy="54" r="10" fill="#16a34a" fillOpacity="0.82" stroke="#bbf7d0" strokeWidth="1.4" />
-            <circle cx="190" cy="98" r="10.5" fill="#22c55e" fillOpacity="0.84" stroke="#bbf7d0" strokeWidth="1.4" />
-            <circle cx="190" cy="142" r="10" fill="#16a34a" fillOpacity="0.82" stroke="#bbf7d0" strokeWidth="1.4" />
-            <circle cx="190" cy="186" r="10.5" fill="#22c55e" fillOpacity="0.84" stroke="#bbf7d0" strokeWidth="1.4" />
-            <circle cx="190" cy="230" r="10" fill="#16a34a" fillOpacity="0.82" stroke="#bbf7d0" strokeWidth="1.4" />
-            <circle cx="190" cy="270" r="10" fill="#22c55e" fillOpacity="0.84" stroke="#bbf7d0" strokeWidth="1.4" />
-            <text x="129" y="138" textAnchor="middle" fill="#bbf7d0" fontSize="11.2" fontWeight="900">
-              NORTH-WEST
+            {/* 34. Tennis Court & Volleyball (Directly on Left of Pakistan Studies) */}
+            <rect x="44" y="30" width="170" height="156" rx="13" fill="#064e3b" fillOpacity="0.9" stroke="#22d3ee" strokeWidth="2.4" />
+            <text x="129" y="46" textAnchor="middle" fill="#a5f3fc" fontSize="9.6" fontWeight="900" letterSpacing="0.3">
+              TENNIS &amp; VOLLEYBALL
             </text>
-            <text x="129" y="154" textAnchor="middle" fill="#86efac" fontSize="11.2" fontWeight="900">
-              TREES
+
+            {/* Tennis Court (Left Half) */}
+            <rect x="52" y="54" width="72" height="98" rx="4" fill="#0e7490" fillOpacity="0.88" stroke="#ecfeff" strokeWidth="1.4" />
+            <rect x="58" y="60" width="60" height="86" fill="none" stroke="#e0f2fe" strokeOpacity="0.85" strokeWidth="0.9" />
+            <line x1="52" y1="103" x2="124" y2="103" stroke="#fef08a" strokeWidth="1.6" strokeDasharray="3 2" />
+            <line x1="88" y1="60" x2="88" y2="146" stroke="#e0f2fe" strokeOpacity="0.7" strokeWidth="0.9" />
+            <text x="88" y="162" textAnchor="middle" fill="#67e8f9" fontSize="7.4" fontWeight="900">
+              TENNIS COURT
             </text>
-            <text x="129" y="172" textAnchor="middle" fill="#fef08a" fontSize="7.6" fontWeight="900">
+
+            {/* Volleyball Court (Right Half) */}
+            <rect x="134" y="54" width="72" height="98" rx="4" fill="#9a3412" fillOpacity="0.82" stroke="#fed7aa" strokeWidth="1.4" />
+            <line x1="134" y1="103" x2="206" y2="103" stroke="#fef08a" strokeWidth="1.6" strokeDasharray="3 2" />
+            <line x1="134" y1="86" x2="206" y2="86" stroke="#fed7aa" strokeOpacity="0.7" strokeWidth="0.9" />
+            <line x1="134" y1="120" x2="206" y2="120" stroke="#fed7aa" strokeOpacity="0.7" strokeWidth="0.9" />
+            <text x="170" y="162" textAnchor="middle" fill="#fed7aa" fontSize="7.4" fontWeight="900">
+              VOLLEYBALL
+            </text>
+
+            <text x="129" y="179" textAnchor="middle" fill="#fef08a" fontSize="7.1" fontWeight="900">
+              LEFT OF PAKISTAN STUDIES →
+            </text>
+
+            {/* Straight North-West Trees Line (Directly Below Tennis & Volleyball, Linking to Small Garden, Comp Lab & Hostel) */}
+            <rect x="44" y="194" width="170" height="92" rx="12" fill="#052e16" fillOpacity="0.84" stroke="#4ade80" strokeOpacity="0.78" strokeWidth="2.2" />
+            <line x1="66" y1="202" x2="66" y2="278" stroke="#86efac" strokeOpacity="0.48" strokeWidth="2.2" strokeDasharray="5 4" />
+            <line x1="192" y1="202" x2="192" y2="278" stroke="#86efac" strokeOpacity="0.48" strokeWidth="2.2" strokeDasharray="5 4" />
+            <circle cx="66" cy="212" r="9.5" fill="#22c55e" fillOpacity="0.84" stroke="#bbf7d0" strokeWidth="1.3" />
+            <circle cx="66" cy="242" r="10" fill="#16a34a" fillOpacity="0.86" stroke="#bbf7d0" strokeWidth="1.3" />
+            <circle cx="66" cy="272" r="9.5" fill="#22c55e" fillOpacity="0.84" stroke="#bbf7d0" strokeWidth="1.3" />
+            <circle cx="192" cy="212" r="9.5" fill="#16a34a" fillOpacity="0.82" stroke="#bbf7d0" strokeWidth="1.3" />
+            <circle cx="192" cy="242" r="10" fill="#22c55e" fillOpacity="0.84" stroke="#bbf7d0" strokeWidth="1.3" />
+            <circle cx="192" cy="272" r="9.5" fill="#16a34a" fillOpacity="0.82" stroke="#bbf7d0" strokeWidth="1.3" />
+            <text x="129" y="220" textAnchor="middle" fill="#bbf7d0" fontSize="9.6" fontWeight="900">
+              NORTH-WEST TREES
+            </text>
+            <text x="129" y="236" textAnchor="middle" fill="#fef08a" fontSize="7.4" fontWeight="900">
               (STRAIGHT LINE)
             </text>
-            <text x="129" y="216" textAnchor="middle" fill="#a7f3d0" fontSize="7.4" fontWeight="800">
+            <text x="129" y="256" textAnchor="middle" fill="#a7f3d0" fontSize="7.1" fontWeight="800">
               → SMALL GARDEN &amp; COMP LAB
             </text>
-            <text x="129" y="232" textAnchor="middle" fill="#fdba74" fontSize="7.4" fontWeight="900">
+            <text x="129" y="271" textAnchor="middle" fill="#fdba74" fontSize="7.1" fontWeight="900">
               ↓ TO BIG COLLEGE HOSTEL
             </text>
 
@@ -962,7 +991,7 @@ export function CampusMapCanvas({
               ↑ COMMERCE
             </text>
 
-            {/* ================= NORTH & EAST SEQUENCE: ASSEMBLY · ZOOLOGY · BOTANY → LONG DISTANCE → GROUND → GARDEN → SINDHI & GEOGRAPHY / ECONOMICS / PHYSIOLOGY / PSYCHOLOGY ================= */}
+            {/* ================= NORTH & EAST SEQUENCE: ASSEMBLY · ZOOLOGY · BOTANY → STRAIGHT LONG PATH → GROUND → GARDEN → STRAIGHT LONG CORRIDOR (SINDHI · PHYSIOLOGY · ECONOMICS · GEOGRAPHY · PSYCHOLOGY) ================= */}
 
             {/* 16. Assembly Ground, Flag Hoisting, Garden Lawn, Greenhouse & Prayer Room */}
             <rect x="524" y="26" width="112" height="80" rx="10" fill="url(#lawn-grad)" stroke="#4ade80" strokeWidth="2.3" />
@@ -1007,7 +1036,7 @@ export function CampusMapCanvas({
               &amp; BOTANY LAB
             </text>
 
-            {/* LONG DISTANCE ZONE AFTER ZOOLOGY & BOTANY LAB (Like Walking Distance Before in South) */}
+            {/* STRAIGHT LONG PATH PAVED WALKWAY (Leads Straight East to Ground & Garden) */}
             <rect
               x="830"
               y="26"
@@ -1015,26 +1044,26 @@ export function CampusMapCanvas({
               height="80"
               rx="10"
               fill="#022c22"
-              fillOpacity="0.86"
+              fillOpacity="0.88"
               stroke="#facc15"
-              strokeOpacity="0.88"
+              strokeOpacity="0.9"
               strokeWidth="2.2"
               strokeDasharray="6 4"
             />
-            <line x1="842" y1="48" x2="928" y2="48" stroke="#fde047" strokeWidth="2.8" strokeDasharray="6 4" />
-            <line x1="842" y1="42" x2="842" y2="54" stroke="#fde047" strokeWidth="2" />
-            <polygon points="928,42 940,48 928,54" fill="#fde047" />
-            <text x="889" y="70" textAnchor="middle" fill="#fef08a" fontSize="10.6" fontWeight="900" letterSpacing="0.5">
-              LONG DISTANCE
+            <rect x="832" y="51" width="114" height="22" rx="4" fill="#334155" fillOpacity="0.86" stroke="#cbd5e1" strokeOpacity="0.7" strokeWidth="1.2" />
+            <line x1="836" y1="62" x2="932" y2="62" stroke="#fde047" strokeWidth="2.8" strokeDasharray="7 4" />
+            <polygon points="931,56 944,62 931,68" fill="#fde047" />
+            <text x="889" y="42" textAnchor="middle" fill="#fef08a" fontSize="9.4" fontWeight="900" letterSpacing="0.4">
+              STRAIGHT LONG PATH
             </text>
-            <text x="889" y="85" textAnchor="middle" fill="#a7f3d0" fontSize="7.7" fontWeight="800">
-              After Zoology &amp; Botany
+            <text x="889" y="88" textAnchor="middle" fill="#a7f3d0" fontSize="7.4" fontWeight="800">
+              Straight Long Walk
             </text>
-            <text x="889" y="97" textAnchor="middle" fill="#fde68a" fontSize="7.7" fontWeight="800">
-              → Ground &amp; Garden
+            <text x="889" y="100" textAnchor="middle" fill="#fde68a" fontSize="7.6" fontWeight="900">
+              → GROUND &amp; GARDEN
             </text>
 
-            {/* 27. GROUND (Right After Long Distance Past Zoology & Botany Lab) */}
+            {/* 26. GROUND (Directly After Straight Long Path) */}
             <rect x="954" y="26" width="102" height="80" rx="10" fill="url(#lawn-grad)" stroke="#4ade80" strokeWidth="2.4" />
             <ellipse cx="1005" cy="68" rx="38" ry="18" fill="#22c55e" fillOpacity="0.24" stroke="#d9f99d" strokeOpacity="0.65" strokeWidth="1.4" strokeDasharray="5 3" />
             <text x="1005" y="42" textAnchor="middle" fill="#dcfce7" fontSize="11.4" fontWeight="900" letterSpacing="0.5">
@@ -1044,7 +1073,7 @@ export function CampusMapCanvas({
               PLAYING LAWN
             </text>
 
-            {/* 28. GARDEN (Directly After Ground) */}
+            {/* 27. GARDEN (Directly After Ground · Entrance to Straight Long Corridor) */}
             <rect x="1062" y="26" width="102" height="80" rx="10" fill="url(#lawn-grad)" stroke="#34d399" strokeWidth="2.4" />
             <circle cx="1084" cy="64" r="10" fill="#22c55e" fillOpacity="0.78" stroke="#bbf7d0" strokeWidth="1.3" />
             <circle cx="1142" cy="64" r="10" fill="#22c55e" fillOpacity="0.78" stroke="#bbf7d0" strokeWidth="1.3" />
@@ -1063,44 +1092,92 @@ export function CampusMapCanvas({
               TREES &amp; FLOWERS
             </text>
 
-            {/* EAST ACADEMIC WING AFTER GARDEN (29 & 30. SINDHI & GEOGRAPHY → 31. ECONOMICS → 32. PHYSIOLOGY → 33. PSYCHOLOGY) */}
-            <rect x="1058" y="124" width="108" height="118" rx="10" fill="#083344" fillOpacity="0.94" stroke="#38bdf8" strokeWidth="2.4" />
-            <SolarPanelArray x={1124} y={128} w={36} h={8} />
-            <line x1="1064" y1="186" x2="1160" y2="186" stroke="#38bdf8" strokeOpacity="0.38" strokeWidth="1.2" strokeDasharray="4 3" />
-            <text x="1096" y="142" textAnchor="middle" fill="#67e8f9" fontSize="10.4" fontWeight="900">
+            {/* STRAIGHT LONG CORRIDOR WING AFTER GARDEN (28. SINDHI → 29. PHYSIOLOGY → 30. ECONOMICS → 31. GEOGRAPHY → 32. PSYCHOLOGY) */}
+            <rect
+              x="1052"
+              y="120"
+              width="116"
+              height="506"
+              rx="12"
+              fill="#0f172a"
+              fillOpacity="0.8"
+              stroke="#fde047"
+              strokeWidth="2.4"
+            />
+            <rect x="1052" y="109" width="116" height="17" rx="5" fill="#1e1b4b" stroke="#fde047" strokeWidth="1.4" />
+            <text x="1110" y="120.5" textAnchor="middle" fill="#fef08a" fontSize="7.4" fontWeight="900" letterSpacing="0.25">
+              STRAIGHT LONG CORRIDOR
+            </text>
+
+            {/* Continuous Straight Corridor Strip With Pillars (Connecting Garden Down Through All Departments) */}
+            <rect
+              x="1056"
+              y="128"
+              width="20"
+              height="492"
+              rx="6"
+              fill="#1e293b"
+              fillOpacity="0.92"
+              stroke="#94a3b8"
+              strokeOpacity="0.72"
+              strokeWidth="1.2"
+            />
+            <line x1="1066" y1="136" x2="1066" y2="612" stroke="#fde047" strokeOpacity="0.7" strokeWidth="2.2" strokeDasharray="6 4" />
+            <circle cx="1066" cy="146" r="3" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1" />
+            <circle cx="1066" cy="228" r="3" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1" />
+            <circle cx="1066" cy="326" r="3" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1" />
+            <circle cx="1066" cy="424" r="3" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1" />
+            <circle cx="1066" cy="522" r="3" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1" />
+            <circle cx="1066" cy="606" r="3" fill="#e2e8f0" stroke="#0f766e" strokeWidth="1" />
+            <polygon points="1062,608 1066,617 1070,608" fill="#fde047" />
+
+            {/* 28. SINDHI */}
+            <rect x="1080" y="134" width="82" height="90" rx="8" fill="#083344" fillOpacity="0.95" stroke="#22d3ee" strokeWidth="2.2" />
+            <SolarPanelArray x={1126} y={138} w={30} h={7} />
+            <text x="1121" y="158" textAnchor="middle" fill="#67e8f9" fontSize="10.4" fontWeight="900">
               SINDHI
             </text>
-            <text x="1112" y="180" textAnchor="middle" fill="#fef08a" fontSize="7.2" fontWeight="900">
-              &amp; WITH SINDHI:
-            </text>
-            <text x="1112" y="234" textAnchor="middle" fill="#bae6fd" fontSize="9.8" fontWeight="900">
-              GEOGRAPHY
-            </text>
-
-            <rect x="1066" y="254" width="98" height="98" rx="9" fill="#78350f" fillOpacity="0.94" stroke="#fbbf24" strokeWidth="2.2" />
-            <SolarPanelArray x={1122} y={258} w={36} h={8} />
-            <text x="1115" y="279" textAnchor="middle" fill="#fde68a" fontSize="10.4" fontWeight="900">
-              ECONOMICS
-            </text>
-            <text x="1115" y="343" textAnchor="middle" fill="#fef3c7" fontSize="7.8" fontWeight="800">
+            <text x="1121" y="217" textAnchor="middle" fill="#cffafe" fontSize="7.4" fontWeight="800">
               DEPARTMENT
             </text>
 
-            <rect x="1066" y="364" width="98" height="98" rx="9" fill="#831843" fillOpacity="0.94" stroke="#f472b6" strokeWidth="2.2" />
-            <SolarPanelArray x={1122} y={368} w={36} h={8} />
-            <text x="1115" y="389" textAnchor="middle" fill="#fbcfe8" fontSize="10" fontWeight="900">
+            {/* 29. PHYSIOLOGY */}
+            <rect x="1080" y="232" width="82" height="90" rx="8" fill="#831843" fillOpacity="0.95" stroke="#f472b6" strokeWidth="2.2" />
+            <SolarPanelArray x={1126} y={236} w={30} h={7} />
+            <text x="1121" y="256" textAnchor="middle" fill="#fbcfe8" fontSize="9.4" fontWeight="900">
               PHYSIOLOGY
             </text>
-            <text x="1115" y="453" textAnchor="middle" fill="#fce7f3" fontSize="7.8" fontWeight="800">
+            <text x="1121" y="315" textAnchor="middle" fill="#fce7f3" fontSize="7.4" fontWeight="800">
               DEPARTMENT
             </text>
 
-            <rect x="1066" y="474" width="98" height="98" rx="9" fill="#581c87" fillOpacity="0.94" stroke="#c084fc" strokeWidth="2.2" />
-            <SolarPanelArray x={1122} y={478} w={36} h={8} />
-            <text x="1115" y="499" textAnchor="middle" fill="#e9d5ff" fontSize="9.8" fontWeight="900">
+            {/* 30. ECONOMICS */}
+            <rect x="1080" y="330" width="82" height="90" rx="8" fill="#78350f" fillOpacity="0.95" stroke="#fbbf24" strokeWidth="2.2" />
+            <SolarPanelArray x={1126} y={334} w={30} h={7} />
+            <text x="1121" y="354" textAnchor="middle" fill="#fde68a" fontSize="9.8" fontWeight="900">
+              ECONOMICS
+            </text>
+            <text x="1121" y="413" textAnchor="middle" fill="#fef3c7" fontSize="7.4" fontWeight="800">
+              DEPARTMENT
+            </text>
+
+            {/* 31. GEOGRAPHY */}
+            <rect x="1080" y="428" width="82" height="90" rx="8" fill="#0c4a6e" fillOpacity="0.95" stroke="#38bdf8" strokeWidth="2.2" />
+            <SolarPanelArray x={1126} y={432} w={30} h={7} />
+            <text x="1121" y="452" textAnchor="middle" fill="#bae6fd" fontSize="9.4" fontWeight="900">
+              GEOGRAPHY
+            </text>
+            <text x="1121" y="511" textAnchor="middle" fill="#e0f2fe" fontSize="7.4" fontWeight="800">
+              DEPARTMENT
+            </text>
+
+            {/* 32. PSYCHOLOGY */}
+            <rect x="1080" y="526" width="82" height="90" rx="8" fill="#581c87" fillOpacity="0.95" stroke="#c084fc" strokeWidth="2.2" />
+            <SolarPanelArray x={1126} y={530} w={30} h={7} />
+            <text x="1121" y="550" textAnchor="middle" fill="#e9d5ff" fontSize="9.2" fontWeight="900">
               PSYCHOLOGY
             </text>
-            <text x="1115" y="563" textAnchor="middle" fill="#f3e8ff" fontSize="7.8" fontWeight="800">
+            <text x="1121" y="609" textAnchor="middle" fill="#f3e8ff" fontSize="7.4" fontWeight="800">
               DEPARTMENT
             </text>
 
@@ -1236,18 +1313,18 @@ export function CampusMapCanvas({
             </text>
 
             {/* 08. AUDITORIUM HALL (DIRECTLY ACCESSIBLE FROM PRINCIPAL OFFICE PATH) */}
-            <rect x="966" y="126" width="82" height="166" rx="12" fill="#881337" fillOpacity="0.88" stroke="#fb7185" strokeWidth="2.6" />
-            <SolarPanelArray x={1012} y={130} w={30} h={8} />
-            <text x="1007" y="160" textAnchor="middle" fill="#fda4af" fontSize="9.6" fontWeight="900">
+            <rect x="966" y="126" width="78" height="166" rx="12" fill="#881337" fillOpacity="0.88" stroke="#fb7185" strokeWidth="2.6" />
+            <SolarPanelArray x={1008} y={130} w={30} h={8} />
+            <text x="1005" y="160" textAnchor="middle" fill="#fda4af" fontSize="9.4" fontWeight="900">
               AUDITORIUM
             </text>
-            <text x="1007" y="174" textAnchor="middle" fill="#fda4af" fontSize="9.6" fontWeight="900">
+            <text x="1005" y="174" textAnchor="middle" fill="#fda4af" fontSize="9.4" fontWeight="900">
               HALL
             </text>
-            <text x="1007" y="268" textAnchor="middle" fill="#fecdd3" fontSize="7" fontWeight="900">
+            <text x="1005" y="268" textAnchor="middle" fill="#fecdd3" fontSize="6.8" fontWeight="900">
               FROM PRINCIPAL
             </text>
-            <text x="1007" y="280" textAnchor="middle" fill="#fef08a" fontSize="7.2" fontWeight="900">
+            <text x="1005" y="280" textAnchor="middle" fill="#fef08a" fontSize="7" fontWeight="900">
               OFFICE PATH ↑
             </text>
 
@@ -1373,7 +1450,7 @@ export function CampusMapCanvas({
             <rect
               x="952"
               y="302"
-              width="98"
+              width="94"
               height="100"
               rx="11"
               fill="#4c0519"
@@ -1383,12 +1460,12 @@ export function CampusMapCanvas({
               strokeWidth="2"
               strokeDasharray="6 4"
             />
-            <path d="M 958 352 L 1007 352 L 1007 308" fill="none" stroke="#fde047" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
-            <polygon points="1001,314 1007,302 1013,314" fill="#fde047" />
-            <text x="1001" y="370" textAnchor="middle" fill="#fef08a" fontSize="7.6" fontWeight="900">
+            <path d="M 958 352 L 1005 352 L 1005 308" fill="none" stroke="#fde047" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+            <polygon points="999,314 1005,302 1011,314" fill="#fde047" />
+            <text x="999" y="370" textAnchor="middle" fill="#fef08a" fontSize="7.4" fontWeight="900">
               PATH: PRINCIPAL
             </text>
-            <text x="1001" y="384" textAnchor="middle" fill="#fda4af" fontSize="7.6" fontWeight="900">
+            <text x="999" y="384" textAnchor="middle" fill="#fda4af" fontSize="7.4" fontWeight="900">
               → AUDITORIUM ↑
             </text>
 
@@ -1652,25 +1729,26 @@ export function CampusMapCanvas({
             </text>
 
             {/* Horizontal Corridor & Dedicated Path from Principal's Office -> Chemistry Lab -> Stairs -> Auditorium Hall */}
-            <line x1="362" y1="352" x2="1007" y2="352" stroke="#94a3b8" strokeOpacity="0.38" strokeWidth="16" strokeLinecap="round" />
-            <line x1="705" y1="352" x2="1007" y2="352" stroke="#fb7185" strokeOpacity="0.58" strokeWidth="6" strokeDasharray="8 5" strokeLinecap="round" />
-            <line x1="1007" y1="352" x2="1007" y2="292" stroke="#fb7185" strokeOpacity="0.58" strokeWidth="6" strokeDasharray="8 5" strokeLinecap="round" />
+            <line x1="362" y1="352" x2="1005" y2="352" stroke="#94a3b8" strokeOpacity="0.38" strokeWidth="16" strokeLinecap="round" />
+            <line x1="705" y1="352" x2="1005" y2="352" stroke="#fb7185" strokeOpacity="0.58" strokeWidth="6" strokeDasharray="8 5" strokeLinecap="round" />
+            <line x1="1005" y1="352" x2="1005" y2="292" stroke="#fb7185" strokeOpacity="0.58" strokeWidth="6" strokeDasharray="8 5" strokeLinecap="round" />
 
             {/* Stairs Vertical Link up to ALL 6 Departments By Stairs */}
             <line x1="922" y1="302" x2="922" y2="152" stroke="#fde047" strokeOpacity="0.46" strokeWidth="12" strokeLinecap="round" />
             <line x1="656" y1="234" x2="939" y2="234" stroke="#94a3b8" strokeOpacity="0.3" strokeWidth="11" strokeLinecap="round" />
             <line x1="713" y1="152" x2="922" y2="152" stroke="#94a3b8" strokeOpacity="0.3" strokeWidth="11" strokeLinecap="round" />
 
-            {/* North & East Sequence Walkways: Spine -> Assembly -> Zoology -> Botany -> Long Distance -> Ground -> Garden -> Sindhi & Geography / Economics / Physiology / Psychology */}
-            <line x1="600" y1="210" x2="580" y2="66" stroke="#94a3b8" strokeOpacity="0.34" strokeWidth="14" strokeLinecap="round" />
-            <line x1="580" y1="66" x2="1113" y2="66" stroke="#94a3b8" strokeOpacity="0.32" strokeWidth="12" strokeLinecap="round" />
-            <line x1="1054" y1="106" x2="1054" y2="523" stroke="#94a3b8" strokeOpacity="0.34" strokeWidth="10" strokeLinecap="round" />
-            <line x1="1054" y1="183" x2="1058" y2="183" stroke="#38bdf8" strokeOpacity="0.6" strokeWidth="6" />
-            <line x1="1054" y1="303" x2="1066" y2="303" stroke="#fbbf24" strokeOpacity="0.55" strokeWidth="6" />
-            <line x1="1054" y1="413" x2="1066" y2="413" stroke="#f472b6" strokeOpacity="0.55" strokeWidth="6" />
-            <line x1="1054" y1="523" x2="1066" y2="523" stroke="#c084fc" strokeOpacity="0.55" strokeWidth="6" />
+            {/* North & East Sequence Walkways: Spine -> Assembly -> Zoology -> Botany -> Straight Long Path -> Ground -> Garden -> Straight Long Corridor */}
+            <line x1="600" y1="210" x2="580" y2="62" stroke="#94a3b8" strokeOpacity="0.38" strokeWidth="14" strokeLinecap="round" />
+            <line x1="580" y1="62" x2="1113" y2="62" stroke="#94a3b8" strokeOpacity="0.36" strokeWidth="13" strokeLinecap="round" />
+            <line x1="1066" y1="106" x2="1066" y2="128" stroke="#fde047" strokeOpacity="0.65" strokeWidth="10" strokeLinecap="round" />
+            <line x1="1066" y1="179" x2="1080" y2="179" stroke="#22d3ee" strokeOpacity="0.65" strokeWidth="5" />
+            <line x1="1066" y1="277" x2="1080" y2="277" stroke="#f472b6" strokeOpacity="0.65" strokeWidth="5" />
+            <line x1="1066" y1="375" x2="1080" y2="375" stroke="#fbbf24" strokeOpacity="0.65" strokeWidth="5" />
+            <line x1="1066" y1="473" x2="1080" y2="473" stroke="#38bdf8" strokeOpacity="0.65" strokeWidth="5" />
+            <line x1="1066" y1="571" x2="1080" y2="571" stroke="#c084fc" strokeOpacity="0.65" strokeWidth="5" />
 
-            {/* LEFT PATH BETWEEN TWO GRILLS -> GIRLS WALKING ON PATH OF COMPUTER LAB + SMALL GARDEN + COMMERCE STAIRS + DIRECT HOSTEL & STRAIGHT N-W TREES LINKS */}
+            {/* LEFT PATH BETWEEN TWO GRILLS -> GIRLS WALKING ON PATH OF COMPUTER LAB + SMALL GARDEN + COMMERCE STAIRS + TENNIS & VOLLEYBALL & HOSTEL */}
             <line x1="582" y1="244" x2="504" y2="244" stroke="#cbd5e1" strokeOpacity="0.4" strokeWidth="12" strokeLinecap="round" />
             <line x1="582" y1="266" x2="504" y2="266" stroke="#cbd5e1" strokeOpacity="0.4" strokeWidth="12" strokeLinecap="round" />
             <line x1="578" y1="235" x2="506" y2="235" stroke="#fb923c" strokeWidth="2.5" strokeDasharray="5 3" strokeOpacity="0.92" />
@@ -1679,6 +1757,8 @@ export function CampusMapCanvas({
             <line x1="504" y1="172" x2="532" y2="172" stroke="#fde047" strokeOpacity="0.58" strokeWidth="9" strokeLinecap="round" />
             <line x1="532" y1="172" x2="532" y2="60" stroke="#fde047" strokeOpacity="0.55" strokeWidth="8" strokeDasharray="6 4" strokeLinecap="round" />
             <line x1="532" y1="60" x2="504" y2="60" stroke="#fde047" strokeOpacity="0.58" strokeWidth="8" strokeLinecap="round" />
+            <line x1="129" y1="186" x2="129" y2="255" stroke="#22d3ee" strokeOpacity="0.58" strokeWidth="9" strokeLinecap="round" />
+            <line x1="214" y1="125" x2="232" y2="125" stroke="#22d3ee" strokeOpacity="0.52" strokeWidth="8" strokeLinecap="round" />
             <line x1="289" y1="286" x2="289" y2="296" stroke="#4ade80" strokeOpacity="0.72" strokeWidth="10" strokeLinecap="round" />
             <line x1="289" y1="380" x2="289" y2="396" stroke="#fb923c" strokeOpacity="0.65" strokeWidth="10" strokeLinecap="round" />
             <line x1="129" y1="286" x2="129" y2="396" stroke="#4ade80" strokeOpacity="0.6" strokeWidth="10" strokeLinecap="round" />
@@ -1862,7 +1942,7 @@ export function CampusMapCanvas({
             </div>
           )}
 
-          {/* 33 Distinct Multi-Colored Map Stop Pins with EXTRA-BIG Always-Visible Visitor Labels */}
+          {/* 34 Distinct Multi-Colored Map Stop Pins with EXTRA-BIG Always-Visible Visitor Labels */}
           {stops.map((stop, idx) => {
             const isSelected = idx === selectedIndex;
             const isPrincipal = stop.id === 'principal-office';
