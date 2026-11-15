@@ -65,31 +65,31 @@ export interface SimulationCheckpoint {
 export const GATE_TO_PRINCIPAL_CHECKPOINTS: SimulationCheckpoint[] = [
   {
     progress: 0,
-    label: 'Entering Main College Gate (Security Check)',
+    label: 'Entering Main College Gate (Golden Boundary Wall)',
     leftView: 'Security Post & Waiting Room (Entrance Left)',
     aheadView: 'Gate Security Guards & Straight Twin-Grill Walkway',
-    rightView: 'Front Garden & Canteen Inside Golden Boundary · Central Jail & Jammers Outside Boundary'
+    rightView: 'Canteen & Central Library Right · Central Jail & Jammers Outside Golden Boundary'
   },
   {
     progress: 0.28,
-    label: 'Passing Front Garden & Walking Distance Toward Clerk Office',
+    label: 'Walking Straight Past Canteen & Central Library (~25m Walking Distance)',
     leftView: 'Waiting Room Courtyard & West Garden Lawn',
-    aheadView: 'Walking Straight Along Twin Grill Path (~25m Walking Distance)',
-    rightView: 'Front Garden & Gardeners (before/along Canteen), Walking Distance ahead to Clerk Office'
+    aheadView: 'Walking Straight Along Twin Grill Path Toward Clerk Office',
+    rightView: 'Canteen & Central Library (on right of Canteen) passed · Clerk Office straight ahead'
   },
   {
     progress: 0.54,
-    label: 'Clerk Office & Central Library on Right After Walking Distance',
+    label: 'Clerk Office on Right Straight Before the Garden',
     leftView: 'West Garden Lawn & Chemistry Wing ahead',
-    aheadView: 'Straight path past Big Lawn & Auditorium toward Principal’s Office',
-    rightView: 'Clerk Office (after walking distance) & Central Library further right'
+    aheadView: 'Garden & Gardeners straight ahead before Principal’s Office',
+    rightView: 'Clerk Office (straight before the Garden) on your right'
   },
   {
     progress: 0.78,
-    label: 'Passing Auditorium Hall & Inner Lawn to Principal’s Office',
+    label: 'Passing Garden & Auditorium Hall Toward Principal’s Office',
     leftView: 'Chemistry & Chemistry Labs + Left 2-Grill Computer Lab Path ahead',
     aheadView: 'Big Ground & Green Lawn FIRST, then Sindhi, Economics & Physiology straight north',
-    rightView: 'Auditorium Hall (in Zoology/Botany line) & Golden Principal’s Office'
+    rightView: 'Garden (with Gardeners) & Auditorium Hall (in Zoology/Botany line) before Principal’s Office'
   },
   {
     progress: 1,
@@ -112,17 +112,17 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     svgType: 'courtyard',
     badge: 'Entry Point · Estd 1953',
     description:
-      'Enter Government Girls Zubaida College through the Security-monitored 1953 Main Gate on Pathan Colony Road. Immediately on your left is the Waiting Room and on your right is the College Canteen; walking straight inside brings you onto two paths separated by a small grill past the Clerk Office and Central Library on your right, crossing the Big Lawn to reach the Principal’s Office.',
+      'Enter Government Girls Zubaida College through the Security-monitored 1953 Main Gate inside the Golden Boundary Wall on Pathan Colony Road. Immediately on your left is the Waiting Room and on your right is the College Canteen with the Central Library directly on the right of the Canteen (outside the golden wall sits Central Jail & Signal Jammers). Walking straight along the twin grill paths past ~25m walking distance brings you first to the Clerk Office before the Garden, then past the Garden & Auditorium to the Principal’s Office.',
     keySpecs: [
       { label: 'Security', value: '24/7 Gate Guards' },
       { label: 'Entrance Left', value: 'Waiting Room' },
-      { label: 'Entrance Right', value: 'College Canteen' },
-      { label: 'Straight Path', value: 'Twin Grill Walkways' }
+      { label: 'Entrance Right', value: 'Canteen → Central Library' },
+      { label: 'Straight Path', value: 'Clerk Office Before Garden' }
     ],
     highlights: [
-      'Gate Security Cabin & uniformed security guards stationed at the entrance',
+      'Gate Security Cabin & uniformed security guards stationed inside the Golden Boundary Wall',
       'First on your left upon entering: Visitor Waiting Room',
-      'On your right at entrance: College Canteen adjacent to Central Jail & Signal Jammers, with Central Library further straight'
+      'On your right at entrance: College Canteen with Central Library directly to its right; walking straight leads to Clerk Office before the Garden'
     ],
     hotspots: [
       {
@@ -141,8 +141,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       },
       {
         id: 'canteen-right',
-        label: 'Canteen (Right)',
-        description: 'Located immediately on your right when entering the gate.',
+        label: 'Canteen & Central Library (Right)',
+        description: 'Located on your right inside the golden boundary when entering the gate.',
         xPercent: 80,
         yPercent: 78
       }
@@ -154,9 +154,9 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       turn: 'Entry Gate',
       distanceFromGate: '0 m (Start Point)',
       walkingSteps: [
-        'Enter through the Security-monitored Main College Gate inside the Golden Boundary Wall (Waiting Room on left, Front Garden & Canteen on right).',
-        'Walk straight along the two paths separated by a small grill passing the Front Garden and ~25m walking distance.',
-        'Reach the Clerk Office & Central Library on your right, then continue past the Auditorium to the Golden Principal’s Office.'
+        'Enter through the Security-monitored Main Gate inside the Golden Boundary Wall (Waiting Room on left, Canteen & Central Library on right).',
+        'Walk straight along the twin grill path across ~25m walking distance to reach the Clerk Office before the Garden.',
+        'Pass the Garden & Auditorium Hall to reach the Golden Principal’s Office.'
       ],
       routePath: [{ x: 50, y: 92.6 }]
     }
@@ -201,7 +201,7 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Entrance Courtyard · First Room on Left',
     mapX: 22.0,
-    mapY: 87.2,
+    mapY: 86.2,
     gateDirections: {
       turn: 'Turn Left',
       distanceFromGate: '14 m Left',
@@ -212,8 +212,8 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 87.2 },
-        { x: 22.0, y: 87.2 }
+        { x: 50, y: 86.2 },
+        { x: 22.0, y: 86.2 }
       ]
     }
   },
@@ -221,23 +221,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'college-canteen',
     name: 'College Canteen',
     shortName: 'Canteen',
-    subtitle: 'On Your Right Side Immediately After Entering the Main Gate',
+    subtitle: 'On Your Right Entering Main Gate · Central Library Immediately to Its Right',
     category: 'Student Life',
     stopNumber: '03',
     svgType: 'courtyard',
-    badge: 'Entrance Right · Student Refreshments',
+    badge: 'Entrance Right · Library Next Right',
     description:
-      'When a visitor enters through the Main Gate, the College Canteen stands right on the right side—serving students and visitors with refreshments, snacks, tea, and chilled drinking water.',
+      'When a visitor enters through the Main Gate, the College Canteen stands immediately on the right side—serving snacks, tea, and cool water—with the Central College Library positioned directly to its right inside the Golden College Boundary.',
     keySpecs: [
       { label: 'Direction', value: 'Entrance Right' },
-      { label: 'Walk Time', value: '14 Meters Right' },
-      { label: 'Further Straight', value: 'Clerk Office & Library' },
+      { label: 'On Its Right', value: 'Central Library' },
+      { label: 'Walk Time', value: '12 Meters Right' },
       { label: 'Services', value: 'Snacks & Cool Water' }
     ],
     highlights: [
-      'Located right on your right side inside the Main Gate (with Central Jail & Signal Jammers outside the right perimeter wall)',
-      'Fresh snacks, tea counter, and chilled drinking water stations',
-      'Walking straight past the canteen leads onto the twin grill paths'
+      'Located immediately on your right upon entering the Main Gate',
+      'Central College Library sits directly on the right side of the Canteen inside the Golden Boundary',
+      'Walking straight past Canteen leads across ~25m walking distance to the Clerk Office before the Garden'
     ],
     hotspots: [
       {
@@ -255,21 +255,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 58
       }
     ],
-    locationNote: 'Entrance Courtyard Inside Golden Wall · Beside Front Garden',
-    mapX: 68.4,
-    mapY: 87.2,
+    locationNote: 'Entrance Right · Central Library Directly on Its Right',
+    mapX: 59.1,
+    mapY: 86.2,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '16 m Right',
+      distanceFromGate: '12 m Right',
       walkingSteps: [
         'Enter through the Main College Gate.',
-        'Look right past the Front Entrance Garden inside the Golden College Boundary (Central Jail & Signal Jammers sit outside the golden wall).',
-        'The College Canteen sits on your right inside the campus wall.'
+        'Turn right immediately inside the Golden College Boundary.',
+        'The College Canteen sits on your right (with Central Library directly on its right).'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 87.2 },
-        { x: 68.4, y: 87.2 }
+        { x: 50, y: 86.2 },
+        { x: 59.1, y: 86.2 }
       ]
     }
   },
@@ -277,23 +277,23 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'clerk-office',
     name: 'Clerk Office & Student Records',
     shortName: 'Clerk Office',
-    subtitle: 'After Passing Front Garden & Walking Distance Straight · First Office on the Right',
+    subtitle: 'Walking Straight After Canteen Distance · Comes Directly Before the Garden on Right',
     category: 'Administration',
     stopNumber: '04',
     svgType: 'principal-office',
-    badge: 'After Garden & Walk · Right',
+    badge: 'Straight · Before Garden on Right',
     description:
-      'Walking straight from the gate past the Front Garden and along a distinct ~25m walking-distance stretch brings you on your right side to the Clerk Office—handling student enrollment forms, verification, bonafide certificates, and official records.',
+      'Walking straight along the twin-grill path past the Canteen and a clear ~25m walking distance brings you FIRST—right before the Garden—to the Clerk Office on your right side, handling admissions, verification, and student records.',
     keySpecs: [
-      { label: 'Direction', value: 'Straight Past Garden · Right' },
+      { label: 'Position', value: 'Straight · Before Garden' },
       { label: 'Distance', value: '~36 Meters Straight' },
       { label: 'Office Hours', value: '8:00 AM – 2:00 PM' },
       { label: 'Services', value: 'Records & Verification' }
     ],
     highlights: [
-      'Appears on the right side after passing the Front Garden and walking distance straight',
-      'Handles SECCAP admissions, enrollment slips & document verification',
-      'Leads onward to Central Library on the right and Auditorium/Principal’s Office ahead'
+      'Positioned in straight path directly BEFORE the Garden on your right side',
+      'Reached after walking a short distance straight ahead past Canteen & Central Library',
+      'Garden (with Gardeners), Auditorium & Golden Principal’s Office continue straight ahead'
     ],
     hotspots: [
       {
@@ -311,21 +311,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 48
       }
     ],
-    locationNote: 'Past Front Garden & ~25m Walking Distance · Right Side',
-    mapX: 61.7,
-    mapY: 63.2,
+    locationNote: 'Straight Twin-Grill Path · Right Before the Garden',
+    mapX: 61.8,
+    mapY: 62.2,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '36 m Straight · Right',
+      distanceFromGate: '36 m Straight · Before Garden',
       walkingSteps: [
-        'Enter the Main Gate and walk straight past the Front Entrance Garden & Canteen.',
-        'Continue along the straight Twin-Grill walking-distance stretch (~25m).',
-        'Turn right into the Clerk Office after the garden walk.'
+        'Enter the Main Gate (Canteen & Central Library on your right).',
+        'Walk straight along the twin grill paths across the ~25m walking distance.',
+        'Turn right into the Clerk Office directly before the Garden.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 63.2 },
-        { x: 61.7, y: 63.2 }
+        { x: 50, y: 62.2 },
+        { x: 61.8, y: 62.2 }
       ]
     }
   },
@@ -333,21 +333,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     id: 'central-library',
     name: 'Central College Library & Reading Wing',
     shortName: 'Central Library',
-    subtitle: 'After Walking Some Distance Straight on the Right · 15,000+ Volumes',
+    subtitle: 'Directly on the Right of College Canteen Inside Golden Boundary · 15,000+ Books',
     category: 'Library',
     stopNumber: '05',
     svgType: 'library',
-    badge: 'Right Side · 15,000+ Books',
+    badge: 'Right of Canteen · 15,000+ Books',
     description:
-      'After walking some distance straight past the Canteen and Clerk Office turn-off, the Central College Library opens on your right side—housing over 15,000 books, the free Government Book Bank, and 120 silent study seats.',
+      'Located directly on the right side of the College Canteen inside the Golden Boundary Wall (just inside from Central Jail & Signal Jammers outside), the Central College Library houses over 15,000 books, the free Book Bank, and 120 silent reading seats.',
     keySpecs: [
-      { label: 'Direction', value: 'Straight · Right Side' },
+      { label: 'Position', value: 'Right of Canteen' },
       { label: 'Book Capacity', value: '15,000+ Volumes' },
       { label: 'Reading Seats', value: '120 Students' },
       { label: 'Lending Scheme', value: 'Free Book Bank' }
     ],
     highlights: [
-      'Located on the right side after walking some distance straight past the Canteen & Clerk Office',
+      'Positioned directly on the right side of the College Canteen inside the Golden Boundary',
       'Free Government Book Bank lending scheme for enrolled students',
       'Quiet reading hall for Pre-Medical, Engineering, Commerce, Arts & BS programs'
     ],
@@ -374,21 +374,21 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
         yPercent: 60
       }
     ],
-    locationNote: 'Right Side Past Clerk Office · Some Distance Inside Gate',
-    mapX: 85.3,
-    mapY: 63.2,
+    locationNote: 'Right of Canteen Inside Golden Wall',
+    mapX: 72.4,
+    mapY: 86.2,
     gateDirections: {
       turn: 'Turn Right',
-      distanceFromGate: '46 m Straight · Right',
+      distanceFromGate: '24 m Right (Past Canteen)',
       walkingSteps: [
-        'Enter the Main Gate and walk straight past the Front Garden & walking distance.',
-        'Pass the Clerk Office turn-off on your right.',
-        'Continue along the right wing to enter the Central College Library.'
+        'Enter the Main Gate and turn right inside the Golden Boundary Wall.',
+        'Pass immediately past the College Canteen on your right.',
+        'Enter the Central College Library directly on the right of the Canteen.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 63.2 },
-        { x: 85.3, y: 63.2 }
+        { x: 50, y: 86.2 },
+        { x: 72.4, y: 86.2 }
       ]
     }
   },
@@ -432,18 +432,18 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Central Spine · Twin Grill Paths & Big Walking Lawn',
     mapX: 50,
-    mapY: 53.5,
+    mapY: 52.0,
     gateDirections: {
       turn: 'Straight Ahead',
       distanceFromGate: '44 m Straight',
       walkingSteps: [
-        'Enter Main Gate (Security) and walk straight past the Front Garden & Canteen.',
-        'Walk the central twin paths separated by the small grill past the ~25m walking distance and Clerk Office.',
-        'Cross beside the Big Lawn (with Gardeners) and Auditorium toward the Golden Principal’s Office.'
+        'Enter Main Gate (Security) with Canteen & Central Library on right and Waiting Room on left.',
+        'Walk straight along the twin paths separated by the small grill past the ~25m walking distance and Clerk Office.',
+        'Cross the lush Garden (with Gardeners) and Auditorium toward the Golden Principal’s Office.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 53.5 }
+        { x: 50, y: 52.0 }
       ]
     }
   },
@@ -487,20 +487,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Left Side · In Line with Principal’s Office',
     mapX: 26.2,
-    mapY: 42.6,
+    mapY: 41.0,
     gateDirections: {
       turn: 'Turn Left',
       distanceFromGate: '56 m Straight · Left',
       walkingSteps: [
-        'Walk straight along the twin grill paths past the Front Garden, Clerk Office, and Big Lawn.',
-        'When you reach the Principal’s Office line, look directly to your left.',
+        'Walk straight along the twin grill paths past Clerk Office and the Garden.',
+        'When you reach the Golden Principal’s Office line, look directly to your left.',
         'Enter the Department of Chemistry & Chemistry Labs.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 53.5 },
-        { x: 50, y: 42.6 },
-        { x: 26.2, y: 42.6 }
+        { x: 50, y: 52.0 },
+        { x: 50, y: 41.0 },
+        { x: 26.2, y: 41.0 }
       ]
     }
   },
@@ -543,20 +543,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
       }
     ],
     locationNote: 'Right Sector Before Principal’s Office · In Line with Zoology & Botany',
-    mapX: 79.4,
-    mapY: 53.3,
+    mapX: 81.1,
+    mapY: 52.0,
     gateDirections: {
       turn: 'Bear Right',
       distanceFromGate: '48 m Straight · Right',
       walkingSteps: [
-        'Walk straight along the twin grill paths past the Front Garden and Clerk Office.',
-        'Bear right just before reaching the Golden Principal’s Office along the Zoology & Botany wing line.',
+        'Walk straight along the twin grill paths past the Clerk Office into the Garden line.',
+        'Bear right beside the Garden just before reaching the Golden Principal’s Office (in Zoology & Botany line).',
         'Enter the College Auditorium Hall on your right.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 53.3 },
-        { x: 79.4, y: 53.3 }
+        { x: 50, y: 52.0 },
+        { x: 81.1, y: 52.0 }
       ]
     }
   },
@@ -600,20 +600,20 @@ export const CAMPUS_TOUR_STOPS: TourFacility[] = [
     ],
     locationNote: 'Right Side · Immediately After Big Lawn & Auditorium',
     mapX: 60.7,
-    mapY: 42.1,
+    mapY: 40.5,
     gateDirections: {
       turn: 'Turn Right',
       distanceFromGate: '54 m Straight · Right',
       walkingSteps: [
-        'Enter Main Gate (Security) and walk straight past the Front Garden & walking distance onto the twin grill paths.',
-        'Pass the Clerk Office, Inner Lawn, and Auditorium on your right.',
+        'Enter Main Gate (Canteen & Central Library on your right) and walk straight along the twin grill paths.',
+        'Pass the ~25m walking distance, Clerk Office, Garden (with Gardeners), and Auditorium Hall.',
         'Turn right into the grand Golden Principal’s Office.'
       ],
       routePath: [
         { x: 50, y: 92.6 },
-        { x: 50, y: 53.5 },
-        { x: 50, y: 42.1 },
-        { x: 60.7, y: 42.1 }
+        { x: 50, y: 52.0 },
+        { x: 50, y: 40.5 },
+        { x: 60.7, y: 40.5 }
       ]
     }
   },

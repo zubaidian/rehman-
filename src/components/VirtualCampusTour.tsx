@@ -45,7 +45,7 @@ import {
   Search
 } from 'lucide-react';
 
-const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v14';
+const TOUR_STORAGE_KEY = 'ggzc_campus_tour_map_stops_v15';
 
 function buildWalkRouteBetween(
   fromPos: { x: number; y: number },
@@ -184,7 +184,7 @@ function getSurroundingsAtCoord(
       stageLabel: 'Entering Main College Gate (Golden Boundary Wall)',
       leftView: 'Security Post & Visitor Waiting Room (First on Left)',
       aheadView: 'Gate Security Guards & Straight Path Separated by Small Grill',
-      rightView: 'Front Garden & College Canteen Inside Golden Wall · Central Jail & Jammers Outside Boundary'
+      rightView: 'Canteen & Central Library (Right of Canteen) Inside Golden Wall · Central Jail Outside'
     };
   }
 
@@ -193,7 +193,7 @@ function getSurroundingsAtCoord(
       stageLabel: `Arrived at ${targetStop.shortName || targetStop.name}`,
       leftView: targetStop.mapX < 45 ? `${targetStop.shortName || targetStop.name}` : 'Chemistry Labs & West Corridor',
       aheadView: targetStop.locationNote,
-      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Front Garden, Clerk Office, Auditorium & Golden Principal’s Office'
+      rightView: targetStop.mapX > 55 ? `${targetStop.shortName || targetStop.name}` : 'Clerk Office (before Garden), Garden, Auditorium & Golden Principal’s Office'
     };
   }
 
@@ -208,10 +208,10 @@ function getSurroundingsAtCoord(
     aheadView: `${targetStop.shortName || targetStop.name} (${targetStop.gateDirections.turn})`,
     rightView:
       y < 82 && y > 58
-        ? 'Front Garden & ~25m Walking Distance Straight Ahead -> Clerk Office & Central Library on Right'
+        ? 'Canteen & Central Library passed · Clerk Office straight ahead before the Garden'
         : x > 55
           ? `${targetStop.shortName || targetStop.name}`
-          : 'Auditorium, Golden Principal’s Office, Staff Room, Islamiat, English, Stats, Maths & Physics'
+          : 'Garden, Auditorium, Golden Principal’s Office, Staff Room, Islamiat, English, Stats & Maths'
   };
 }
 
